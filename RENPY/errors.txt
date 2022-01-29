@@ -1,0 +1,10 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/game_render.rpy", line 51: keyword argument u'xysize' appears more than once in a imagebutton statement.
+    xysize int(settings["tilesize"]), int(settings["tilesize"])
+          ^
+
+Ren'Py Version: Ren'Py 7.4.11.2266
+Sat Jan 29 20:47:10 2022

@@ -4,6 +4,9 @@
 
 init offset = -1
 
+#tout ce qui est en dessous c de moi
+screen keybinds():
+    key 'K_F2' action ToggleVariable("game.debug_mode", True)
 
 ################################################################################
 ## Styles
