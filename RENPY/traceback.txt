@@ -1,31 +1,33 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/game_render.rpy", line 2, in script
-    call screen sce_grid
+  File "game/script.rpy", line 4, in script call
+    call lab_render
+  File "game/game_render.rpy", line 6, in script
+    call screen sce_char
   File "renpy/common/000statements.rpy", line 569, in execute_call_screen
     store._return = renpy.call_screen(name, *args, **kwargs)
-  File "game/game_render.rpy", line 22, in execute
-    screen sce_grid:
-  File "game/game_render.rpy", line 22, in execute
-    screen sce_grid:
-  File "game/game_render.rpy", line 24, in execute
-    for cell in game.gridlist:
-  File "game/game_render.rpy", line 25, in execute
-    frame:
-  File "game/game_render.rpy", line 29, in execute
+  File "game/game_render.rpy", line 31, in execute
+    screen sce_doom:
+  File "game/game_render.rpy", line 31, in execute
+    screen sce_doom:
+  File "game/game_render.rpy", line 33, in execute
+    for doom in game.dooms:
+  File "game/game_render.rpy", line 34, in execute
     imagebutton:
-  File "game/game_render.rpy", line 29, in keywords
+  File "game/game_render.rpy", line 34, in keywords
     imagebutton:
-  File "game/game_render.rpy", line 32, in <module>
-    idle img_cell_hover
-NameError: name 'img_cell_hover' is not defined
+  File "game/game_render.rpy", line 38, in <module>
+    hover doom.hover()
+AttributeError: 'Slasher' object has no attribute 'hover'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/game_render.rpy", line 2, in script
-    call screen sce_grid
+  File "game/script.rpy", line 4, in script call
+    call lab_render
+  File "game/game_render.rpy", line 6, in script
+    call screen sce_char
   File "renpy/ast.py", line 2015, in execute
     self.call("execute")
   File "renpy/ast.py", line 2003, in call
@@ -56,23 +58,21 @@ Full traceback:
     self.update()
   File "renpy/display/screen.py", line 637, in update
     self.screen.function(**self.scope)
-  File "game/game_render.rpy", line 22, in execute
-    screen sce_grid:
-  File "game/game_render.rpy", line 22, in execute
-    screen sce_grid:
-  File "game/game_render.rpy", line 24, in execute
-    for cell in game.gridlist:
-  File "game/game_render.rpy", line 25, in execute
-    frame:
-  File "game/game_render.rpy", line 29, in execute
+  File "game/game_render.rpy", line 31, in execute
+    screen sce_doom:
+  File "game/game_render.rpy", line 31, in execute
+    screen sce_doom:
+  File "game/game_render.rpy", line 33, in execute
+    for doom in game.dooms:
+  File "game/game_render.rpy", line 34, in execute
     imagebutton:
-  File "game/game_render.rpy", line 29, in keywords
+  File "game/game_render.rpy", line 34, in keywords
     imagebutton:
-  File "game/game_render.rpy", line 32, in <module>
-    idle img_cell_hover
-NameError: name 'img_cell_hover' is not defined
+  File "game/game_render.rpy", line 38, in <module>
+    hover doom.hover()
+AttributeError: 'Slasher' object has no attribute 'hover'
 
 Windows-10-10.0.19041
 Ren'Py 7.4.11.2266
 RENPY 1.0
-Sat Jan 29 20:42:37 2022
+Sun Jan 30 00:26:00 2022

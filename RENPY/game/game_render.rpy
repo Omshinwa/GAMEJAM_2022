@@ -1,8 +1,9 @@
 label lab_render:
-    call screen sce_grid
-    ""
-    ""
-    ""
+    show screen sce_grid
+    # show expression grid2 as grid2
+    show screen sce_doom
+    show screen sce_fog
+    call screen sce_char
 
 image img_cell_hover:
     "game-UI/cell-hover-01.png"
@@ -18,13 +19,53 @@ image img_cell_hover:
     repeat
 
 screen sce_char:
-    pass
+    zorder 1
+    for teen in game.teens:
+        imagebutton:
+            xpos id2pos(teen.x)
+            ypos id2pos(teen.y)
+            idle teen.sprite()
+            hover teen.img.hover
+            action Function(teen.premove)
 
-screen sce_grid:
+screen sce_doom:
+    zorder 1
+    for doom in game.dooms:
+        imagebutton:
+            xpos id2pos(doom.x)
+            ypos id2pos(doom.y)
+            idle doom.sprite()
+            hover doom.hover()
+            action NullAction()
+
+screen sce_fog:
+    zorder 2
     for cell in game.gridlist:
         frame:
-            xpadding 0
-            ypadding 0
+            padding (0,0,0,0)
+            xysize int(settings["tilesize"]), int(settings["tilesize"])
+            xpos int(cell.x * settings["tilesize"])
+            ypos int(cell.y * settings["tilesize"])
+            if cell.visibility == 0:
+                background Solid( "#00000080" )
+            else:
+                background Solid( "#FF000020" )
+
+            if game.debug_mode:
+                text chr(ord('@')+cell.y+1) + str(cell.x) size 30
+                text str(cell.y) + str(cell.x) size 20 ypos 30
+
+#EXAMPLE DE COMPOSITE QUI MARCHE
+# return Composite(
+#         (96, 96),
+#         (0, 0), img,
+#         (0, 0), Transform( self.img.unstand , alpha = 0.5  ))
+
+screen sce_grid:
+
+    for cell in game.gridlist:
+        frame:
+            padding (0,0,0,0)
             xysize int(settings["tilesize"]), int(settings["tilesize"])
             xpos int(cell.x * settings["tilesize"])
             ypos int(cell.y * settings["tilesize"])
@@ -33,35 +74,13 @@ screen sce_grid:
             else:
                 background Solid( "#000000" )
             imagebutton:
-                xpos 0
-                ypos 0
-                idle "game-UI/cell-idle.png"
-                    #FUCKING REMEMBER INT = PIXEL, FLOAT = RAPPORT
-                hover "img_cell_hover"
-                xysize int(settings["tilesize"]), int(settings["tilesize"])
-
-                if renpy.get_screen("say"):
-                    sensitive False
+                idle cell.sprite()
+                if game.state == "moving":
+                    hover game.premoving_who.img.idle
+                    action Function(game.premoving_who.move, cell=cell)
                 else:
-                    sensitive True
-
-                action NullAction()
-
-            if game.debug_mode:
-                    text chr(ord('@')+cell.y+1) + str(cell.x) size 30
-                    text str(cell.y) + str(cell.x) size 20 ypos 30
-                    # xpos settings["tilesize"]/2
-
-        # imagebutton:
-        #     xysize int(settings["tilesize"]), int(settings["tilesize"])
-        #     xpos int(cell.x * settings["tilesize"])
-        #     ypos int(cell.y * settings["tilesize"])
-        #     idle "game-UI/cell-idle.png"
-        #     hover "img_cell_hover"
-        #     action NullAction()
-        #
-        # if game.debug_mode:
-        #     button xpos int(cell.x * settings["tilesize"]) ypos int(cell.y * settings["tilesize"]):
-        #         text chr(ord('@')+cell.y+1) + str(cell.x) size 30
-        #         text str(cell.y) + str(cell.x) size 20 ypos 30
-        #             # xpos settings["tilesize"]/2
+                    hover cell.img.hover
+                    action NullAction()
+                xysize int(settings["tilesize"]), int(settings["tilesize"])
+                sensitive True
+    text game.state size 80

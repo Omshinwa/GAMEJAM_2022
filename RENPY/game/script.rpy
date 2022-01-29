@@ -1,7 +1,7 @@
 label start:
     show screen keybinds
 
-    jump lab_render
+    call lab_render
 
     show screen alpha_magic
 
