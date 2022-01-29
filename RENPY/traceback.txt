@@ -1,78 +1,51 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 4, in script call
-    call lab_render
-  File "game/game_render.rpy", line 6, in script
-    call screen sce_char
-  File "renpy/common/000statements.rpy", line 569, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-  File "game/game_render.rpy", line 31, in execute
-    screen sce_doom:
-  File "game/game_render.rpy", line 31, in execute
-    screen sce_doom:
-  File "game/game_render.rpy", line 33, in execute
-    for doom in game.dooms:
-  File "game/game_render.rpy", line 34, in execute
-    imagebutton:
-  File "game/game_render.rpy", line 34, in keywords
-    imagebutton:
-  File "game/game_render.rpy", line 38, in <module>
-    hover doom.hover()
-AttributeError: 'Slasher' object has no attribute 'hover'
+  File "renpy/common/00gltest.rpy", line 390, in <module>
+    $ __gl_test()
+  File "renpy/common/00gltest.rpy", line 317, in _m1_00gltest__gl_test
+    _gl_performance_test()
+  File "renpy/common/00gltest.rpy", line 342, in _gl_performance_test
+    ui.interact(suppress_underlay=True, suppress_overlay=True)
+  File "renpy/common/00director.rpy", line 293, in interact
+    show_director = interact_base()
+  File "renpy/common/00director.rpy", line 248, in interact_base
+    if [ i for i in renpy.scriptedit.nodes_on_line(filename, line) if not isinstance(i, ALONE_NODES) ]:
+UnicodeDecodeError: 'utf8' codec can't decode byte 0xcf in position 18: invalid continuation byte
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 4, in script call
-    call lab_render
-  File "game/game_render.rpy", line 6, in script
-    call screen sce_char
-  File "renpy/ast.py", line 2015, in execute
-    self.call("execute")
-  File "renpy/ast.py", line 2003, in call
-    return renpy.statements.call(method, parsed, *args, **kwargs)
-  File "renpy/statements.py", line 278, in call
-    return method(parsed, *args, **kwargs)
-  File "renpy/common/000statements.rpy", line 569, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-  File "renpy/exports.py", line 3136, in call_screen
-    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+  File "baserenpy/renpy/common/00start.rpyc", line 207, in script call
+  File "baserenpy/renpy/common/00gltest.rpyc", line 390, in script
+  File "renpy/ast.py", line 928, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "renpy/python.py", line 2245, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "renpy/common/00gltest.rpy", line 390, in <module>
+    $ __gl_test()
+  File "renpy/common/00gltest.rpy", line 317, in _m1_00gltest__gl_test
+    _gl_performance_test()
+  File "renpy/common/00gltest.rpy", line 342, in _gl_performance_test
+    ui.interact(suppress_underlay=True, suppress_overlay=True)
   File "renpy/ui.py", line 298, in interact
     rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "renpy/display/core.py", line 3325, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, **kwargs)
-  File "renpy/display/core.py", line 3737, in interact_core
-    root_widget.visit_all(lambda i : i.per_interact())
-  File "renpy/display/core.py", line 568, in visit_all
-    d.visit_all(callback, seen)
-  File "renpy/display/core.py", line 568, in visit_all
-    d.visit_all(callback, seen)
-  File "renpy/display/core.py", line 568, in visit_all
-    d.visit_all(callback, seen)
-  File "renpy/display/screen.py", line 436, in visit_all
-    callback(self)
-  File "renpy/display/core.py", line 3737, in <lambda>
-    root_widget.visit_all(lambda i : i.per_interact())
-  File "renpy/display/screen.py", line 447, in per_interact
-    self.update()
-  File "renpy/display/screen.py", line 637, in update
-    self.screen.function(**self.scope)
-  File "game/game_render.rpy", line 31, in execute
-    screen sce_doom:
-  File "game/game_render.rpy", line 31, in execute
-    screen sce_doom:
-  File "game/game_render.rpy", line 33, in execute
-    for doom in game.dooms:
-  File "game/game_render.rpy", line 34, in execute
-    imagebutton:
-  File "game/game_render.rpy", line 34, in keywords
-    imagebutton:
-  File "game/game_render.rpy", line 38, in <module>
-    hover doom.hover()
-AttributeError: 'Slasher' object has no attribute 'hover'
+  File "renpy/display/core.py", line 3318, in interact
+    i()
+  File "renpy/common/00director.rpy", line 293, in interact
+    show_director = interact_base()
+  File "renpy/common/00director.rpy", line 248, in interact_base
+    if [ i for i in renpy.scriptedit.nodes_on_line(filename, line) if not isinstance(i, ALONE_NODES) ]:
+  File "renpy/scriptedit.py", line 249, in nodes_on_line
+    ensure_loaded(filename)
+  File "renpy/scriptedit.py", line 86, in ensure_loaded
+    renpy.parser.list_logical_lines(fn, add_lines=True)
+  File "renpy/parser.py", line 238, in list_logical_lines
+    data = f.read().decode("utf-8", "python_strict")
+  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python2.7/encodings/utf_8.py", line 16, in decode
+UnicodeDecodeError: 'utf8' codec can't decode byte 0xcf in position 18: invalid continuation byte
 
 Windows-10-10.0.19041
 Ren'Py 7.4.11.2266
 RENPY 1.0
-Sun Jan 30 00:26:00 2022
+Sun Jan 30 02:26:45 2022

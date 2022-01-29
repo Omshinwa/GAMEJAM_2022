@@ -1,6 +1,5 @@
 label lab_render:
     show screen sce_grid
-    # show expression grid2 as grid2
     show screen sce_doom
     show screen sce_fog
     call screen sce_char
@@ -29,14 +28,21 @@ screen sce_char:
             action Function(teen.premove)
 
 screen sce_doom:
-    zorder 1
+
+    if game.grid[game.dooms[0].y][game.dooms[0].x].visibility == 0:
+        zorder -6
+    else:
+        zorder 1
+
     for doom in game.dooms:
         imagebutton:
             xpos id2pos(doom.x)
             ypos id2pos(doom.y)
             idle doom.sprite()
-            hover doom.hover()
+            # hover doom.hover()
             action NullAction()
+            sensitive game.grid[doom.y][doom.x].visibility
+
 
 screen sce_fog:
     zorder 2
@@ -75,7 +81,7 @@ screen sce_grid:
                 background Solid( "#000000" )
             imagebutton:
                 idle cell.sprite()
-                if game.state == "moving":
+                if game.state == "moving" and (cell.empty == 0 or cell.empty == "Slasher"):
                     hover game.premoving_who.img.idle
                     action Function(game.premoving_who.move, cell=cell)
                 else:
@@ -83,4 +89,4 @@ screen sce_grid:
                     action NullAction()
                 xysize int(settings["tilesize"]), int(settings["tilesize"])
                 sensitive True
-    text game.state size 80
+    text game.state size 80 color "#FF0000"

@@ -2,10 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/game_logic.rpy", line 125: invalid syntax
-                for case game.inrange( (teen.x, teen.y), 3):
-                             ^
-    
+File "game/game_render.rpy", line 34: expected ':' not found.
+    else
+        ^
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Sun Jan 30 00:37:25 2022
+Sun Jan 30 02:35:54 2022
