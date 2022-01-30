@@ -1,82 +1,33 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 15, in script call
-    call lab_render from _call_lab_render
-  File "game/game_render.rpy", line 11, in script
-    call screen sce_gameloop
-  File "renpy/common/000statements.rpy", line 569, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-  File "game/game_render.rpy", line 92, in execute
-    screen sce_grid():
-  File "game/game_render.rpy", line 92, in execute
-    screen sce_grid():
-  File "game/game_render.rpy", line 93, in execute
-    for cell in game.gridlist:
-  File "game/game_render.rpy", line 94, in execute
-    imagebutton:
-  File "game/game_render.rpy", line 94, in keywords
-    imagebutton:
-  File "game/game_render.rpy", line 98, in <module>
-    idle cell.sprite()
-  File "game/game_square_class.rpy", line 37, in sprite
-    if self.isStand == 1:
-AttributeError: 'Square' object has no attribute 'isStand'
+  File "renpy/common/00keymap.rpy", line 469, in <module>
+    python hide:
+  File "renpy/common/00keymap.rpy", line 488, in _execute_python_hide
+    renpy.save("_reload-1", "reload save game")
+PicklingError: Can't pickle <class 'store.Cell'>: attribute lookup store.Cell failed
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 15, in script call
-    call lab_render from _call_lab_render
-  File "game/game_render.rpy", line 11, in script
-    call screen sce_gameloop
-  File "renpy/ast.py", line 2015, in execute
-    self.call("execute")
-  File "renpy/ast.py", line 2003, in call
-    return renpy.statements.call(method, parsed, *args, **kwargs)
-  File "renpy/statements.py", line 278, in call
-    return method(parsed, *args, **kwargs)
-  File "renpy/common/000statements.rpy", line 569, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-  File "renpy/exports.py", line 3136, in call_screen
-    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
-  File "renpy/ui.py", line 298, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "renpy/display/core.py", line 3325, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, **kwargs)
-  File "renpy/display/core.py", line 3737, in interact_core
-    root_widget.visit_all(lambda i : i.per_interact())
-  File "renpy/display/core.py", line 568, in visit_all
-    d.visit_all(callback, seen)
-  File "renpy/display/core.py", line 568, in visit_all
-    d.visit_all(callback, seen)
-  File "renpy/display/core.py", line 568, in visit_all
-    d.visit_all(callback, seen)
-  File "renpy/display/screen.py", line 436, in visit_all
-    callback(self)
-  File "renpy/display/core.py", line 3737, in <lambda>
-    root_widget.visit_all(lambda i : i.per_interact())
-  File "renpy/display/screen.py", line 447, in per_interact
-    self.update()
-  File "renpy/display/screen.py", line 637, in update
-    self.screen.function(**self.scope)
-  File "game/game_render.rpy", line 92, in execute
-    screen sce_grid():
-  File "game/game_render.rpy", line 92, in execute
-    screen sce_grid():
-  File "game/game_render.rpy", line 93, in execute
-    for cell in game.gridlist:
-  File "game/game_render.rpy", line 94, in execute
-    imagebutton:
-  File "game/game_render.rpy", line 94, in keywords
-    imagebutton:
-  File "game/game_render.rpy", line 98, in <module>
-    idle cell.sprite()
-  File "game/game_square_class.rpy", line 37, in sprite
-    if self.isStand == 1:
-AttributeError: 'Square' object has no attribute 'isStand'
+  File "baserenpy/renpy/common/00keymap.rpyc", line 469, in script
+  File "renpy/ast.py", line 928, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "renpy/python.py", line 2245, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "renpy/common/00keymap.rpy", line 469, in <module>
+    python hide:
+  File "renpy/common/00keymap.rpy", line 488, in _execute_python_hide
+    renpy.save("_reload-1", "reload save game")
+  File "renpy/loadsave.py", line 415, in save
+    reraise(t, e, tb)
+  File "renpy/loadsave.py", line 401, in save
+    dump((roots, renpy.game.log), logf)
+  File "renpy/loadsave.py", line 49, in dump
+    cPickle.dump(o, f, cPickle.HIGHEST_PROTOCOL)
+PicklingError: Can't pickle <class 'store.Cell'>: attribute lookup store.Cell failed
 
 Windows-10-10.0.19041
 Ren'Py 7.4.11.2266
 RENPY 1.0
-Sun Jan 30 21:07:06 2022
+Mon Jan 31 04:09:28 2022

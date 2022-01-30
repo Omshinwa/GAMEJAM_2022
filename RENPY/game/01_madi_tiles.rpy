@@ -9,7 +9,8 @@ init python:
             if type == 0: #CANT STAND ON IT
                 self.isStand = 1 #can we stand on that?
                 self.img.idle = "game-UI/0.gif"
-                self.blockVision = 1
+                self.blockVision = 1 #Lol you cant see shit
+                self.itemType = None
 
             if type == 1:
                 self.isStand = 1

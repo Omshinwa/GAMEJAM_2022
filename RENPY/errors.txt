@@ -2,9 +2,10 @@
 errors listed below, and try again.
 
 
-File "game/game_initialize.rpy", line 14: invalid syntax
-                if settings["tilemap"][y][x]
+File "game/script.rpy", line 104: invalid syntax
+        jump lab_gameloop
+                         ^
     
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Sun Jan 30 20:34:14 2022
+Mon Jan 31 03:58:00 2022

@@ -27,4 +27,8 @@ init python:
     game.state = "waiting"
     slasher = Slasher(name="Slasher", x=6, y=6)
     game.dooms.append( slasher )
+
+    slasher2 = Slasher(name="Slasher", x=10, y=10)
+    game.dooms.append( slasher2 )
+
     game.updateVision()

@@ -1,4 +1,4 @@
-Sun Jan 30 21:15:27 2022
+Mon Jan 31 04:11:01 2022
 Windows-10-10.0.19041
 Ren'Py 7.4.11.2266
  
@@ -7,34 +7,35 @@ Bootstrap to the start of init.init took 0.07s
 Early init took 0.00s
 Loader init took 0.01s
 Loading error handling took 0.02s
-Loading script took 0.19s
-Loading save slot metadata. took 0.02s
+Loading script took 0.22s
+Loading save slot metadata. took 0.01s
 Loading persistent took 0.00s
 Importing _renpysteam: ImportError('No module named _renpysteam',)
 Running init code took 0.06s
 Loading analysis data took 0.02s
 Analyze and compile ATL took 0.00s
 Index archives took 0.00s
-Dump and make backups. took 0.05s
+Backing up script files to 'C:\\Users\\ALIENWARE\\AppData\\Roaming/RenPy/backups\\RENPY':
+Dump and make backups. took 0.06s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
 Initial gc. took 0.02s
 DPI scale factor: 1.000000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
-Creating interface object took 0.27s
+Creating interface object took 0.24s
 Cleaning stores took 0.00s
-Init translation took 0.04s
+Init translation took 0.03s
 Build styles took 0.00s
-Load screen analysis took 0.02s
-Analyze screens took 0.00s
-Save screen analysis took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.03s
 Prepare screens took 0.06s
 Save pyanalysis. took 0.00s
-Save bytecode. took 0.03s
+Save bytecode. took 0.02s
 Running _start took 0.00s
 Performance test:
-Interface start took 0.08s
+Interface start took 0.07s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)
@@ -46,3 +47,320 @@ Version: '4.6.0 NVIDIA 471.96'
 Display Info: None
 Screen sizes: virtual=(1380, 816) physical=(1380, 816) drawable=(1380, 816)
 Maximum texture size: 4096x4096
+ x6:y6 
+ x6:y6 
+ x6:y5 
+ x6:y7 
+ x6:y4 
+ x6:y8 
+ x6:y8 
+ x5:y8 
+ x5:y8 
+ x4:y8 
+ x6:y3 
+ x7:y3 
+ x4:y9 
+ x3:y9 
+ x3:y9 
+ x2:y9 
+ x2:y9 
+ x2:y9 
+ x2:y8 
+ x6:y9 
+ x6:y9 
+ x5:y9 
+ x2:y7 
+ x2:y6 
+cible:lauren distance:11
+target:99
+ x6:y6 
+ x6:y6 
+ x6:y7 
+ x6:y8 
+ x6:y8 
+ x6:y9 
+ x6:y9 
+ x6:y9 
+ x7:y9 
+ x7:y9 
+cible:william distance:5
+target:11
+ x10:y10 
+ x10:y10 
+ x10:y10 
+ x10:y9 
+ x10:y9 
+ x9:y9 
+ x8:y9 
+ x8:y9 
+ x8:y8 
+ x7:y9 
+ x7:y9 
+ x6:y9 
+ x6:y9 
+ x5:y9 
+ x5:y9 
+ x5:y9 
+ x5:y8 
+ x4:y9 
+ x3:y9 
+ x3:y9 
+ x2:y9 
+ x2:y9 
+ x2:y9 
+ x2:y8 
+ x2:y7 
+ x2:y6 
+cible:lauren distance:13
+target:99
+ x10:y10 
+ x10:y10 
+ x10:y10 
+ x10:y9 
+ x10:y9 
+ x9:y9 
+ x10:y11 
+ x10:y11 
+ x11:y10 
+ x8:y9 
+ x8:y9 
+ x7:y9 
+ x7:y9 
+cible:william distance:5
+target:13
+ x6:y8 
+ x6:y8 
+ x6:y8 
+ x5:y8 
+ x5:y8 
+ x4:y8 
+ x6:y7 
+ x6:y6 
+ x6:y5 
+ x6:y4 
+ x6:y3 
+ x7:y3 
+ x4:y9 
+ x3:y9 
+ x3:y9 
+ x2:y9 
+ x2:y9 
+ x2:y9 
+ x2:y8 
+ x6:y9 
+ x6:y9 
+ x5:y9 
+ x2:y7 
+ x2:y6 
+ x2:y5 
+ x2:y4 
+ x2:y3 
+lol cant reach??
+cible:lauren distance:999
+target:99
+ x6:y8 
+ x6:y8 
+ x6:y8 
+ x6:y9 
+ x6:y9 
+ x6:y9 
+ x7:y9 
+ x7:y9 
+ x7:y10 
+ x7:y11 
+ x7:y11 
+ x7:y12 
+ x7:y12 
+ x6:y10 
+ x6:y10 
+cible:william distance:6
+target:99
+ x9:y9 
+ x9:y9 
+ x8:y9 
+ x8:y8 
+ x10:y9 
+ x11:y9 
+ x11:y9 
+ x11:y9 
+ x11:y8 
+ x11:y8 
+ x11:y7 
+ x11:y7 
+ x11:y7 
+ x11:y6 
+ x11:y6 
+ x12:y6 
+ x12:y9 
+ x12:y9 
+ x11:y10 
+ x12:y5 
+ x12:y5 
+ x12:y4 
+ x12:y4 
+ x12:y3 
+ x11:y3 
+lol cant reach??
+cible:lauren distance:999
+target:99
+ x9:y9 
+ x9:y9 
+ x8:y9 
+ x10:y9 
+ x8:y8 
+ x11:y9 
+ x11:y9 
+ x11:y9 
+ x11:y10 
+ x11:y10 
+ x11:y11 
+ x11:y11 
+ x11:y11 
+ x11:y12 
+ x11:y12 
+ x12:y9 
+ x12:y9 
+ x12:y12 
+ x11:y8 
+ x13:y9 
+ x12:y8 
+ x13:y12 
+ x11:y7 
+ x11:y7 
+lol cant reach??
+cible:william distance:999
+target:99
+ x9:y9 
+ x9:y9 
+ x9:y9 
+ x9:y9 
+ x9:y8 
+ x9:y8 
+ x9:y8 
+ x9:y7 
+ x9:y7 
+ x9:y7 
+ x9:y6 
+ x9:y6 
+ x9:y6 
+ x8:y9 
+ x8:y9 
+lol cant reach??
+cible:lauren distance:999
+target:99
+ x9:y9 
+ x9:y9 
+ x9:y9 
+ x9:y9 
+ x9:y10 
+ x9:y10 
+ x9:y10 
+ x9:y11 
+ x9:y11 
+ x9:y11 
+ x9:y12 
+ x9:y12 
+ x9:y12 
+ x8:y11 
+lol cant reach??
+cible:william distance:999
+target:99
+ x7:y9 
+ x7:y9 
+ x6:y9 
+ x6:y9 
+ x6:y9 
+ x6:y8 
+ x6:y8 
+ x5:y8 
+ x4:y8 
+ x6:y7 
+ x6:y6 
+ x6:y5 
+ x5:y9 
+ x5:y9 
+ x4:y9 
+ x3:y9 
+ x3:y9 
+ x2:y9 
+ x2:y9 
+ x2:y9 
+ x2:y8 
+ x2:y7 
+ x2:y6 
+cible:lauren distance:9
+target:99
+ x7:y9 
+ x7:y9 
+ x7:y10 
+ x7:y10 
+ x7:y11 
+ x7:y11 
+ x7:y12 
+ x7:y12 
+ x7:y13 
+ x7:y13 
+ x7:y14 
+ x8:y14 
+cible:william distance:7
+target:9
+ x8:y9 
+ x8:y9 
+ x8:y9 
+ x7:y9 
+ x7:y9 
+ x8:y8 
+ x6:y9 
+ x6:y9 
+ x6:y9 
+ x6:y8 
+ x6:y8 
+ x5:y8 
+ x4:y8 
+ x6:y7 
+ x6:y6 
+ x6:y5 
+ x5:y9 
+ x5:y9 
+ x4:y9 
+ x3:y9 
+ x3:y9 
+ x2:y9 
+ x2:y9 
+ x2:y9 
+ x2:y8 
+ x2:y7 
+ x2:y6 
+cible:lauren distance:10
+target:99
+ x8:y9 
+ x8:y9 
+ x8:y9 
+ x9:y9 
+ x7:y9 
+ x7:y9 
+ x7:y10 
+ x8:y8 
+ x10:y9 
+ x11:y9 
+ x11:y9 
+ x11:y9 
+ x11:y10 
+ x11:y10 
+ x6:y10 
+ x6:y10 
+ x6:y11 
+ x6:y11 
+ x6:y12 
+ x6:y12 
+ x6:y13 
+ x7:y13 
+ x7:y14 
+ x11:y11 
+ x11:y11 
+ x11:y11 
+ x11:y12 
+ x11:y12 
+lol cant reach??
+cible:william distance:999
+target:10

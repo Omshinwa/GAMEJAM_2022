@@ -35,16 +35,14 @@ init python:
             # if store.mousexid == self.x and store.mouseyid == self.y:
             #     img = self.img.hover
 
-            if self.isStand == 1:
-                if game.premoving_where != "":
-                    if game.state == "moving" and self in game.premoving_where:
-                        img = self.img.hover
-                    else:
-                        img = self.img.idle
+            if game.premoving_where != "":
+                if game.state == "moving" and self in game.premoving_where:
+                    img = self.img.hover
                 else:
                     img = self.img.idle
             else:
-                img = self.img.unstand
+                img = self.img.idle
+
             return img
 
         def onEvent(self, game):

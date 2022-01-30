@@ -46,7 +46,7 @@ screen sce_char():
                 idle teen.sprite()
                 if teen.AP > 0 :
                     hover teen.img.hover
-                if renpy.get_screen("say"):
+                if renpy.get_screen("say") or game.state == "moving":
                     sensitive False
                 else:
                     sensitive True

@@ -18,3 +18,4 @@ init python:
     import random
     import pygame
     import copy
+    from operator import attrgetter

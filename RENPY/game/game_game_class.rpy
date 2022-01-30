@@ -15,7 +15,7 @@ init python:
             pass
 
         def gridAZ(self, x):
-            return self.grid[ ord(x[0])-65 ][int(x[1])]
+            return self.grid[ ord(x[0])-65 ][int(x[1:])]
 
         def turnChange(self):
             self.updateVision()
@@ -76,15 +76,14 @@ init python:
                             recursion(self,x+direction[0], y+direction[1] ,howfar - 1,dict)
             dict = {}
             recursion(self,x, y, howfar,dict)
+            dict[x,y] = game.grid[y][x]
             return list(dict.values())
 
-        def distBetween(cellA, cellB):
-            
-            return distance
 
         def updateVision(self):
             for case in game.gridlist:
                 case.visibility = 0
             for teen in game.teens:
-                for case in self.inrange( teen.x , teen.y , teen.stat.vis):
-                    case.visibility = 1
+                if teen.isAlive:
+                    for case in self.inrange( teen.x , teen.y , teen.stat.vis):
+                        case.visibility = 1
