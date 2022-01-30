@@ -40,6 +40,7 @@ init python:
                 img = self.img.unstand
             return img
 
-        def onEvent(self):
+        def onEvent(self, game):
             if self.event != "":
+                game.state = "event"
                 renpy.call( self.event )

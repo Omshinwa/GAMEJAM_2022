@@ -1,5 +1,9 @@
 #INITIALIZE THE BOARD
 init python:
+    
+    settings["events"] = merge_two_dicts( settings["events_fyn"], settings["events_madi"])
+    settings["switches"] = merge_two_dicts( settings["switches_fyn"], settings["switches_madi"])
+
     game = Game()
     game.maxY =  math.ceil(settings["resolution"][1]/settings["tilesize"])-1
     game.maxX = math.ceil(settings["resolution"][0]/settings["tilesize"])-1

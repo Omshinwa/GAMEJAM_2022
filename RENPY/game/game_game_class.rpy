@@ -14,6 +14,9 @@ init python:
             self.score = 0
             pass
 
+        def gridAZ(self, x):
+            return self.grid[ ord(x[0])-65 ][int(x[1])]
+
         def turnChange(self):
             self.updateVision()
             if self.state == "waiting":
@@ -79,8 +82,5 @@ init python:
             for case in game.gridlist:
                 case.visibility = 0
             for teen in game.teens:
-                for case in self.inrange( teen.x , teen.y , teen.stats.vis):
+                for case in self.inrange( teen.x , teen.y , teen.stat.vis):
                     case.visibility = 1
-
-        def gridAZ(self, x):
-            return self.grid[ ord(x[0])-65 ][int(x[1])]

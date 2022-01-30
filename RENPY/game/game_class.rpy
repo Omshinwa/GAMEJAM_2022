@@ -1,6 +1,9 @@
 ##########SET UP THE BOARD###############
 init offset = -1
 init python:
+    def gridAZ(game, x):
+        return game.grid[ ord(x[0])-65 ][int(x[1])]
+
     def id2pos(x):
         return int(x * settings["tilesize"])
 
@@ -27,13 +30,17 @@ init python:
             self.y = y
             self.img = {}
             self.AP = 1 #How much AP does it have?
+
             self.img.idle = name + "-idle.png"
             self.img.hover = name + "-hover.png"
             self.img.premove = name + "-premove.png"
             self.img.noAP = name + "-noAP.png"
             self.img.dead = name + "-dead.png"
-            self.stats = {}
-            self.stats.vis = 8
+
+            self.stat = {}
+            self.stat.vis = 8
+            self.stat.move = 3
+
             self.isAlive = 1
             self.inventory = {}
 
@@ -56,7 +63,7 @@ init python:
             if game.state == "waiting" and self.AP > 0:
                 game.state = "moving"
                 game.premoving_who = self
-                game.premoving_where = game.inrange2(self.x, self.y, 3)
+                game.premoving_where = game.inrange2(self.x, self.y, self.stat.move)
 
         def move(self, cell):
             if cell.occupied == 0:
@@ -69,7 +76,7 @@ init python:
                 game.premoving_where = ""
                 game.state = "waiting"
                 self.removeAP(1)
-                game.grid[self.y][self.x].onEvent()
+                game.grid[self.y][self.x].onEvent(game)
 
                 if game.totalAP() <= 0:
                     game.turnChange()
@@ -84,8 +91,10 @@ init python:
             self.name = name
             self.x = x
             self.y = y
+
             self.stat = {}
-            self.stat.move = 4
+            self.stat.move = 3
+
             self.img = {}
             self.img.idle = idle
             self.img.hover = hover
@@ -105,20 +114,6 @@ init python:
             else:
                 return self.img.invisible
         def move(self):
-            game.grid[self.y][self.x].occupied = 0
-
-            self.x = self.x + random.randint(-1,1)
-            if self.x < 0: self.x = 0
-            if self.x > game.maxX: self.x = game.maxX
-
-            self.y = self.y + random.randint(-1,1)
-            if self.y < 0: self.y = 0
-            if self.y > game.maxX: self.y = game.maxY
-
-            game.grid[self.y][self.x].occupied = 1
-            for teen in game.teens:
-                if self.x == teen.x and self.y == teen.y:
-                    teen.isAlive = 0
-                    game.grid[teen.y][teen.x].occupied = 0
+            renpy.call("lab_doommove", self)
 
             #some complicated pathfinding

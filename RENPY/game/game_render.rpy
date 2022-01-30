@@ -22,7 +22,7 @@ image img_cell_hover:
     "game-UI/cell-hover-05.png"
     pause(0.1)
     repeat
-    
+
 screen sce_gameloop():
     pass
 
@@ -46,6 +46,10 @@ screen sce_char():
                 idle teen.sprite()
                 if teen.AP > 0 :
                     hover teen.img.hover
+                if renpy.get_screen("say"):
+                    sensitive False
+                else:
+                    sensitive True
                 action Function(teen.premove)
 
 screen sce_doom():

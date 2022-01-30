@@ -1,50 +1,34 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 10, in script call
-    call lab_render
-  File "game/script.rpy", line 10, in script call
-    call lab_render
-  File "game/script.rpy", line 10, in script call
-    call lab_render
-  File "game/script.rpy", line 10, in script call
-    call lab_render
-  File "game/game_render.rpy", line 11, in script
-    call screen sce_gameloop
-  File "renpy/common/000statements.rpy", line 569, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-Exception: Screen sce_gameloop is not known.
-
+  File "game/00_game_start.rpy", line 2, in script
+    init python:
+  File "game/00_game_start.rpy", line 2, in script
+    init python:
+  File "game/00_game_start.rpy", line 15, in <module>
+    settings["tilesize"] = 48.0 #in pixel
+TypeError: 'Settings' object does not support item assignment
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 10, in script call
-    call lab_render
-  File "game/script.rpy", line 10, in script call
-    call lab_render
-  File "game/script.rpy", line 10, in script call
-    call lab_render
-  File "game/script.rpy", line 10, in script call
-    call lab_render
-  File "game/game_render.rpy", line 11, in script
-    call screen sce_gameloop
-  File "renpy/ast.py", line 2015, in execute
-    self.call("execute")
-  File "renpy/ast.py", line 2003, in call
-    return renpy.statements.call(method, parsed, *args, **kwargs)
-  File "renpy/statements.py", line 278, in call
-    return method(parsed, *args, **kwargs)
-  File "renpy/common/000statements.rpy", line 569, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-  File "renpy/exports.py", line 3131, in call_screen
-    show_screen(_screen_name, _transient=True, *args, **kwargs)
-  File "renpy/display/screen.py", line 1131, in show_screen
-    raise Exception("Screen %s is not known.\n" % (name[0],))
-Exception: Screen sce_gameloop is not known.
-
+  File "renpy/bootstrap.py", line 331, in bootstrap
+    renpy.main.main()
+  File "renpy/main.py", line 560, in main
+    renpy.game.context().run(node)
+  File "game/00_game_start.rpy", line 2, in script
+    init python:
+  File "game/00_game_start.rpy", line 2, in script
+    init python:
+  File "renpy/ast.py", line 928, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "renpy/python.py", line 2245, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/00_game_start.rpy", line 15, in <module>
+    settings["tilesize"] = 48.0 #in pixel
+TypeError: 'Settings' object does not support item assignment
 
 Windows-10-10.0.19041
 Ren'Py 7.4.11.2266
 RENPY 1.0
-Sun Jan 30 16:23:39 2022
+Sun Jan 30 18:02:34 2022

@@ -2,10 +2,29 @@
 errors listed below, and try again.
 
 
-File "game/game_game_class.rpy", line 7: invalid syntax
-            self.grid = [][]
-                            ^
-    
+The label lab_E3 is defined twice, at File "game/01_fyn_event-tiles.rpy", line 6:
+label lab_E3():
+and File "game/fyn_event-tiles.rpyc", line 6:
+label lab_E3():
+
+
+The label lab_H8 is defined twice, at File "game/01_fyn_event-tiles.rpy", line 12:
+label lab_H8:
+and File "game/fyn_event-tiles.rpyc", line 12:
+label lab_H8:
+
+
+The label label_E3 is defined twice, at File "game/01_madi_event-tiles.rpy", line 14:
+label label_E3():
+and File "game/madi_event-tiles.rpyc", line 6:
+label label_E3():
+
+
+The label label_H8 is defined twice, at File "game/01_madi_event-tiles.rpy", line 20:
+label label_H8:
+and File "game/madi_event-tiles.rpyc", line 12:
+label label_H8:
+
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Sun Jan 30 16:27:13 2022
+Sun Jan 30 18:12:05 2022
