@@ -23,21 +23,29 @@ image img_cell_hover:
 
 screen sce_char():
     zorder 1
+    #First draw the dead people
     for teen in game.teens:
-        imagebutton:
-            xpos id2pos(teen.x)
-            ypos id2pos(teen.y)
-            idle teen.sprite()
-            if teen.AP > 0 :
-                hover teen.img.hover
-            action Function(teen.premove)
+        if teen.isAlive == 0:
+            imagebutton:
+                xpos id2pos(teen.x)
+                ypos id2pos(teen.y)
+                idle teen.sprite()
+                action NullAction()
+                sensitive False
+
+    for teen in game.teens:
+        if teen.isAlive == 1:
+            imagebutton:
+                xpos id2pos(teen.x)
+                ypos id2pos(teen.y)
+                idle teen.sprite()
+                if teen.AP > 0 :
+                    hover teen.img.hover
+                action Function(teen.premove)
 
 screen sce_doom():
 
-    if game.grid[game.dooms[0].y][game.dooms[0].x].visibility == 0:
-        zorder -6
-    else:
-        zorder 1
+    zorder 2
 
     for doom in game.dooms:
         imagebutton:
@@ -83,7 +91,7 @@ screen sce_grid():
     if game.state=="moving":
         button:
             xysize int(settings["resolution"][0]), int(settings["resolution"][1])
-            action SetVariable("game.state", "waiting")
+            action [SetVariable("game.state", "waiting"), SetVariable("game.premoving_where", "")]
     for cell in game.premoving_where:
         imagebutton:
             xpos int(cell.x * settings["tilesize"])
@@ -93,25 +101,5 @@ screen sce_grid():
             idle "game-UI/cell-blank.png"
             action Function(game.premoving_who.move, cell=cell)
 
-
-    # for cell in game.gridlist:
-    #     frame:
-    #         padding (0,0,0,0)
-    #         xysize int(settings["tilesize"]), int(settings["tilesize"])
-    #         xpos int(cell.x * settings["tilesize"])
-    #         ypos int(cell.y * settings["tilesize"])
-    #         imagebutton:
-    #             idle cell.sprite()
-    #             if game.state == "moving" and (cell.empty == 0 or cell.empty == "Slasher"):
-    #                 hover game.premoving_who.img.idle
-    #                 if cell in game.premoving_where:
-    #                     action Function(game.premoving_who.move, cell=cell)
-    #                 else:
-    #                     action SetVariable("game.state", "waiting")
-    #             else:
-    #                 hover cell.img.hover
-    #                 action NullAction()
-    #             xysize int(settings["tilesize"]), int(settings["tilesize"])
-    #             sensitive True
     text game.state size 80 color "#FF0000"
     text "SCORE:"+str(game.score) size 40 color "#FF0000" xalign 1.0

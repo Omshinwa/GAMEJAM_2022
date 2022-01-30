@@ -2,20 +2,17 @@
 #                SQUARE
 init offset = -1
 init python:
-    class Square:
+    class Square(Tiletype):
         def __init__(self, x, y, type = 1, visibility = 0):
-            tile = Tiletype(type)
+            super(Square,self).__init__(type)
             self.x = x
             self.y = y
             self.xpos = x * settings["tilesize"]
             self.ypos = y * settings["tilesize"]
-            self.isStand = tile.isStand #can we stand on it or not?
             self.visibility = visibility
-            self.img = {}
-            self.img.idle = tile.idle
             self.img.hover = "img_cell_hover"
             self.img.unstand = "game-UI/cell-unstand.png"
-            self.empty = 1 - self.isStand #0 theres nothing there
+            self.occupied = 1 - self.isStand #0 theres nothing there
 
         def __repr__(self):
             return " x" +str(self.x)+ ":y" +str(self.y)+" "

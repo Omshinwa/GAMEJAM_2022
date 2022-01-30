@@ -1,89 +1,121 @@
+##########SET UP THE BOARD###############
+init offset = -1
 init python:
-    class Game:
+    def id2pos(x):
+        return int(x * settings["tilesize"])
 
-        def __init__(self):
-            self.ui = {}
-            self.grid = []
-            self.gridlist = []
-            self.debug_mode = False
-            self.teens = []
-            self.premoving_who = ""
-            self.premoving_where = {}
-            self.score = 0
-            pass
+    def pos2id(x):
+        return int(x / settings["tilesize"])
 
-        def turnChange(self):
-            self.updateVision()
-            if self.state == "waiting":
-                self.state = "doom"
-                for doom in game.dooms:
-                    doom.move()
-                    self.score += 1
-                    self.turnChange()
+    def getMousePos():
+        x, y = pygame.mouse.get_pos()
+        store.mousex = x
+        store.mousey = y
+        print(x,y)
+
+    def getMouseId():
+        x, y = pygame.mouse.get_pos()
+        store.mousexid = pos2id(x)
+        store.mouseyid = pos2id(y)
+        print(x,y)
+
+    class Character:
+        # init method or constructor
+        def __init__(self, name, x, y):
+            self.name = name
+            self.x = x
+            self.y = y
+            self.img = {}
+            self.AP = 1 #How much AP does it have?
+            self.img.idle = name + "-idle.png"
+            self.img.hover = name + "-hover.png"
+            self.img.premove = name + "-premove.png"
+            self.img.noAP = name + "-noAP.png"
+            self.img.dead = name + "-dead.png"
+            self.stats = {}
+            self.stats.vis = 8
+            self.isAlive = 1
+
+        def __repr__(self):
+            return self.name
+
+        def sprite(self):
+            if self.isAlive:
+                if game.state == "moving" and game.premoving_who == self:
+                    return self.img.premove
+                else:
+                    if self.AP > 0:
+                        return self.img.idle
+                    else:
+                        return self.img.noAP
+            else:
+                return self.img.dead
+
+        def premove(self):
+            if game.state == "waiting" and self.AP > 0:
+                game.state = "moving"
+                game.premoving_who = self
+                game.premoving_where = game.inrange2(self.x, self.y, 3)
+
+        def move(self, cell):
+            if cell.occupied == 0:
+                game.grid[self.y][self.x].occupied = 0
+                self.x = cell.x
+                self.y = cell.y
+                game.grid[self.y][self.x].occupied = self.isAlive
+                game.state = "waiting"
+                self.removeAP(1)
+                game.updateVision()
+                game.premoving_who = ""
+                game.premoving_where = ""
+
+        def removeAP(self, x):
+            self.AP -= x
+            if game.totalAP() <= 0:
+                game.turnChange()
 
 
-            elif self.state == "doom":
-                self.state = "waiting"
-                self.restore_totalAP()
+    class Slasher:
+        # init method or constructor
+        def __init__(self, name, x, y, idle = "doom-idle.png", hover = "doom-idle.png", premove = "doom-idle.png"):
+            self.name = name
+            self.x = x
+            self.y = y
+            self.stat = {}
+            self.stat.move = 4
+            self.img = {}
+            self.img.idle = idle
+            self.img.hover = hover
+            self.img.premove = premove
+            self.img.invisible = "doom-invisible.png"
+        def __repr__(self):
+            return self.name
+        # def hover(self):
+        #     if game.grid[self.y][self.x].visibility == 1:
+        #         return self.img.hover
+        #     else:
+        #         return self.img.invisible
+        #display which sprite
+        def sprite(self):
+            if game.grid[self.y][self.x].visibility == 1:
+                return self.img.idle
+            else:
+                return self.img.invisible
+        def move(self):
+            game.grid[self.y][self.x].occupied = 0
 
-        def restore_totalAP(self):
-            for teen in self.teens:
-                teen.AP = 1
+            self.x = self.x + random.randint(-1,1)
+            if self.x < 0: self.x = 0
+            if self.x > game.maxX: self.x = game.maxX
 
-        def totalAP(self):
-            totalAP = 0
-            for teen in self.teens:
-                totalAP += teen.AP
-            return totalAP
+            self.y = self.y + random.randint(-1,1)
+            if self.y < 0: self.y = 0
+            if self.y > game.maxX: self.y = game.maxY
 
-        def inrange(self, x, y, howfar):
-            #very naive way of giving back an array of every square in howfar range
-            array=[]
-            for xi in range(-howfar ,howfar+1):
-                range2 = abs(abs(xi)-howfar)
-                for yi in range(-range2, range2+1):
-                    if yi + y>=0 and xi + x>=0:
-                        try:
-                            game.grid[yi + y][xi + x]
-                        except:
-                            pass
-                        else:
-                            array.append(game.grid[yi + y][xi+ x])
-            return array
-
-        def inrange2(self, x, y, howfar):
-            def recursion(self, x, y, howfar, dict):
-                if y>=0 and x>=0 and y<game.maxY and x<game.maxX:
-                    dict[y,x] = game.grid[y][x]
-                if (howfar > 0):
-                    for direction in [(-1,0),(0,1),(1,0),(0,-1)]:
-                        recursion(self,x+direction[0], y+direction[1] ,howfar - 1,dict)
-            dict = {}
-            recursion(self,x, y, howfar,dict)
-            return list(dict.values())
-
-        def updateVision(self):
-            for case in game.gridlist:
-                case.visibility = 0
+            game.grid[self.y][self.x].occupied = 1
             for teen in game.teens:
-                for case in self.inrange2( teen.x , teen.y , teen.stats.vis):
-                    case.visibility = 1
+                if self.x == teen.x and self.y == teen.y:
+                    teen.isAlive = 0
+                    game.grid[teen.y][teen.x].occupied = 0
 
-
-    game = Game()
-    game.maxY =  math.ceil(settings["resolution"][1]/settings["tilesize"])-1
-    game.maxX = math.ceil(settings["resolution"][0]/settings["tilesize"])-1
-    for y in range( game.maxY+1 ):
-        game.grid.append([]) #add first row
-        for x in range( game.maxX+1 ):
-            game.grid[y].append( Square(x=x, y=y, type = settings["tilemap"][y][x] ) )
-            game.gridlist.append( game.grid[y][x] )
-
-    game.grid_getCol = lambda x: [element for element in game.gridlist if element.y == x ]  # list of all elements with .n==30
-
-    game.teens.append( Character( name = "lauren", x = 3, y = 3) )
-    game.teens.append( Character( name = "william", x = 8, y = 8) )
-    game.state = "waiting"
-    game.dooms = []
-    game.dooms.append( Slasher(name="Slasher", x=6, y=6) )
-    game.updateVision()
+            #some complicated pathfinding
