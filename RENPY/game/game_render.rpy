@@ -1,3 +1,7 @@
+style debug_text is text:
+    outlines [ (absolute(1), "#000", absolute(0), absolute(0)) ]
+    color "#FFFFFF"
+
 label lab_render:
     show screen sce_grid
     show screen sce_doom
@@ -17,17 +21,18 @@ image img_cell_hover:
     pause(0.1)
     repeat
 
-screen sce_char:
+screen sce_char():
     zorder 1
     for teen in game.teens:
         imagebutton:
             xpos id2pos(teen.x)
             ypos id2pos(teen.y)
             idle teen.sprite()
-            hover teen.img.hover
+            if teen.AP > 0 :
+                hover teen.img.hover
             action Function(teen.premove)
 
-screen sce_doom:
+screen sce_doom():
 
     if game.grid[game.dooms[0].y][game.dooms[0].x].visibility == 0:
         zorder -6
@@ -44,7 +49,7 @@ screen sce_doom:
             sensitive game.grid[doom.y][doom.x].visibility
 
 
-screen sce_fog:
+screen sce_fog():
     zorder 2
     for cell in game.gridlist:
         frame:
@@ -58,8 +63,8 @@ screen sce_fog:
                 background Solid( "#FF000020" )
 
             if game.debug_mode:
-                text chr(ord('@')+cell.y+1) + str(cell.x) size 30
-                text str(cell.y) + str(cell.x) size 20 ypos 30
+                text chr(ord('@')+cell.y+1) + str(cell.x) size 30*settings["tilesize"]/96 style "debug_text"
+                text str(cell.y) + str(cell.x) size 20*settings["tilesize"]/96 ypos 30 style "debug_text"
 
 #EXAMPLE DE COMPOSITE QUI MARCHE
 # return Composite(
@@ -67,26 +72,46 @@ screen sce_fog:
 #         (0, 0), img,
 #         (0, 0), Transform( self.img.unstand , alpha = 0.5  ))
 
-screen sce_grid:
-
+screen sce_grid():
     for cell in game.gridlist:
-        frame:
-            padding (0,0,0,0)
-            xysize int(settings["tilesize"]), int(settings["tilesize"])
+        imagebutton:
             xpos int(cell.x * settings["tilesize"])
             ypos int(cell.y * settings["tilesize"])
-            if (cell.x + cell.y)%2 == 0:
-                background Solid( "#FFFFFF" )
-            else:
-                background Solid( "#000000" )
-            imagebutton:
-                idle cell.sprite()
-                if game.state == "moving" and (cell.empty == 0 or cell.empty == "Slasher"):
-                    hover game.premoving_who.img.idle
-                    action Function(game.premoving_who.move, cell=cell)
-                else:
-                    hover cell.img.hover
-                    action NullAction()
-                xysize int(settings["tilesize"]), int(settings["tilesize"])
-                sensitive True
+            xysize int(settings["tilesize"]), int(settings["tilesize"])
+            idle cell.sprite()
+
+    if game.state=="moving":
+        button:
+            xysize int(settings["resolution"][0]), int(settings["resolution"][1])
+            action SetVariable("game.state", "waiting")
+    for cell in game.premoving_where:
+        imagebutton:
+            xpos int(cell.x * settings["tilesize"])
+            ypos int(cell.y * settings["tilesize"])
+            xysize int(settings["tilesize"]), int(settings["tilesize"])
+            hover game.premoving_who.img.idle
+            idle "game-UI/cell-blank.png"
+            action Function(game.premoving_who.move, cell=cell)
+
+
+    # for cell in game.gridlist:
+    #     frame:
+    #         padding (0,0,0,0)
+    #         xysize int(settings["tilesize"]), int(settings["tilesize"])
+    #         xpos int(cell.x * settings["tilesize"])
+    #         ypos int(cell.y * settings["tilesize"])
+    #         imagebutton:
+    #             idle cell.sprite()
+    #             if game.state == "moving" and (cell.empty == 0 or cell.empty == "Slasher"):
+    #                 hover game.premoving_who.img.idle
+    #                 if cell in game.premoving_where:
+    #                     action Function(game.premoving_who.move, cell=cell)
+    #                 else:
+    #                     action SetVariable("game.state", "waiting")
+    #             else:
+    #                 hover cell.img.hover
+    #                 action NullAction()
+    #             xysize int(settings["tilesize"]), int(settings["tilesize"])
+    #             sensitive True
     text game.state size 80 color "#FF0000"
+    text "SCORE:"+str(game.score) size 40 color "#FF0000" xalign 1.0

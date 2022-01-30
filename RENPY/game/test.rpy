@@ -1,4 +1,25 @@
 init python:
+    def grid2_update(st):
+        if grid2_pos is None:
+            return .01
+        gridcopy = copy.deepcopy(grid2_sprites)
+        px, py = grid2_pos
+
+        for i,cell in enumerate(gridcopy):
+
+            if pos2id(cell.x) ==1 and pos2id(cell.y)==1 :
+                print pos2id(px) == pos2id(cell.x) and pos2id(py) == pos2id(cell.y)
+            if pos2id(px) == pos2id(cell.x) and pos2id(py) == pos2id(cell.y):
+                grid_corresp = game.grid[pos2id(py)][pos2id(px)]
+                smile = Image(grid_corresp.sprite())
+                grid2_sprites.append(grid2.create(smile))
+                grid2_sprites[-1].x = id2pos(grid_corresp.x)
+                grid2_sprites[-1].y = id2pos(grid_corresp.y)
+
+                grid2_sprites[i].destroy()
+
+        return .01
+
     def repulsor_update(st):
 
         # If we don't know where the mouse is, give up.
@@ -30,32 +51,37 @@ init python:
             if i.x < 2:
                 i.x = 2
 
-            if i.x > repulsor.width - 2:
-                i.x = repulsor.width - 2
+            if i.x > grid2.width - 2:
+                i.x = grid2.width - 2
 
             if i.y < 2:
                 i.y = 2
 
-            if i.y > repulsor.height - 2:
-                i.y = repulsor.height - 2
+            if i.y > grid2.height - 2:
+                i.y = grid2.height - 2
 
         return .01
+
 #update=grid2_update,
+label grid2_demo:
     # On an event, record the mouse position.
-    def grid2_event(ev, x, y, st):
-        store.grid2_pos = (x, y)
+    python:
+        def grid2_event(ev, x, y, st):
+            store.grid2_pos = (x, y)
 
-    grid2 = SpriteManager(event=grid2_event)
-    grid2_sprites = [ ]
-    grid2_pos = None
+        grid2 = SpriteManager( update=grid2_update, event=grid2_event)
+        grid2_sprites = [ ]
+        grid2_pos = None
 
-    # Ensure we only have one smile displayable.
-    smile = Image("game-UI/cell-idle.png")
-    for i in range(len(game.gridlist)):
-        grid2_sprites.append(grid2.create(smile))
-        grid2_sprites[i].x = id2pos(game.gridlist[i].x)
-        grid2_sprites[i].y = id2pos(game.gridlist[i].y)
-    # Position the 400 sprites.
+        for i in range(len(game.gridlist)):
+            smile = Image( game.gridlist[i].sprite() )
+            grid2_sprites.append(grid2.create(smile))
+            grid2_sprites[i].x = id2pos(game.gridlist[i].x)
+            grid2_sprites[i].y = id2pos(game.gridlist[i].y)
+        # Position the 400 sprites.
+    # Add the repulsor to the screen.
+        del smile
+        del i
 
-    del smile
-    del i
+    show expression grid2 as grid2
+return
