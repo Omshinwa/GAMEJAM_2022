@@ -78,6 +78,10 @@ init python:
             recursion(self,x, y, howfar,dict)
             return list(dict.values())
 
+        def distBetween(cellA, cellB):
+            
+            return distance
+
         def updateVision(self):
             for case in game.gridlist:
                 case.visibility = 0

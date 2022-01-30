@@ -12,7 +12,7 @@ init python:
     settings = {}
 
     settings["tilesize"] = 48.0 #in pixel
-    settings["resolution"] = (1080.0,720.0)
+    settings["resolution"] = (1380.0,816.0)
 
     import math
     import random

@@ -5,6 +5,7 @@ init python:
     class Square(Tiletype):
         def __init__(self, x, y, type = 1, visibility = 0):
             super(Square,self).__init__(type)
+            self.type = type
             self.x = x
             self.y = y
             self.xpos = x * settings["tilesize"]
@@ -12,7 +13,13 @@ init python:
             self.visibility = visibility
             self.img.hover = "img_cell_hover"
             self.img.unstand = "game-UI/cell-unstand.png"
-            self.occupied = 1 - self.isStand #0 theres nothing there
+            try:
+                self.isStand
+            except:
+                print("ERROR TYPE "+ self.type)
+            else:
+                self.occupied = 1 - self.isStand #0 theres nothing there
+
             try:
                 settings["events"][ chr(ord('@')+y+1) + str(x) ]
             except:
