@@ -2,9 +2,10 @@
 errors listed below, and try again.
 
 
-File "game/options.rpy", line 7: expected statement.
-    config.save_dump = True
-                     ^
+File "game/game_game_class.rpy", line 7: invalid syntax
+            self.grid = [][]
+                            ^
+    
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Sun Jan 30 14:24:50 2022
+Sun Jan 30 16:27:13 2022

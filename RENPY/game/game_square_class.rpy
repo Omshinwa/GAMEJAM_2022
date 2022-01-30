@@ -13,6 +13,12 @@ init python:
             self.img.hover = "img_cell_hover"
             self.img.unstand = "game-UI/cell-unstand.png"
             self.occupied = 1 - self.isStand #0 theres nothing there
+            try:
+                settings["events"][ chr(ord('@')+y+1) + str(x) ]
+            except:
+                self.event = ""
+            else:
+                self.event = settings["events"][ chr(ord('@')+y+1) + str(x) ] #str(ord(y)-65
 
         def __repr__(self):
             return " x" +str(self.x)+ ":y" +str(self.y)+" "
@@ -23,10 +29,17 @@ init python:
             #     img = self.img.hover
 
             if self.isStand == 1:
-                if game.state == "moving" and self in game.premoving_where:
-                    img = self.img.hover
+                if game.premoving_where != "":
+                    if game.state == "moving" and self in game.premoving_where:
+                        img = self.img.hover
+                    else:
+                        img = self.img.idle
                 else:
                     img = self.img.idle
             else:
                 img = self.img.unstand
             return img
+
+        def onEvent(self):
+            if self.event != "":
+                renpy.call( self.event )

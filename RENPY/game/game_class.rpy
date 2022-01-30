@@ -35,6 +35,7 @@ init python:
             self.stats = {}
             self.stats.vis = 8
             self.isAlive = 1
+            self.inventory = {}
 
         def __repr__(self):
             return self.name
@@ -62,18 +63,20 @@ init python:
                 game.grid[self.y][self.x].occupied = 0
                 self.x = cell.x
                 self.y = cell.y
-                game.grid[self.y][self.x].occupied = self.isAlive
-                game.state = "waiting"
-                self.removeAP(1)
+                game.grid[self.y][self.x].occupied = 1
                 game.updateVision()
                 game.premoving_who = ""
                 game.premoving_where = ""
+                game.state = "waiting"
+                self.removeAP(1)
+                game.grid[self.y][self.x].onEvent()
+
+                if game.totalAP() <= 0:
+                    game.turnChange()
+
 
         def removeAP(self, x):
             self.AP -= x
-            if game.totalAP() <= 0:
-                game.turnChange()
-
 
     class Slasher:
         # init method or constructor

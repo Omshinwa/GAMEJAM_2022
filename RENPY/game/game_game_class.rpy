@@ -81,3 +81,6 @@ init python:
             for teen in game.teens:
                 for case in self.inrange( teen.x , teen.y , teen.stats.vis):
                     case.visibility = 1
+
+        def gridAZ(self, x):
+            return self.grid[ ord(x[0])-65 ][int(x[1])]

@@ -5,8 +5,10 @@ style debug_text is text:
 label lab_render:
     show screen sce_grid
     show screen sce_doom
+    show screen sce_char
     show screen sce_fog
-    call screen sce_char
+
+    call screen sce_gameloop
 
 image img_cell_hover:
     "game-UI/cell-hover-01.png"
@@ -20,6 +22,9 @@ image img_cell_hover:
     "game-UI/cell-hover-05.png"
     pause(0.1)
     repeat
+    
+screen sce_gameloop():
+    pass
 
 screen sce_char():
     zorder 1
