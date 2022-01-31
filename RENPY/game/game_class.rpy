@@ -156,7 +156,7 @@ init python:
 
             self.stat = {}
             self.stat.vis = 10
-            self.stat.move = 3
+            self.stat.move = 4
 
             self.isAlive = 1
             self.inventory = {}
@@ -196,21 +196,35 @@ init python:
                 self.action()
 
                 if game.totalAP() <= 0:
-                    game.turnChange()
+                    renpy.jump( "lab_turnChange" )
+                else:
+                    renpy.jump( "lab_gameloop" )
 
         def action(self):
-            self.removeAP(1)
+            # self.removeAP(1)
             game.actions = []
             game.state = "action"
-            if game.grid[self.y][self.x].itemType != None:
-                game.actions.append( game.interaction(itemType , 0) )
+            # if game.grid[self.y][self.x].itemType != None:
+            #     if game.interaction(itemType , 0):
+            #         game.actions.append( game.interaction(itemType , 0) )
             for case in game.inrange(self.x, self.y, 1):
                 if case.itemType != None:
-                    if case.interaction(case.itemType , 1):
-                        game.actions.append( case.interaction(case.itemType , 1) ) # { nom:nom, function:function}
+                    if case.interaction(case.itemType , 1, self, case):
+                        game.actions.append( case.interaction(case.itemType , 1, self, case) ) # { nom:nom, function:function}
 
-                if isThereAcadaver(case):
-                    game.actions.append( { "text": "take items", "label": "lab_takeitems", "variables":[self,case] } )
+            if isThereAcadaver(case):
+                game.actions.append( { "text": "take items", "label": "lab_takeitems", "variables":[self,case] } )
+
+            x = self.x
+            y = self.y
+            print( chr(ord('@')+y+1) + str(x) )
+            try:
+                settings["actions"][ chr(ord('@')+y+1) + str(x) ]
+            except:
+                pass
+            else:
+                game.actions.append( settings["actions"][ chr(ord('@')+y+1) + str(x) ] ) #str(ord(y)-65
+
             obj = { "text": "PASS", "label": "lab_passTurn", "variables":self }
             game.actions.append( obj )
 
@@ -233,12 +247,12 @@ init python:
             #     self.passTurn()
 
             if game.totalAP() <= 0:
-                game.turnChange()
+                renpy.jump( "lab_turnChange" )
 
         def passTurn(self):
             game.state = "waiting"
             if game.totalAP() <= 0:
-                game.turnChange()
+                renpy.jump( "lab_turnChange" )
 
         def removeAP(self, x):
             self.AP -= x

@@ -14,21 +14,11 @@ init python:
             self.score = 0
             pass
 
+        def interaction(x,y):
+            return False
+
         def gridAZ(self, x):
             return self.grid[ ord(x[0])-65 ][int(x[1:])]
-
-        def turnChange(self):
-            self.updateVision()
-            if self.state == "waiting":
-                self.state = "doom"
-                for doom in game.dooms:
-                    doom.move()
-                    self.score += 1
-                    self.turnChange()
-
-            elif self.state == "doom":
-                self.state = "waiting"
-                self.restore_totalAP()
 
         def restore_totalAP(self):
             for teen in self.teens:
@@ -52,15 +42,19 @@ init python:
                         except:
                             pass
                         else:
-                            if game.grid[yi + y][xi + x].blockVision:
+                            if game.grid[yi + y][xi + x].isDark:
                                 dict_hide[yi + y,xi + x] = game.grid[yi + y][xi + x]
                             else:
                                 dict[yi + y,xi + x] = game.grid[yi + y][xi + x]
             return list(dict.values())
 
-        def isCrossable(self,x2,y2,x = "bite",y = "bite", ifdoom = True, ifwalls=True):
-            if self.grid[y2][x2].isStand == 0:
+        def isCrossable(self,x2,y2,x = "bite",y = "bite", ifdoom = True, ifwalls=True, ifstoppable=True, ifdoors=True):
+            if x2<0 or y2<0 or x2>game.maxX or y2>game.maxY:
                 return False
+
+            if ifstoppable:
+                if self.grid[y2][x2].isStand == 0:
+                    return False
             if ifdoom:
                 if self.grid[y2][x2].occupied == "doom":
                     return False
@@ -76,8 +70,36 @@ init python:
                     else:
                         secondpart = chr(ord('@')+y2+1) + str(x2)
                     name = firstpart + secondpart
+                    name2 = secondpart + firstpart
                     if name in settings["walls"]:
                         return False
+                    if name2 in settings["walls"]:
+                        return False
+            if ifdoors:
+                    if x != "bite":
+                        if x<10:
+                            firstpart = chr(ord('@')+y+1) + "0" + str(x)
+                        else:
+                            firstpart = chr(ord('@')+y+1) + str(x)
+                        if x2<10:
+                            secondpart = chr(ord('@')+y2+1) + "0" + str(x2)
+                        else:
+                            secondpart = chr(ord('@')+y2+1) + str(x2)
+                        name = firstpart + secondpart
+                        name2 = secondpart + firstpart
+                        try:
+                            settings["doors"][name]
+                        except:
+                            pass
+                        else:
+                            return settings["doors"][name]
+
+                        try:
+                            settings["doors"][name2]
+                        except:
+                            pass
+                        else:
+                            return settings["doors"][name2]
 
             return True
 
@@ -112,8 +134,8 @@ init python:
                     for case in self.inrange( teen.x , teen.y , teen.stat.vis):
                         if case.x == teen.x and case.y == teen.y:
                             case.visibility = 1
-                        elif case.isStand == 0:
-                            case.visibility = 0
+                        # elif case.isDark == 0:
+                        #     case.visibility = 0
                         else:
                             difx = case.x - teen.x
                             dify = case.y - teen.y
@@ -122,16 +144,38 @@ init python:
                                 ratio = (0,0)
                             else:
                                 ratio =(difx*1.0/maxi, dify*1.0/maxi)
-                            for i in range(abs(difx) + abs(dify)):
+                            for i in range( maxi ):
                                 yyy = teen.y + ratio[1]*(i+1)
                                 xxx = teen.x + ratio[0]*(i+1)
                                 if yyy>=0 and xxx>=0 and yyy<game.maxY and xxx<game.maxX:
-                                    if game.grid[ int(yyy) ][ int(xxx) ].isStand == 0:
+                                    yy = teen.y + ratio[1]*(i)
+                                    xx = teen.x + ratio[0]*(i)
+
+                                    if game.grid[ int(yyy) ][ int(xxx) ].blockVision:
                                         # case.visibility = 0
                                         break
-                                    if game.grid[ math.ceil(yyy) ][ math.ceil(xxx) ].isStand == 0:
-                                        # case.visibility = 0
+                                    # if game.grid[ math.ceil(yyy) ][ math.ceil(xxx) ].blockVision:
+                                    #     # case.visibility = 0
+                                    #     break
+
+                                    #check for walls block visibility:
+                                    if abs(int(xxx) - int(xx)) + abs(int(yyy) - int(yy)) == 2 :
+                                        # ON FAIT LA TRANSITION PUTAIN
+                                        a = not game.isCrossable(x2=int(xx),y2=int(yyy),x= int(xx), y=int(yy), ifdoom = False, ifwalls=True, ifstoppable=False)
+                                        b = not game.isCrossable(x2=int(xxx),y2=int(yyy),x= int(xx), y=int(yyy), ifdoom = False, ifwalls=True, ifstoppable=False)
+
+                                        c = not game.isCrossable(x2=int(xxx),y2=int(yy),x= int(xx), y=int(yy), ifdoom = False, ifwalls=True, ifstoppable=False)
+                                        d = not game.isCrossable(x2=int(xxx),y2=int(yyy),x= int(xxx), y=int(yy), ifdoom = False, ifwalls=True, ifstoppable=False)
+                                        if (a or b) and (c or d):
+                                            break
+
+                                    if not game.isCrossable(x2= int(round(xxx)),y2= int(round(yyy)),x= int( round(xx) ), y= int( round(yy) ), ifdoom = False, ifwalls=True, ifstoppable=False):
                                         break
+                                    elif not game.isCrossable(x2=int(xxx),y2=int(yyy),x=int( teen.x + ratio[0]*(i) ), y=int( teen.y + ratio[1]*(i) ), ifdoom = False, ifwalls=True, ifstoppable=False):
+                                        break
+                                    elif not game.isCrossable(x2=math.ceil(xxx),y2=math.ceil(yyy),x=math.ceil( teen.x + ratio[0]*(i) ), y=math.ceil( teen.y + ratio[1]*(i) ), ifdoom = False, ifwalls=True, ifstoppable=False):
+                                        break
+
                                     if xxx == case.x and yyy == case.y:
                                         case.visibility = 1
                                         break

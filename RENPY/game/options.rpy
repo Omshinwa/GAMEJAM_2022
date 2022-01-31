@@ -5,7 +5,8 @@
 ## may want to uncomment them when appropriate.
 
 init python:
-    build.executable_name = "fireanddeath"
+    build.executable_name = "ParisIsBurning"
+    build.directory_name = "ParisIsBurning"
 ## Basics ######################################################################
 
 ## A human-readable name of the game. This is used to set the default window
@@ -13,7 +14,7 @@ init python:
 ##
 ## The _() surrounding the string marks it as eligible for translation.
 
-define config.name = _("RENPY")
+define config.name = _("ParisIsBurning")
 
 
 ## Determines if the title given above is shown on the main menu screen. Set

@@ -2,10 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/game_square_class.rpy", line 51: unexpected indent
-                    if len(self.event) ==1:
-                    ^
-    
+File "game/01_fyn_event-tiles.rpy", line 58: expected statement.
+    for i in game.gridlist:
+          ^
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Mon Jan 31 11:22:32 2022
+Tue Feb  1 01:59:24 2022

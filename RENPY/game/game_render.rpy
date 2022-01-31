@@ -85,17 +85,16 @@ screen sce_action():
             action Function(game.premoving_who.cancelMov) #gros bouton pour annuler
     if game.state == "action":
         for i,act in enumerate(game.actions):
-            frame:
-                xpos id2pos(game.premoving_who.x)+40
-                ypos id2pos(game.premoving_who.y)-40*(i+1)
                 button:
+                    xpos id2pos(game.premoving_who.x)+40
+                    ypos id2pos(game.premoving_who.y)-40*(i+1)
                     text act["text"] style "style_action" size 30
                     background Solid( "#000000" )
                     hover_background "#00a"
                     if len(act)==2:
-                        action Call(act["label"])
+                        action [SetVariable("game.premoving_who.AP", 0),  Call(act["label"])]
                     if len(act)==3:
-                        action Call(act["label"],act["variables"])
+                        action [SetVariable("game.premoving_who.AP", 0),Call(act["label"],act["variables"])]
 
 
 screen sce_fog():
@@ -130,6 +129,22 @@ screen sce_grid():
             xysize int(settings["tilesize"]), int(settings["tilesize"])
             idle cell.sprite()
 
+        if cell.onFire > 0:
+            imagebutton:
+                xpos int(cell.x * settings["tilesize"])
+                ypos int(cell.y * settings["tilesize"])
+                xysize int(settings["tilesize"]), int(settings["tilesize"])
+                if cell.visibility == 0:
+                    idle "game-UI/cell-blank.png"
+                else:
+                    if cell.onFire == 1:
+                        idle "game-UI/small-fire.png"
+                    elif cell.onFire == 2:
+                        idle "game-UI/fire.png"
+                    elif cell.onFire == 3:
+                        idle "game-UI/big-fire.png"
+
+
     if game.state=="moving":
         button:
             xysize int(settings["resolution"][0]), int(settings["resolution"][1])
@@ -143,10 +158,11 @@ screen sce_grid():
             idle "game-UI/cell-blank.png"
             action Function(game.premoving_who.move, cell=cell)
 
-    text game.state size 80 color "#FF0000"
+    # text game.state size 80 color "#FF0000"
     text "SCORE:"+str(game.score) size 40 color "#FF0000" xalign 1.0
 
 screen sce_walls():
+    zorder 2
     for wall in settings["walls"]:
         $ x = int(wall[1:3])
         $ y = ord(wall[0])-65
@@ -163,4 +179,24 @@ screen sce_walls():
                 xysize 4, 48
                 xpos int(x2 * settings["tilesize"]) -2
                 ypos int(y2 * settings["tilesize"])
-            background Solid( "#888888" )
+            background Solid( "#808080" )
+
+    for key, value in settings["doors"].iteritems():
+        $ x = int(key[1:3])
+        $ y = ord(key[0])-65
+        $ x2 = int(key[4:6])
+        $ y2 = ord(key[3])-65
+        frame:
+            padding (0,0,0,0)
+            if x==x2: #HORIZONTAL
+                xysize 48, 4
+                xpos int(x2 * settings["tilesize"])
+                ypos int(y2 * settings["tilesize"])-2
+            if y==y2: #HORIZONTAL
+                xysize 4, 48
+                xpos int(x2 * settings["tilesize"]) -2
+                ypos int(y2 * settings["tilesize"])
+            if value:
+                background "game-UI/door-open.png"
+            else:
+                background Solid( "#EEEEEE" )

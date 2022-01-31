@@ -1,0 +1,1444 @@
+errors.txt matches errors.txt (None).
+game/ matches ** ([u'all']).
+game/00_game_start.rpy matches ** ([u'all']).
+game/00_game_start.rpyc matches ** ([u'all']).
+game/01_fyn_event-tiles.rpy matches ** ([u'all']).
+game/01_fyn_event-tiles.rpy.bak matches **.bak (None).
+game/01_fyn_event-tiles.rpyc matches ** ([u'all']).
+game/01_madi_event-tiles.rpy matches ** ([u'all']).
+game/01_madi_event-tiles.rpyc matches ** ([u'all']).
+game/01_madi_tiles.rpy matches ** ([u'all']).
+game/01_madi_tiles.rpyc matches ** ([u'all']).
+game/audio/ matches ** ([u'all']).
+game/audio/closedoor1.wav matches ** ([u'all']).
+game/audio/doorfail.ogg matches ** ([u'all']).
+game/audio/opendoor1.mp3 matches ** ([u'all']).
+game/audio/pushfurniture.wav matches ** ([u'all']).
+game/audio/step-water-1.wav matches ** ([u'all']).
+game/audio/step-water-2.wav matches ** ([u'all']).
+game/audio/step4.wav matches ** ([u'all']).
+game/cache/ matches ** ([u'all']).
+game/cache/bytecode.rpyb matches ** ([u'all']).
+game/cache/pyanalysis.rpyb matches ** ([u'all']).
+game/cache/screens.rpyb matches ** ([u'all']).
+game/cache/shaders.txt matches ** ([u'all']).
+game/game_class.rpy matches ** ([u'all']).
+game/game_class.rpyc matches ** ([u'all']).
+game/game_game_class.rpy matches ** ([u'all']).
+game/game_game_class.rpyc matches ** ([u'all']).
+game/game_initialize.rpy matches ** ([u'all']).
+game/game_initialize.rpyc matches ** ([u'all']).
+game/game_render.rpy matches ** ([u'all']).
+game/game_render.rpyc matches ** ([u'all']).
+game/game_square_class.rpy matches ** ([u'all']).
+game/game_square_class.rpyc matches ** ([u'all']).
+game/gui/ matches ** ([u'all']).
+game/gui/bar/ matches ** ([u'all']).
+game/gui/bar/bottom.png matches ** ([u'all']).
+game/gui/bar/left.png matches ** ([u'all']).
+game/gui/bar/right.png matches ** ([u'all']).
+game/gui/bar/top.png matches ** ([u'all']).
+game/gui/button/ matches ** ([u'all']).
+game/gui/button/check_foreground.png matches ** ([u'all']).
+game/gui/button/check_selected_foreground.png matches ** ([u'all']).
+game/gui/button/choice_hover_background.png matches ** ([u'all']).
+game/gui/button/choice_idle_background.png matches ** ([u'all']).
+game/gui/button/hover_background.png matches ** ([u'all']).
+game/gui/button/idle_background.png matches ** ([u'all']).
+game/gui/button/quick_hover_background.png matches ** ([u'all']).
+game/gui/button/quick_idle_background.png matches ** ([u'all']).
+game/gui/button/radio_foreground.png matches ** ([u'all']).
+game/gui/button/radio_selected_foreground.png matches ** ([u'all']).
+game/gui/button/slot_hover_background.png matches ** ([u'all']).
+game/gui/button/slot_idle_background.png matches ** ([u'all']).
+game/gui/frame.png matches ** ([u'all']).
+game/gui/game_menu.png matches ** ([u'all']).
+game/gui/main_menu.png matches ** ([u'all']).
+game/gui/namebox.png matches ** ([u'all']).
+game/gui/notify.png matches ** ([u'all']).
+game/gui/nvl.png matches ** ([u'all']).
+game/gui/overlay/ matches ** ([u'all']).
+game/gui/overlay/confirm.png matches ** ([u'all']).
+game/gui/overlay/game_menu.png matches ** ([u'all']).
+game/gui/overlay/main_menu.png matches ** ([u'all']).
+game/gui/phone/ matches ** ([u'all']).
+game/gui/phone/bar/ matches ** ([u'all']).
+game/gui/phone/bar/bottom.png matches ** ([u'all']).
+game/gui/phone/bar/left.png matches ** ([u'all']).
+game/gui/phone/bar/right.png matches ** ([u'all']).
+game/gui/phone/bar/top.png matches ** ([u'all']).
+game/gui/phone/button/ matches ** ([u'all']).
+game/gui/phone/button/check_foreground.png matches ** ([u'all']).
+game/gui/phone/button/check_selected_foreground.png matches ** ([u'all']).
+game/gui/phone/button/choice_hover_background.png matches ** ([u'all']).
+game/gui/phone/button/choice_idle_background.png matches ** ([u'all']).
+game/gui/phone/button/hover_background.png matches ** ([u'all']).
+game/gui/phone/button/idle_background.png matches ** ([u'all']).
+game/gui/phone/button/radio_foreground.png matches ** ([u'all']).
+game/gui/phone/button/radio_selected_foreground.png matches ** ([u'all']).
+game/gui/phone/button/slot_hover_background.png matches ** ([u'all']).
+game/gui/phone/button/slot_idle_background.png matches ** ([u'all']).
+game/gui/phone/nvl.png matches ** ([u'all']).
+game/gui/phone/overlay/ matches ** ([u'all']).
+game/gui/phone/overlay/game_menu.png matches ** ([u'all']).
+game/gui/phone/overlay/main_menu.png matches ** ([u'all']).
+game/gui/phone/scrollbar/ matches ** ([u'all']).
+game/gui/phone/scrollbar/horizontal_hover_bar.png matches ** ([u'all']).
+game/gui/phone/scrollbar/horizontal_hover_thumb.png matches ** ([u'all']).
+game/gui/phone/scrollbar/horizontal_idle_bar.png matches ** ([u'all']).
+game/gui/phone/scrollbar/horizontal_idle_thumb.png matches ** ([u'all']).
+game/gui/phone/scrollbar/vertical_hover_bar.png matches ** ([u'all']).
+game/gui/phone/scrollbar/vertical_hover_thumb.png matches ** ([u'all']).
+game/gui/phone/scrollbar/vertical_idle_bar.png matches ** ([u'all']).
+game/gui/phone/scrollbar/vertical_idle_thumb.png matches ** ([u'all']).
+game/gui/phone/slider/ matches ** ([u'all']).
+game/gui/phone/slider/horizontal_hover_bar.png matches ** ([u'all']).
+game/gui/phone/slider/horizontal_hover_thumb.png matches ** ([u'all']).
+game/gui/phone/slider/horizontal_idle_bar.png matches ** ([u'all']).
+game/gui/phone/slider/horizontal_idle_thumb.png matches ** ([u'all']).
+game/gui/phone/slider/vertical_hover_bar.png matches ** ([u'all']).
+game/gui/phone/slider/vertical_hover_thumb.png matches ** ([u'all']).
+game/gui/phone/slider/vertical_idle_bar.png matches ** ([u'all']).
+game/gui/phone/slider/vertical_idle_thumb.png matches ** ([u'all']).
+game/gui/phone/textbox.png matches ** ([u'all']).
+game/gui/scrollbar/ matches ** ([u'all']).
+game/gui/scrollbar/horizontal_hover_bar.png matches ** ([u'all']).
+game/gui/scrollbar/horizontal_hover_thumb.png matches ** ([u'all']).
+game/gui/scrollbar/horizontal_idle_bar.png matches ** ([u'all']).
+game/gui/scrollbar/horizontal_idle_thumb.png matches ** ([u'all']).
+game/gui/scrollbar/vertical_hover_bar.png matches ** ([u'all']).
+game/gui/scrollbar/vertical_hover_thumb.png matches ** ([u'all']).
+game/gui/scrollbar/vertical_idle_bar.png matches ** ([u'all']).
+game/gui/scrollbar/vertical_idle_thumb.png matches ** ([u'all']).
+game/gui/skip.png matches ** ([u'all']).
+game/gui/slider/ matches ** ([u'all']).
+game/gui/slider/horizontal_hover_bar.png matches ** ([u'all']).
+game/gui/slider/horizontal_hover_thumb.png matches ** ([u'all']).
+game/gui/slider/horizontal_idle_bar.png matches ** ([u'all']).
+game/gui/slider/horizontal_idle_thumb.png matches ** ([u'all']).
+game/gui/slider/vertical_hover_bar.png matches ** ([u'all']).
+game/gui/slider/vertical_hover_thumb.png matches ** ([u'all']).
+game/gui/slider/vertical_idle_bar.png matches ** ([u'all']).
+game/gui/slider/vertical_idle_thumb.png matches ** ([u'all']).
+game/gui/textbox.png matches ** ([u'all']).
+game/gui/window_icon.png matches ** ([u'all']).
+game/gui.rpy matches ** ([u'all']).
+game/gui.rpyc matches ** ([u'all']).
+game/images/ matches ** ([u'all']).
+game/images/darryl-hover.png matches ** ([u'all']).
+game/images/darryl-idle.png matches ** ([u'all']).
+game/images/darryl-noAP.png matches ** ([u'all']).
+game/images/darryl-premove.png matches ** ([u'all']).
+game/images/daryl-dead.png matches ** ([u'all']).
+game/images/doom-idle.png matches ** ([u'all']).
+game/images/doom-invisible.png matches ** ([u'all']).
+game/images/game-UI/ matches ** ([u'all']).
+game/images/game-UI/0.gif matches ** ([u'all']).
+game/images/game-UI/1.gif matches ** ([u'all']).
+game/images/game-UI/10.gif matches ** ([u'all']).
+game/images/game-UI/11.gif matches ** ([u'all']).
+game/images/game-UI/12.gif matches ** ([u'all']).
+game/images/game-UI/13.gif matches ** ([u'all']).
+game/images/game-UI/14.gif matches ** ([u'all']).
+game/images/game-UI/15.gif matches ** ([u'all']).
+game/images/game-UI/16.gif matches ** ([u'all']).
+game/images/game-UI/17.gif matches ** ([u'all']).
+game/images/game-UI/2.gif matches ** ([u'all']).
+game/images/game-UI/3.gif matches ** ([u'all']).
+game/images/game-UI/4.gif matches ** ([u'all']).
+game/images/game-UI/5.gif matches ** ([u'all']).
+game/images/game-UI/6.gif matches ** ([u'all']).
+game/images/game-UI/7.gif matches ** ([u'all']).
+game/images/game-UI/8.gif matches ** ([u'all']).
+game/images/game-UI/9.gif matches ** ([u'all']).
+game/images/game-UI/big-fire.png matches ** ([u'all']).
+game/images/game-UI/cell-blank.png matches ** ([u'all']).
+game/images/game-UI/cell-fog-01.png matches ** ([u'all']).
+game/images/game-UI/cell-hover-01.png matches ** ([u'all']).
+game/images/game-UI/cell-hover-02.png matches ** ([u'all']).
+game/images/game-UI/cell-hover-03.png matches ** ([u'all']).
+game/images/game-UI/cell-hover-04.png matches ** ([u'all']).
+game/images/game-UI/cell-hover-05.png matches ** ([u'all']).
+game/images/game-UI/cell-hover-06.png matches ** ([u'all']).
+game/images/game-UI/cell-idle.png matches ** ([u'all']).
+game/images/game-UI/cell-unstand.png matches ** ([u'all']).
+game/images/game-UI/coffingrey.gif matches ** ([u'all']).
+game/images/game-UI/couchgreen.gif matches ** ([u'all']).
+game/images/game-UI/couchpurple.gif matches ** ([u'all']).
+game/images/game-UI/deskblue.gif matches ** ([u'all']).
+game/images/game-UI/deskyellow.gif matches ** ([u'all']).
+game/images/game-UI/door-open.png matches ** ([u'all']).
+game/images/game-UI/fire.png matches ** ([u'all']).
+game/images/game-UI/grass.png matches ** ([u'all']).
+game/images/game-UI/librarygreen1.gif matches ** ([u'all']).
+game/images/game-UI/librarygreen2.gif matches ** ([u'all']).
+game/images/game-UI/librarypurple.gif matches ** ([u'all']).
+game/images/game-UI/photosred.gif matches ** ([u'all']).
+game/images/game-UI/puddle-sd.png matches ** ([u'all']).
+game/images/game-UI/puddle.png matches ** ([u'all']).
+game/images/game-UI/safegrey.gif matches ** ([u'all']).
+game/images/game-UI/screenblue.gif matches ** ([u'all']).
+game/images/game-UI/showercyan.gif matches ** ([u'all']).
+game/images/game-UI/showergreen.gif matches ** ([u'all']).
+game/images/game-UI/small-fire.png matches ** ([u'all']).
+game/images/game-UI/toiletcyan.gif matches ** ([u'all']).
+game/images/game-UI/toiletgreen.gif matches ** ([u'all']).
+game/images/jean-hover.png matches ** ([u'all']).
+game/images/jean-idle.png matches ** ([u'all']).
+game/images/jean-noAP.png matches ** ([u'all']).
+game/images/jean-premove.png matches ** ([u'all']).
+game/images/kayleigh-dead.png matches ** ([u'all']).
+game/images/kayleigh-hover.png matches ** ([u'all']).
+game/images/kayleigh-idle.png matches ** ([u'all']).
+game/images/kayleigh-noAP.png matches ** ([u'all']).
+game/images/kayleigh-premove.png matches ** ([u'all']).
+game/images/lauren-dead.png matches ** ([u'all']).
+game/images/lauren-hover.png matches ** ([u'all']).
+game/images/lauren-idle.png matches ** ([u'all']).
+game/images/lauren-noAP.png matches ** ([u'all']).
+game/images/lauren-premove.png matches ** ([u'all']).
+game/images/teen-hover.png matches ** ([u'all']).
+game/images/teen-idle.png matches ** ([u'all']).
+game/images/teen-noAP.png matches ** ([u'all']).
+game/images/teen-premove.png matches ** ([u'all']).
+game/images/tv-face.png matches ** ([u'all']).
+game/images/william-dead.png matches ** ([u'all']).
+game/images/william-hover.png matches ** ([u'all']).
+game/images/william-idle.png matches ** ([u'all']).
+game/images/william-noAP.png matches ** ([u'all']).
+game/images/william-premove.png matches ** ([u'all']).
+game/options.rpy matches ** ([u'all']).
+game/options.rpyc matches ** ([u'all']).
+game/saves/ matches game/saves/ (None).
+game/screens.rpy matches ** ([u'all']).
+game/screens.rpyc matches ** ([u'all']).
+game/script.rpy matches ** ([u'all']).
+game/script.rpyc matches ** ([u'all']).
+game/test.rpyc matches ** ([u'all']).
+game/tl/ matches ** ([u'all']).
+game/tl/None/ matches ** ([u'all']).
+game/tl/None/common.rpym matches ** ([u'all']).
+game/tl/None/common.rpymc matches ** ([u'all']).
+log.txt matches log.txt (None).
+memo.png matches ** ([u'all']).
+project.json matches project.json (None).
+save_dump.txt matches ** ([u'all']).
+traceback.txt matches traceback.txt (None).
+doc/ doesn't match anything.
+doc/ matches None (None).
+gui/ doesn't match anything.
+gui/ matches None (None).
+launcher/ doesn't match anything.
+launcher/ matches None (None).
+lib/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/linux-i686/ matches lib/linux-i686/** ([u'linux_i686']).
+lib/linux-i686/librenpython.so matches lib/linux-i686/** ([u'linux_i686']).
+lib/linux-i686/python matches lib/linux-i686/** ([u'linux_i686']).
+lib/linux-i686/pythonw matches lib/linux-i686/** ([u'linux_i686']).
+lib/linux-i686/renpy matches lib/*/renpy (None).
+lib/linux-i686/zsync matches lib/linux-i686/** ([u'linux_i686']).
+lib/linux-i686/zsyncmake matches lib/linux-i686/** ([u'linux_i686']).
+lib/linux-x86_64/ matches lib/linux-*/** ([u'linux']).
+lib/linux-x86_64/librenpython.so matches lib/linux-*/** ([u'linux']).
+lib/linux-x86_64/python matches lib/linux-*/** ([u'linux']).
+lib/linux-x86_64/pythonw matches lib/linux-*/** ([u'linux']).
+lib/linux-x86_64/renpy matches lib/*/renpy (None).
+lib/linux-x86_64/zsync matches lib/linux-*/** ([u'linux']).
+lib/linux-x86_64/zsyncmake matches lib/linux-*/** ([u'linux']).
+lib/mac-x86_64/ matches lib/mac-*/** ([u'mac']).
+lib/mac-x86_64/librenpython.dylib matches lib/mac-*/** ([u'mac']).
+lib/mac-x86_64/python matches lib/mac-*/** ([u'mac']).
+lib/mac-x86_64/pythonw matches lib/mac-*/** ([u'mac']).
+lib/mac-x86_64/renpy matches lib/*/renpy (None).
+lib/mac-x86_64/zsync matches lib/mac-*/** ([u'mac']).
+lib/mac-x86_64/zsyncmake matches lib/mac-*/** ([u'mac']).
+lib/python2.7/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/abc.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/android/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/android/apk.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/android/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/argparse.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/ast.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/atexit.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/base64.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/BaseHTTPServer.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/bisect.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/builtins/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/builtins/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/calendar.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/certifi/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/certifi/cacert.pem matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/certifi/core.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/certifi/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/certifi/__main__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/cgi.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/CGIHTTPServer.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/big5freq.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/big5prober.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/chardistribution.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/charsetgroupprober.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/charsetprober.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/cli/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/cli/chardetect.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/cli/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/codingstatemachine.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/compat.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/cp949prober.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/enums.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/escprober.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/escsm.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/eucjpprober.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/euckrfreq.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/euckrprober.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/euctwfreq.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/euctwprober.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/gb2312freq.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/gb2312prober.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/hebrewprober.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/jisfreq.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/jpcntx.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/langbulgarianmodel.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/langcyrillicmodel.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/langgreekmodel.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/langhebrewmodel.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/langhungarianmodel.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/langthaimodel.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/langturkishmodel.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/latin1prober.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/mbcharsetprober.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/mbcsgroupprober.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/mbcssm.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/sbcharsetprober.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/sbcsgroupprober.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/sjisprober.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/universaldetector.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/utf8prober.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/version.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chardet/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/chunk.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/cmd.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/codecs.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/collections.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/colorsys.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/commands.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/compileall.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/contextlib.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/Cookie.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/cookielib.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/copy.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/copyreg/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/copyreg/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/copy_reg.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/cProfile.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/ctypes/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/ctypes/macholib/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/ctypes/macholib/dyld.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/ctypes/macholib/dylib.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/ctypes/macholib/framework.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/ctypes/macholib/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/ctypes/util.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/ctypes/wintypes.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/ctypes/_endian.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/ctypes/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/decimal.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/difflib.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/dis.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/dummy_thread.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/dummy_threading.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/email/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/email/base64mime.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/email/charset.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/email/encoders.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/email/errors.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/email/feedparser.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/email/generator.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/email/header.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/email/iterators.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/email/message.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/email/mime/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/email/mime/application.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/email/mime/audio.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/email/mime/base.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/email/mime/image.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/email/mime/message.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/email/mime/multipart.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/email/mime/nonmultipart.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/email/mime/text.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/email/mime/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/email/parser.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/email/quoprimime.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/email/test/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/email/test/test_email.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/email/test/test_email_codecs.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/email/test/test_email_codecs_renamed.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/email/test/test_email_renamed.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/email/test/test_email_torture.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/email/test/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/email/utils.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/email/_parseaddr.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/email/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/encodings/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/encodings/aliases.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/encodings/ascii.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/encodings/base64_codec.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/encodings/cp437.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/encodings/hex_codec.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/encodings/idna.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/encodings/latin_1.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/encodings/mbcs.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/encodings/raw_unicode_escape.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/encodings/string_escape.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/encodings/unicode_escape.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/encodings/utf_16.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/encodings/utf_16_be.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/encodings/utf_16_le.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/encodings/utf_32_be.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/encodings/utf_8.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/encodings/zlib_codec.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/encodings/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/fnmatch.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/ftplib.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/functools.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/datetime.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/email/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/email/base64mime.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/email/charset.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/email/encoders.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/email/errors.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/email/feedparser.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/email/generator.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/email/header.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/email/headerregistry.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/email/iterators.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/email/message.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/email/mime/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/email/mime/application.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/email/mime/audio.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/email/mime/base.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/email/mime/image.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/email/mime/message.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/email/mime/multipart.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/email/mime/nonmultipart.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/email/mime/text.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/email/mime/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/email/parser.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/email/policy.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/email/quoprimime.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/email/utils.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/email/_encoded_words.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/email/_header_value_parser.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/email/_parseaddr.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/email/_policybase.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/email/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/html/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/html/entities.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/html/parser.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/html/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/http/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/http/client.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/http/cookiejar.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/http/cookies.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/http/server.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/http/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/misc.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/socket.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/socketserver.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/test/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/test/badcert.pem matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/test/badkey.pem matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/test/dh512.pem matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/test/https_svn_python_org_root.pem matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/test/keycert.passwd.pem matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/test/keycert.pem matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/test/keycert2.pem matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/test/nokia.pem matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/test/nullbytecert.pem matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/test/nullcert.pem matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/test/pystone.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/test/sha256.pem matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/test/ssl_cert.pem matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/test/ssl_key.passwd.pem matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/test/ssl_key.pem matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/test/ssl_servers.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/test/support.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/test/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/total_ordering.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/urllib/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/urllib/error.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/urllib/parse.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/urllib/request.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/urllib/response.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/urllib/robotparser.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/urllib/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/xmlrpc/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/xmlrpc/client.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/xmlrpc/server.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/xmlrpc/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/_markupbase.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/backports/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/builtins/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/builtins/disabled.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/builtins/iterators.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/builtins/misc.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/builtins/newnext.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/builtins/newround.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/builtins/newsuper.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/builtins/new_min_max.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/builtins/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/builtins.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/collections.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/configparser.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/copyreg.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/dbm/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/dbm/dumb.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/dbm/gnu.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/dbm/ndbm.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/dbm/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/html/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/html/entities.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/html/parser.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/html/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/http/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/http/client.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/http/cookiejar.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/http/cookies.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/http/server.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/http/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/itertools.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/pickle.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/queue.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/reprlib.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/socketserver.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/subprocess.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/sys.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/test/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/test/support.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/test/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/tkinter/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/tkinter/colorchooser.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/tkinter/commondialog.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/tkinter/constants.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/tkinter/dialog.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/tkinter/dnd.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/tkinter/filedialog.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/tkinter/font.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/tkinter/messagebox.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/tkinter/scrolledtext.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/tkinter/simpledialog.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/tkinter/tix.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/tkinter/ttk.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/tkinter/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/urllib/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/urllib/error.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/urllib/parse.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/urllib/request.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/urllib/response.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/urllib/robotparser.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/urllib/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/winreg.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/xmlrpc/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/xmlrpc/client.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/xmlrpc/server.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/xmlrpc/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/_dummy_thread.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/_markupbase.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/_thread.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/moves/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/standard_library/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/standard_library/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/tests/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/tests/base.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/tests/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/types/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/types/newbytes.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/types/newdict.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/types/newint.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/types/newlist.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/types/newmemoryview.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/types/newobject.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/types/newopen.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/types/newrange.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/types/newstr.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/types/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/utils/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/utils/surrogateescape.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/utils/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/future/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/genericpath.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/getopt.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/gettext.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/glob.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/gzip.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/hashlib.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/heapq.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/hmac.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/html/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/html/entities.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/html/parser.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/html/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/http/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/http/client.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/http/cookiejar.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/http/cookies.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/http/server.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/http/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/httplib.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/idna/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/idna/codec.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/idna/compat.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/idna/core.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/idna/idnadata.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/idna/intranges.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/idna/package_data.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/idna/uts46data.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/idna/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/imghdr.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/importlib/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/importlib/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/inspect.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/io.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/iossupport.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/jnius/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/jnius/env.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/jnius/reflect.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/jnius/signatures.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/jnius/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/json/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/json/decoder.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/json/encoder.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/json/scanner.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/json/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/keyword.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/lib-dynload/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/lib-dynload/empty.txt matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/linecache.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/list2cmdline.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/locale.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/logging/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/logging/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/mimetools.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/mimetypes.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/ntpath.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/nturl2path.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/numbers.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/opcode.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/optparse.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/os.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/past/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/past/builtins/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/past/builtins/misc.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/past/builtins/noniterators.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/past/builtins/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/past/translation/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/past/translation/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/past/types/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/past/types/basestring.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/past/types/olddict.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/past/types/oldstr.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/past/types/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/past/utils/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/past/utils/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/past/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pickle.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/platform.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/plistlib.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/posixpath.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pstats.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/codec/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/codec/ber/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/codec/ber/decoder.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/codec/ber/encoder.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/codec/ber/eoo.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/codec/ber/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/codec/cer/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/codec/cer/decoder.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/codec/cer/encoder.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/codec/cer/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/codec/der/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/codec/der/decoder.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/codec/der/encoder.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/codec/der/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/codec/native/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/codec/native/decoder.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/codec/native/encoder.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/codec/native/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/codec/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/compat/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/compat/binary.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/compat/calling.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/compat/dateandtime.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/compat/integer.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/compat/octets.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/compat/string.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/compat/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/debug.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/error.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/type/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/type/base.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/type/char.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/type/constraint.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/type/error.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/type/namedtype.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/type/namedval.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/type/opentype.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/type/tag.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/type/tagmap.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/type/univ.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/type/useful.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/type/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyasn1/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pygame_sdl2/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pygame_sdl2/compat.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pygame_sdl2/sprite.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pygame_sdl2/sysfont.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pygame_sdl2/time.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pygame_sdl2/version.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pygame_sdl2/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyobjus/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyobjus/dylib_manager.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyobjus/objc_py_types.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyobjus/protocols.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/pyobjus/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/py_compile.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/queue/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/queue/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/Queue.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/quopri.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/random.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/re.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/repr.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/reprlib/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/reprlib/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/requests/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/requests/adapters.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/requests/api.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/requests/auth.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/requests/certs.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/requests/compat.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/requests/cookies.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/requests/exceptions.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/requests/help.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/requests/hooks.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/requests/models.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/requests/packages.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/requests/sessions.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/requests/status_codes.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/requests/structures.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/requests/utils.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/requests/_internal_utils.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/requests/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/requests/__version__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/rfc822.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/rsa/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/rsa/asn1.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/rsa/bigfile.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/rsa/cli.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/rsa/common.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/rsa/core.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/rsa/key.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/rsa/parallel.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/rsa/pem.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/rsa/pkcs1.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/rsa/prime.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/rsa/randnum.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/rsa/transform.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/rsa/util.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/rsa/varblock.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/rsa/_compat.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/rsa/_version133.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/rsa/_version200.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/rsa/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/shlex.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/shutil.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/SimpleHTTPServer.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/site.py matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/site.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/six.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/socket.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/socketserver/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/socketserver/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/SocketServer.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/sre_compile.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/sre_constants.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/sre_parse.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/ssl.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/stat.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/string.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/StringIO.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/stringprep.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/struct.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/subprocess.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/sunau.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/tarfile.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/tempfile.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/textwrap.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/threading.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/token.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/tokenize.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/traceback.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/types.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib2.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/connection.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/connectionpool.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/contrib/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/contrib/appengine.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/contrib/ntlmpool.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/contrib/pyopenssl.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/contrib/securetransport.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/contrib/socks.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/contrib/_securetransport/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/contrib/_securetransport/bindings.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/contrib/_securetransport/low_level.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/contrib/_securetransport/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/contrib/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/exceptions.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/fields.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/filepost.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/packages/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/packages/backports/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/packages/backports/makefile.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/packages/backports/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/packages/ordered_dict.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/packages/six.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/packages/ssl_match_hostname/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/packages/ssl_match_hostname/_implementation.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/packages/ssl_match_hostname/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/packages/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/poolmanager.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/request.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/response.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/util/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/util/connection.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/util/request.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/util/response.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/util/retry.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/util/selectors.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/util/ssl_.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/util/timeout.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/util/url.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/util/wait.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/util/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/_collections.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urllib3/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/urlparse.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/UserDict.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/UserList.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/UserString.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/uu.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/uuid.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/warnings.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/wave.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/weakref.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/webbrowser.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/winreg/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/winreg/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/xml/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/xml/etree/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/xml/etree/ElementPath.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/xml/etree/ElementTree.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/xml/etree/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/xml/parsers/ matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/xml/parsers/expat.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/xml/parsers/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/xml/__init__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/zipfile.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/_abcoll.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/_LWPCookieJar.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/_MozillaCookieJar.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/_strptime.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/_threading_local.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/_weakrefset.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/python2.7/__future__.pyo matches lib/** ([u'windows', u'linux', u'mac', u'android', u'ios']).
+lib/windows-i686/ matches lib/windows-i686/** ([u'windows_i686']).
+lib/windows-i686/d3dcompiler_47.dll matches lib/windows-i686/** ([u'windows_i686']).
+lib/windows-i686/libEGL.dll matches lib/windows-i686/** ([u'windows_i686']).
+lib/windows-i686/libgcc_s_sjlj-1.dll matches lib/windows-i686/** ([u'windows_i686']).
+lib/windows-i686/libGLESv2.dll matches lib/windows-i686/** ([u'windows_i686']).
+lib/windows-i686/libpython2.7.dll matches lib/windows-i686/** ([u'windows_i686']).
+lib/windows-i686/librenpython.dll matches lib/windows-i686/** ([u'windows_i686']).
+lib/windows-i686/libwinpthread-1.dll matches lib/windows-i686/** ([u'windows_i686']).
+lib/windows-i686/nvdrs.dll matches lib/windows-i686/** ([u'windows_i686']).
+lib/windows-i686/python.exe matches lib/windows-i686/** ([u'windows_i686']).
+lib/windows-i686/pythonw.exe matches lib/*/pythonw.exe (None).
+lib/windows-i686/renpy.exe matches lib/*/renpy.exe (None).
+lib/windows-i686/say.vbs matches lib/windows-i686/** ([u'windows_i686']).
+lib/windows-i686/zsync.exe matches lib/windows-i686/** ([u'windows_i686']).
+lib/windows-i686/zsyncmake.exe matches lib/windows-i686/** ([u'windows_i686']).
+lib/windows-x86_64/ matches lib/windows-x86_64/** ([u'windows']).
+lib/windows-x86_64/d3dcompiler_47.dll matches lib/windows-x86_64/** ([u'windows']).
+lib/windows-x86_64/libEGL.dll matches lib/windows-x86_64/** ([u'windows']).
+lib/windows-x86_64/libGLESv2.dll matches lib/windows-x86_64/** ([u'windows']).
+lib/windows-x86_64/libpython2.7.dll matches lib/windows-x86_64/** ([u'windows']).
+lib/windows-x86_64/librenpython.dll matches lib/windows-x86_64/** ([u'windows']).
+lib/windows-x86_64/nvdrs.dll matches lib/windows-x86_64/** ([u'windows']).
+lib/windows-x86_64/python.exe matches lib/windows-x86_64/** ([u'windows']).
+lib/windows-x86_64/pythonw.exe matches lib/*/pythonw.exe (None).
+lib/windows-x86_64/renpy.exe matches lib/*/renpy.exe (None).
+lib/windows-x86_64/say.vbs matches lib/windows-x86_64/** ([u'windows']).
+lib/windows-x86_64/zsync.exe matches lib/windows-x86_64/** ([u'windows']).
+lib/windows-x86_64/zsyncmake.exe matches lib/windows-x86_64/** ([u'windows']).
+LICENSE.txt doesn't match anything.
+LICENSE.txt matches None (None).
+log.txt doesn't match anything.
+log.txt matches None (None).
+module/ doesn't match anything.
+module/ matches None (None).
+renpy/ matches renpy/ ([u'all']).
+renpy/add_from.py matches renpy/**.py ([u'renpy']).
+renpy/add_from.pyo matches renpy/** ([u'all']).
+renpy/angle/ matches renpy/** ([u'all']).
+renpy/angle/__init__.pyo matches renpy/** ([u'all']).
+renpy/arguments.py matches renpy/**.py ([u'renpy']).
+renpy/arguments.pyo matches renpy/** ([u'all']).
+renpy/ast.py matches renpy/**.py ([u'renpy']).
+renpy/ast.pyo matches renpy/** ([u'all']).
+renpy/atl.py matches renpy/**.py ([u'renpy']).
+renpy/atl.pyo matches renpy/** ([u'all']).
+renpy/audio/ matches renpy/** ([u'all']).
+renpy/audio/androidhw.py matches renpy/**.py ([u'renpy']).
+renpy/audio/androidhw.pyo matches renpy/** ([u'all']).
+renpy/audio/audio.py matches renpy/**.py ([u'renpy']).
+renpy/audio/audio.pyo matches renpy/** ([u'all']).
+renpy/audio/ioshw.py matches renpy/**.py ([u'renpy']).
+renpy/audio/ioshw.pyo matches renpy/** ([u'all']).
+renpy/audio/music.py matches renpy/**.py ([u'renpy']).
+renpy/audio/music.pyo matches renpy/** ([u'all']).
+renpy/audio/renpysound.pyx matches renpy/**.pyx ([u'renpy']).
+renpy/audio/sound.py matches renpy/**.py ([u'renpy']).
+renpy/audio/sound.pyo matches renpy/** ([u'all']).
+renpy/audio/webaudio.py matches renpy/**.py ([u'renpy']).
+renpy/audio/webaudio.pyo matches renpy/** ([u'all']).
+renpy/audio/__init__.py matches renpy/**.py ([u'renpy']).
+renpy/audio/__init__.pyo matches renpy/** ([u'all']).
+renpy/audio/__pycache__/ matches renpy/** ([u'all']).
+renpy/bootstrap.py matches renpy/**.py ([u'renpy']).
+renpy/bootstrap.pyo matches renpy/** ([u'all']).
+renpy/character.py matches renpy/**.py ([u'renpy']).
+renpy/character.pyo matches renpy/** ([u'all']).
+renpy/color.py matches renpy/**.py ([u'renpy']).
+renpy/color.pyo matches renpy/** ([u'all']).
+renpy/common/ matches renpy/common/ ([u'all']).
+renpy/common/000atl.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/000atl.rpyc matches renpy/common/** ([u'all']).
+renpy/common/000namespaces.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/000namespaces.rpyc matches renpy/common/** ([u'all']).
+renpy/common/000statements.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/000statements.rpyc matches renpy/common/** ([u'all']).
+renpy/common/000window.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/000window.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00accessibility.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00accessibility.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00achievement.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00achievement.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00action_audio.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00action_audio.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00action_control.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00action_control.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00action_data.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00action_data.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00action_file.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00action_file.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00action_menu.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00action_menu.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00action_other.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00action_other.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00audio.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00audio.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00barvalues.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00barvalues.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00build.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00build.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00compat.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00compat.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00console.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00console.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00defaults.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00defaults.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00definitions.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00definitions.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00director.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00director.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00gallery.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00gallery.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00gamemenu.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00gamemenu.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00gamepad.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00gamepad.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00gltest.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00gltest.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00gui.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00gui.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00iap.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00iap.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00icon.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00icon.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00iconbutton.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00iconbutton.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00images.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00images.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00inputvalues.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00inputvalues.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00keymap.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00keymap.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00layeredimage.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00layeredimage.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00layout.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00layout.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00library.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00library.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00matrixcolor.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00matrixcolor.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00matrixtransform.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00matrixtransform.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00mixers.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00mixers.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00mousedisplayable.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00mousedisplayable.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00musicroom.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00musicroom.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00nvl_mode.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00nvl_mode.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00obsolete.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00obsolete.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00performance.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00performance.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00placeholder.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00placeholder.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00preferences.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00preferences.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00shaders.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00shaders.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00sideimage.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00sideimage.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00splines.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00splines.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00start.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00start.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00style.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00style.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00stylepreferences.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00stylepreferences.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00themes.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00themes.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00touchkeyboard.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00touchkeyboard.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00updater.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00updater.rpyc matches renpy/common/** ([u'all']).
+renpy/common/00voice.rpy matches renpy/common/**.rpy ([u'renpy']).
+renpy/common/00voice.rpyc matches renpy/common/** ([u'all']).
+renpy/common/blindstile.png matches renpy/common/** ([u'all']).
+renpy/common/DejaVuSans-Bold.ttf matches renpy/common/** ([u'all']).
+renpy/common/DejaVuSans.ttf matches renpy/common/** ([u'all']).
+renpy/common/DejaVuSans.txt matches renpy/common/** ([u'all']).
+renpy/common/gamecontrollerdb.txt matches renpy/common/** ([u'all']).
+renpy/common/squarestile.png matches renpy/common/** ([u'all']).
+renpy/common/_audio.js matches renpy/common/** ([u'all']).
+renpy/common/_compat/ matches renpy/common/_compat/** ([u'renpy']).
+renpy/common/_compat/gamemenu.rpym matches renpy/common/_compat/** (None).
+renpy/common/_compat/gamemenu.rpymc matches renpy/common/_compat/** (None).
+renpy/common/_compat/library.rpym matches renpy/common/_compat/** (None).
+renpy/common/_compat/library.rpymc matches renpy/common/_compat/** (None).
+renpy/common/_compat/mainmenu.rpym matches renpy/common/_compat/** (None).
+renpy/common/_compat/mainmenu.rpymc matches renpy/common/_compat/** (None).
+renpy/common/_compat/preferences.rpym matches renpy/common/_compat/** (None).
+renpy/common/_compat/preferences.rpymc matches renpy/common/_compat/** (None).
+renpy/common/_compat/styles.rpym matches renpy/common/_compat/** (None).
+renpy/common/_compat/styles.rpymc matches renpy/common/_compat/** (None).
+renpy/common/_compat/themes.rpym matches renpy/common/_compat/** (None).
+renpy/common/_compat/themes.rpymc matches renpy/common/_compat/** (None).
+renpy/common/_developer/ matches renpy/common/** ([u'all']).
+renpy/common/_developer/developer.rpym matches renpy/common/**.rpym ([u'renpy']).
+renpy/common/_developer/developer.rpymc matches renpy/common/** ([u'all']).
+renpy/common/_developer/inspector.rpym matches renpy/common/**.rpym ([u'renpy']).
+renpy/common/_developer/inspector.rpymc matches renpy/common/** ([u'all']).
+renpy/common/_developer.rpymc matches renpy/common/** ([u'all']).
+renpy/common/_dl_silence.ogg matches renpy/common/** ([u'all']).
+renpy/common/_errorhandling.rpym matches renpy/common/**.rpym ([u'renpy']).
+renpy/common/_errorhandling.rpymc matches renpy/common/** ([u'all']).
+renpy/common/_layout/ matches renpy/common/** ([u'all']).
+renpy/common/_layout/classic_joystick_preferences.rpym matches renpy/common/**.rpym ([u'renpy']).
+renpy/common/_layout/classic_joystick_preferences.rpymc matches renpy/common/** ([u'all']).
+renpy/common/_layout/classic_load_save.rpym matches renpy/common/**.rpym ([u'renpy']).
+renpy/common/_layout/classic_load_save.rpymc matches renpy/common/** ([u'all']).
+renpy/common/_layout/classic_main_menu.rpym matches renpy/common/**.rpym ([u'renpy']).
+renpy/common/_layout/classic_main_menu.rpymc matches renpy/common/** ([u'all']).
+renpy/common/_layout/classic_navigation.rpym matches renpy/common/**.rpym ([u'renpy']).
+renpy/common/_layout/classic_navigation.rpymc matches renpy/common/** ([u'all']).
+renpy/common/_layout/classic_preferences.rpym matches renpy/common/**.rpym ([u'renpy']).
+renpy/common/_layout/classic_preferences.rpymc matches renpy/common/** ([u'all']).
+renpy/common/_layout/classic_preferences_common.rpym matches renpy/common/**.rpym ([u'renpy']).
+renpy/common/_layout/classic_preferences_common.rpymc matches renpy/common/** ([u'all']).
+renpy/common/_layout/classic_yesno_prompt.rpym matches renpy/common/**.rpym ([u'renpy']).
+renpy/common/_layout/classic_yesno_prompt.rpymc matches renpy/common/** ([u'all']).
+renpy/common/_layout/grouped_main_menu.rpym matches renpy/common/**.rpym ([u'renpy']).
+renpy/common/_layout/grouped_navigation.rpym matches renpy/common/**.rpym ([u'renpy']).
+renpy/common/_layout/imagemap_common.rpym matches renpy/common/**.rpym ([u'renpy']).
+renpy/common/_layout/imagemap_common.rpymc matches renpy/common/** ([u'all']).
+renpy/common/_layout/imagemap_load_save.rpym matches renpy/common/**.rpym ([u'renpy']).
+renpy/common/_layout/imagemap_load_save.rpymc matches renpy/common/** ([u'all']).
+renpy/common/_layout/imagemap_main_menu.rpym matches renpy/common/**.rpym ([u'renpy']).
+renpy/common/_layout/imagemap_main_menu.rpymc matches renpy/common/** ([u'all']).
+renpy/common/_layout/imagemap_navigation.rpym matches renpy/common/**.rpym ([u'renpy']).
+renpy/common/_layout/imagemap_navigation.rpymc matches renpy/common/** ([u'all']).
+renpy/common/_layout/imagemap_preferences.rpym matches renpy/common/**.rpym ([u'renpy']).
+renpy/common/_layout/imagemap_preferences.rpymc matches renpy/common/** ([u'all']).
+renpy/common/_layout/imagemap_yesno_prompt.rpym matches renpy/common/**.rpym ([u'renpy']).
+renpy/common/_layout/imagemap_yesno_prompt.rpymc matches renpy/common/** ([u'all']).
+renpy/common/_layout/one_column_preferences.rpym matches renpy/common/**.rpym ([u'renpy']).
+renpy/common/_layout/screen_joystick_preferences.rpym matches renpy/common/**.rpym ([u'renpy']).
+renpy/common/_layout/screen_joystick_preferences.rpymc matches renpy/common/** ([u'all']).
+renpy/common/_layout/screen_load_save.rpym matches renpy/common/**.rpym ([u'renpy']).
+renpy/common/_layout/screen_load_save.rpymc matches renpy/common/** ([u'all']).
+renpy/common/_layout/screen_main_menu.rpym matches renpy/common/**.rpym ([u'renpy']).
+renpy/common/_layout/screen_main_menu.rpymc matches renpy/common/** ([u'all']).
+renpy/common/_layout/screen_preferences.rpym matches renpy/common/**.rpym ([u'renpy']).
+renpy/common/_layout/screen_preferences.rpymc matches renpy/common/** ([u'all']).
+renpy/common/_layout/screen_yesno_prompt.rpym matches renpy/common/**.rpym ([u'renpy']).
+renpy/common/_layout/screen_yesno_prompt.rpymc matches renpy/common/** ([u'all']).
+renpy/common/_layout/scrolling_load_save.rpym matches renpy/common/**.rpym ([u'renpy']).
+renpy/common/_layout/scrolling_load_save.rpymc matches renpy/common/** ([u'all']).
+renpy/common/_layout/two_column_preferences.rpym matches renpy/common/**.rpym ([u'renpy']).
+renpy/common/_layout/two_column_preferences.rpymc matches renpy/common/** ([u'all']).
+renpy/common/_missing_image.png matches renpy/common/** ([u'all']).
+renpy/common/_OpenDyslexic3-Regular.ttf matches renpy/common/** ([u'all']).
+renpy/common/_OpenDyslexic3-Regular.txt matches renpy/common/** ([u'all']).
+renpy/common/_outline/ matches renpy/common/** ([u'all']).
+renpy/common/_outline/bar.png matches renpy/common/_outline/** (None).
+renpy/common/_outline/circle.png matches renpy/common/_outline/** (None).
+renpy/common/_outline/vbar.png matches renpy/common/_outline/** (None).
+renpy/common/_placeholder/ matches renpy/common/** ([u'all']).
+renpy/common/_placeholder/boy.png matches renpy/common/** ([u'all']).
+renpy/common/_placeholder/girl.png matches renpy/common/** ([u'all']).
+renpy/common/_roundrect/ matches renpy/common/** ([u'all']).
+renpy/common/_roundrect/rr12.png matches renpy/common/_roundrect/** (None).
+renpy/common/_roundrect/rr12g.png matches renpy/common/_roundrect/** (None).
+renpy/common/_roundrect/rr6.png matches renpy/common/_roundrect/** (None).
+renpy/common/_roundrect/rr6g.png matches renpy/common/_roundrect/** (None).
+renpy/common/_roundrect/rrscrollbar.png matches renpy/common/_roundrect/** (None).
+renpy/common/_roundrect/rrscrollbar_thumb.png matches renpy/common/_roundrect/** (None).
+renpy/common/_roundrect/rrslider_empty.png matches renpy/common/_roundrect/** (None).
+renpy/common/_roundrect/rrslider_full.png matches renpy/common/_roundrect/** (None).
+renpy/common/_roundrect/rrslider_thumb.png matches renpy/common/_roundrect/** (None).
+renpy/common/_roundrect/rrvscrollbar.png matches renpy/common/_roundrect/** (None).
+renpy/common/_roundrect/rrvscrollbar_thumb.png matches renpy/common/_roundrect/** (None).
+renpy/common/_roundrect/rrvslider_empty.png matches renpy/common/_roundrect/** (None).
+renpy/common/_roundrect/rrvslider_full.png matches renpy/common/_roundrect/** (None).
+renpy/common/_roundrect/rrvslider_thumb.png matches renpy/common/_roundrect/** (None).
+renpy/common/_shaders.rpym matches renpy/common/**.rpym ([u'renpy']).
+renpy/common/_shaders.rpymc matches renpy/common/** ([u'all']).
+renpy/common/_silence.ogg matches renpy/common/** ([u'all']).
+renpy/common/_theme_amie2/ matches renpy/common/_theme** (None).
+renpy/common/_theme_austen/ matches renpy/common/_theme** (None).
+renpy/common/_theme_awt/ matches renpy/common/_theme** (None).
+renpy/common/_theme_bordered/ matches renpy/common/_theme** (None).
+renpy/common/_theme_crayon/ matches renpy/common/_theme** (None).
+renpy/common/_theme_diamond/ matches renpy/common/_theme** (None).
+renpy/common/_theme_glow/ matches renpy/common/_theme** (None).
+renpy/common/_theme_marker/ matches renpy/common/_theme** (None).
+renpy/common/_theme_regal/ matches renpy/common/_theme** (None).
+renpy/common/_theme_threeD/ matches renpy/common/_theme** (None).
+renpy/common/_theme_tv/ matches renpy/common/_theme** (None).
+renpy/common/_transparent_tile.png matches renpy/common/** ([u'all']).
+renpy/common/_tv_unsafe.png matches renpy/common/** ([u'all']).
+renpy/compat/ matches renpy/** ([u'all']).
+renpy/compat/dictviews.pyx matches renpy/**.pyx ([u'renpy']).
+renpy/compat/pickle.py matches renpy/**.py ([u'renpy']).
+renpy/compat/pickle.pyo matches renpy/** ([u'all']).
+renpy/compat/__init__.py matches renpy/**.py ([u'renpy']).
+renpy/compat/__init__.pyo matches renpy/** ([u'all']).
+renpy/compat/__pycache__/ matches renpy/** ([u'all']).
+renpy/config.py matches renpy/**.py ([u'renpy']).
+renpy/config.pyo matches renpy/** ([u'all']).
+renpy/curry.py matches renpy/**.py ([u'renpy']).
+renpy/curry.pyo matches renpy/** ([u'all']).
+renpy/debug.py matches renpy/**.py ([u'renpy']).
+renpy/debug.pyo matches renpy/** ([u'all']).
+renpy/defaultstore.py matches renpy/**.py ([u'renpy']).
+renpy/defaultstore.pyo matches renpy/** ([u'all']).
+renpy/display/ matches renpy/** ([u'all']).
+renpy/display/accelerator.pyx matches renpy/**.pyx ([u'renpy']).
+renpy/display/anim.py matches renpy/**.py ([u'renpy']).
+renpy/display/anim.pyo matches renpy/** ([u'all']).
+renpy/display/behavior.py matches renpy/**.py ([u'renpy']).
+renpy/display/behavior.pyo matches renpy/** ([u'all']).
+renpy/display/controller.py matches renpy/**.py ([u'renpy']).
+renpy/display/controller.pyo matches renpy/** ([u'all']).
+renpy/display/core.py matches renpy/**.py ([u'renpy']).
+renpy/display/core.pyo matches renpy/** ([u'all']).
+renpy/display/dragdrop.py matches renpy/**.py ([u'renpy']).
+renpy/display/dragdrop.pyo matches renpy/** ([u'all']).
+renpy/display/emulator.py matches renpy/**.py ([u'renpy']).
+renpy/display/emulator.pyo matches renpy/** ([u'all']).
+renpy/display/error.py matches renpy/**.py ([u'renpy']).
+renpy/display/error.pyo matches renpy/** ([u'all']).
+renpy/display/focus.py matches renpy/**.py ([u'renpy']).
+renpy/display/focus.pyo matches renpy/** ([u'all']).
+renpy/display/gesture.py matches renpy/**.py ([u'renpy']).
+renpy/display/gesture.pyo matches renpy/** ([u'all']).
+renpy/display/im.py matches renpy/**.py ([u'renpy']).
+renpy/display/im.pyo matches renpy/** ([u'all']).
+renpy/display/image.py matches renpy/**.py ([u'renpy']).
+renpy/display/image.pyo matches renpy/** ([u'all']).
+renpy/display/imagelike.py matches renpy/**.py ([u'renpy']).
+renpy/display/imagelike.pyo matches renpy/** ([u'all']).
+renpy/display/imagemap.py matches renpy/**.py ([u'renpy']).
+renpy/display/imagemap.pyo matches renpy/** ([u'all']).
+renpy/display/joystick.py matches renpy/**.py ([u'renpy']).
+renpy/display/joystick.pyo matches renpy/** ([u'all']).
+renpy/display/layout.py matches renpy/**.py ([u'renpy']).
+renpy/display/layout.pyo matches renpy/** ([u'all']).
+renpy/display/matrix.pxd matches renpy/** ([u'all']).
+renpy/display/matrix.pyx matches renpy/**.pyx ([u'renpy']).
+renpy/display/matrix_functions.pxi matches renpy/**.pxi ([u'renpy']).
+renpy/display/minigame.py matches renpy/**.py ([u'renpy']).
+renpy/display/minigame.pyo matches renpy/** ([u'all']).
+renpy/display/model.py matches renpy/**.py ([u'renpy']).
+renpy/display/model.pyo matches renpy/** ([u'all']).
+renpy/display/module.py matches renpy/**.py ([u'renpy']).
+renpy/display/module.pyo matches renpy/** ([u'all']).
+renpy/display/motion.py matches renpy/**.py ([u'renpy']).
+renpy/display/motion.pyo matches renpy/** ([u'all']).
+renpy/display/movetransition.py matches renpy/**.py ([u'renpy']).
+renpy/display/movetransition.pyo matches renpy/** ([u'all']).
+renpy/display/particle.py matches renpy/**.py ([u'renpy']).
+renpy/display/particle.pyo matches renpy/** ([u'all']).
+renpy/display/pgrender.py matches renpy/**.py ([u'renpy']).
+renpy/display/pgrender.pyo matches renpy/** ([u'all']).
+renpy/display/predict.py matches renpy/**.py ([u'renpy']).
+renpy/display/predict.pyo matches renpy/** ([u'all']).
+renpy/display/presplash.py matches renpy/**.py ([u'renpy']).
+renpy/display/presplash.pyo matches renpy/** ([u'all']).
+renpy/display/render.pxd matches renpy/** ([u'all']).
+renpy/display/render.pyx matches renpy/**.pyx ([u'renpy']).
+renpy/display/scale.py matches renpy/**.py ([u'renpy']).
+renpy/display/scale.pyo matches renpy/** ([u'all']).
+renpy/display/screen.py matches renpy/**.py ([u'renpy']).
+renpy/display/screen.pyo matches renpy/** ([u'all']).
+renpy/display/swdraw.py matches renpy/**.py ([u'renpy']).
+renpy/display/swdraw.pyo matches renpy/** ([u'all']).
+renpy/display/transform.py matches renpy/**.py ([u'renpy']).
+renpy/display/transform.pyo matches renpy/** ([u'all']).
+renpy/display/transition.py matches renpy/**.py ([u'renpy']).
+renpy/display/transition.pyo matches renpy/** ([u'all']).
+renpy/display/tts.py matches renpy/**.py ([u'renpy']).
+renpy/display/tts.pyo matches renpy/** ([u'all']).
+renpy/display/video.py matches renpy/**.py ([u'renpy']).
+renpy/display/video.pyo matches renpy/** ([u'all']).
+renpy/display/viewport.py matches renpy/**.py ([u'renpy']).
+renpy/display/viewport.pyo matches renpy/** ([u'all']).
+renpy/display/__init__.py matches renpy/**.py ([u'renpy']).
+renpy/display/__init__.pyo matches renpy/** ([u'all']).
+renpy/display/__pycache__/ matches renpy/** ([u'all']).
+renpy/dump.py matches renpy/**.py ([u'renpy']).
+renpy/dump.pyo matches renpy/** ([u'all']).
+renpy/easy.py matches renpy/**.py ([u'renpy']).
+renpy/easy.pyo matches renpy/** ([u'all']).
+renpy/editor.py matches renpy/**.py ([u'renpy']).
+renpy/editor.pyo matches renpy/** ([u'all']).
+renpy/error.py matches renpy/**.py ([u'renpy']).
+renpy/error.pyo matches renpy/** ([u'all']).
+renpy/execution.py matches renpy/**.py ([u'renpy']).
+renpy/execution.pyo matches renpy/** ([u'all']).
+renpy/exports.py matches renpy/**.py ([u'renpy']).
+renpy/exports.pyo matches renpy/** ([u'all']).
+renpy/game.py matches renpy/**.py ([u'renpy']).
+renpy/game.pyo matches renpy/** ([u'all']).
+renpy/gl/ matches renpy/** ([u'all']).
+renpy/gl/gldraw.pxd matches renpy/** ([u'all']).
+renpy/gl/gldraw.pyx matches renpy/**.pyx ([u'renpy']).
+renpy/gl/glenviron_shader.pyx matches renpy/**.pyx ([u'renpy']).
+renpy/gl/glfunctions.py matches renpy/**.py ([u'renpy']).
+renpy/gl/glfunctions.pyo matches renpy/** ([u'all']).
+renpy/gl/glrtt_copy.pyx matches renpy/**.pyx ([u'renpy']).
+renpy/gl/glrtt_fbo.pyx matches renpy/**.pyx ([u'renpy']).
+renpy/gl/gltexture.pxd matches renpy/** ([u'all']).
+renpy/gl/gltexture.pyx matches renpy/**.pyx ([u'renpy']).
+renpy/gl/__init__.py matches renpy/**.py ([u'renpy']).
+renpy/gl/__init__.pyo matches renpy/** ([u'all']).
+renpy/gl/__pycache__/ matches renpy/** ([u'all']).
+renpy/gl2/ matches renpy/** ([u'all']).
+renpy/gl2/gl2debug.py matches renpy/**.py ([u'renpy']).
+renpy/gl2/gl2debug.pyo matches renpy/** ([u'all']).
+renpy/gl2/gl2draw.pxd matches renpy/** ([u'all']).
+renpy/gl2/gl2draw.pyx matches renpy/**.pyx ([u'renpy']).
+renpy/gl2/gl2functions.py matches renpy/**.py ([u'renpy']).
+renpy/gl2/gl2functions.pyo matches renpy/** ([u'all']).
+renpy/gl2/gl2mesh.pxd matches renpy/** ([u'all']).
+renpy/gl2/gl2mesh.pyx matches renpy/**.pyx ([u'renpy']).
+renpy/gl2/gl2mesh2.pxd matches renpy/** ([u'all']).
+renpy/gl2/gl2mesh2.pyx matches renpy/**.pyx ([u'renpy']).
+renpy/gl2/gl2mesh3.pxd matches renpy/** ([u'all']).
+renpy/gl2/gl2mesh3.pyx matches renpy/**.pyx ([u'renpy']).
+renpy/gl2/gl2model.pxd matches renpy/** ([u'all']).
+renpy/gl2/gl2model.pyx matches renpy/**.pyx ([u'renpy']).
+renpy/gl2/gl2polygon.pxd matches renpy/** ([u'all']).
+renpy/gl2/gl2polygon.pyx matches renpy/**.pyx ([u'renpy']).
+renpy/gl2/gl2shader.pxd matches renpy/** ([u'all']).
+renpy/gl2/gl2shader.pyx matches renpy/**.pyx ([u'renpy']).
+renpy/gl2/gl2shadercache.py matches renpy/**.py ([u'renpy']).
+renpy/gl2/gl2shadercache.pyo matches renpy/** ([u'all']).
+renpy/gl2/gl2texture.pxd matches renpy/** ([u'all']).
+renpy/gl2/gl2texture.pyx matches renpy/**.pyx ([u'renpy']).
+renpy/gl2/live2d.py matches renpy/**.py ([u'renpy']).
+renpy/gl2/live2d.pyo matches renpy/** ([u'all']).
+renpy/gl2/live2dcsm.pxi matches renpy/**.pxi ([u'renpy']).
+renpy/gl2/live2dmodel.pyx matches renpy/**.pyx ([u'renpy']).
+renpy/gl2/live2dmotion.py matches renpy/**.py ([u'renpy']).
+renpy/gl2/live2dmotion.pyo matches renpy/** ([u'all']).
+renpy/gl2/__init__.py matches renpy/**.py ([u'renpy']).
+renpy/gl2/__init__.pyo matches renpy/** ([u'all']).
+renpy/gl2/__pycache__/ matches renpy/** ([u'all']).
+renpy/lint.py matches renpy/**.py ([u'renpy']).
+renpy/lint.pyo matches renpy/** ([u'all']).
+renpy/loader.py matches renpy/**.py ([u'renpy']).
+renpy/loader.pyo matches renpy/** ([u'all']).
+renpy/loadsave.py matches renpy/**.py ([u'renpy']).
+renpy/loadsave.pyo matches renpy/** ([u'all']).
+renpy/log.py matches renpy/**.py ([u'renpy']).
+renpy/log.pyo matches renpy/** ([u'all']).
+renpy/main.py matches renpy/**.py ([u'renpy']).
+renpy/main.pyo matches renpy/** ([u'all']).
+renpy/memory.py matches renpy/**.py ([u'renpy']).
+renpy/memory.pyo matches renpy/** ([u'all']).
+renpy/minstore.py matches renpy/**.py ([u'renpy']).
+renpy/minstore.pyo matches renpy/** ([u'all']).
+renpy/object.py matches renpy/**.py ([u'renpy']).
+renpy/object.pyo matches renpy/** ([u'all']).
+renpy/parser.py matches renpy/**.py ([u'renpy']).
+renpy/parser.pyo matches renpy/** ([u'all']).
+renpy/parsersupport.pyx matches renpy/**.pyx ([u'renpy']).
+renpy/performance.py matches renpy/**.py ([u'renpy']).
+renpy/performance.pyo matches renpy/** ([u'all']).
+renpy/persistent.py matches renpy/**.py ([u'renpy']).
+renpy/persistent.pyo matches renpy/** ([u'all']).
+renpy/preferences.py matches renpy/**.py ([u'renpy']).
+renpy/preferences.pyo matches renpy/** ([u'all']).
+renpy/pyanalysis.py matches renpy/**.py ([u'renpy']).
+renpy/pyanalysis.pyo matches renpy/** ([u'all']).
+renpy/pydict.pyx matches renpy/**.pyx ([u'renpy']).
+renpy/python.py matches renpy/**.py ([u'renpy']).
+renpy/python.pyo matches renpy/** ([u'all']).
+renpy/savelocation.py matches renpy/**.py ([u'renpy']).
+renpy/savelocation.pyo matches renpy/** ([u'all']).
+renpy/screenlang.py matches renpy/**.py ([u'renpy']).
+renpy/screenlang.pyo matches renpy/** ([u'all']).
+renpy/script.py matches renpy/**.py ([u'renpy']).
+renpy/script.pyo matches renpy/** ([u'all']).
+renpy/scriptedit.py matches renpy/**.py ([u'renpy']).
+renpy/scriptedit.pyo matches renpy/** ([u'all']).
+renpy/six.py matches renpy/**.py ([u'renpy']).
+renpy/six.pyo matches renpy/** ([u'all']).
+renpy/sl2/ matches renpy/** ([u'all']).
+renpy/sl2/slast.py matches renpy/**.py ([u'renpy']).
+renpy/sl2/slast.pyo matches renpy/** ([u'all']).
+renpy/sl2/sldisplayables.py matches renpy/**.py ([u'renpy']).
+renpy/sl2/sldisplayables.pyo matches renpy/** ([u'all']).
+renpy/sl2/slparser.py matches renpy/**.py ([u'renpy']).
+renpy/sl2/slparser.pyo matches renpy/** ([u'all']).
+renpy/sl2/slproperties.py matches renpy/**.py ([u'renpy']).
+renpy/sl2/slproperties.pyo matches renpy/** ([u'all']).
+renpy/sl2/__init__.py matches renpy/**.py ([u'renpy']).
+renpy/sl2/__init__.pyo matches renpy/** ([u'all']).
+renpy/sl2/__pycache__/ matches renpy/** ([u'all']).
+renpy/statements.py matches renpy/**.py ([u'renpy']).
+renpy/statements.pyo matches renpy/** ([u'all']).
+renpy/style.pxd matches renpy/** ([u'all']).
+renpy/style.pyx matches renpy/**.pyx ([u'renpy']).
+renpy/styledata/ matches renpy/** ([u'all']).
+renpy/styledata/styleclass.pyx matches renpy/**.pyx ([u'renpy']).
+renpy/styledata/stylesets.pyx matches renpy/**.pyx ([u'renpy']).
+renpy/styledata/styleutil.py matches renpy/**.py ([u'renpy']).
+renpy/styledata/styleutil.pyo matches renpy/** ([u'all']).
+renpy/styledata/__init__.py matches renpy/**.py ([u'renpy']).
+renpy/styledata/__init__.pyo matches renpy/** ([u'all']).
+renpy/styledata/__pycache__/ matches renpy/** ([u'all']).
+renpy/substitutions.py matches renpy/**.py ([u'renpy']).
+renpy/substitutions.pyo matches renpy/** ([u'all']).
+renpy/test/ matches renpy/** ([u'all']).
+renpy/test/testast.py matches renpy/**.py ([u'renpy']).
+renpy/test/testast.pyo matches renpy/** ([u'all']).
+renpy/test/testexecution.py matches renpy/**.py ([u'renpy']).
+renpy/test/testexecution.pyo matches renpy/** ([u'all']).
+renpy/test/testfocus.py matches renpy/**.py ([u'renpy']).
+renpy/test/testfocus.pyo matches renpy/** ([u'all']).
+renpy/test/testkey.py matches renpy/**.py ([u'renpy']).
+renpy/test/testkey.pyo matches renpy/** ([u'all']).
+renpy/test/testmouse.py matches renpy/**.py ([u'renpy']).
+renpy/test/testmouse.pyo matches renpy/** ([u'all']).
+renpy/test/testparser.py matches renpy/**.py ([u'renpy']).
+renpy/test/testparser.pyo matches renpy/** ([u'all']).
+renpy/test/__init__.py matches renpy/**.py ([u'renpy']).
+renpy/test/__init__.pyo matches renpy/** ([u'all']).
+renpy/test/__pycache__/ matches renpy/** ([u'all']).
+renpy/text/ matches renpy/** ([u'all']).
+renpy/text/extras.py matches renpy/**.py ([u'renpy']).
+renpy/text/extras.pyo matches renpy/** ([u'all']).
+renpy/text/font.py matches renpy/**.py ([u'renpy']).
+renpy/text/font.pyo matches renpy/** ([u'all']).
+renpy/text/ftfont.pyx matches renpy/**.pyx ([u'renpy']).
+renpy/text/linebreak.pxi matches renpy/**.pxi ([u'renpy']).
+renpy/text/text.py matches renpy/**.py ([u'renpy']).
+renpy/text/text.pyo matches renpy/** ([u'all']).
+renpy/text/textsupport.pxd matches renpy/** ([u'all']).
+renpy/text/textsupport.pyx matches renpy/**.pyx ([u'renpy']).
+renpy/text/texwrap.pyx matches renpy/**.pyx ([u'renpy']).
+renpy/text/__init__.py matches renpy/**.py ([u'renpy']).
+renpy/text/__init__.pyo matches renpy/** ([u'all']).
+renpy/text/__pycache__/ matches renpy/** ([u'all']).
+renpy/translation/ matches renpy/** ([u'all']).
+renpy/translation/dialogue.py matches renpy/**.py ([u'renpy']).
+renpy/translation/dialogue.pyo matches renpy/** ([u'all']).
+renpy/translation/extract.py matches renpy/**.py ([u'renpy']).
+renpy/translation/extract.pyo matches renpy/** ([u'all']).
+renpy/translation/generation.py matches renpy/**.py ([u'renpy']).
+renpy/translation/generation.pyo matches renpy/** ([u'all']).
+renpy/translation/merge.py matches renpy/**.py ([u'renpy']).
+renpy/translation/merge.pyo matches renpy/** ([u'all']).
+renpy/translation/scanstrings.py matches renpy/**.py ([u'renpy']).
+renpy/translation/scanstrings.pyo matches renpy/** ([u'all']).
+renpy/translation/__init__.py matches renpy/**.py ([u'renpy']).
+renpy/translation/__init__.pyo matches renpy/** ([u'all']).
+renpy/translation/__pycache__/ matches renpy/** ([u'all']).
+renpy/uguu/ matches renpy/** ([u'all']).
+renpy/uguu/gl.pxd matches renpy/** ([u'all']).
+renpy/uguu/gl.pyx matches renpy/**.pyx ([u'renpy']).
+renpy/uguu/uguu.pyx matches renpy/**.pyx ([u'renpy']).
+renpy/uguu/__init__.py matches renpy/**.py ([u'renpy']).
+renpy/uguu/__init__.pyo matches renpy/** ([u'all']).
+renpy/uguu/__pycache__/ matches renpy/** ([u'all']).
+renpy/ui.py matches renpy/**.py ([u'renpy']).
+renpy/ui.pyo matches renpy/** ([u'all']).
+renpy/util.py matches renpy/**.py ([u'renpy']).
+renpy/util.pyo matches renpy/** ([u'all']).
+renpy/vc_version.py matches renpy/**.py ([u'renpy']).
+renpy/vc_version.pyo matches renpy/** ([u'all']).
+renpy/warp.py matches renpy/**.py ([u'renpy']).
+renpy/warp.pyo matches renpy/** ([u'all']).
+renpy/webloader.py matches renpy/**.py ([u'renpy']).
+renpy/webloader.pyo matches renpy/** ([u'all']).
+renpy/__init__.py matches renpy/**.py ([u'renpy']).
+renpy/__init__.pyo matches renpy/** ([u'all']).
+renpy/__pycache__/ matches renpy/** ([u'all']).
+renpy-32.exe doesn't match anything.
+renpy-32.exe matches None (None).
+renpy.app/ doesn't match anything.
+renpy.app/ matches None (None).
+renpy.exe doesn't match anything.
+renpy.exe matches None (None).
+renpy.py matches renpy.py ([u'all']).
+renpy.sh matches renpy.sh ([u'linux', u'mac']).
+tmp/ doesn't match anything.
+tmp/ matches None (None).
+traceback.txt doesn't match anything.
+traceback.txt matches None (None).
+tutorial/ doesn't match anything.
+tutorial/ matches None (None).
+update/ doesn't match anything.
+update/ matches None (None).
