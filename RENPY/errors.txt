@@ -2,10 +2,10 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 104: invalid syntax
-        jump lab_gameloop
-                         ^
+File "game/game_square_class.rpy", line 51: unexpected indent
+                    if len(self.event) ==1:
+                    ^
     
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Mon Jan 31 03:58:00 2022
+Mon Jan 31 11:22:32 2022

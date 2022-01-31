@@ -10,19 +10,34 @@ init python:
     def pos2id(x):
         return int(x / settings["tilesize"])
 
-    def getMousePos():
-        x, y = pygame.mouse.get_pos()
-        store.mousex = x
-        store.mousey = y
-        print(x,y)
+    def isThereAcadaver(case):
+        for teen in game.teens:
+            if teen.isAlive == 0:
+                if teen.x == case.x and teen.y == case.y:
+                    return True
+        return False
 
-    def getMouseId():
-        x, y = pygame.mouse.get_pos()
-        store.mousexid = pos2id(x)
-        store.mouseyid = pos2id(y)
-        print(x,y)
+    def sound_walk(case):
+        if game.grid[case.y][case.x].type==200:
+            renpy.music.play("audio/step-water-2.wav", channel='sound')
+        elif isThereAcadaver(case):
+            renpy.music.play("audio/step-water-1.wav", channel='sound')
+        else:
+            renpy.music.play("audio/step4.wav", channel='sound')
+        renpy.pause(0.5)
+    # def getMousePos():
+    #     x, y = pygame.mouse.get_pos()
+    #     store.mousex = x
+    #     store.mousey = y
+    #     print(x,y)
 
-    def distBetween(start, destination, game, search_size, collision = True):
+    # def getMouseId():
+    #     x, y = pygame.mouse.get_pos()
+    #     store.mousexid = pos2id(x)
+    #     store.mouseyid = pos2id(y)
+    #     print(x,y)
+
+    def distBetween(start, destination, game, search_size, collisionWall = True, collisionDoor=True):
         class Cell:
             def __init__(self,start,destination,gcost, state = "???", parent=""):
                 self.x = start.x
@@ -35,6 +50,11 @@ init python:
             def __repr__(self):
                 return " x" +str(self.x)+ ":y" +str(self.y)+" "
 
+        def trouve_enfant(x, array):
+            if x != "":
+                array.append(x)
+                trouve_enfant(x.parent, array)
+            return array
         cells = {}
         cells[start.x,start.y] = Cell(start,destination,0, "open")
 
@@ -74,9 +94,15 @@ init python:
             current.state = "closed"
 
             if (current.x,current.y) == (destination.x, destination.y):
-                # current.parent = current
-                # print "fcost="+ str(current.fcost)+" parent:"+str(current.parent)
-                return [current.fcost, current.parent]
+                array = []
+                array = trouve_enfant(current.parent, array)
+
+                if len(array)>0:
+                    array.insert(0, destination )
+                    del array[-1]
+                    print array
+
+                return [current.fcost, array]
 
             for direction in [(-1,0),(0,1),(1,0),(0,-1)]:
                 pos = {}
@@ -89,13 +115,12 @@ init python:
                 else:
                     neighbor = Cell( pos, destination, current.gcost+1, cells[pos.x,pos.y].state,current) #is current the dad?
 
-                if collision:
-                    if (not game.isCrossable(neighbor.x,neighbor.y) ) or neighbor.state == "closed":
+                if collisionWall:
+                    if (not game.isCrossable(neighbor.x,neighbor.y,current.x,current.y) ) or neighbor.state == "closed":
                         pass
                     else:
                         if neighbor.state != "open" or neighbor.fcost < cells[neighbor.x,neighbor.y].fcost:
                             cells[pos.x,pos.y] = neighbor
-                            print(cells[pos.x,pos.y].parent)
                             if neighbor.state != "open":
                                 cells[pos.x,pos.y] = neighbor
                                 cells[pos.x,pos.y].state = "open"
@@ -105,7 +130,6 @@ init python:
                     else:
                         if neighbor.state != "open" or neighbor.fcost < cells[neighbor.x,neighbor.y].fcost:
                             cells[pos.x,pos.y] = neighbor
-                            print(cells[pos.x,pos.y].parent)
                             if neighbor.state != "open":
                                 cells[pos.x,pos.y] = neighbor
                                 cells[pos.x,pos.y].state = "open"
@@ -121,6 +145,8 @@ init python:
             self.y = y
             self.img = {}
             self.AP = 1 #How much AP does it have?
+            self.prex = 0
+            self.prey = 0
 
             self.img.idle = name + "-idle.png"
             self.img.hover = name + "-hover.png"
@@ -129,7 +155,7 @@ init python:
             self.img.dead = name + "-dead.png"
 
             self.stat = {}
-            self.stat.vis = 8
+            self.stat.vis = 10
             self.stat.move = 3
 
             self.isAlive = 1
@@ -154,24 +180,65 @@ init python:
             if game.state == "waiting" and self.AP > 0:
                 game.state = "moving"
                 game.premoving_who = self
-                game.premoving_where = game.inrange2(self.x, self.y, self.stat.move)
+                game.premoving_where = game.inrange2(self.x, self.y, self.stat.move, False)
 
         def move(self, cell):
             if cell.occupied == 0 or (cell.x==self.x and cell.y==self.y):
                 game.grid[self.y][self.x].occupied = 0
+                self.prex = self.x
+                self.prey = self.y
+
                 self.x = cell.x
                 self.y = cell.y
                 game.grid[self.y][self.x].occupied = 1
-                game.updateVision()
-                game.premoving_who = ""
+                # game.updateVision()
                 game.premoving_where = ""
-                game.state = "waiting"
-                self.removeAP(1)
-                game.grid[self.y][self.x].onEvent(game)
+                self.action()
 
                 if game.totalAP() <= 0:
                     game.turnChange()
 
+        def action(self):
+            self.removeAP(1)
+            game.actions = []
+            game.state = "action"
+            if game.grid[self.y][self.x].itemType != None:
+                game.actions.append( game.interaction(itemType , 0) )
+            for case in game.inrange(self.x, self.y, 1):
+                if case.itemType != None:
+                    if case.interaction(case.itemType , 1):
+                        game.actions.append( case.interaction(case.itemType , 1) ) # { nom:nom, function:function}
+
+                if isThereAcadaver(case):
+                    game.actions.append( { "text": "take items", "label": "lab_takeitems", "variables":[self,case] } )
+            obj = { "text": "PASS", "label": "lab_passTurn", "variables":self }
+            game.actions.append( obj )
+
+        def cancelMov(self):
+            game.grid[self.y][self.x].occupied = 0
+            self.removeAP(-1)
+            self.x = self.prex
+            self.y = self.prey
+            game.grid[self.y][self.x].occupied = 1
+            game.state = "moving"
+            game.premoving_who = self
+            game.premoving_where = game.inrange2(self.x, self.y, self.stat.move, False)
+
+        def endAction(self):
+            game.premoving_who = ""
+            game.state = "waiting"
+            game.grid[self.y][self.x].onEvent(game)
+
+            # if len(self.actions) == 1:
+            #     self.passTurn()
+
+            if game.totalAP() <= 0:
+                game.turnChange()
+
+        def passTurn(self):
+            game.state = "waiting"
+            if game.totalAP() <= 0:
+                game.turnChange()
 
         def removeAP(self, x):
             self.AP -= x

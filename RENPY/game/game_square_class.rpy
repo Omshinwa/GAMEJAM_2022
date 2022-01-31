@@ -48,4 +48,7 @@ init python:
         def onEvent(self, game):
             if self.event != "":
                 game.state = "event"
-                renpy.call( self.event )
+                if len(self.event) == 1:
+                    renpy.call( self.event["label"] )
+                else:
+                    renpy.call( self.event["label"], self.event["variables"])

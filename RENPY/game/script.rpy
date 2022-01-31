@@ -5,6 +5,7 @@ label start:
 
 label lab_gameloop:
     python:
+        game.updateVision()
         if sum(teen.isAlive == 1 for teen in game.teens) <=0:
             renpy.jump("lab_gameover")
         if game.state == "event":
@@ -30,7 +31,7 @@ label lab_doommove_random(self): #this is random
                     direction = [(-1,0),(0,1),(1,0),(0,-1)]
                     randomInd = random.randint(0,3)
                     randomDir = direction[ randomInd ]
-                    if game.isCrossable(doom.x+randomDir[0],doom.y+randomDir[1]):
+                    if game.isCrossable(doom.x+randomDir[0],doom.y+randomDir[1],doom.x,doom.y):
                         validMove = True
                     elif randomInd >= randomInd%4 + 4:
                         validMove = True
@@ -59,10 +60,10 @@ label lab_doommove_track(self):
                 if teen.isAlive:
                     distance = distBetween(doom, teen, game, 20)
                     print("cible:"+teen.name+" distance:" + str(distance[0]))
-                    print("target:"+str(target[0]))
                     if target[0] > distance[0]:
                         target = distance
                         cible = teen
+                        print("target:"+str(target[0]))
 
             if target[0] == 99:
                 for teen in game.teens:
@@ -83,7 +84,7 @@ label lab_doommove_track(self):
                         direction = [(-1,0),(0,1),(1,0),(0,-1)]
                         randomInd = random.randint(0,3)
                         randomDir = direction[ randomInd ]
-                        if game.isCrossable(doom.x+randomDir[0],doom.y+randomDir[1]):
+                        if game.isCrossable(doom.x+randomDir[0],doom.y+randomDir[1],doom.x,doom.y):
                             validMove = True
                         elif randomInd >= randomInd%4 + 4:
                             validMove = True
@@ -95,7 +96,11 @@ label lab_doommove_track(self):
 
                     doom.x = doom.x + randomDir[0]
                     doom.y = doom.y + randomDir[1]
-                    renpy.pause(0.1)
+                    if game.grid[doom.y][doom.x].type==20:
+                        renpy.music.play("audio/step4.wav", channel='sound')
+                    else:
+                        renpy.music.play("audio/step4.wav", channel='sound')
+                    renpy.pause(0.5)
                     game.grid[doom.y][doom.x].occupied = "doom"
                     for teen in game.teens:
                         if doom.x == teen.x and doom.y == teen.y:
@@ -103,25 +108,16 @@ label lab_doommove_track(self):
                             game.grid[teen.y][teen.x].occupied = 0
                 renpy.jump("lab_gameloop")
 
-            def trouve_enfant(x, array):
-                if x != "":
-                    array.append(x)
-                    trouve_enfant(x.parent, array)
-                return array
-
-            array = []
-            array = trouve_enfant(target[1], array)
-
             for i in range(doom.stat.move):
+                print(i)
                 game.grid[doom.y][doom.x].occupied = 0
 
-                if len(array)>0:
-                    array.insert(0, cible )
-                if i < len(array):
-                    if game.isCrossable(array[len(array) - 1 - i].x,array[len(array) - 1 - i].y):
-                        doom.x = array[len(array) - 1 - i].x
-                        doom.y = array[len(array) - 1 - i].y
-                        renpy.pause(0.1)
+                if i < len(target[1]):
+                    if game.isCrossable(target[1][len(target[1]) - 1 - i].x,target[1][len(target[1]) - 1 - i].y, doom.x,doom.y):
+                        doom.x = target[1][len(target[1]) - 1 - i].x
+                        doom.y = target[1][len(target[1]) - 1 - i].y
+
+                        sound_walk(doom)
                     else:
                         i = doom.stat.move
 

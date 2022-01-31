@@ -2,11 +2,16 @@ style debug_text is text:
     outlines [ (absolute(1), "#000", absolute(0), absolute(0)) ]
     color "#FFFFFF"
 
+style style_action:
+    color "#00FF00"
+
 label lab_render:
     show screen sce_grid
     show screen sce_doom
     show screen sce_char
     show screen sce_fog
+    show screen sce_action
+    show screen sce_walls
 
     call screen sce_gameloop
 
@@ -21,6 +26,13 @@ image img_cell_hover:
     pause(0.1)
     "game-UI/cell-hover-05.png"
     pause(0.1)
+    repeat
+
+image img_cell_fog:
+    "game-UI/cell-fog-01.png"
+    pause(2.0)
+    "game-UI/cell-fog-04.png"
+    pause(2.0)
     repeat
 
 screen sce_gameloop():
@@ -65,6 +77,26 @@ screen sce_doom():
             action NullAction()
             sensitive game.grid[doom.y][doom.x].visibility
 
+screen sce_action():
+    zorder 3
+    if game.state=="action":
+        button:
+            xysize int(settings["resolution"][0]), int(settings["resolution"][1])
+            action Function(game.premoving_who.cancelMov) #gros bouton pour annuler
+    if game.state == "action":
+        for i,act in enumerate(game.actions):
+            frame:
+                xpos id2pos(game.premoving_who.x)+40
+                ypos id2pos(game.premoving_who.y)-40*(i+1)
+                button:
+                    text act["text"] style "style_action" size 30
+                    background Solid( "#000000" )
+                    hover_background "#00a"
+                    if len(act)==2:
+                        action Call(act["label"])
+                    if len(act)==3:
+                        action Call(act["label"],act["variables"])
+
 
 screen sce_fog():
     zorder 2
@@ -74,10 +106,11 @@ screen sce_fog():
             xysize int(settings["tilesize"]), int(settings["tilesize"])
             xpos int(cell.x * settings["tilesize"])
             ypos int(cell.y * settings["tilesize"])
-            if cell.visibility == 0:
-                background Solid( "#00000080" )
+            if cell.visibility == 0 and not game.debug_mode:
+                # background Solid( "#00000080" )
+                background "game-UI/cell-fog-01.png"
             else:
-                background Solid( "#FF000020" )
+                background Solid( "#FF000000" )
 
             if game.debug_mode:
                 text chr(ord('@')+cell.y+1) + str(cell.x) size 30*settings["tilesize"]/96 style "debug_text"
@@ -100,7 +133,7 @@ screen sce_grid():
     if game.state=="moving":
         button:
             xysize int(settings["resolution"][0]), int(settings["resolution"][1])
-            action [SetVariable("game.state", "waiting"), SetVariable("game.premoving_where", "")]
+            action [SetVariable("game.state", "waiting"), SetVariable("game.premoving_where", "")] #gros bouton pour annuler
     for cell in game.premoving_where:
         imagebutton:
             xpos int(cell.x * settings["tilesize"])
@@ -112,3 +145,22 @@ screen sce_grid():
 
     text game.state size 80 color "#FF0000"
     text "SCORE:"+str(game.score) size 40 color "#FF0000" xalign 1.0
+
+screen sce_walls():
+    for wall in settings["walls"]:
+        $ x = int(wall[1:3])
+        $ y = ord(wall[0])-65
+        $ x2 = int(wall[4:6])
+        $ y2 = ord(wall[3])-65
+
+        frame:
+            padding (0,0,0,0)
+            if x==x2: #HORIZONTAL
+                xysize 48, 4
+                xpos int(x2 * settings["tilesize"])
+                ypos int(y2 * settings["tilesize"])-2
+            if y==y2: #HORIZONTAL
+                xysize 4, 48
+                xpos int(x2 * settings["tilesize"]) -2
+                ypos int(y2 * settings["tilesize"])
+            background Solid( "#888888" )
