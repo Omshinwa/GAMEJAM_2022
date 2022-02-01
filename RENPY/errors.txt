@@ -2,9 +2,10 @@
 errors listed below, and try again.
 
 
-File "game/01_fyn_event-tiles.rpy", line 58: expected statement.
-    for i in game.gridlist:
-          ^
+File "game/-debug_functions.rpy", line 27: invalid syntax
+                        int(element):
+                                     ^
+    
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Tue Feb  1 01:59:24 2022
+Tue Feb  1 16:39:02 2022

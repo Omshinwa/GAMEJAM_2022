@@ -1,2 +1,15 @@
-our super project
-where MAKING THIS HAPPEN 
+make a history log
+
+make the actions system cleaner lol
+
+add items
+
+add slashing water
+
+allow the bad guys to open doors
+
+simplify tile system (one for behavior, one for aesthetics)
+
+make puddles like Fire, aka they're objects
+
+maxX maxY

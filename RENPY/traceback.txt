@@ -1,236 +1,42 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/game_render.rpy", line 16, in script call
-    call screen sce_gameloop
-  File "game/01_fyn_event-tiles.rpy", line 48, in script call
-    call lab_passTurn(copy.copy(game.premoving_who))
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/game_render.rpy", line 16, in script call
-    call screen sce_gameloop
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/game_render.rpy", line 16, in script call
-    call screen sce_gameloop
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/game_render.rpy", line 16, in script call
-    call screen sce_gameloop
-  File "game/01_fyn_event-tiles.rpy", line 48, in script call
-    call lab_passTurn(copy.copy(game.premoving_who))
-  File "game/01_fyn_event-tiles.rpy", line 70, in script call
-    python:
-  File "game/script.rpy", line 27, in script call
-    python:
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/game_render.rpy", line 16, in script call
-    call screen sce_gameloop
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/game_render.rpy", line 16, in script call
-    call screen sce_gameloop
-  File "game/01_fyn_event-tiles.rpy", line 48, in script call
-    call lab_passTurn(copy.copy(game.premoving_who))
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/game_render.rpy", line 16, in script call
-    call screen sce_gameloop
-  File "game/01_fyn_event-tiles.rpy", line 48, in script call
-    call lab_passTurn(copy.copy(game.premoving_who))
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/game_render.rpy", line 16, in script call
-    call screen sce_gameloop
-  File "game/script.rpy", line 27, in script call
-    python:
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/game_render.rpy", line 16, in script call
-    call screen sce_gameloop
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/game_render.rpy", line 16, in script call
-    call screen sce_gameloop
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/game_render.rpy", line 16, in script call
-    call screen sce_gameloop
-  File "game/01_fyn_event-tiles.rpy", line 48, in script call
-    call lab_passTurn(copy.copy(game.premoving_who))
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/game_render.rpy", line 16, in script call
-    call screen sce_gameloop
-  File "game/script.rpy", line 27, in script call
-    python:
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/game_render.rpy", line 16, in script call
-    call screen sce_gameloop
-  File "game/01_fyn_event-tiles.rpy", line 48, in script call
-    call lab_passTurn(copy.copy(game.premoving_who))
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/game_render.rpy", line 16, in script call
-    call screen sce_gameloop
-  File "game/01_fyn_event-tiles.rpy", line 70, in script call
-    python:
-  File "game/01_fyn_event-tiles.rpy", line 56, in script
-    label lab_B8(variables):
-Exception: Required parameter variables has no value.
+  File "game/___Tiles_Type.rpy", line 2, in script
+    init python:
+  File "game/___Tiles_Type.rpy", line 2, in script
+    init python:
+  File "game/___Tiles_Type.rpy", line 4, in <module>
+    settings["tilemap"] = read_data_tilemap( ".data_tilemap" )
+  File "game/-debug_functions.rpy", line 54, in read_data_tilemap
+    return Maptxt_to_Arr( read_file(filename) )
+  File "game/-debug_functions.rpy", line 31, in Maptxt_to_Arr
+    correctarray.append( strip(element) )#remove whitespaces
+NameError: global name 'strip' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/game_render.rpy", line 16, in script call
-    call screen sce_gameloop
-  File "game/01_fyn_event-tiles.rpy", line 48, in script call
-    call lab_passTurn(copy.copy(game.premoving_who))
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/game_render.rpy", line 16, in script call
-    call screen sce_gameloop
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/game_render.rpy", line 16, in script call
-    call screen sce_gameloop
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/game_render.rpy", line 16, in script call
-    call screen sce_gameloop
-  File "game/01_fyn_event-tiles.rpy", line 48, in script call
-    call lab_passTurn(copy.copy(game.premoving_who))
-  File "game/01_fyn_event-tiles.rpy", line 70, in script call
-    python:
-  File "game/script.rpy", line 27, in script call
-    python:
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/game_render.rpy", line 16, in script call
-    call screen sce_gameloop
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/game_render.rpy", line 16, in script call
-    call screen sce_gameloop
-  File "game/01_fyn_event-tiles.rpy", line 48, in script call
-    call lab_passTurn(copy.copy(game.premoving_who))
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/game_render.rpy", line 16, in script call
-    call screen sce_gameloop
-  File "game/01_fyn_event-tiles.rpy", line 48, in script call
-    call lab_passTurn(copy.copy(game.premoving_who))
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/game_render.rpy", line 16, in script call
-    call screen sce_gameloop
-  File "game/script.rpy", line 27, in script call
-    python:
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/game_render.rpy", line 16, in script call
-    call screen sce_gameloop
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/game_render.rpy", line 16, in script call
-    call screen sce_gameloop
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/game_render.rpy", line 16, in script call
-    call screen sce_gameloop
-  File "game/01_fyn_event-tiles.rpy", line 48, in script call
-    call lab_passTurn(copy.copy(game.premoving_who))
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/game_render.rpy", line 16, in script call
-    call screen sce_gameloop
-  File "game/script.rpy", line 27, in script call
-    python:
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/game_render.rpy", line 16, in script call
-    call screen sce_gameloop
-  File "game/01_fyn_event-tiles.rpy", line 48, in script call
-    call lab_passTurn(copy.copy(game.premoving_who))
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/script.rpy", line 23, in script call
-    call lab_render from _call_lab_render
-  File "game/game_render.rpy", line 16, in script call
-    call screen sce_gameloop
-  File "game/01_fyn_event-tiles.rpy", line 70, in script call
-    python:
-  File "game/01_fyn_event-tiles.rpy", line 56, in script
-    label lab_B8(variables):
-  File "renpy/ast.py", line 869, in execute
-    values = apply_arguments(self.parameters, renpy.store._args, renpy.store._kwargs)
-  File "renpy/ast.py", line 159, in apply_arguments
-    return parameters.apply(args, kwargs, ignore_errors)
-  File "renpy/ast.py", line 123, in apply
-    raise Exception("Required parameter %s has no value." % name)
-Exception: Required parameter variables has no value.
+  File "renpy/bootstrap.py", line 331, in bootstrap
+    renpy.main.main()
+  File "renpy/main.py", line 560, in main
+    renpy.game.context().run(node)
+  File "game/___Tiles_Type.rpy", line 2, in script
+    init python:
+  File "game/___Tiles_Type.rpy", line 2, in script
+    init python:
+  File "renpy/ast.py", line 928, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "renpy/python.py", line 2245, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/___Tiles_Type.rpy", line 4, in <module>
+    settings["tilemap"] = read_data_tilemap( ".data_tilemap" )
+  File "game/-debug_functions.rpy", line 54, in read_data_tilemap
+    return Maptxt_to_Arr( read_file(filename) )
+  File "game/-debug_functions.rpy", line 31, in Maptxt_to_Arr
+    correctarray.append( strip(element) )#remove whitespaces
+NameError: global name 'strip' is not defined
 
 Windows-10-10.0.19041
 Ren'Py 7.4.11.2266
-RENPY 1.0
-Tue Feb  1 02:03:03 2022
+ParisIsBurning 1.0
+Tue Feb  1 16:45:45 2022
