@@ -2,10 +2,10 @@
 errors listed below, and try again.
 
 
-File "game/-debug_functions.rpy", line 27: invalid syntax
-                        int(element):
-                                     ^
+File "game/debug/debug_functions.rpy", line 170: invalid syntax
+                elif self.previous_tile[1:2] = seconde_case[1:2]:
+                                              ^
     
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Tue Feb  1 16:39:02 2022
+Thu Feb  3 03:18:48 2022

@@ -306,6 +306,8 @@ screen navigation():
 
             textbutton _("Start") action Start()
 
+            textbutton _("Map Editor") action Start("lab_tile_editor_logic")
+
         else:
 
             textbutton _("History") action ShowMenu("history")

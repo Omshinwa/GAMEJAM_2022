@@ -3,15 +3,15 @@
 init offset = -1
 init python:
     class Square(Tiletype):
-        def __init__(self, x, y, type = 1):
+        def __init__(self, x, y, type = "error"):
             super(Square,self).__init__(type)
             self.type = type
             self.x = x
             self.y = y
             self.xpos = x * settings["tilesize"]
             self.ypos = y * settings["tilesize"]
-            self.img.hover = "img_cell_hover"
-            self.img.unstand = "game-UI/cell-unstand.png"
+            self.img_hover = "img_cell_hover"
+            # self.img_unstand = "game-UI/cell-unstand.png"
 
             self.onFire = 0;
             try:
@@ -34,21 +34,21 @@ init python:
         def sprite(self):
             if game.premoving_where != "":
                 if game.state == "moving" and self in game.premoving_where:
-                    img = self.img.hover
+                    img = self.img_hover
                 else:
-                    if self.type == 50 or self.type == 51:
-                        if self.visibility:
-                            return "game-UI/grass.png"
-                        else:
-                            return "game-UI/6.gif"
-                    img = self.img.idle
+                    # if self.type == 50 or self.type == 51:
+                    #     if self.visibility:
+                    #         return "game-UI/grass.png"
+                    #     else:
+                    #         return "game-UI/6.gif"
+                    img = self.img_idle
             else:
-                if self.type == 50 or self.type == 51:
-                    if self.visibility:
-                        return "game-UI/grass.png"
-                    else:
-                        return "game-UI/6.gif"
-                img = self.img.idle
+                # if self.type == 50 or self.type == 51:
+                #     if self.visibility:
+                #         return "game-UI/grass.png"
+                #     else:
+                #         return "game-UI/6.gif"
+                img = self.img_idle
 
             return img
 

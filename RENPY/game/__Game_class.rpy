@@ -59,47 +59,27 @@ init python:
                 if self.grid[y2][x2].occupied == "doom":
                     return False
 
-            if ifwalls:
-                if x != "bite":
-                    if x<10:
-                        firstpart = chr(ord('@')+y+1) + "0" + str(x)
-                    else:
-                        firstpart = chr(ord('@')+y+1) + str(x)
-                    if x2<10:
-                        secondpart = chr(ord('@')+y2+1) + "0" + str(x2)
-                    else:
-                        secondpart = chr(ord('@')+y2+1) + str(x2)
-                    name = firstpart + secondpart
-                    name2 = secondpart + firstpart
-                    if name in settings["walls"]:
+            if x != "bite":
+                if x<10:
+                    firstpart = chr(ord('@')+y+1) + "0" + str(x)
+                else:
+                    firstpart = chr(ord('@')+y+1) + str(x)
+                if x2<10:
+                    secondpart = chr(ord('@')+y2+1) + "0" + str(x2)
+                else:
+                    secondpart = chr(ord('@')+y2+1) + str(x2)
+                name = firstpart + secondpart
+                name2 = secondpart + firstpart
+                if ifwalls:
+                    if name in settings["lignes"] and settings["lignes"][name] == 1:
                         return False
-                    if name2 in settings["walls"]:
+                    if name2 in settings["lignes"] and settings["lignes"][name2] == 1:
                         return False
-            if ifdoors:
-                    if x != "bite":
-                        if x<10:
-                            firstpart = chr(ord('@')+y+1) + "0" + str(x)
-                        else:
-                            firstpart = chr(ord('@')+y+1) + str(x)
-                        if x2<10:
-                            secondpart = chr(ord('@')+y2+1) + "0" + str(x2)
-                        else:
-                            secondpart = chr(ord('@')+y2+1) + str(x2)
-                        name = firstpart + secondpart
-                        name2 = secondpart + firstpart
-                        try:
-                            settings["doors"][name]
-                        except:
-                            pass
-                        else:
-                            return settings["doors"][name]
-
-                        try:
-                            settings["doors"][name2]
-                        except:
-                            pass
-                        else:
-                            return settings["doors"][name2]
+                if ifdoors:
+                    if name in settings["lignes"] and settings["lignes"][name] == 2:
+                        return False
+                    if name2 in settings["lignes"] and settings["lignes"][name2] == 2:
+                        return False
 
             return True
 

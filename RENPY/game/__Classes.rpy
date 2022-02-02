@@ -4,12 +4,6 @@ init python:
     def gridAZ(game, x):
         return game.grid[ ord(x[0])-65 ][int(x[1])]
 
-    def id2pos(x):
-        return int(x * settings["tilesize"])
-
-    def pos2id(x):
-        return int(x / settings["tilesize"])
-
     def isThereAcadaver(case):
         for teen in game.teens:
             if teen.isAlive == 0:
@@ -25,17 +19,6 @@ init python:
         else:
             renpy.music.play("audio/step4.wav", channel='sound')
         renpy.pause(0.5)
-    # def getMousePos():
-    #     x, y = pygame.mouse.get_pos()
-    #     store.mousex = x
-    #     store.mousey = y
-    #     print(x,y)
-
-    # def getMouseId():
-    #     x, y = pygame.mouse.get_pos()
-    #     store.mousexid = pos2id(x)
-    #     store.mouseyid = pos2id(y)
-    #     print(x,y)
 
     def distBetween(start, destination, game, search_size, collisionWall = True, collisionDoor=True):
         class Cell:

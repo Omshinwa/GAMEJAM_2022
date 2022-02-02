@@ -11,11 +11,13 @@ init python:
 
     settings = {}
 
-    settings["tilesize"] = 48.0 #in pixel
-    settings["resolution"] = (1380.0,816.0)
+    settings["tilesize"] = 48 #in pixel, must be integer
+    settings["mapsize"] = (27,17)
+    settings["padding"] = (0,0)
 
     import math
     import random
     import pygame
     import copy
+    import json
     from operator import attrgetter

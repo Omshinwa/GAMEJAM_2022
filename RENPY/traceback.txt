@@ -1,17 +1,13 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/___Tiles_Type.rpy", line 2, in script
+  File "game/___Event.rpy", line 5, in script
     init python:
-  File "game/___Tiles_Type.rpy", line 2, in script
+  File "game/___Event.rpy", line 5, in script
     init python:
-  File "game/___Tiles_Type.rpy", line 4, in <module>
-    settings["tilemap"] = read_data_tilemap( ".data_tilemap" )
-  File "game/-debug_functions.rpy", line 54, in read_data_tilemap
-    return Maptxt_to_Arr( read_file(filename) )
-  File "game/-debug_functions.rpy", line 31, in Maptxt_to_Arr
-    correctarray.append( strip(element) )#remove whitespaces
-NameError: global name 'strip' is not defined
+  File "game/___Event.rpy", line 10, in <module>
+    settings["lignes"] = json.loads( read_file(".data_lignes") )
+ValueError: No JSON object could be decoded
 
 -- Full Traceback ------------------------------------------------------------
 
@@ -20,23 +16,22 @@ Full traceback:
     renpy.main.main()
   File "renpy/main.py", line 560, in main
     renpy.game.context().run(node)
-  File "game/___Tiles_Type.rpy", line 2, in script
+  File "game/___Event.rpy", line 5, in script
     init python:
-  File "game/___Tiles_Type.rpy", line 2, in script
+  File "game/___Event.rpy", line 5, in script
     init python:
   File "renpy/ast.py", line 928, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
   File "renpy/python.py", line 2245, in py_exec_bytecode
     exec(bytecode, globals, locals)
-  File "game/___Tiles_Type.rpy", line 4, in <module>
-    settings["tilemap"] = read_data_tilemap( ".data_tilemap" )
-  File "game/-debug_functions.rpy", line 54, in read_data_tilemap
-    return Maptxt_to_Arr( read_file(filename) )
-  File "game/-debug_functions.rpy", line 31, in Maptxt_to_Arr
-    correctarray.append( strip(element) )#remove whitespaces
-NameError: global name 'strip' is not defined
+  File "game/___Event.rpy", line 10, in <module>
+    settings["lignes"] = json.loads( read_file(".data_lignes") )
+  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python2.7/json/__init__.py", line 339, in loads
+  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python2.7/json/decoder.py", line 364, in decode
+  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python2.7/json/decoder.py", line 382, in raw_decode
+ValueError: No JSON object could be decoded
 
 Windows-10-10.0.19041
 Ren'Py 7.4.11.2266
 ParisIsBurning 1.0
-Tue Feb  1 16:45:45 2022
+Thu Feb  3 03:25:22 2022

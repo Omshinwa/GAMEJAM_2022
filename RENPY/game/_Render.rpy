@@ -11,9 +11,8 @@ label lab_render:
     show screen sce_char
     show screen sce_fog
     show screen sce_action
-    show screen sce_walls
+    call screen sce_walls
 
-    call screen sce_gameloop
 
 image img_cell_hover:
     "game-UI/cell-hover-01.png"
@@ -81,7 +80,7 @@ screen sce_action():
     zorder 3
     if game.state=="action":
         button:
-            xysize int(settings["resolution"][0]), int(settings["resolution"][1])
+            xysize settings["mapsize"][0] * settings["tilesize"], settings["mapsize"][1] * settings["tilesize"]
             action Function(game.premoving_who.cancelMov) #gros bouton pour annuler
     if game.state == "action":
         for i,act in enumerate(game.actions):
@@ -105,7 +104,7 @@ screen sce_fog():
             xysize int(settings["tilesize"]), int(settings["tilesize"])
             xpos int(cell.x * settings["tilesize"])
             ypos int(cell.y * settings["tilesize"])
-            if cell.visibility == 0 and not game.debug_mode:
+            if cell.visibility == 0 and not game.debug_mode and game.state!="debug":
                 # background Solid( "#00000080" )
                 background "game-UI/cell-fog-01.png"
             else:
@@ -123,11 +122,11 @@ screen sce_fog():
 
 screen sce_grid():
     for cell in game.gridlist:
-        imagebutton:
+        frame:
             xpos int(cell.x * settings["tilesize"])
             ypos int(cell.y * settings["tilesize"])
             xysize int(settings["tilesize"]), int(settings["tilesize"])
-            idle cell.sprite()
+            background cell.sprite()
 
         if cell.onFire > 0:
             imagebutton:
@@ -147,7 +146,7 @@ screen sce_grid():
 
     if game.state=="moving":
         button:
-            xysize int(settings["resolution"][0]), int(settings["resolution"][1])
+            xysize settings["padding"][0] + settings["tilesize"] * settings["mapsize"][0],settings["padding"][1] + settings["tilesize"] * settings["mapsize"][1]
             action [SetVariable("game.state", "waiting"), SetVariable("game.premoving_where", "")] #gros bouton pour annuler
     for cell in game.premoving_where:
         imagebutton:
@@ -163,25 +162,8 @@ screen sce_grid():
 
 screen sce_walls():
     zorder 2
-    for wall in settings["walls"]:
-        $ x = int(wall[1:3])
-        $ y = ord(wall[0])-65
-        $ x2 = int(wall[4:6])
-        $ y2 = ord(wall[3])-65
 
-        frame:
-            padding (0,0,0,0)
-            if x==x2: #HORIZONTAL
-                xysize 48, 4
-                xpos int(x2 * settings["tilesize"])
-                ypos int(y2 * settings["tilesize"])-2
-            if y==y2: #HORIZONTAL
-                xysize 4, 48
-                xpos int(x2 * settings["tilesize"]) -2
-                ypos int(y2 * settings["tilesize"])
-            background Solid( "#808080" )
-
-    for key, value in settings["doors"].iteritems():
+    for key, value in settings["lignes"].iteritems():
         $ x = int(key[1:3])
         $ y = ord(key[0])-65
         $ x2 = int(key[4:6])
@@ -196,7 +178,9 @@ screen sce_walls():
                 xysize 4, 48
                 xpos int(x2 * settings["tilesize"]) -2
                 ypos int(y2 * settings["tilesize"])
-            if value:
-                background "game-UI/door-open.png"
-            else:
+            if value == 1:
+                background Solid( "#808080" )
+            if value == 2:
                 background Solid( "#EEEEEE" )
+            if value == 3:
+                background "game-UI/door-open.png"
