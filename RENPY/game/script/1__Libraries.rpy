@@ -6,18 +6,16 @@ init python:
         z.update(y)    # modifies z with keys and values of y
         return z
 
-    def isOn(self, x):
-        return x in self
-
     settings = {}
 
     settings["tilesize"] = 48 #in pixel, must be integer
-    settings["mapsize"] = (27,17)
+    settings["mapsize"] = (25,17)
     settings["padding"] = (0,0)
 
     import math
     import random
-    import pygame
     import copy
     import json
+    import time
+
     from operator import attrgetter

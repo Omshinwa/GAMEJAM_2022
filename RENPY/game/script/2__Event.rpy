@@ -10,13 +10,9 @@ init python:
     settings["lignes"] = json.loads( read_file(".data_lignes") )
 
     for key, value in settings["lignes"].iteritems():
-        if value == 2 or value == 3:
-            x = int(key[1:3])
-            y = key[0]
-            x2 = int(key[4:6])
-            y2 = key[3]
-            settings["actions"][y+str(x)]= {"text":"DOOR", "label": "lab_action_door", "variables":key}
-            settings["actions"][y2+str(x2)]= {"text":"DOOR", "label": "lab_action_door", "variables":key}
+        if value == 2 or value == 3: #si c'est une porte
+            settings["actions"][key[0:3]]= {"text":"DOOR", "label": "lab_action_door", "variables":key}
+            settings["actions"][key[3:6]]= {"text":"DOOR", "label": "lab_action_door", "variables":key}
 
     settings["fireThreshold"] = 6
 
@@ -25,7 +21,7 @@ label lab_moveCouch(variables):
         teen = variables[0]
         sofa = variables[1]
 
-label lab_action_door(vari):
+label lab_action_door(vari): #currently used by teens
     python:
         x = int(vari[1:3])
         y = ord(vari[0])-65
@@ -43,9 +39,32 @@ label lab_action_door(vari):
             elif settings["lignes"][vari]== 3:
                 renpy.music.play("audio/closedoor1.wav", channel='sound')
                 settings["lignes"][vari] = 2
+    call lab_passTurn(copy.copy(game.premoving_who))
+    return
 
+init python:
+    def action_door(x,y,x2,y2): #currently used by slashers
+        vari = settings["actions"][ _09toAZ(x,y,x2,y2)[0:3] ]["variables"]
 
-    call lab_passTurn(copy.copy(game.premoving_who)) from _call_lab_passTurn
+        a = game.grid[y][x].occupied or game.grid[y][x].isStand == 0
+        b = game.grid[y2][x2].occupied or game.grid[y2][x2].isStand == 0
+        print("door action:")
+        print(a)
+        print(b)
+        print(settings["lignes"][vari])
+        if a and b:
+            renpy.music.play("audio/doorfail.ogg", channel='sound')
+            return False
+        else:
+            if settings["lignes"][vari]== 2:
+                renpy.music.play("audio/opendoor1.mp3", channel='sound')
+                renpy.pause(0.5)
+                settings["lignes"][vari] = 3
+            elif settings["lignes"][vari]== 3:
+                renpy.music.play("audio/closedoor1.wav", channel='sound')
+                renpy.pause(0.5)
+                settings["lignes"][vari] = 2
+            return True
 
 label lab_D2(variables):
     if variables>0:
@@ -73,7 +92,8 @@ label lab_passTurn(teen): #QUAND ON FINIT SON TOUR
         game.premoving_who = ""
         game.state = "waiting"
         game.grid[teen.y][teen.x].onEvent(game)
-    jump lab_gameloop
+    return
+    # jump lab_gameloop
 
 label lab_takeitems(var):
     python:

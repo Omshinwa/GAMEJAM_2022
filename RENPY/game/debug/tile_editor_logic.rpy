@@ -11,7 +11,7 @@ python:
             try:
                 settings["tilemap"][y][x]
             except IndexError:
-                game.grid[y].append( Square(x=x, y=y, type = "error" ) )
+                game.grid[y].append( Square(x=x, y=y, type = -1 ) )
             else:
                 game.grid[y].append( Square(x=x, y=y, type = settings["tilemap"][y][x] ) )
             game.gridlist.append( game.grid[y][x] )

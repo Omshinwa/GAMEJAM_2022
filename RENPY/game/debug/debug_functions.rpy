@@ -3,12 +3,37 @@ init python:
 ################################################################################
     ##THESE FUNCTIONS CAN BE USED ANYWHERE
 ################################################################################
-    def A_to_0(key):
+    def debugmode():
+        game.debug_mode = 1 - game.debug_mode
+        for case in game.gridlist:
+            case.visibility = 1
+
+    def AZto09(key):
         x = int(key[1:3])
         y = ord(key[0])-65
-        x2 = int(key[4:6])
-        y2 = ord(key[3])-65
-        return x,y,x2,y2
+        if len(key)>3:
+            x2 = int(key[4:6])
+            y2 = ord(key[3])-65
+            return x,y,x2,y2
+        return x,y
+
+    def _09toAZ(x,y,x2 = None,y2 = None):
+        name = ""
+        firstpart = ""
+        secondpart = ""
+        if x<10:
+            firstpart = chr(ord('@')+y+1) + "0" + str(x)
+        else:
+            firstpart = chr(ord('@')+y+1) + str(x)
+
+        if x2 is not None:
+            if x2<10:
+                secondpart = chr(ord('@')+y2+1) + "0" + str(x2)
+            else:
+                secondpart = chr(ord('@')+y2+1) + str(x2)
+
+        name = firstpart + secondpart
+        return name
 
     def id2pos(x):
         return int(x * settings["tilesize"])
@@ -17,11 +42,11 @@ init python:
         return int(x / settings["tilesize"])
 
     def getMousePos():
-        x, y = pygame.mouse.get_pos()
+        x, y = renpy.get_mouse_pos()
         return (x,y)
 
     def getMouseId():
-        x, y = pygame.mouse.get_pos()
+        x, y = renpy.get_mouse_pos()
         return (pos2id(x),pos2id(y))
 
     def Arr_to_Maptxt(array):
@@ -152,15 +177,11 @@ init python:
             if where is None:
                 where = getMouseId()
             if self.previous_tile == False:
-                if where[0] < 10:
-                    self.previous_tile = chr(ord('@')+where[1]+1) + "0" + str(where[0])
-                else:
-                    self.previous_tile = chr(ord('@')+where[1]+1) + str(where[0])
+
+                self.previous_tile = _09toAZ(where[0],where[1])
+
             else:
-                if where[0] < 10:
-                    seconde_case = chr(ord('@')+where[1]+1) + "0" + str(where[0])
-                else:
-                    seconde_case = chr(ord('@')+where[1]+1) + str(where[0])
+                seconde_case = _09toAZ(where[0],where[1])
 
                 ilssontacote = False
                     #SONT ILS A COTE?
@@ -183,3 +204,23 @@ init python:
                         settings["lignes"][ligne] = what
 
                 self.previous_tile = False
+
+    def moveEverything(diffx,diffy):
+        dothisOnce = True
+
+        dict = copy.deepcopy(settings["lignes"])
+        for key, value in dict.iteritems():
+
+            x1,y1,x2,y2 = AZto09(key)
+
+            x1 += diffx
+            y1 += diffy
+            x2 += diffx
+            y2 += diffy
+
+            if x1>=0 and x2>=0 and x1< settings["mapsize"][0] and x2< settings["mapsize"][0]:
+                if y1>=0 and y2>=0 and y1< settings["mapsize"][1] and y2< settings["mapsize"][1]:
+                    new_key = _09toAZ(x1,y1,x2,y2)
+                    print new_key
+                    settings["lignes"][new_key] = settings["lignes"][key]
+            del settings["lignes"][key]

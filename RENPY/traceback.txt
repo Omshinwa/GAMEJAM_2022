@@ -1,37 +1,36 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/___Event.rpy", line 5, in script
-    init python:
-  File "game/___Event.rpy", line 5, in script
-    init python:
-  File "game/___Event.rpy", line 10, in <module>
-    settings["lignes"] = json.loads( read_file(".data_lignes") )
-ValueError: No JSON object could be decoded
+  File "renpy/common/00keymap.rpy", line 469, in script
+    python hide:
+  File "renpy/common/00keymap.rpy", line 469, in <module>
+    python hide:
+  File "renpy/common/00keymap.rpy", line 488, in _execute_python_hide
+    renpy.save("_reload-1", "reload save game")
+PicklingError: Can't pickle <class 'store.Cell'>: attribute lookup store.Cell failed
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "renpy/bootstrap.py", line 331, in bootstrap
-    renpy.main.main()
-  File "renpy/main.py", line 560, in main
-    renpy.game.context().run(node)
-  File "game/___Event.rpy", line 5, in script
-    init python:
-  File "game/___Event.rpy", line 5, in script
-    init python:
+  File "renpy/common/00keymap.rpy", line 469, in script
+    python hide:
   File "renpy/ast.py", line 928, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
   File "renpy/python.py", line 2245, in py_exec_bytecode
     exec(bytecode, globals, locals)
-  File "game/___Event.rpy", line 10, in <module>
-    settings["lignes"] = json.loads( read_file(".data_lignes") )
-  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python2.7/json/__init__.py", line 339, in loads
-  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python2.7/json/decoder.py", line 364, in decode
-  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python2.7/json/decoder.py", line 382, in raw_decode
-ValueError: No JSON object could be decoded
+  File "renpy/common/00keymap.rpy", line 469, in <module>
+    python hide:
+  File "renpy/common/00keymap.rpy", line 488, in _execute_python_hide
+    renpy.save("_reload-1", "reload save game")
+  File "renpy/loadsave.py", line 415, in save
+    reraise(t, e, tb)
+  File "renpy/loadsave.py", line 401, in save
+    dump((roots, renpy.game.log), logf)
+  File "renpy/loadsave.py", line 49, in dump
+    cPickle.dump(o, f, cPickle.HIGHEST_PROTOCOL)
+PicklingError: Can't pickle <class 'store.Cell'>: attribute lookup store.Cell failed
 
 Windows-10-10.0.19041
 Ren'Py 7.4.11.2266
 ParisIsBurning 1.0
-Thu Feb  3 03:25:22 2022
+Sat Feb  5 03:34:54 2022

@@ -36,8 +36,8 @@ screen sce_walls_editor():
 
 screen sce_grid_editor():
     button:
-        xysize settings["mapsize"][0] * settings["tilesize"], settings["mapsize"][1] * settings["tilesize"]
-        action Call("label_draw_on_tile")
+        xysize (settings["mapsize"][0]+1) * settings["tilesize"], settings["mapsize"][1] * settings["tilesize"]
+        action Jump("label_draw_on_tile")
 
     for row in game.grid:
         for cell in row:
@@ -87,7 +87,7 @@ screen sce_tile_editor_palette():
         xpos int(settings["mapsize"][0] + 1) * settings["tilesize"]
         ypos 0
         xysize 5* settings["tilesize"], 1.0
-        action Call("label_choose_tile_brush") #gros bouton pour annuler
+        action Jump("label_choose_tile_brush") #gros bouton pour annuler
 
     button:
         xalign 0.92
@@ -158,4 +158,4 @@ screen sce_tile_editor_palette():
         yalign 0.99
         text "EXPORT ALL" size 30 style "debug_text"
         background Solid("#5080FF")
-        action Call("label_export_tilemap")
+        action Jump("label_export_tilemap")

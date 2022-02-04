@@ -3,7 +3,7 @@
 init offset = -1
 init python:
     class Square(Tiletype):
-        def __init__(self, x, y, type = "error"):
+        def __init__(self, x, y, type):
             super(Square,self).__init__(type)
             self.type = type
             self.x = x

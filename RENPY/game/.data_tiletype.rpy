@@ -8,15 +8,18 @@
 6  "game-UI/6.gif" isStand:0 blockVision:1
 7  "game-UI/7.gif"
 8  "game-UI/8.gif" isDark:1
-9  "game-UI/9.gif" isStand:0
-10 "game-UI/10.gif" isStand:0
-11 "game-UI/11.gif" isStand:0
+9  "game-UI/9.gif"
+10 "game-UI/10.gif"
+11 "game-UI/11.gif"
 12 "game-UI/12.gif" isStand:0
 13 "game-UI/13.gif" isStand:0
 14 "game-UI/14.gif" isStand:0 blockVision:1
 15 "game-UI/15.gif" isStand:0
 16 "game-UI/16.gif" blockVision:1
 17 "game-UI/17.gif" isStand:0
+18 "game-UI/couchblue.gif"
+19 "game-UI/libraryblue.gif"
+
 50 "game-UI/grass.png"
 51 "game-UI/grass.png"
 

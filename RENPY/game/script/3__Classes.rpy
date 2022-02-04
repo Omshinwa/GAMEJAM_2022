@@ -11,16 +11,7 @@ init python:
                     return True
         return False
 
-    def sound_walk(case):
-        if game.grid[case.y][case.x].type==200:
-            renpy.music.play("audio/step-water-2.wav", channel='sound')
-        elif isThereAcadaver(case):
-            renpy.music.play("audio/step-water-1.wav", channel='sound')
-        else:
-            renpy.music.play("audio/step4.wav", channel='sound')
-        renpy.pause(0.5)
-
-    def distBetween(start, destination, game, search_size, collisionWall = True, collisionDoor=True):
+    def distBetween(start, destination, search_size, iftile, ifwall, ifdoor, ifteen, ifdoom):
         class Cell:
             def __init__(self,start,destination,gcost, state = "???", parent=""):
                 self.x = start.x
@@ -46,15 +37,11 @@ init python:
             if cells[key].state == "open":
                 array[key] = cells[key]
 
-        #while len(array)>0:
         for irfrrr in range(search_size):
             array = {}
             for key, value in cells.iteritems():
                 if cells[key].state == "open":
                     array[key] = cells[key]
-
-            # print("array")
-            # print(array)
 
             min = 99
             currentArray = []
@@ -65,15 +52,11 @@ init python:
                 if array[key].fcost == min:
                     currentArray.append( array[key] )
 
-            # print("currentArray")
-            # print(currentArray)
-
             min = 99
             for k in currentArray:
                 if k.hcost < min:
                     current = k
 
-            # print(k)
             current.state = "closed"
 
             if (current.x,current.y) == (destination.x, destination.y):
@@ -83,9 +66,8 @@ init python:
                 if len(array)>0:
                     array.insert(0, destination )
                     del array[-1]
-                    print array
 
-                return [current.fcost, array]
+                return [current.fcost, list(reversed(array))]
 
             for direction in [(-1,0),(0,1),(1,0),(0,-1)]:
                 pos = {}
@@ -93,31 +75,21 @@ init python:
                 pos.y = current.y + direction[1]
 
                 if not (pos.x,pos.y) in cells:
-                    # cells[pos.x,pos.y] = Cell(pos,destination,current.gcost+1,"open",current.parent)
                     neighbor = Cell( pos, destination, current.gcost+1, "???",current)
                 else:
                     neighbor = Cell( pos, destination, current.gcost+1, cells[pos.x,pos.y].state,current) #is current the dad?
 
-                if collisionWall:
-                    if (not game.isCrossable(neighbor.x,neighbor.y,current.x,current.y) ) or neighbor.state == "closed":
-                        pass
-                    else:
-                        if neighbor.state != "open" or neighbor.fcost < cells[neighbor.x,neighbor.y].fcost:
-                            cells[pos.x,pos.y] = neighbor
-                            if neighbor.state != "open":
-                                cells[pos.x,pos.y] = neighbor
-                                cells[pos.x,pos.y].state = "open"
-                else:
-                    if neighbor.state == "closed":
-                        pass
-                    else:
-                        if neighbor.state != "open" or neighbor.fcost < cells[neighbor.x,neighbor.y].fcost:
-                            cells[pos.x,pos.y] = neighbor
-                            if neighbor.state != "open":
-                                cells[pos.x,pos.y] = neighbor
-                                cells[pos.x,pos.y].state = "open"
 
-        print("lol cant reach??")
+                if (not game.isCrossable( x2=neighbor.x, y2=neighbor.y, x=current.x, y=current.y, iftile=iftile, ifdoom = ifdoom, ifwall=ifwall, ifdoor=ifdoor, ifteen=ifteen ) ) or neighbor.state == "closed":
+                    pass
+
+                else:
+                    if neighbor.state != "open" or neighbor.fcost < cells[neighbor.x,neighbor.y].fcost:
+                        cells[pos.x,pos.y] = neighbor
+                        if neighbor.state != "open":
+                            cells[pos.x,pos.y] = neighbor
+                            cells[pos.x,pos.y].state = "open"
+
         return [999,""]
 
     class Character:
@@ -163,7 +135,7 @@ init python:
             if game.state == "waiting" and self.AP > 0:
                 game.state = "moving"
                 game.premoving_who = self
-                game.premoving_where = game.inrange2(self.x, self.y, self.stat.move, False)
+                game.premoving_where = game.inrange2(x=self.x, y=self.y, howfar=self.stat.move, ifteen=False)
 
         def move(self, cell):
             if cell.occupied == 0 or (cell.x==self.x and cell.y==self.y):
@@ -173,7 +145,7 @@ init python:
 
                 self.x = cell.x
                 self.y = cell.y
-                game.grid[self.y][self.x].occupied = 1
+                game.grid[self.y][self.x].occupied = "teen"
                 # game.updateVision()
                 game.premoving_where = ""
                 self.action()
@@ -198,15 +170,12 @@ init python:
             if isThereAcadaver(case):
                 game.actions.append( { "text": "take items", "label": "lab_takeitems", "variables":[self,case] } )
 
-            x = self.x
-            y = self.y
-            print( chr(ord('@')+y+1) + str(x) )
             try:
-                settings["actions"][ chr(ord('@')+y+1) + str(x) ]
+                settings["actions"][_09toAZ(self.x, self.y)]
             except:
                 pass
             else:
-                game.actions.append( settings["actions"][ chr(ord('@')+y+1) + str(x) ] ) #str(ord(y)-65
+                game.actions.append( settings["actions"][_09toAZ(self.x, self.y)] ) #str(ord(y)-65
 
             obj = { "text": "PASS", "label": "lab_passTurn", "variables":self }
             game.actions.append( obj )
@@ -219,7 +188,7 @@ init python:
             game.grid[self.y][self.x].occupied = 1
             game.state = "moving"
             game.premoving_who = self
-            game.premoving_where = game.inrange2(self.x, self.y, self.stat.move, False)
+            game.premoving_where = game.inrange2(x=self.x, y=self.y, howfar=self.stat.move, ifteen=False)
 
         def endAction(self):
             game.premoving_who = ""
@@ -239,10 +208,12 @@ init python:
 
         def removeAP(self, x):
             self.AP -= x
+            if game.totalAP() <= 0:
+                renpy.jump( "lab_turnChange" )
 
     class Slasher:
         # init method or constructor
-        def __init__(self, name, x, y, idle = "doom-idle.png", hover = "doom-idle.png", premove = "doom-idle.png"):
+        def __init__(self, name, x, y, idle = "doom-idle.png", hover = "doom-idle.png", premove = "doom-idle.png", canOpenDoors = False):
             self.name = name
             self.x = x
             self.y = y
@@ -255,18 +226,58 @@ init python:
             self.img.hover = hover
             self.img.premove = premove
             self.img.invisible = "doom-invisible.png"
+
+            self.canOpenDoors = canOpenDoors
         def __repr__(self):
             return self.name
-        # def hover(self):
-        #     if game.grid[self.y][self.x].visibility == 1:
-        #         return self.img.hover
-        #     else:
-        #         return self.img.invisible
-        #display which sprite
+
         def sprite(self):
-            if game.grid[self.y][self.x].visibility == 1:
+            if game.grid[self.y][self.x].visibility == 1 or game.debug_mode:
                 return self.img.idle
             else:
                 return self.img.invisible
+        # def move(self):
+        #     renpy.call("lab_doommove", self)
+
+        def sound_walk(self,case):
+            if game.grid[case.y][case.x].type==200:
+                renpy.music.play("audio/step-water-2.wav", channel='sound')
+            elif isThereAcadaver(case):
+                renpy.music.play("audio/step-water-1.wav", channel='sound')
+            else:
+                renpy.music.play("audio/step4.wav", channel='sound')
+            renpy.pause(0.5)
+
         def move(self):
-            renpy.call("lab_doommove_track", self)
+################################################################################
+#######DECISION MAKING: first try if there's anyone near reacheable, then just randomwalk otherwise
+
+            for doom in game.dooms:
+                target = [99,""]
+                cible = ""
+
+                #####  SEARCH ONLY PATHS WITH DOORS OPEN  #######
+                for teen in game.teens:
+                    if teen.isAlive:
+                        distance = distBetween(start=doom, destination=teen, search_size=15, ifteen=False, iftile=True, ifdoom=False,ifwall=True,ifdoor=(not doom.canOpenDoors))
+                        print("OPENED DOORS: cible:"+teen.name+" distance:" + str(distance[0]))
+                        if target[0] > distance[0]:
+                            target = distance
+                            cible = teen
+
+                if target[0] == 99: 
+                    #####  SEARCH EVERYWHERE FOR THE CLOSEST UP TO 20   #######
+                    for teen in game.teens:
+                        if teen.isAlive:
+                            distance = distBetween(start=doom, destination=teen, search_size=30, ifteen=False, iftile=True, ifdoom=False,ifwall=True,ifdoor=(not doom.canOpenDoors))
+                            print("CLOSED cible:"+teen.name+" distance:" + str(distance[0]))
+                            if target[0] > distance[0]:
+                                target = distance
+                                cible = teen
+
+                print("target:"+str(target[1]))
+                if target[0] == 99: ##HERE ITS THE SAME AS RANDOMWALK
+                    renpy.call("lab_doommove_random", doom)
+                else:
+                    renpy.call("lab_doommove_track", doom, cible, target)
+            renpy.jump(lab_turnChange)

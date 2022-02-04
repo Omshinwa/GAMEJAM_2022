@@ -1,17 +1,25 @@
+style style_action:
+    color "#00FF00"
+
 style debug_text is text:
     outlines [ (absolute(1), "#000", absolute(0), absolute(0)) ]
     color "#FFFFFF"
 
-style style_action:
-    color "#00FF00"
+style classicfont:
+    font "IREADCASLON.TTF"
+    outlines [ (absolute(2), "#FFF", absolute(0), absolute(0)) ]
+    color "#FF0000"
+    antialias False
 
 label lab_render:
     show screen sce_grid
     show screen sce_doom
     show screen sce_char
     show screen sce_fog
-    show screen sce_action
-    call screen sce_walls
+    show screen sce_walls
+    show screen sce_UI
+    call screen sce_action
+jump lab_gameloop
 
 
 image img_cell_hover:
@@ -91,9 +99,9 @@ screen sce_action():
                     background Solid( "#000000" )
                     hover_background "#00a"
                     if len(act)==2:
-                        action [SetVariable("game.premoving_who.AP", 0),  Call(act["label"])]
+                        action [SetVariable("game.premoving_who.AP", 0),  Jump(act["label"])]
                     if len(act)==3:
-                        action [SetVariable("game.premoving_who.AP", 0),Call(act["label"],act["variables"])]
+                        action [SetVariable("game.premoving_who.AP", 0), Call(act["label"],act["variables"])]
 
 
 screen sce_fog():
@@ -111,7 +119,7 @@ screen sce_fog():
                 background Solid( "#FF000000" )
 
             if game.debug_mode:
-                text chr(ord('@')+cell.y+1) + str(cell.x) size 30*settings["tilesize"]/96 style "debug_text"
+                text _09toAZ(cell.x,cell.y) size 30*settings["tilesize"]/96 style "debug_text"
                 text str(cell.y) + str(cell.x) size 20*settings["tilesize"]/96 ypos 30 style "debug_text"
 
 #EXAMPLE DE COMPOSITE QUI MARCHE
@@ -133,15 +141,15 @@ screen sce_grid():
                 xpos int(cell.x * settings["tilesize"])
                 ypos int(cell.y * settings["tilesize"])
                 xysize int(settings["tilesize"]), int(settings["tilesize"])
-                if cell.visibility == 0:
-                    idle "game-UI/cell-blank.png"
-                else:
-                    if cell.onFire == 1:
-                        idle "game-UI/small-fire.png"
-                    elif cell.onFire == 2:
-                        idle "game-UI/fire.png"
-                    elif cell.onFire == 3:
-                        idle "game-UI/big-fire.png"
+                # if cell.visibility == 0:
+                    # idle "game-UI/cell-blank.png"
+                # else:
+                if cell.onFire == 1:
+                    idle "game-UI/small-fire.png"
+                elif cell.onFire == 2:
+                    idle "game-UI/fire.png"
+                elif cell.onFire == 3:
+                    idle "game-UI/big-fire.png"
 
 
     if game.state=="moving":
@@ -157,7 +165,7 @@ screen sce_grid():
             idle "game-UI/cell-blank.png"
             action Function(game.premoving_who.move, cell=cell)
 
-    # text game.state size 80 color "#FF0000"
+    text game.state size 80 color "#FF0000"
     text "SCORE:"+str(game.score) size 40 color "#FF0000" xalign 1.0
 
 screen sce_walls():
@@ -184,3 +192,22 @@ screen sce_walls():
                 background Solid( "#EEEEEE" )
             if value == 3:
                 background "game-UI/door-open.png"
+
+screen sce_UI():
+    zorder 2
+
+    button:
+        xanchor 1.0
+        yanchor 1.0
+        xpos settings["resolution"][0] - 10
+        ypos settings["resolution"][1] - 10
+        if game.state == "waiting":
+            # background Solid("#FF00B0")
+            text "END TURN" size 40 style "classicfont" hover_color "#FFFFFF"
+            action Jump("lab_end_turn")
+
+            # hover_background Solid("#00FF6F")
+        # else:
+        #     text "END TURN" size 30 style "debug_text"
+        #     background Solid("#808080")
+        #     action NullAction()

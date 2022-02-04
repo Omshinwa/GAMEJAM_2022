@@ -3,7 +3,7 @@ init python:
     # CETTE MAP DETERMINE LA TILE
     settings["tilemap"] = read_data_tilemap( ".data_tilemap" )
     settings["tiletype"] = TileTypeTxt_to_Arr( read_file(".data_tiletype.rpy") )
-    
+
     class Tiletype:
 
         def interaction(self, type, distance, teen, case):
@@ -18,7 +18,7 @@ init python:
 
             #DEFAULT VALUES
 
-            self.type = "error"
+            self.type = -1
             self.img_idle = "game-UI/tile-error.png"
             self.isStand = 1
             self.blockVision = 0 #default value, hide the vision behind it like a big object
