@@ -12,8 +12,9 @@ make puddles like Fire, aka they're objects
 
 
 
-OPEN THE DOORS
 
-DONe
-FIRE SPREAD THROUGH WALLS???
-no game over?
+
+dirtiest thing: each square has an X and a Y, but their X and Y could differ from their game.grid[Y][X]
+ideally the square class doesnt have any Y X
+
+doom: change the behavior so he doesnt get baited by a random door open

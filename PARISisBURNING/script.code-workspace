@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"name": "debug",
+			"path": "game\\debug"
+		},
+		{
+			"name": "script",
+			"path": "game\\script"
+		},
+		{
+			"name": "game",
+			"path": "game"
+		}
+	],
+	"settings": {}
+}
