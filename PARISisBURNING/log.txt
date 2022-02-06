@@ -1,68 +1,40 @@
-Mon Feb  7 03:37:06 2022
+Mon Feb  7 03:42:51 2022
 Windows-10-10.0.19041
 Ren'Py 7.4.11.2266
  
 
-Bootstrap to the start of init.init took 0.07s
-Early init took 0.00s
-Loader init took 0.02s
-Loading error handling took 0.02s
-Loading script took 0.53s
-Loading save slot metadata. took 0.13s
-Loading persistent took 0.00s
-
-File "game/script/Logic.rpy", line 75: invalid syntax
-                        if neighbor.onFire > 0 
-    
-DPI scale factor: 1.000000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Interface start took 0.38s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Windowed mode.
-Vendor: 'NVIDIA Corporation'
-Renderer: 'NVIDIA GeForce GTX 1070/PCIe/SSE2'
-Version: '4.6.0 NVIDIA 471.96'
-Display Info: None
-Screen sizes: virtual=(1580, 816) physical=(1578, 815) drawable=(1578, 815)
-Maximum texture size: 4096x4096
-Resetting cache.
-Bootstrap to the start of init.init took 13.74s
+Bootstrap to the start of init.init took 0.06s
 Early init took 0.00s
 Loader init took 0.01s
-Loading error handling took 0.01s
-Loading script took 0.17s
+Loading error handling took 0.02s
+Loading script took 0.20s
 Loading save slot metadata. took 0.02s
 Loading persistent took 0.00s
 Importing _renpysteam: ImportError('No module named _renpysteam',)
-Running init code took 0.08s
+Running init code took 0.05s
 Loading analysis data took 0.02s
 Analyze and compile ATL took 0.00s
 Index archives took 0.00s
-Backing up script files to 'C:\\Users\\ALIENWARE\\AppData\\Roaming/RenPy/backups\\PARISisBURNING':
-Dump and make backups. took 0.11s
+Dump and make backups. took 0.05s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
 Initial gc. took 0.02s
 DPI scale factor: 1.000000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
-Creating interface object took 0.27s
+Creating interface object took 0.25s
 Cleaning stores took 0.00s
 Init translation took 0.03s
 Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.03s
+Load screen analysis took 0.02s
+Analyze screens took 0.00s
+Save screen analysis took 0.00s
 Prepare screens took 0.06s
-Save pyanalysis. took 0.03s
+Save pyanalysis. took 0.00s
 Save bytecode. took 0.02s
 Running _start took 0.00s
 Performance test:
-Interface start took 0.21s
+Interface start took 0.08s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)
@@ -74,3 +46,30 @@ Version: '4.6.0 NVIDIA 471.96'
 Display Info: None
 Screen sizes: virtual=(1580, 816) physical=(1578, 815) drawable=(1578, 815)
 Maximum texture size: 4096x4096
+5 11
+4 16
+cmb:2
+cible:lauren distance:999
+cible:william distance:4
+cible:darryl distance:10
+cible:kayleigh distance:999
+target:[ x12:y7 ,  x12:y6 ,  x11:y6 , william]
+cmb:2
+cible:lauren distance:16
+cible:william distance:11
+cible:darryl distance:17
+cible:kayleigh distance:999
+target:[ x10:y12 ,  x11:y12 ,  x12:y12 ,  x12:y11 ,  x12:y10 ,  x12:y9 ,  x12:y8 ,  x12:y7 ,  x12:y6 ,  x11:y6 , william]
+4 11
+cmb:2
+cible:lauren distance:999
+cible:william distance:999
+cible:darryl distance:999
+cible:kayleigh distance:999
+target:
+cmb:2
+cible:lauren distance:17
+cible:william distance:999
+cible:darryl distance:999
+cible:kayleigh distance:999
+target:[ x11:y12 ,  x10:y12 ,  x9:y12 ,  x8:y12 ,  x7:y12 ,  x6:y12 ,  x5:y12 ,  x4:y12 ,  x3:y12 ,  x2:y12 ,  x2:y11 ,  x2:y10 ,  x1:y10 ,  x1:y9 ,  x1:y8 ,  x1:y7 , lauren]
