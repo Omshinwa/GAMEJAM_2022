@@ -58,7 +58,7 @@ init python:
                 # game.actions.append( { "text": "Discard Bucket", "label": "lab_discard", "variables": (self,teen) } )
 
         if name == "Bucket":
-            print(*args)
+            print(args)
             return Bucket(*args)
         else:
             raise Exception('Item type doesnt exist: '+name)

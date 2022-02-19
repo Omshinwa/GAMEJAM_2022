@@ -2,10 +2,10 @@
 errors listed below, and try again.
 
 
-File "game/script/2__Items.rpy", line 41: invalid syntax
-    class Items( name, *args):
-                        ^
+File "game/script/2__Items.rpy", line 61: invalid syntax
+            print(*args)
+                   ^
     
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Thu Feb 17 18:10:24 2022
+Sat Feb 19 17:47:45 2022
