@@ -9,35 +9,60 @@ init python:
     "H8": {"label":"lab_H8"}, "B8" : {"label":"lab_B8"}}
 
     settings["actions"] = {}
-    settings["lignes"] = json.loads( read_file(".data_lignes") )
 
-##BY DEFAULT VARIABLES[0] is the teen doing the action, VARIABLE[1] is the square, VARIABLE[2] are the other vars passed by the Action
+##BY DEFAULT VARIABLES[0] is the teen doing the action, VARIABLE[1] is the square (call square.x and square.y), VARIABLE[-1] are the other vars passed by the Action
+
+
 label lab_moveCouch(variable):
     python:
+        game.premoving.who.AP -= 1
         teen = variable[0]
         sofa = variable[1]
         direction = sofa.x - teen.x, sofa.y - teen.y
+        start = game.grid[sofa.y][sofa.x]
+        end = game.grid[sofa.y + direction[1]][sofa.x + direction[0]]
         #if the next case is empty
-        if game.squareExist(sofa.y + direction[1], sofa.x + direction[0]):
-            if game.grid[sofa.y + direction[1]][sofa.x + direction[0]].isStand and game.grid[sofa.y + direction[1]][sofa.x + direction[0]].occupied == 0:
-                intermediaire = copy.deepcopy(game.grid[sofa.y][sofa.x])
-                game.grid[sofa.y][sofa.x] = copy.deepcopy( game.grid[sofa.y + direction[1]][sofa.x + direction[0]] )
-                game.grid[sofa.y + direction[1]][sofa.x + direction[0]] = copy.deepcopy(intermediaire)
+        if game.isCrossable(x=start.x, y=start.y, x2=end.x, y2=end.y, lastMovement=True, exception_arr = ["fire"]):
+            #so disgusting lol
+            start = game.grid[sofa.y][sofa.x]
+            end = game.grid[sofa.y + direction[1]][sofa.x + direction[0]]
 
-                game.grid[sofa.y + direction[1]][sofa.x + direction[0]].x = sofa.x + direction[0]
-                game.grid[sofa.y + direction[1]][sofa.x + direction[0]].y = sofa.y + direction[1]
-                game.grid[sofa.y][sofa.x].x = sofa.x
-                game.grid[sofa.y][sofa.x].y = sofa.y
+            start.onAction = [x for x in start.onAction if x.name != "Couch"] 
+            end.onAction.append( Tiletype.addInteraction( "Couch" ) )
 
-                renpy.music.play("audio/pushfurniture.wav", channel='sound')
-                renpy.pause(0.5)
+            buffer = start.type
+            buffer_startAction = copy.deepcopy( start.onAction )
+            buffer_endAction = copy.deepcopy( end.onAction )
+
+            game.grid[sofa.y][sofa.x] = Square(x=start.x, y=start.y, type = end.type )
+            game.grid[sofa.y + direction[1]][sofa.x + direction[0]] = Square(x=end.x, y=end.y, type = buffer )
+
+            game.grid[sofa.y][sofa.x].onAction = buffer_startAction
+            game.grid[sofa.y + direction[1]][sofa.x + direction[0]].onAction = buffer_endAction
+
+            renpy.play("audio/pushfurniture.wav", channel='sound')
+            renpy.pause(0.5)
                 
-    call lab_passTurn(copy.copy(game.premoving_who))
+    call lab_endTurn(copy.copy(game.premoving.who))
     return
 
 label lab_action_door(variable): #currently used by teens
+
+    $ teen = variable[0]
+    $ vari = variable[-1]
+
+    if settings["lignes"][vari]== 4: #if it's a hidden door
+        python:
+            game.say(teen,teen.name,"finds a secret door")
+            renpy.music.queue("audio/opendoor1.mp3", channel='sound', relative_volume=0.5)
+            settings["lignes"][vari] = 3
+            renpy.pause(0.5)
+        call lab_endTurn(copy.copy(game.premoving.who))
+        return
+
+    #if it's a regular door
     python:
-        vari = variable[2]
+        game.premoving.who.AP -= 1
         x = int(vari[1:3])
         y = ord(vari[0])-65
         x2 = int(vari[4:6])
@@ -45,53 +70,26 @@ label lab_action_door(variable): #currently used by teens
         a = game.grid[y][x].occupied or game.grid[y][x].isStand == 0
         b = game.grid[y2][x2].occupied or game.grid[y2][x2].isStand == 0
         if a and b:
-            renpy.music.play("audio/doorfail.ogg", channel='sound')
+            renpy.play("audio/doorfail.ogg", channel='sound', relative_volume=0.5)
             pass
         else:
             if settings["lignes"][vari]== 2:
-                renpy.music.play("audio/opendoor1.mp3", channel='sound')
+                renpy.play("audio/opendoor1.mp3", channel='sound', relative_volume=0.5)
                 settings["lignes"][vari] = 3
             elif settings["lignes"][vari]== 3:
-                renpy.music.play("audio/closedoor1.wav", channel='sound')
+                renpy.play("audio/closedoor1.wav", channel='sound', relative_volume=0.5)
                 settings["lignes"][vari] = 2
         game.updateVision()
         renpy.pause(0.5)
-    call lab_passTurn(copy.copy(game.premoving_who))
+    call lab_endTurn(copy.copy(game.premoving.who))
     return
-
-init python:
-                
-    def action_door(x,y,x2,y2): #currently used by slashers
-
-        for action in game.grid[y][x].onAction:
-            if action.name == "door":
-                vari = action.variables
-
-                a = game.grid[y][x].occupied or game.grid[y][x].isStand == 0
-                b = game.grid[y2][x2].occupied or game.grid[y2][x2].isStand == 0
-                print("door action:")
-                print(a)
-                print(b)
-                print(settings["lignes"][vari])
-                if a and b:
-                    renpy.music.play("audio/doorfail.ogg", channel='sound')
-                    return False
-                else:
-                    if settings["lignes"][vari]== 2:
-                        renpy.music.play("audio/opendoor1.mp3", channel='sound')
-                        renpy.pause(0.5)
-                        settings["lignes"][vari] = 3
-                    elif settings["lignes"][vari]== 3:
-                        renpy.music.play("audio/closedoor1.wav", channel='sound')
-                        renpy.pause(0.5)
-                        settings["lignes"][vari] = 2
-                    return True
-
-        return False
+    
 
 label lab_D2(variables):
-    if variables>0:
-        "Hello world"
+    $ teen = variables[0]
+    $ vari = variables[-1]
+    if vari>0:
+        $ game.say(teen, "hello world")
         $ settings["events_fyn"]["D2"]["variables"] = 0
     jump lab_gameloop
 
@@ -104,26 +102,37 @@ label lab_B8():
                     cell.isDark = 0
     jump lab_gameloop
 
-label lab_H8:
-    "Hello world2"
-    jump lab_gameloop
 
 #################################################
-label lab_passTurn(teen): #QUAND ON FINIT SON TOUR
+label lab_endTurn(teen): #EVERYTIME THE TURN ENDS YOU CALL endTurn
     python:
-        if game.grid[teen.y][teen.x].onFire == 1:
-            game.grid[teen.y][teen.x].onFire = 0
-        game.premoving_who = ""
-        game.state = "waiting"
-        game.grid[teen.y][teen.x].onEvent(game)
+        if teen.AP <= 0:
+            if game.grid[teen.y][teen.x].onFire == 1:
+                game.grid[teen.y][teen.x].onFire = 0
+            game.premoving = {}
+            game.state = "waiting"
+            #game.grid[teen.y][teen.x].onEvent(game)
+            if game.grid[teen.y][teen.x].event:
+                game.state = "event"
+                # renpy.call( game.grid[teen.y][teen.x].event, teen)
+                game.grid[teen.y][teen.x].event.add_event( game,teen,game.grid[teen.y][teen.x] )
+        else:
+            teen.action()
     return
-    # jump lab_gameloop
+
+#################################################
+label lab_passTurn(teen): #QUAND ON PASSE SON TOUR
+    python:
+        game.premoving.who.AP = 0
+    # call lab_endTurn(copy.copy(game.premoving.who))
+        renpy.call("lab_endTurn",copy.copy(game.premoving.who))
+    return
 
 label lab_takeitems(var):
     python:
         thief = var[0]
         cadaver = var[1]
-        game.premoving_who = ""
+        game.premoving = {}
         game.state = "waiting"
         game.grid[teen.y][teen.x].onEvent(game)
         if game.totalAP() <= 0:
@@ -132,3 +141,70 @@ label lab_takeitems(var):
         if game.totalAP() <= 0:
             game.turnChange()
     jump lab_gameloop
+
+
+label lab_throw_water(var):
+    python:
+        #game.premoving.who.AP -= 1
+        game.premoving.hover = "game-UI/puddle.png"
+        game.premoving.action = "lab_throw_water_confirm"
+        game.premoving.variables = var #self
+        game.premoving.where = game.inrange2(var[1].x,var[1].y,1, exception_arr=["fire"], ifoccupied = False)
+    return
+
+label lab_throw_water_confirm(cell):
+    python:
+        # teen =  game.premoving.variables[1]
+        # direction = cell.x - teen.x, cell.y - teen.y
+        # cell2 = game.grid[cell.y + direction[1]][cell.x + direction[0]]
+
+        # if game.isCrossable(x=cell.x, y=cell.y, x2=cell2.x, y2=cell2.y, exception_arr = ["fire"]):
+        #     cells = [cell,cell2]
+        # else:
+        #     cells = [cell]
+
+        # if game.isCrossable(x=cell.x, y=cell.y, x2=cell2.x, y2=cell2.y, exception_arr = ["fire"]):
+        #     cells = [cell,cell2]
+        
+        game.premoving.who.AP -= 1
+        #redondant, car quand on call lab_passTurn, AP devient 0
+        teen =  game.premoving.variables[1]
+        direction = cell.x - teen.x, cell.y - teen.y
+        cell2 = game.grid[cell.y + direction[1]][cell.x + direction[0]]
+
+        cells = []
+        for direction in [(0,-1),(-1,-1),(-1,0),(-1,1),(0,1),(1,1),(1,0),(1,-1)]:
+            if Game.squareExist(x=cell2.x + direction[0], y=cell2.y + direction[1]):
+                cell = game.grid[cell2.y + direction[1]][cell2.x + direction[0]]
+                cells.append(cell)
+        cells.append(cell2)
+
+        item = game.premoving.variables[0] #thats the bucket
+        item.charge -= 1
+        renpy.play("audio/throw-water.ogg", channel='sound')
+        for cel in cells:
+            if cel.onFire <= 1:
+                cel.onFire = -1
+            else:
+                cel.onFire -= 3
+                
+            if cel.onFire <= 1 and cel.occupied=="fire":
+                cel.occupied = 0
+        renpy.pause(0.5)
+
+    call lab_endTurn(copy.copy(game.premoving.who))
+    return
+
+label lab_fill_bucket(var):
+    python:
+        item = var[0]
+        teen = var[1]
+        item.charge = item.maxcharge
+        if game.grid[teen.y][teen.x].itemType == "Shower":
+            renpy.play("audio/fill-water-from-tap.ogg", channel='sound')
+        elif game.grid[teen.y][teen.x].itemType == "Toilet":
+            renpy.play("audio/fill-water-from-pool.ogg", channel='sound')
+        renpy.pause(0.5)
+    call lab_endTurn(copy.copy(game.premoving.who))
+    return
+    

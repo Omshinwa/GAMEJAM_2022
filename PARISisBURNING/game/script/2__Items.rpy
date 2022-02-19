@@ -2,19 +2,16 @@
 init offset = -2
 init python:
 
-    class Item_Action(): #ADDED INSIDE SQUARES. DEFINE HOW ACTIONS ARE ADDED
-        def __init__(self, name, isItem, rangeOfActivation, text=None, label=None,variables=None):
+    class Event_Caller(): #ADDED INSIDE SQUARES. DEFINE HOW ACTIONS ARE ADDED
+        def __init__(self, name, range, isActive, text=None, label=None, variables=None):
             self.name = name
-            self.isItem = isItem
-            self.range = rangeOfActivation
-            self.text = text
+            self.range = range
+            self.text = text  #only matter if it's an action
             self.label = label
             self.variables = variables
-        
-        def __repr__(self):
-            return "item_Action obj '"+self.name+"'"
-        
-        
+            self.isActive = isActive #if it's not Active, then it's passive
+            self.isPassive = not isActive
+
         def add_action(self, game, teen, case, distance):
             if self.text is not None and distance <= self.range:
                 if self.range == 0:
@@ -32,21 +29,36 @@ init python:
                         direction = "left"
                     elif direction == (1,0):
                         direction = "right"
-                    game.actions.append( { "text": self.text + " "+ direction, "label": self.label, "variables": i })
-
-
-    class Bucket(Item_Action):
-        def __init__(self):
-            # super(Bucket,self).__init__( name="Bucket", isItem=True, rangeOfActivation=0)
-            self.name = "Bucket"
-            self.charge = 0
-            self.isItem = True
+                    print direction
+                    game.actions.append( { "text": self.text + " "+ direction, "label": self.label, "variables": i })     
         
-        def add_action(self, game, teen):
-            if game.grid[teen.y][teen.x].itemType == "Shower" or game.grid[teen.y][teen.x].itemType == "Toilet":
-                game.actions.append( { "text": "Fill the bucket", "label": "lab_fill_bucket", "variables": (self,teen) })
+        def add_event(self,game,teen,case):
+            renpy.call( self.label, (teen, case, self.variables) )
+        
+        def __repr__(self):
+            return "Event_Caller obj '"+self.name+"'"
 
-            if self.charge >= 1:
-                game.actions.append( { "text": "Throw water", "label": "lab_throw_water", "variables": (self,teen) })
+    def Items(name, *args):
+
+        class Bucket(Event_Caller):
+            def __init__(self, charge = 0):
+                # super(Bucket,self).__init__( name="Bucket", rangeOfActivation=0, isActive=True)
+                self.name = "Bucket"
+                self.charge = charge
+                self.maxcharge = 3
             
-            game.actions.append( { "text": "Discard Bucket", "label": "lab_discard", "variables": (self,teen) } )
+            def add_action(self, game, teen):
+                if game.grid[teen.y][teen.x].itemType == "Shower" or game.grid[teen.y][teen.x].itemType == "Toilet":
+                    if self.charge < self.maxcharge:
+                        game.actions.append( { "text": "Fill the bucket", "label": "lab_fill_bucket", "variables": (self,teen) })
+
+                if self.charge >= 1:
+                    game.actions.append( { "text": "Throw water", "label": "lab_throw_water", "variables": (self,teen) })
+                
+                # game.actions.append( { "text": "Discard Bucket", "label": "lab_discard", "variables": (self,teen) } )
+
+        if name == "Bucket":
+            print(*args)
+            return Bucket(*args)
+        else:
+            raise Exception('Item type doesnt exist: '+name)

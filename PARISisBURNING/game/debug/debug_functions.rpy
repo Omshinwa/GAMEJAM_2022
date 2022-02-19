@@ -34,13 +34,13 @@ init python:
             if cells[key].state == "open":
                 array[key] = cells[key]
 
-        for irfrrr in range(search_size):
+        for notusedvariablelol in range(search_size):
             array = {}
             for key, value in cells.iteritems():
                 if cells[key].state == "open":
                     array[key] = cells[key]
 
-            min = 99
+            min = 999
             currentArray = []
             for key, value in array.iteritems():
                 if array[key].fcost < min:
@@ -49,7 +49,7 @@ init python:
                 if array[key].fcost == min:
                     currentArray.append( array[key] )
 
-            min = 99
+            min = 999
             for k in currentArray:
                 if k.hcost < min:
                     current = k
@@ -232,9 +232,10 @@ init python:
         def __init__(self):
             self.state = ""
             self.tilebrush = -1
-            self.draw_layer = "tile"
+            self.draw_mode = "tile"
             self.previous_tile = False
         def draw_on_tile(self, what= -1, where = None):
+            print("bite")
             if where is None:
                 where = getMouseId()
             game.grid[where[1]][where[0]] = Square(x=where[0], y=where[1], type = what )
@@ -243,11 +244,11 @@ init python:
             if where is None:
                 where = getMouseId()
             try:
-                settings["tiletype"][ 5 * where[1] + (where[0]-(settings["mapsize"][0] + 1)) ]["type"]
+                settings["tiletype"][ 6 * where[1] + (where[0]-(settings["mapsize"][0])) ]["type"]
             except:
                 pass
             else:
-                type_ = settings["tiletype"][ 5 * where[1] + (where[0]-(settings["mapsize"][0] + 1)) ]["type"]
+                type_ = settings["tiletype"][ 6 * where[1] + (where[0]-(settings["mapsize"][0])) ]["type"]
                 print(type_)
                 self.tilebrush = type_
 
@@ -284,10 +285,10 @@ init python:
                 self.previous_tile = False
 
     def moveEverything(diffx,diffy):
-        dothisOnce = True
+        
 
-        dict = copy.deepcopy(settings["lignes"])
-        for key, value in dict.iteritems():
+        dictbuffer = {}
+        for key, value in settings["lignes"].iteritems():
 
             x1,y1,x2,y2 = AZto09(key)
 
@@ -300,5 +301,11 @@ init python:
                 if y1>=0 and y2>=0 and y1< settings["mapsize"][1] and y2< settings["mapsize"][1]:
                     new_key = _09toAZ(x1,y1,x2,y2)
                     print new_key
-                    settings["lignes"][new_key] = settings["lignes"][key]
-            del settings["lignes"][key]
+                    dictbuffer[new_key] = settings["lignes"][key]
+        settings["lignes"] = copy.deepcopy(dictbuffer)
+
+        gamecopy = copy.deepcopy(game.grid)
+        for j, row in enumerate(game.grid):
+            for i, case in enumerate(row):
+                if Game.squareExist(y= j+diffy, x=i+diffx):
+                    game.grid[j+diffy][i+diffx] = Square(x=i+diffx, y=j+diffy, type = gamecopy[j][i].type )

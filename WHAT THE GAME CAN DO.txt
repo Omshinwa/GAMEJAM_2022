@@ -1,0 +1,7 @@
+every character can move then act. or act twice without moving (maybe add the possibility to act then move?). this way you can open the door, and then close it again if you see a slasher
+
+you can walk on small fire to extinguish them
+
+big fire need water to be thrown at
+
+idk about the bucket water splash size yet

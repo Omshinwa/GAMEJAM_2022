@@ -20,20 +20,32 @@ python:
     #create characters
     lauren = Character( game, name = "lauren", x = 2, y = 7)
     game.teens.append( lauren )
-    william = Character( game, name = "william", x = 11, y = 6)
+    william = Character( game, name = "william", x = 2, y = 8)
     game.teens.append( william )
-    darryl = Character( game, name = "darryl", x = 15, y = 4)
-    game.teens.append( darryl )
-    kayleigh = Character( game, name = "kayleigh", x = 4, y = 8)
-    game.teens.append( kayleigh )
+    # darryl = Character( game, name = "darryl", x = 16, y = 6)
+    # game.teens.append( darryl )
+    # kayleigh = Character( game, name = "kayleigh", x = 15, y = 7)
+    # game.teens.append( kayleigh )
 
     game.state = "waiting"
-    slasher = Slasher(name="Slasher", x=12, y=8, canOpenDoors= True)
+    slasher = Slasher(name="Slasher", x=21, y=7, canOpenDoors= True)
     game.dooms.append( slasher )
 
-    slasher2 = Slasher(name="Slasher", x=10, y=11, canOpenDoors= True)
+    slasher2 = Slasher(name="Slasher", x=22, y=7, canOpenDoors= True)
     game.dooms.append( slasher2 )
     game.updateVision()
 
-    william.inventory.append( Bucket() )
+    game.grid[7][12].onFire = -1
+
+    william.inventory.append( Items("Bucket") )
+    lauren.inventory.append( Items("Bucket",3) )
+    # darryl.inventory.append( Bucket() )
+    # kayleigh.inventory.append( Bucket() )
 return
+
+
+label lab_credit:
+    "thanks to the renpy discord community for their help (tomrenpy, AxelKong"
+    "sound people:
+    https://bigsoundbank.com/detail-0495-steps-in-the-mud.html
+    https://www.zapsplat.com/music/water-from-bucket-throw-splash-splat-on-concrete-ground-1/"

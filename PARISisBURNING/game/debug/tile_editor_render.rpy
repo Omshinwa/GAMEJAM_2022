@@ -35,6 +35,15 @@ screen sce_walls_editor():
                 background "game-UI/door-open.png"
 
 screen sce_grid_editor():
+
+    for row in game.grid:
+        for cell in row:
+            frame:
+                xpos int(cell.x * settings["tilesize"])
+                ypos int(cell.y * settings["tilesize"])
+                xysize int(settings["tilesize"]), int(settings["tilesize"])
+                background cell.sprite()
+            
     button:
         xysize (settings["mapsize"][0]+1) * settings["tilesize"], settings["mapsize"][1] * settings["tilesize"]
         action Jump("label_draw_on_tile")
@@ -56,7 +65,7 @@ screen sce_grid_editor():
                     text chr(ord('@')+cell.y+1) + str(cell.x) size 30*settings["tilesize"]/96 style "debug_text"
                     text str(cell.y) + str(cell.x) size 20*settings["tilesize"]/96 ypos 30 style "debug_text"
 
-        if debug_.draw_layer != "tile" and debug_.previous_tile:
+        if debug_.draw_mode != "tile" and debug_.previous_tile:
             frame:
                 background "game-UI/debug-select_ligne.png"
                 xpos int(debug_.previous_tile[1:3]) * settings["tilesize"]
@@ -65,97 +74,125 @@ screen sce_grid_editor():
 screen sce_tile_editor_palette():
     zorder 3
 
-    for i, cell in enumerate(settings["tiletype"]):
-        frame:
-        # imagebutton:
-            xpadding 0
-            ypadding 0
-            xpos int(settings["mapsize"][0] + 1 + i%5) * settings["tilesize"]
-            ypos int(i/5) * settings["tilesize"]
-            xysize settings["tilesize"], settings["tilesize"]
-            background cell["img_idle"]
-            if cell["type"] == debug_.tilebrush:
-                frame:
-                    background "game-UI/debug-select-tilebrush.png"
-                    xysize settings["tilesize"], settings["tilesize"]
+    frame:
+        xpos (settings["mapsize"][0]) * settings["tilesize"]
+        xsize settings["ui-size"] * settings["tilesize"]
+        background Solid("#222")
 
+
+        ####              TILES            #####
+        for i, cell in enumerate(settings["tiletype"]):
+            frame:
+            # imagebutton:
+                xpadding 0
+                ypadding 0
+                xpos i%6 * settings["tilesize"]
+                ypos int(i/6) * settings["tilesize"]
+                xysize settings["tilesize"], settings["tilesize"]
+                background cell["img_idle"]
+                if cell["type"] == debug_.tilebrush:
+                    frame:
+                        background "game-UI/debug-select-tilebrush.png"
+                        xysize settings["tilesize"], settings["tilesize"]
+
+                if game.state == "debug_tile_id":
+                    text str(cell["type"]) size 25 style "debug_text2"
+                # background Solid("#FFF000")
+
+        button:
+            xpos 0
+            ypos 0
+            xysize 6* settings["tilesize"],  7 * settings["tilesize"]
+            action Jump("label_choose_tile_brush")
+            background Solid("#f005")
+
+        text "layer:" style "classicfont" yalign 0.6 xalign 0.0
+        text "mode:" style "classicfont" yalign 0.7 xalign 0.0
+
+        button:
+            xalign 0.3
+            yalign 0.64
+            if debug_.draw_mode == "tile":
+                background Solid("#FFFAAA")
+            else:
+                background Solid("#808080")
+            text "TILE" size 30 style "debug_text"
+            action SetVariable("debug_.draw_mode", "tile")
+
+        button:
+            xalign 1.0
+            yalign 0.64
+            if debug_.draw_mode == "wall":
+                background Solid("#FFFAAA")
+            else:
+                background Solid("#808080")
+            text "wall" size 30 style "debug_text"
+            action SetVariable("debug_.draw_mode", "wall")
+
+#########             doors             #################
+        fixed:
+            ypos 620
+            
+            button:
+                xalign 0.0
+                xsize 100
+                ysize 50
+                if debug_.draw_mode == "closed_door":
+                    background Solid("#FFFAAA")
+                else:
+                    background Solid("#808080")
+                text "open door" size 20 style "debug_text" xalign 0.5 yalign 0.5
+                action SetVariable("debug_.draw_mode", "closed_door")
+
+            button:
+                xalign 0.5
+                xsize 100
+                ysize 50
+                if debug_.draw_mode == "open_door":
+                    background Solid("#FFFAAA")
+                else:
+                    background Solid("#808080")
+                text "closed door" size 20 style "debug_text" xalign 0.5 yalign 0.5
+                action SetVariable("debug_.draw_mode", "open_door")
+
+            button:
+                xalign 1.0
+                xsize 100
+                ysize 50
+                if debug_.draw_mode == "secret_door":
+                    background Solid("#FFFAAA")
+                else:
+                    background Solid("#808080")
+                text "secret door" size 20 style "debug_text" xalign 0.5 yalign 0.5
+                action SetVariable("debug_.draw_mode", "secret_door")
+
+        text "display:" style "classicfont" yalign 0.89 xalign 0.0
+
+        button:
+            xalign 0.5
+            yalign 0.90
+            text "TILE ID" size 30 style "debug_text"
             if game.state == "debug_tile_id":
-                text str(cell["type"]) size 25 style "debug_text2"
-            # background Solid("#FFF000")
+                background Solid("#FF00B0")
+                action SetVariable("game.state", "debug")
+            else:
+                background Solid("#808080")
+                action SetVariable("game.state", "debug_tile_id")
 
-    button:
-        xpos int(settings["mapsize"][0] + 1) * settings["tilesize"]
-        ypos 0
-        xysize 5* settings["tilesize"], 1.0
-        action Jump("label_choose_tile_brush") #gros bouton pour annuler
+        button:
+            xalign 1.0
+            yalign 0.90
+            text "GRID" size 30 style "debug_text"
+            if game.state == "debug_grillage":
+                background Solid("#FF00B0")
+                action SetVariable("game.state", "debug")
+            else:
+                background Solid("#808080")
+                action SetVariable("game.state", "debug_grillage")
 
-    button:
-        xalign 0.92
-        yalign 0.64
-        if debug_.draw_layer == "tile":
-            background Solid("#FFFAAA")
-        else:
-            background Solid("#808080")
-        text "TILE" size 30 style "debug_text"
-        action SetVariable("debug_.draw_layer", "tile")
-
-    button:
-        xalign 0.99
-        yalign 0.64
-        if debug_.draw_layer == "wall":
-            background Solid("#FFFAAA")
-        else:
-            background Solid("#808080")
-        text "wall" size 30 style "debug_text"
-        action SetVariable("debug_.draw_layer", "wall")
-
-    button:
-        xalign 0.92
-        yalign 0.72
-        if debug_.draw_layer == "closed_door":
-            background Solid("#FFFAAA")
-        else:
-            background Solid("#808080")
-        text "door1" size 30 style "debug_text"
-        action SetVariable("debug_.draw_layer", "closed_door")
-
-    button:
-        xalign 1.0
-        yalign 0.72
-        if debug_.draw_layer == "open_door":
-            background Solid("#FFFAAA")
-        else:
-            background Solid("#808080")
-        text "door2" size 30 style "debug_text"
-        action SetVariable("debug_.draw_layer", "open_door")
-
-    button:
-        xalign 1.0
-        yalign 0.90
-        if game.state == "debug_tile_id":
-            background Solid("#FF00B0")
-            text "TILE ID ON" size 30 style "debug_text"
-            action SetVariable("game.state", "debug")
-        else:
-            text "TILE ID OFF" size 30 style "debug_text"
-            background Solid("#808080")
-            action SetVariable("game.state", "debug_tile_id")
-
-    button:
-        xalign 1.0
-        yalign 0.82
-        if game.state == "debug_grillage":
-            background Solid("#FF00B0")
-            text "GRID ON" size 30 style "debug_text"
-            action SetVariable("game.state", "debug")
-        else:
-            text "GRID OFF" size 30 style "debug_text"
-            background Solid("#808080")
-            action SetVariable("game.state", "debug_grillage")
-
-    button:
-        xalign 1.0
-        yalign 0.99
-        text "EXPORT ALL" size 30 style "debug_text"
-        background Solid("#5080FF")
-        action Jump("label_export_tilemap")
+        button:
+            xalign 0.5
+            yalign 0.99
+            text "EXPORT ALL" size 30 style "debug_text"
+            background Solid("#5080FF")
+            action Jump("label_export_tilemap")

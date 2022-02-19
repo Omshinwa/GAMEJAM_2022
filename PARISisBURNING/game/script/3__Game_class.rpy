@@ -1,5 +1,7 @@
 init offset = -1
 init python:
+    settings["lignes"] = json.loads( read_file(".data_lignes") )
+
     class Game:
 
         def __init__(self):
@@ -8,39 +10,80 @@ init python:
             self.debug_mode = False
             self.teens = []
             self.dooms = []
-            self.premoving_who = ""
-            self.premoving_where = {}
+            self.premoving = {} #has a bunch of data to communicate with Render.rpy
             self.score = 0
             self.actions = []
+
+            self.ui_buffer = 100
             
             self.maxY = settings["mapsize"][1]
             self.maxX = settings["mapsize"][0]
 
+            self.log = [ ["lauren","ur mom"], ["william","whos that"], ["william","William","is shocked"], ["william","William","saw something horrible."],["paula","hello gwen"],["gwenael","im gwen and im a bad bitch"]]
+
             #create grid
-            for y in range( self.maxY+1 ):
+            for y in range( self.maxY ):
                 self.grid.append([]) #add first row
-                for x in range( self.maxX+1 ):
+                for x in range( self.maxX ):
                     try:
                         settings["tilemap"][y][x]
                     except IndexError:
-                        self.grid[y].append( Square(x=x, y=y, type = 0 ) )
+                        self.grid[y].append( Square(x=x, y=y, type = -1 ) )
                     else:
                         self.grid[y].append( Square(x=x, y=y, type = settings["tilemap"][y][x] ) )
 
             #create actions for doors
             for key, value in settings["lignes"].iteritems():
                 if value == 2 or value == 3:
-
                     x,y,x2,y2 = AZto09(key)
-                    self.grid[y][x].onAction.append( Item_Action(name="door", isItem="False",rangeOfActivation=0,text="DOOR",label="lab_action_door", variables=key) )
-                    self.grid[y2][x2].onAction.append(  Item_Action(name="door", isItem="False",rangeOfActivation=0,text="DOOR",label="lab_action_door", variables=key) )
+                    self.grid[y][x].onAction.append( Event_Caller(name="door",isActive=True, range=0,text="DOOR",label="lab_action_door", variables=key) )
+                    self.grid[y2][x2].onAction.append(  Event_Caller(name="door",isActive=True, range=0,text="DOOR",label="lab_action_door", variables=key) )
+
+        def say(self, teen, message, speak = True):
+
+            if speak:
+                self.log.insert(0, [teen.file, ""])
+            else:
+                self.log.insert(0, [teen.file, teen.name, ""])
+            
+            if len(game.log) >6:
+                game.log = game.log[:6]
+
+            self.ui_buffer = 0
+            # renpy.play("audio/text.ogg", channel='sound')
+            self.buffer_ui()
+
+            i = 0
+            while i < len(message)+1:
+                
+                if speak:
+                    self.log[0][1] = message[0:i]
+                    renpy.music.queue("audio/text.ogg", channel='sound')
+                else:
+                    self.log[0][2] = message[0:i]
+                    renpy.music.queue("audio/text.ogg", channel='sound')
+                
+                i += max( len(message)/5, 1)
+                renpy.pause(0.01)
+
+            if speak:
+                self.log[0][1] = message
+            else:
+                self.log[0][2] = message
+            renpy.pause(0.3)
+        
+        def buffer_ui(self):
+            while self.ui_buffer < 100:
+                self.ui_buffer += 100
+                renpy.pause(0.01)
+            return self.ui_buffer
 
         def gridAZ(self, x):
             return self.grid[ ord(x[0])-65 ][int(x[1:])]
 
         def restore_totalAP(self):
             for teen in self.teens:
-                teen.AP = 1 * teen.isAlive
+                teen.AP = 2 * teen.isAlive
 
         def totalAP(self):
             totalAP = 0
@@ -66,6 +109,26 @@ init python:
                                 dict[yi + y,xi + x] = game.grid[yi + y][xi + x]
             return list(dict.values())
 
+        def inrange2(self, x, y, howfar, **kwargs): #used for showing the range of the player mov
+            def recursion(self, x, y, howfar, dict):
+                if Game.squareExist(x=x,y=y):
+                    dict[x,y] = game.grid[y][x]
+
+                    #the player can walk into a surprise doom
+                    if game.state == "moving":
+                        if game.grid[y][x].occupied == "doom" and game.grid[y][x].visibility==0:
+                            dict[x,y] = game.grid[y][x]
+
+                if (howfar >= 1):
+                    for direction in [(-1,0),(0,1),(1,0),(0,-1)]:
+                        if self.isCrossable(x2=x+direction[0],y2=y+direction[1],x=x,y=y,lastMovement= (howfar==1), **kwargs ): # 
+                            recursion(self,x+direction[0], y+direction[1] ,howfar - 1,dict)
+
+            dict = {}
+            recursion(self,x, y, howfar,dict)
+            dict[x,y] = game.grid[y][x]
+            return list(dict.values())
+
         @staticmethod
         def squareExist(y,x):
             if x>=0 and x< settings["mapsize"][0] and y>=0 and y< settings["mapsize"][1]:
@@ -73,9 +136,12 @@ init python:
             else:
                 return False
 
-        def isCrossable(self,x2,y2,x = "bite",y = "bite", iftile = True, ifwall=True, ifdoor=True, ifteen=True, ifdoom = True, canOpenDoors=False, lastMovement=False):
+        def isCrossable(self,x2,y2,x = "bite",y = "bite", iftile = True, ifwall=True, ifdoor=True, canOpenDoors=False, lastMovement=False, ifoccupied=True, exception_arr = []):
             #ifdoor = False allow to cross through all doors
-            #if
+            #exceiption array can contain teen, doom or fire
+            if not Game.squareExist(x=x2, y=y2):
+                return False
+
             if iftile:
                 if self.grid[y2][x2].isStand == 0:
                     return False
@@ -83,14 +149,20 @@ init python:
             if x2<0 or y2<0 or x2>game.maxX or y2>game.maxY:
                 return False
 
-            if lastMovement: # should only check at the end of the loop
-                if self.grid[y2][x2].occupied != 0:
+            if ifoccupied==True:
+                if lastMovement: # should only check at the end of the loop
+                    if self.grid[y2][x2].occupied != 0 and self.grid[y2][x2].occupied != "teen":
+                        return False
+                        
+                if self.grid[y2][x2].occupied in exception_arr:
+                    pass
+                elif self.grid[y2][x2].occupied != 0:
                     return False
-            if ifdoom:
-                if self.grid[y2][x2].occupied == "doom":
+                elif self.grid[y2][x2].occupied == "doom":
                     return False
-            if ifteen:
-                if self.grid[y2][x2].occupied == "teen":
+                elif self.grid[y2][x2].occupied == "teen":
+                    return False
+                elif self.grid[y2][x2].occupied == "fire":
                     return False
 
             if x != "bite": #ON A BESOIN DE LA POSITION DE DEPART POUR CALCULER LES MURS
@@ -132,26 +204,6 @@ init python:
                         return True
             return False
 
-        def inrange2(self, x, y, howfar, **kwargs): #used for showing the range of the player mov
-            def recursion(self, x, y, howfar, dict):
-                if game.squareExist(x=x,y=y):
-                    if game.grid[y][x].occupied == 0:
-                        dict[y,x] = game.grid[y][x]
-                    #the player can walk into a surprise doom
-                    if game.grid[y][x].occupied == "doom" and game.grid[y][x].visibility==0:
-                        dict[y,x] = game.grid[y][x]
-
-                if (howfar >= 1):
-                    for direction in [(-1,0),(0,1),(1,0),(0,-1)]:
-                        if self.isCrossable(x2=x+direction[0],y2=y+direction[1],x=x,y=y,lastMovement= (howfar==1), **kwargs ): # 
-                            recursion(self,x+direction[0], y+direction[1] ,howfar - 1,dict)
-
-            dict = {}
-            recursion(self,x, y, howfar,dict)
-            dict[x,y] = game.grid[y][x]
-            return list(dict.values())
-
-
         def updateVision(self):
             for row in game.grid:
                 for case in row:
@@ -192,19 +244,19 @@ init python:
                                     #check for walls block visibility:
                                     if abs(int(xxx) - int(xx)) + abs(int(yyy) - int(yy)) == 2 :
                                         # ON FAIT LA TRANSITION PUTAIN
-                                        a = not game.isCrossable(x2=int(xx),y2=int(yyy),x= int(xx), y=int(yy), ifdoom = False, iftile=False)
-                                        b = not game.isCrossable(x2=int(xxx),y2=int(yyy),x= int(xx), y=int(yyy), ifdoom = False, iftile=False)
+                                        a = not game.isCrossable(x2=int(xx),y2=int(yyy),x= int(xx), y=int(yy), ifoccupied=False, iftile=False)
+                                        b = not game.isCrossable(x2=int(xxx),y2=int(yyy),x= int(xx), y=int(yyy), ifoccupied=False, iftile=False)
 
-                                        c = not game.isCrossable(x2=int(xxx),y2=int(yy),x= int(xx), y=int(yy), ifdoom = False, iftile=False)
-                                        d = not game.isCrossable(x2=int(xxx),y2=int(yyy),x= int(xxx), y=int(yy), ifdoom = False, iftile=False)
+                                        c = not game.isCrossable(x2=int(xxx),y2=int(yy),x= int(xx), y=int(yy), ifoccupied=False, iftile=False)
+                                        d = not game.isCrossable(x2=int(xxx),y2=int(yyy),x= int(xxx), y=int(yy), ifoccupied=False, iftile=False)
                                         if (a or b) and (c or d):
                                             break
 
-                                    if not game.isCrossable(x2= int(round(xxx)),y2= int(round(yyy)),x= int( round(xx) ), y= int( round(yy) ), ifdoom = False, iftile=False):
+                                    if not game.isCrossable(x2= int(round(xxx)),y2= int(round(yyy)),x= int( round(xx) ), y= int( round(yy) ), ifoccupied=False, iftile=False):
                                         break
-                                    elif not game.isCrossable(x2=int(xxx),y2=int(yyy),x=int( teen.x + ratio[0]*(i) ), y=int( teen.y + ratio[1]*(i) ), ifdoom = False, iftile=False):
+                                    elif not game.isCrossable(x2=int(xxx),y2=int(yyy),x=int( teen.x + ratio[0]*(i) ), y=int( teen.y + ratio[1]*(i) ), ifoccupied=False, iftile=False):
                                         break
-                                    elif not game.isCrossable(x2=math.ceil(xxx),y2=math.ceil(yyy),x=math.ceil( teen.x + ratio[0]*(i) ), y=math.ceil( teen.y + ratio[1]*(i) ), ifdoom = False, iftile=False,):
+                                    elif not game.isCrossable(x2=math.ceil(xxx),y2=math.ceil(yyy),x=math.ceil( teen.x + ratio[0]*(i) ), y=math.ceil( teen.y + ratio[1]*(i) ), ifoccupied=False, iftile=False,):
                                         break
 
                                     if xxx == case.x and yyy == case.y:
@@ -212,8 +264,8 @@ init python:
                                         break
         def doommove(self):
             for doom in self.dooms:
-                print("cmb:" + str(len(self.dooms)))
                 doom.move()
+                renpy.pause(0.5)
             renpy.jump("lab_turnChange")
 
         

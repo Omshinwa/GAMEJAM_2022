@@ -7,6 +7,7 @@
 init python:
     build.executable_name = "ParisIsBurning"
     build.directory_name = "ParisIsBurning"
+    config.save_physical_size = False
 ## Basics ######################################################################
 
 ## A human-readable name of the game. This is used to set the default window
@@ -39,7 +40,7 @@ define gui.about = _p("""
 ## distribution. This must be ASCII-only, and must not contain spaces, colons,
 ## or semicolons.
 
-define build.name = "RENPY"
+define build.name = "ParisIsBurning"
 
 
 ## Sounds and music ############################################################

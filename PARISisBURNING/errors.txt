@@ -2,9 +2,10 @@
 errors listed below, and try again.
 
 
-File "game/script/Logic.rpy", line 75: invalid syntax
-                        if neighbor.onFire > 0 
+File "game/script/2__Items.rpy", line 41: invalid syntax
+    class Items( name, *args):
+                        ^
     
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Mon Feb  7 03:37:07 2022
+Thu Feb 17 18:10:24 2022

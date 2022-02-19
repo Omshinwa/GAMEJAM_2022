@@ -5,7 +5,7 @@
 3  "game-UI/3.gif"
 4  "game-UI/4.gif"
 5  "game-UI/5.gif"
-6  "game-UI/6.gif" isStand:0
+6  "game-UI/6.gif" isStand:0 blockVision:1
 # blockVision:1
 7  "game-UI/7.gif"
 8  "game-UI/8.gif" isDark:1
@@ -14,11 +14,11 @@
 11 "game-UI/11.gif"
 12 "game-UI/12.gif" isStand:0
 13 "game-UI/13.gif" isStand:0
-14 "game-UI/14.gif" isStand:0 blockVision:1
+14 "game-UI/14.gif" isStand:0 blockVision:1 isDark:1
 15 "game-UI/15.gif" isStand:0
 16 "game-UI/16.gif" blockVision:1
 17 "game-UI/17.gif" isStand:0
-18 "game-UI/couchblue.gif" itemType:"Couch"
+18 "game-UI/couchblue.gif" isStand:0 itemType:"Couch"
 19 "game-UI/libraryblue.gif"
 
 50 "game-UI/grass.png"
@@ -36,7 +36,7 @@
 93 "game-UI/librarypurple.gif" itemType:"Library"
 92 "game-UI/photosred.gif" itemType:"Photos"
 91 "game-UI/photosred.gif" itemType:"Photos"
-90 "game-UI/safegrey.gif" itemType:"Safe"
+90 "game-UI/safegrey.gif" itemType:"Safe" isDark:1
 89 "game-UI/screenblue.gif" itemType:"Screen"
 87 "game-UI/showercyan.gif" itemType:"Shower"
 86 "game-UI/showergreen.gif" itemType:"Shower"
