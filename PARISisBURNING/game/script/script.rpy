@@ -18,10 +18,14 @@ python:
     game = Game()
 
     #create characters
-    lauren = Character( game, name = "lauren", x = 2, y = 7)
+    lauren = Character( game, name = "lauren", x = 16, y = 6)
     game.teens.append( lauren )
-    william = Character( game, name = "william", x = 2, y = 8)
+    william = Character( game, name = "william", x = 17, y = 6)
     game.teens.append( william )
+    paula = Character( game, name = "paula", x = 16, y = 8)
+    game.teens.append( paula )
+    gwenael = Character( game, name = "gwenael", x = 17, y = 7)
+    game.teens.append( gwenael )
     # darryl = Character( game, name = "darryl", x = 16, y = 6)
     # game.teens.append( darryl )
     # kayleigh = Character( game, name = "kayleigh", x = 15, y = 7)
@@ -38,7 +42,9 @@ python:
     game.grid[7][12].onFire = -1
 
     william.inventory.append( Items("Bucket") )
-    lauren.inventory.append( Items("Bucket",3) )
+    lauren.inventory.append( Items("Bucket") )
+    gwenael.inventory.append( Items("Bucket") )
+    paula.inventory.append( Items("Bucket") )
     # darryl.inventory.append( Bucket() )
     # kayleigh.inventory.append( Bucket() )
 return

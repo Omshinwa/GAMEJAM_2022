@@ -1,3 +1,11 @@
+make a character.data so that we can load different maps
+
+
+
+
+
+
+
 make a history log
 
 make the actions system cleaner lol

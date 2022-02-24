@@ -21,3 +21,7 @@ renpy.get_return_stack()
 >>> %time fibonacci_lbyl(40)
 CPU times: user 17 µs, sys: 0 ns, total: 17 µs
 
+
+javascript:
+
+Arrays in JavaScript, unlike some other programming languages, shouldn’t be compared with operator ==.
