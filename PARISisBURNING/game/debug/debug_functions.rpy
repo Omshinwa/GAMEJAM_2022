@@ -247,7 +247,6 @@ init python:
             self.draw_layer = "map"
             self.previous_tile = False
             self.charList = ["william","lauren","gwenael","paula","morgan","carine","franky","josephine","darryl","kayleigh","tanglei"]
-            
             store.settings["tiletype"] = TileTypeTxt_to_Arr( read_file(".data_tiletype.rpy") )
 
         def draw_on_tile(self, what= -1, where = None):

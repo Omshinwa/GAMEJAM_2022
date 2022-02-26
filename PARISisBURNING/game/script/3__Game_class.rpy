@@ -4,11 +4,13 @@ init python:
     class Game:
 
         def __init__(self):
+            global settings
             mapdata = json.loads( read_file(".data_lignes") )
 
-            store.settings["lignes"] = mapdata["line"]
+            settings["lignes"] = mapdata["line"]
             import_tilemap = read_data_tilemap( ".data_tilemap" )
-            store.settings["tiletype"] = TileTypeTxt_to_Arr( read_file(".data_tiletype.rpy") )
+            # store.settings["tiletype"] = TileTypeTxt_to_Arr( read_file(".data_tiletype.rpy") )
+            settings["tiletype"] = TileTypeTxt_to_Arr( read_file(".data_tiletype.rpy") )
             import_char = mapdata["char"]
             import_event = merge_two_dicts( settings["events_fyn"], settings["events_madi"])
 
@@ -53,6 +55,18 @@ init python:
             for doomer in import_char["Slasher"]:
                 self.dooms.append( Slasher(name=doomer["name"], x=doomer["x"], y=doomer["y"], canOpenDoors=doomer["canOpenDoors"])  )
 
+            #clean the variables only used for map creation
+            del import_tilemap
+            del import_char
+            del import_event
+            del settings["tiletype"]
+
+
+##############
+##############          METHODS
+##############
+##############     
+
         def say(self, teen, message, speak = True):
 
             if speak:
@@ -85,14 +99,6 @@ init python:
             else:
                 self.log[0][2] = message
             renpy.pause(0.3)
-
-            #clean the variables only used for map creation
-            del import_tilemap
-            del import_char
-            del import_event
-            del store.settings["tiletype"]
-
-
 
         
         def buffer_ui(self):

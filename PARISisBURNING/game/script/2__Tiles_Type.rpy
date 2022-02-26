@@ -1,12 +1,10 @@
 init offset = -2
 init python:
 
-    # settings["tilemap"] = read_data_tilemap( ".data_tilemap" )
-    # settings["tiletype"] = TileTypeTxt_to_Arr( read_file(".data_tiletype.rpy") )
-
     class Tiletype:
 
         def __init__(self, type):
+            global settings
 
             #DEFAULT VALUES
 

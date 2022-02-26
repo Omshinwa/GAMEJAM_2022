@@ -1,30 +1,42 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/debug/tile_editor_logic.rpy", line 4, in script
+  File "game/script/script.rpy", line 3, in script call
+    call lab_initialize
+  File "game/script/script.rpy", line 15, in script
     python:
-  File "game/debug/tile_editor_logic.rpy", line 5, in <module>
+  File "game/script/script.rpy", line 16, in <module>
     game = Game()
-  File "game/script/3__Game_class.rpy", line 37, in __init__
-    settings["tilemap"][y][x]
-KeyError: u'tilemap'
+  File "game/script/3__Game_class.rpy", line 42, in __init__
+    self.grid[y].append( Square(x=x, y=y, type = import_tilemap[y][x] ) )
+  File "game/script/3__Square_class.rpy", line 7, in __init__
+    super(Square,self).__init__(type)
+  File "game/script/2__Tiles_Type.rpy", line 21, in __init__
+    for Thistype in settings["tiletype"]:
+KeyError: u'tiletype'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/debug/tile_editor_logic.rpy", line 4, in script
+  File "game/script/script.rpy", line 3, in script call
+    call lab_initialize
+  File "game/script/script.rpy", line 15, in script
     python:
   File "renpy/ast.py", line 928, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
   File "renpy/python.py", line 2245, in py_exec_bytecode
     exec(bytecode, globals, locals)
-  File "game/debug/tile_editor_logic.rpy", line 5, in <module>
+  File "game/script/script.rpy", line 16, in <module>
     game = Game()
-  File "game/script/3__Game_class.rpy", line 37, in __init__
-    settings["tilemap"][y][x]
-KeyError: u'tilemap'
+  File "game/script/3__Game_class.rpy", line 42, in __init__
+    self.grid[y].append( Square(x=x, y=y, type = import_tilemap[y][x] ) )
+  File "game/script/3__Square_class.rpy", line 7, in __init__
+    super(Square,self).__init__(type)
+  File "game/script/2__Tiles_Type.rpy", line 21, in __init__
+    for Thistype in settings["tiletype"]:
+KeyError: u'tiletype'
 
 Windows-10-10.0.19041
 Ren'Py 7.4.11.2266
 ParisIsBurning 1.0
-Sat Feb 26 10:49:21 2022
+Sat Feb 26 11:05:35 2022
