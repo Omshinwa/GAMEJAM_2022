@@ -1,10 +1,17 @@
 init offset = -1
 init python:
-    settings["lignes"] = json.loads( read_file(".data_lignes") )
 
     class Game:
 
         def __init__(self):
+            mapdata = json.loads( read_file(".data_lignes") )
+
+            store.settings["lignes"] = mapdata["line"]
+            import_tilemap = read_data_tilemap( ".data_tilemap" )
+            store.settings["tiletype"] = TileTypeTxt_to_Arr( read_file(".data_tiletype.rpy") )
+            import_char = mapdata["char"]
+            import_event = merge_two_dicts( settings["events_fyn"], settings["events_madi"])
+
             self.ui = {}
             self.grid = []
             self.debug_mode = False
@@ -13,6 +20,7 @@ init python:
             self.premoving = {} #has a bunch of data to communicate with Render.rpy
             self.score = 0
             self.actions = []
+            self.state = "waiting"
 
             self.ui_buffer = 100
             
@@ -26,18 +34,24 @@ init python:
                 self.grid.append([]) #add first row
                 for x in range( self.maxX ):
                     try:
-                        settings["tilemap"][y][x]
+                        import_tilemap[y][x]
                     except IndexError:
                         self.grid[y].append( Square(x=x, y=y, type = -1 ) )
                     else:
-                        self.grid[y].append( Square(x=x, y=y, type = settings["tilemap"][y][x] ) )
+                        self.grid[y].append( Square(x=x, y=y, type = import_tilemap[y][x] ) )
 
-            #create actions for doors
+        ########################### create actions for doors
             for key, value in settings["lignes"].iteritems():
                 if value == 2 or value == 3:
                     x,y,x2,y2 = AZto09(key)
                     self.grid[y][x].onAction.append( Event_Caller(name="door",isActive=True, range=0,text="DOOR",label="lab_action_door", variables=key) )
                     self.grid[y2][x2].onAction.append(  Event_Caller(name="door",isActive=True, range=0,text="DOOR",label="lab_action_door", variables=key) )
+
+        ############################################# char
+            for teen in import_char["Character"]:
+                self.teens.append( Character(game=self, name=teen["name"], x=teen["x"], y=teen["y"], items= Items(*teen["items"]), vision=teen["vision"])  )
+            for doomer in import_char["Slasher"]:
+                self.dooms.append( Slasher(name=doomer["name"], x=doomer["x"], y=doomer["y"], canOpenDoors=doomer["canOpenDoors"])  )
 
         def say(self, teen, message, speak = True):
 
@@ -71,6 +85,15 @@ init python:
             else:
                 self.log[0][2] = message
             renpy.pause(0.3)
+
+            #clean the variables only used for map creation
+            del import_tilemap
+            del import_char
+            del import_event
+            del store.settings["tiletype"]
+
+
+
         
         def buffer_ui(self):
             while self.ui_buffer < 100:
@@ -138,7 +161,7 @@ init python:
 
         def isCrossable(self,x2,y2,x = "bite",y = "bite", iftile = True, ifwall=True, ifdoor=True, canOpenDoors=False, lastMovement=False, ifoccupied=True, exception_arr = []):
             #ifdoor = False allow to cross through all doors
-            #exceiption array can contain teen, doom or fire
+            #exceiption array can contain teen, doom or fire, it handles occupied
             if not Game.squareExist(x=x2, y=y2):
                 return False
 
@@ -267,5 +290,3 @@ init python:
                 doom.move()
                 renpy.pause(0.5)
             renpy.jump("lab_turnChange")
-
-        

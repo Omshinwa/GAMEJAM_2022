@@ -187,6 +187,12 @@ init python:
         for row in game.grid:
             settings["tilemap"].append( [x.type for x in row] )
         send_to_file( filename, Arr_to_Maptxt( settings["tilemap"] ) )
+    
+    def export_data_map(filename):
+        settings["tilemap"] = []
+        for row in game.grid:
+            settings["tilemap"].append( [x.type for x in row] )
+        send_to_file( filename, Arr_to_Maptxt( settings["tilemap"] ) )
 
     def TileTypeTxt_to_Arr( tiletxt ):
         output = []
@@ -222,35 +228,78 @@ init python:
                     output.append( objecttile )
         return output
 
-    def Arr_to_TileTypeTxt():
-        pass
 
-################################################################################
+
+
+############################################################################################################################################
+############################################################################################################################################
     ##ALL THE METHODES UNDER ARE ONLY SUPPOSED TO BE USED IN DEBUG MODE
-################################################################################
+############################################################################################################################################
+############################################################################################################################################
+
+
+
     class Debug():
         def __init__(self):
             self.state = ""
             self.tilebrush = -1
             self.draw_mode = "tile"
+            self.draw_layer = "map"
             self.previous_tile = False
+            self.charList = ["william","lauren","gwenael","paula","morgan","carine","franky","josephine","darryl","kayleigh","tanglei"]
+            
+            store.settings["tiletype"] = TileTypeTxt_to_Arr( read_file(".data_tiletype.rpy") )
+
         def draw_on_tile(self, what= -1, where = None):
-            print("bite")
             if where is None:
                 where = getMouseId()
-            game.grid[where[1]][where[0]] = Square(x=where[0], y=where[1], type = what )
+
+            if debug_.draw_mode == "tile":
+                game.grid[where[1]][where[0]] = Square(x=where[0], y=where[1], type = what )
+
+            elif debug_.draw_mode == "add":
+                bool = True
+                for i,teen in enumerate(game.teens):
+                    if teen.x == where[0] and teen.y == where[1]:
+                        game.teens.pop(i)
+                        bool = False
+                if bool:
+                    game.teens.append( Character(game=game, file=what, name=what, x=where[0], y=where[1], items=[], vision=10)  )
+
+            elif debug_.draw_mode == "edit":
+                currentTeen = False
+                for i,teen in enumerate(game.teens):
+                    if teen.x == where[0] and teen.y == where[1]:
+                        currentTeen = teen
+                if currentTeen:
+                    print("ok")
+                    renpy.show_screen("sce_char_editor_info", currentTeen)
+
 
         def choose_tile_brush(self, where = None):
-            if where is None:
-                where = getMouseId()
-            try:
-                settings["tiletype"][ 6 * where[1] + (where[0]-(settings["mapsize"][0])) ]["type"]
-            except:
-                pass
-            else:
-                type_ = settings["tiletype"][ 6 * where[1] + (where[0]-(settings["mapsize"][0])) ]["type"]
-                print(type_)
-                self.tilebrush = type_
+            
+            if self.draw_layer == "map":
+                if where is None:
+                    where = getMouseId()
+                try:
+                    settings["tiletype"][ 6 * where[1] + (where[0]-(settings["mapsize"][0])) ]["type"]
+                except:
+                    pass
+                else:
+                    type_ = settings["tiletype"][ 6 * where[1] + (where[0]-(settings["mapsize"][0])) ]["type"]
+                    self.tilebrush = type_
+
+            elif self.draw_layer == "char":
+                if where is None:
+                    where = getMouseId()
+                try:
+                    debug_.charList[ 6 * where[1] + (where[0]-(settings["mapsize"][0])) ]
+                except:
+                    pass
+                else:
+                    type_ = debug_.charList[ 6 * where[1] + (where[0]-(settings["mapsize"][0])) ]
+                    print(type_)
+                    self.tilebrush = type_
 
         def draw_on_intersection(self, what = 0, where = None):
             if where is None:
@@ -283,6 +332,7 @@ init python:
                         settings["lignes"][ligne] = what
 
                 self.previous_tile = False
+
 
     def moveEverything(diffx,diffy):
         

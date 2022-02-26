@@ -1,20 +1,15 @@
 make a character.data so that we can load different maps
+make an Item superclass
 
 
 
 
 
-
-
+--------------------------------------------------------
 make a history log
-
 make the actions system cleaner lol
-
 add items
-
 add slashing water
-
-
 make puddles like Fire, aka they're objects
 
 

@@ -4,7 +4,7 @@ init python:
 
     class Character:
         # init method or constructor
-        def __init__(self, game, name, x, y, file = None, items = None):
+        def __init__(self, game, name, x, y, items, vision=10, file = None ):
 
             if name is None:
                 self.name = img
@@ -14,10 +14,10 @@ init python:
             else:
                 self.file = file
 
-            if items is None:
+            if items == None:
                 self.inventory = []
             else:
-                self.inventory = items
+                self.inventory = [items]
             
             self.name = name
             self.x = x
@@ -28,7 +28,8 @@ init python:
             self.prey = 0
 
             game.grid[y][x].occupied = "teen"
-
+            
+            self.img.big = self.file + "-big.png"
             self.img.idle = self.file + "-idle.png"
             self.img.hover = self.file + "-hover.png"
             self.img.premove = self.file + "-premove.png"
@@ -36,7 +37,7 @@ init python:
             # self.img.dead =  name + "-dead.png"
 
             self.stat = {}
-            self.stat.vis = 10
+            self.stat.vis = vision
             self.stat.move = 4
 
             self.isAlive = 1
@@ -113,8 +114,9 @@ init python:
                 action.add_action(game, self, game.grid[self.y][self.x], 0)
             
             for case in game.inrange(self.x, self.y, 1):
-                for action in case.onAction:
-                    action.add_action(game, self, case, 1)
+                if game.isCrossable(x2=case.x, y2=case.y, x=self.x, y=self.y, iftile=False, ifwall=True, ifdoor=True, ifoccupied=False):
+                    for action in case.onAction:
+                        action.add_action(game, self, case, 1)
 
             ####add items:
             for item in self.inventory:

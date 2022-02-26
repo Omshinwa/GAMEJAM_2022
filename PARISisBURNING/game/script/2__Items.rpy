@@ -38,27 +38,32 @@ init python:
         def __repr__(self):
             return "Event_Caller obj '"+self.name+"'"
 
-    def Items(name, *args):
-
-        class Bucket(Event_Caller):
-            def __init__(self, charge = 0):
-                # super(Bucket,self).__init__( name="Bucket", rangeOfActivation=0, isActive=True)
-                self.name = "Bucket"
-                self.charge = charge
-                self.maxcharge = 3
-            
-            def add_action(self, game, teen):
-                if game.grid[teen.y][teen.x].itemType == "Shower" or game.grid[teen.y][teen.x].itemType == "Toilet":
-                    if self.charge < self.maxcharge:
-                        game.actions.append( { "text": "Fill the bucket", "label": "lab_fill_bucket", "variables": (self,teen) })
-
-                if self.charge >= 1:
-                    game.actions.append( { "text": "Throw water", "label": "lab_throw_water", "variables": (self,teen) })
-                
-                # game.actions.append( { "text": "Discard Bucket", "label": "lab_discard", "variables": (self,teen) } )
+    def Items(name=None, *args):
 
         if name == "Bucket":
-            print(args)
-            return Bucket(*args)
+            return Item_Bucket(*args)
+        elif name == None:
+            return
+        elif name =='':
+            return
         else:
             raise Exception('Item type doesnt exist: '+name)
+
+    class Item_Bucket(Event_Caller):
+        def __init__(self, charge = 0):
+            self.name = "Bucket"
+            self.charge = charge
+            self.maxcharge = 3
+
+        def __repr__(self):
+            return self.name
+        
+        def add_action(self, game, teen):
+            if game.grid[teen.y][teen.x].itemType == "Shower" or game.grid[teen.y][teen.x].itemType == "Toilet":
+                if self.charge < self.maxcharge:
+                    game.actions.append( { "text": "Fill the bucket", "label": "lab_fill_bucket", "variables": (self,teen) })
+
+            if self.charge >= 1:
+                game.actions.append( { "text": "Throw water", "label": "lab_throw_water", "variables": (self,teen) })
+            
+            # game.actions.append( { "text": "Discard Bucket", "label": "lab_discard", "variables": (self,teen) } )

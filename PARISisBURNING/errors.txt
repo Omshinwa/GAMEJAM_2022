@@ -2,10 +2,10 @@
 errors listed below, and try again.
 
 
-File "game/script/2__Items.rpy", line 61: invalid syntax
-            print(*args)
-                   ^
+File "game/debug/debug_functions.rpy", line 329: unexpected indent
+        def label_edit_info(teen, what):
+        ^
     
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Sat Feb 19 17:47:45 2022
+Fri Feb 25 23:04:11 2022

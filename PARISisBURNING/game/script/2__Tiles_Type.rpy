@@ -1,8 +1,8 @@
 init offset = -2
 init python:
 
-    settings["tilemap"] = read_data_tilemap( ".data_tilemap" )
-    settings["tiletype"] = TileTypeTxt_to_Arr( read_file(".data_tiletype.rpy") )
+    # settings["tilemap"] = read_data_tilemap( ".data_tilemap" )
+    # settings["tiletype"] = TileTypeTxt_to_Arr( read_file(".data_tiletype.rpy") )
 
     class Tiletype:
 
@@ -17,7 +17,7 @@ init python:
             self.isDark = 0 #makes people no see anything in it
             self.isHidden = 0 #makes the tile straight up dark, like the tile 6
             self.itemType = None
-            self.visibility = 0
+            self.visibility = 1
 
             ##THE DEFAULT TILE DOESNT BLOCK VISION, CAN BE STANDED ON
 

@@ -5,8 +5,7 @@ init offset = -2
 init python:
 
     #THOSE ARE PASSIVE EVENTS AND AUTOMATICALLY TRIGGERS
-    settings["events_fyn"] = { "D2" : {"label":"lab_D2", "variables":1},
-    "H8": {"label":"lab_H8"}, "B8" : {"label":"lab_B8"}}
+    settings["events_fyn"] = { "D2" : {"label":"lab_D2", "variables":1}, "B8" : {"label":"lab_B8"}}
 
     settings["actions"] = {}
 
@@ -93,7 +92,7 @@ label lab_D2(variables):
         $ settings["events_fyn"]["D2"]["variables"] = 0
     jump lab_gameloop
 
-label lab_B8():
+label lab_B8(variables):
     "Vous rallumez les fusibles"
     python:
         for row in game.grid:
@@ -197,6 +196,7 @@ label lab_throw_water_confirm(cell):
 
 label lab_fill_bucket(var):
     python:
+        game.premoving.who.AP -= 1
         item = var[0]
         teen = var[1]
         item.charge = item.maxcharge

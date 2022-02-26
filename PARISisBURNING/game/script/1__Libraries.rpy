@@ -6,6 +6,14 @@ init python:
         z.update(y)    # modifies z with keys and values of y
         return z
 
+    import math
+    import random
+    import copy
+    import json
+    import time
+
+    from operator import attrgetter
+
     settings = {}
     
     settings["tilesize"] = 48 #in pixel, must be integer
@@ -15,11 +23,3 @@ init python:
     settings["padding"] = (0,0)
     settings["fireThreshold"] = [3, 6, 9]
     #values of water / lil fire / fire / bigfire
-
-    import math
-    import random
-    import copy
-    import json
-    import time
-
-    from operator import attrgetter

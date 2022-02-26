@@ -1,40 +1,41 @@
-Thu Feb 24 18:21:42 2022
+Sat Feb 26 10:52:12 2022
 Windows-10-10.0.19041
 Ren'Py 7.4.11.2266
  
 
-Bootstrap to the start of init.init took 0.08s
+Bootstrap to the start of init.init took 0.09s
 Early init took 0.00s
 Loader init took 0.01s
 Loading error handling took 0.03s
-Loading script took 0.28s
+Loading script took 0.35s
 Loading save slot metadata. took 0.02s
 Loading persistent took 0.00s
 Importing _renpysteam: ImportError('No module named _renpysteam',)
-Running init code took 0.07s
-Loading analysis data took 0.02s
+Running init code took 0.06s
+Loading analysis data took 0.03s
 Analyze and compile ATL took 0.00s
 Index archives took 0.00s
-Dump and make backups. took 0.07s
+Backing up script files to 'C:\\Users\\ALIENWARE\\AppData\\Roaming/RenPy/backups\\PARISisBURNING':
+Dump and make backups. took 0.06s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
 Initial gc. took 0.02s
 DPI scale factor: 1.000000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
-Creating interface object took 0.30s
+Creating interface object took 0.27s
 Cleaning stores took 0.00s
 Init translation took 0.03s
 Build styles took 0.00s
-Load screen analysis took 0.02s
-Analyze screens took 0.00s
-Save screen analysis took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
 Prepare screens took 0.08s
 Save pyanalysis. took 0.00s
 Save bytecode. took 0.03s
 Running _start took 0.00s
 Performance test:
-Interface start took 0.11s
+Interface start took 0.09s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)
@@ -47,7 +48,3 @@ Display Info: None
 Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
 Maximum texture size: 4096x4096
 controller: '030000005e0400008e02000000007200' 'Xbox 360 Controller' 1L
-()
-()
-()
-()
