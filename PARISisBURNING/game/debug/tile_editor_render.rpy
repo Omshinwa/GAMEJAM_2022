@@ -16,7 +16,7 @@ label lab_tile_editor_render:
 screen sce_walls_editor():
     zorder 2
 
-    for key, value in settings["line"].iteritems():
+    for key, value in game.data_line.iteritems():
         $ x = int(key[1:3])
         $ y = ord(key[0])-65
         $ x2 = int(key[4:6])
@@ -37,6 +37,8 @@ screen sce_walls_editor():
                 background Solid( "#EEEEEE" )
             if value == 3:
                 background "game-UI/door-open.png"
+            if value == 4:
+                background Solid( "#f00" )
 
 screen sce_grid_editor():
             
@@ -225,12 +227,12 @@ screen sce_tile_editor_palette():
                     xalign 1.0
                     xsize 100
                     ysize 50
-                    if debug_.draw_mode == "secret_door":
+                    if debug_.draw_mode == "hidden_door":
                         background Solid("#FFFAAA")
                     else:
                         background Solid("#808080")
-                    text "secret door" size 20 style "debug_text" xalign 0.5 yalign 0.5
-                    action SetVariable("debug_.draw_mode", "secret_door")
+                    text "hidden door" size 20 style "debug_text" xalign 0.5 yalign 0.5
+                    action SetVariable("debug_.draw_mode", "hidden_door")
 
             text "display:" style "classicfont" yalign 0.89 xalign 0.0
 

@@ -25,6 +25,8 @@ label label_draw_on_tile:
             debug_.draw_on_intersection( what = 2 )
         elif debug_.draw_mode == "open_door":
             debug_.draw_on_intersection( what = 3 )
+        elif debug_.draw_mode == "hidden_door":
+            debug_.draw_on_intersection( what = 4 )
 
         elif debug_.draw_layer == "char":
                 debug_.draw_on_tile( debug_.tilebrush )

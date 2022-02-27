@@ -7,11 +7,12 @@ init python:
             global settings
             mapdata = json.loads( read_file( filename + ".dat") )
 
-            settings["line"] = mapdata["line"]
             import_tilemap = read_data_tilemap( filename + "-map.dat" )
-            settings["tiletype"] = TileTypeTxt_to_Arr( read_file( ".data_tiletype.rpy") )
             import_char = mapdata["char"]
             settings["event"] = merge_two_dicts( settings["events_fyn"], settings["events_madi"])
+
+            self.data_line = copy.deepcopy(mapdata["line"])
+            self.data_event = merge_two_dicts( settings["events_fyn"], settings["events_madi"])
 
             self.ui = {}
             self.grid = []
@@ -22,6 +23,7 @@ init python:
             self.score = 0
             self.actions = []
             self.state = "waiting"
+            self.filename = filename
 
             self.ui_buffer = 100
             
@@ -39,14 +41,23 @@ init python:
                     except IndexError:
                         self.grid[y].append( Square(x=x, y=y, type = -1, filename = filename ) )
                     else:
-                        self.grid[y].append( Square(x=x, y=y, type = import_tilemap[y][x], filename = filename ) )
+                        self.grid[y].append( Square(x=x, y=y, type = import_tilemap[y][x], filename = filename  ) )
 
         ########################### create actions for doors
-            for key, value in settings["line"].iteritems():
-                if value == 2 or value == 3:
+            for key, value in self.data_line.iteritems():
+                if value == 2 or value == 3 or value == 4:
                     x,y,x2,y2 = AZto09(key)
                     self.grid[y][x].onAction.append( Event_Caller(name="door",isActive=True, range=0,text="DOOR",label="lab_action_door", variables=key) )
                     self.grid[y2][x2].onAction.append(  Event_Caller(name="door",isActive=True, range=0,text="DOOR",label="lab_action_door", variables=key) )
+
+        ########################## hidden doors make some room hidden
+            for key, value in self.data_line.iteritems():
+                if value == 4:
+                    x,y,x2,y2 = AZto09(key)
+                    if self.grid[y][x].isSecret:
+                        self.makeSecretHidden(x,y)
+                    if self.grid[y2][x2].isSecret:
+                        self.makeSecretHidden(x2,y2)
 
         ############################################# char
             for teen in import_char["Character"]:
@@ -61,17 +72,18 @@ init python:
             # del settings["tiletype"]
 
 
-##############
-##############          METHODS
-##############
-##############     
+    ##############                                          ##########################################
+    ##############          METHODS                         ##########################################
+    ##############                                          ##########################################
+    ##############                                          ##########################################
 
-        def say(self, teen, message, speak = True):
+        #add to the log, speak false = red text
+        def say(self, teenObj, message, speak = True):
 
             if speak:
-                self.log.insert(0, [teen.file, ""])
+                self.log.insert(0, [teenObj.file, ""])
             else:
-                self.log.insert(0, [teen.file, teen.name, ""])
+                self.log.insert(0, [teenObj.file, teenObj.name, ""])
             
             if len(game.log) >6:
                 game.log = game.log[:6]
@@ -139,7 +151,7 @@ init python:
 
         def inrange2(self, x, y, howfar, **kwargs): #used for showing the range of the player mov
             def recursion(self, x, y, howfar, dict):
-                if Game.squareExist(x=x,y=y):
+                if Game.isValid(x=x,y=y):
                     dict[x,y] = game.grid[y][x]
 
                     #the player can walk into a surprise doom
@@ -158,7 +170,7 @@ init python:
             return list(dict.values())
 
         @staticmethod
-        def squareExist(y,x):
+        def isValid(y,x):
             if x>=0 and x< settings["mapsize"][0] and y>=0 and y< settings["mapsize"][1]:
                 return True
             else:
@@ -167,7 +179,7 @@ init python:
         def isCrossable(self,x2,y2,x = "bite",y = "bite", iftile = True, ifwall=True, ifdoor=True, canOpenDoors=False, lastMovement=False, ifoccupied=True, exception_arr = []):
             #ifdoor = False allow to cross through all doors
             #exceiption array can contain teen, doom or fire, it handles occupied
-            if not Game.squareExist(x=x2, y=y2):
+            if not Game.isValid(x=x2, y=y2):
                 return False
 
             if iftile:
@@ -207,11 +219,13 @@ init python:
                 namelist = [name,name2]
                 if ifwall:
                     for cell in namelist:
-                        if cell in settings["line"] and settings["line"][cell] == 1:
+                        if cell in game.data_line and game.data_line[cell] == 1:
+                            return False
+                        if cell in game.data_line and game.data_line[cell] == 4:
                             return False
                 if ifdoor:
                     for cell in namelist:
-                        if cell in settings["line"] and settings["line"][cell] == 2:
+                        if cell in game.data_line and game.data_line[cell] == 2:
                             if canOpenDoors: #can that door be openable?
 
                             #EDGE CASE WHERE HE CAN OPEN EVEN THOUGH THERES A DOOM NEXT DOOR
@@ -295,3 +309,15 @@ init python:
                 doom.move()
                 renpy.pause(0.5)
             renpy.jump("lab_turnChange")
+
+        def makeSecretHidden(self, x, y, reveal = 0):
+            newX = 0
+            newY = 0
+            neighbors = [[-1,0],[1,0],[0,1],[0, -1]]
+            for i in neighbors:
+                newX = x + i[0]
+                newY = y + i[1]
+                if Game.isValid(x=x,y=y):
+                    if (self.grid[newY][newX].isSecret == 1 and self.grid[newY][newX].isHidden == reveal):
+                        self.grid[newY][newX].isHidden = 1 - reveal
+                        self.makeSecretHidden(newX,newY, reveal)

@@ -345,19 +345,19 @@ init python:
                     print("door action:")
                     print(a)
                     print(b)
-                    print(settings["line"][vari])
+                    print(game.data_line[vari])
                     if a and b:
                         renpy.play("audio/doorfail.ogg", channel='sound')
                         return False
                     else:
-                        if settings["line"][vari]== 2:
+                        if game.data_line[vari]== 2:
                             renpy.play("audio/opendoor1.mp3", channel='sound')
                             renpy.pause(0.5)
-                            settings["line"][vari] = 3
-                        elif settings["line"][vari]== 3:
+                            game.data_line[vari] = 3
+                        elif game.data_line[vari]== 3:
                             renpy.play("audio/closedoor1.wav", channel='sound')
                             renpy.pause(0.5)
-                            settings["line"][vari] = 2
+                            game.data_line[vari] = 2
                         return True
 
             return False

@@ -12,7 +12,9 @@ init python:
             self.ypos = y * settings["tilesize"]
             self.img_hover = "img_cell_hover"
             self.onAction = []
-            # self.img_unstand = "game-UI/cell-unstand.png"
+
+            #make the tile black
+            self.isHidden = 0
 
             self.onFire = 0
             if type == 51:
@@ -43,21 +45,4 @@ init python:
             return " x" +str(self.x)+ ":y" +str(self.y)+" "
 
         def sprite(self):
-            if self.isHidden:
-                return "game-UI/6.gif"
-            else:
-                return self.img_idle
-
-                    # if self.type == 50 or self.type == 51:
-                    #     if self.visibility:
-                    #         return "game-UI/grass.png"
-                    #     else:
-                    #         return "game-UI/6.gif"
-
-        # def onEvent(self, game):
-        #     if self.event:
-        #         game.state = "event"
-        #         if len(self.event) == 1:
-        #             renpy.call( self.event["label"] )
-        #         else:
-        #             renpy.call( self.event["label"], self.event["variables"])
+            return self.img_idle

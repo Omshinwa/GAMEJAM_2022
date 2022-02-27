@@ -179,10 +179,10 @@ init python:
             output += line + "\n"
         return output
 
-    def read_data_tilemap(filename = ".data_tilemap"):
+    def read_data_tilemap(filename = "-map.dat"):
         return Maptxt_to_Arr( read_file(filename) )
 
-    def export_data_tilemap(filename = ".data_tilemap"):
+    def export_data_tilemap(filename = "-map.dat"):
         settings["tilemap"] = []
         for row in game.grid:
             settings["tilemap"].append( [x.type for x in row] )
@@ -196,6 +196,7 @@ init python:
         newSettings["char"]["Slasher"] = []
         currentChar = {}
         for teen in game.teens:
+            print(teen.name)
             currentChar["name"] = teen.name
             items = [] 
             for item in teen.inventory:
@@ -208,10 +209,11 @@ init python:
             for key,value in teen.stat.iteritems(): #add stuff like visibility, movement, isStrong etc
                 currentChar["stat"][key] = value
 
-            newSettings["char"]["Character"].append(currentChar)
+            newSettings["char"]["Character"].append(copy.deepcopy(currentChar))
+            
         for doom in game.dooms:
             newSettings["char"]["Slasher"].append( { "name":doom.name, "canOpenDoors":doom.canOpenDoors, "y":doom.y, "x":doom.x} )
-        newSettings["line"] = settings["line"]
+        newSettings["line"] = game.data_line
         newSettings["event"] = {} #settings["event"]
         return newSettings
 
@@ -277,7 +279,7 @@ init python:
                 where = getMouseId()
 
             if debug_.draw_mode == "tile":
-                game.grid[where[1]][where[0]] = Square(x=where[0], y=where[1], type = what, filename = self.filename )
+                game.grid[where[1]][where[0]] = Square(x=where[0], y=where[1], type = what, filename = self.file )
 
             elif debug_.draw_mode == "add":
                 characterToEdit = False
@@ -365,10 +367,10 @@ init python:
                     elif self.previous_tile > seconde_case:
                         ligne = seconde_case + self.previous_tile
 
-                    if ligne in settings["line"] and settings["line"][ligne] == what:
-                        del settings["line"][ligne]
+                    if ligne in game.data_line and game.data_line[ligne] == what:
+                        del game.data_line[ligne]
                     else:
-                        settings["line"][ligne] = what
+                        game.data_line[ligne] = what
 
                 self.previous_tile = False
 
@@ -376,7 +378,7 @@ init python:
     def moveEverything(diffx,diffy):
 
         dictbuffer = {}
-        for key, value in settings["line"].iteritems():
+        for key, value in game.data_line.iteritems():
 
             x1,y1,x2,y2 = AZto09(key)
 
@@ -389,11 +391,11 @@ init python:
                 if y1>=0 and y2>=0 and y1< settings["mapsize"][1] and y2< settings["mapsize"][1]:
                     new_key = _09toAZ(x1,y1,x2,y2)
                     print new_key
-                    dictbuffer[new_key] = settings["line"][key]
-        settings["line"] = copy.deepcopy(dictbuffer)
+                    dictbuffer[new_key] = game.data_line[key]
+        game.data_line = copy.deepcopy(dictbuffer)
 
         gamecopy = copy.deepcopy(game.grid)
         for j, row in enumerate(game.grid):
             for i, case in enumerate(row):
-                if Game.squareExist(y= j+diffy, x=i+diffx):
-                    game.grid[j+diffy][i+diffx] = Square(x=i+diffx, y=j+diffy, type = gamecopy[j][i].type )
+                if Game.isValid(y= j+diffy, x=i+diffx):
+                    game.grid[j+diffy][i+diffx] = Square(x=i+diffx, y=j+diffy, type = gamecopy[j][i].type, filename = debug_.file  )

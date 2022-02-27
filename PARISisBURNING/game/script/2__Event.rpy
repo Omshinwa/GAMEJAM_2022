@@ -43,8 +43,8 @@ label lab_moveCouch(variable):
                 buffer_startAction = copy.deepcopy( start.onAction )
                 buffer_endAction = copy.deepcopy( end.onAction )
 
-                game.grid[sofa.y][sofa.x] = Square(x=start.x, y=start.y, type = end.type )
-                game.grid[sofa.y + direction[1]][sofa.x + direction[0]] = Square(x=end.x, y=end.y, type = buffer )
+                game.grid[sofa.y][sofa.x] = Square(x=start.x, y=start.y, type = end.type, filename=game.filename)
+                game.grid[sofa.y + direction[1]][sofa.x + direction[0]] = Square(x=end.x, y=end.y, type = buffer, filename=game.filename)
 
                 game.grid[sofa.y][sofa.x].onAction = buffer_startAction
                 game.grid[sofa.y + direction[1]][sofa.x + direction[0]].onAction = buffer_endAction
@@ -63,11 +63,12 @@ label lab_action_door(variable): #currently used by teens
     $ teen = variable[0]
     $ vari = variable[-1]
 
-    if settings["line"][vari]== 4: #if it's a hidden door
+    if game.data_line[vari]== 4: #if it's a hidden door
         python:
-            game.say(teen,teen.name,"finds a secret door")
+            game.say(teen,"finds a secret door",False)
             renpy.music.queue("audio/opendoor1.mp3", channel='sound', relative_volume=0.5)
-            settings["line"][vari] = 3
+            game.data_line[vari] = 3
+            game.makeSecretHidden(variable[1].x,variable[1].y,1)
             renpy.pause(0.5)
         call lab_endTurn(copy.copy(game.premoving.who))
         return
@@ -85,34 +86,16 @@ label lab_action_door(variable): #currently used by teens
             renpy.play("audio/doorfail.ogg", channel='sound', relative_volume=0.5)
             pass
         else:
-            if settings["line"][vari]== 2:
+            if game.data_line[vari]== 2:
                 renpy.play("audio/opendoor1.mp3", channel='sound', relative_volume=0.5)
-                settings["line"][vari] = 3
-            elif settings["line"][vari]== 3:
+                game.data_line[vari] = 3
+            elif game.data_line[vari]== 3:
                 renpy.play("audio/closedoor1.wav", channel='sound', relative_volume=0.5)
-                settings["line"][vari] = 2
+                game.data_line[vari] = 2
         game.updateVision()
         renpy.pause(0.5)
     call lab_endTurn(copy.copy(game.premoving.who))
     return
-    
-
-label lab_000_D2(variables):
-    $ teen = variables[0]
-    $ vari = variables[-1]
-    if vari>0:
-        $ game.say(teen, "hello world")
-        $ settings["events_fyn"]["D2"]["variables"] = 0
-    jump lab_gameloop
-
-label lab_000_B8(variables):
-    "Vous rallumez les fusibles"
-    python:
-        for row in game.grid:
-            for cell in row:
-                if cell.isDark:
-                    cell.isDark = 0
-    jump lab_gameloop
 
 
 #################################################
@@ -186,7 +169,7 @@ label lab_throw_water_confirm(cell):
 
         cells = []
         for direction in [(0,-1),(-1,-1),(-1,0),(-1,1),(0,1),(1,1),(1,0),(1,-1)]:
-            if Game.squareExist(x=cell2.x + direction[0], y=cell2.y + direction[1]):
+            if Game.isValid(x=cell2.x + direction[0], y=cell2.y + direction[1]):
                 cell = game.grid[cell2.y + direction[1]][cell2.x + direction[0]]
                 cells.append(cell)
         cells.append(cell2)
@@ -221,3 +204,22 @@ label lab_fill_bucket(var):
     call lab_endTurn(copy.copy(game.premoving.who))
     return
     
+
+
+
+label lab_000_D2(variables):
+    $ teen = variables[0]
+    $ vari = variables[-1]
+    if vari>0:
+        $ game.say(teen, "hello world")
+        $ settings["events_fyn"]["D2"]["variables"] = 0
+    jump lab_gameloop
+
+label lab_000_B8(variables):
+    "Vous rallumez les fusibles"
+    python:
+        for row in game.grid:
+            for cell in row:
+                if cell.isDark:
+                    cell.isDark = 0
+    jump lab_gameloop

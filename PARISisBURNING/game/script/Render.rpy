@@ -147,7 +147,10 @@ screen sce_grid():
                 xpos int(cell.x * settings["tilesize"])
                 ypos int(cell.y * settings["tilesize"])
                 xysize int(settings["tilesize"]), int(settings["tilesize"])
-                background cell.sprite()
+                if cell.isHidden:
+                    background "game-UI/6.gif"
+                else:
+                    background cell.sprite()
 
             if cell.onFire != 0:
                 imagebutton:
@@ -190,7 +193,7 @@ screen sce_grid():
 screen sce_walls():
     zorder 2
 
-    for key, value in settings["line"].iteritems():
+    for key, value in game.data_line.iteritems():
         $ x = int(key[1:3])
         $ y = ord(key[0])-65
         $ x2 = int(key[4:6])
@@ -205,7 +208,7 @@ screen sce_walls():
                 xysize 4, 48
                 xpos int(x2 * settings["tilesize"]) -2
                 ypos int(y2 * settings["tilesize"])
-            if value == 1:
+            if value == 1 or value == 4:
                 background Solid( "#808080" )
             if value == 2:
                 background Solid( "#EEEEEE" )

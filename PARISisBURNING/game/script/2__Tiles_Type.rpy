@@ -7,19 +7,20 @@ init python:
             global settings
 
             #DEFAULT VALUES
-
+            
             self.type = -1
             self.img_idle = "game-UI/tile-error.png"
             self.isStand = 1
             self.blockVision = 0 #default value, hide the vision behind it like a big object
             self.isDark = 0 #makes people no see anything in it
-            self.isHidden = 0 #makes the tile straight up dark, like the tile 6
+            self.isSecret = 0 #makes the tile straight up dark, like the tile 6
             self.itemType = None
             self.visibility = 1
 
             ##THE DEFAULT TILE DOESNT BLOCK VISION, CAN BE STANDED ON
 
-            for Thistype in settings["tiletype"]:
+            tiletype = settings["tiletype"]
+            for Thistype in tiletype:
                 if type == Thistype["type"]:
                     self.img_idle = Thistype["img_idle"]
                     for keys in Thistype["variables"]:

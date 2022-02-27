@@ -74,7 +74,7 @@ label lab_fireSpread():
 
                         for direction in [(-1,0),(0,1),(1,0),(0,-1)]:
                         # for direction in [(-1,0),(0,1),(1,0),(0,-1),(-1,-1),(1,1),(1,-1),(-1,1)]: si on utilise ça, il faut modifier isCrossable pour que ça prenne en compte les diagonales comme updatevision
-                            if Game.squareExist( x= case.x+direction[0],y= case.y+direction[1] ):
+                            if Game.isValid( x= case.x+direction[0],y= case.y+direction[1] ):
                                 neighbor = gridcopy[case.y+direction[1]][case.x+direction[0]]
                                 
                                 if neighbor.onFire > 0: #fire spreads, water doesnt:

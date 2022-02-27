@@ -1,11 +1,16 @@
-make a character.data so that we can load different maps
-make an Item superclass
+make new tiles (tv, bed, papers on the ground?)
+make a level selectable screen (for editor mode at least)
+make fire drawable on the editor
+make events per map
 
 
 
 
 
 --------------------------------------------------------
+make hidden doors
+make a character.data so that we can load different maps
+make an Item superclass
 make a history log
 make the actions system cleaner lol
 add items
