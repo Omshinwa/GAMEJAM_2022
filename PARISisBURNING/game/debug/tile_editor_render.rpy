@@ -319,11 +319,35 @@ screen sce_tile_editor_palette():
         # if (debug_.draw_layer == "event"):
 
         button:
-            xalign 0.5
+            xalign 0.9
             yalign 0.99
             text "EXPORT ALL" size 30 style "debug_text"
             background Solid("#5080FF")
             action Jump("label_export_tilemap")
+
+        fixed:
+            xpos 0.1
+            ypos 0.93
+            button:
+                ypos -25
+                text "*" size 20 style "debug_text"
+                hover_background Solid("#5080FF")
+                action Function(moveEverything,0,-1)
+            button:
+                ypos 25
+                text "*" size 20 style "debug_text"
+                hover_background Solid("#5080FF")
+                action Function(moveEverything,0,1)
+            button:
+                xpos 25
+                text "*" size 20 style "debug_text"
+                hover_background Solid("#5080FF")
+                action Function(moveEverything,1,0)
+            button:
+                xpos -25
+                text "*" size 20 style "debug_text"
+                hover_background Solid("#5080FF")
+                action Function(moveEverything,-1,0)
 
 
 screen sce_char_editor_info(char):

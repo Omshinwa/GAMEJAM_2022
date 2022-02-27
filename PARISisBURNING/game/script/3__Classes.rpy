@@ -4,22 +4,19 @@ init python:
 
     class Character:
         # init method or constructor
-        def __init__(self, game, name, x, y, items, file = None, stat={"vision":10, "move":4} ):
+        def __init__(self, game, x, y, items, file, name=None, stat={"vision":10, "move":4} ):
 
             if name is None:
-                self.name = img
-
-            if file is None:
-                self.file = name
+                self.name = file.capitalize()
             else:
-                self.file = file
+                self.name = name
 
             if items == None:
                 self.inventory = []
             else:
                 self.inventory = [items]
             
-            self.name = name
+            self.file = file
             self.x = x
             self.y = y
             self.img = {}

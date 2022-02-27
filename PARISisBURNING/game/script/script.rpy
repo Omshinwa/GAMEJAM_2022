@@ -29,7 +29,7 @@ return
 
 
 label lab_credit:
-    "thanks to the renpy discord community for their help (tomrenpy, AxelKong"
+    "thanks to the renpy discord community for their help (tomrenpy, AxelKong, Pinky!, Fen (Somniarre)"
     "sound people:
     https://bigsoundbank.com/detail-0495-steps-in-the-mud.html
     https://www.zapsplat.com/music/water-from-bucket-throw-splash-splat-on-concrete-ground-1/"

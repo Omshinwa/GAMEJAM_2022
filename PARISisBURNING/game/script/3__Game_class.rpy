@@ -9,10 +9,9 @@ init python:
 
             import_tilemap = read_data_tilemap( filename + "-map.dat" )
             import_char = mapdata["char"]
-            settings["event"] = merge_two_dicts( settings["events_fyn"], settings["events_madi"])
 
             self.data_line = copy.deepcopy(mapdata["line"])
-            self.data_event = merge_two_dicts( settings["events_fyn"], settings["events_madi"])
+            self.data_event = mapdata["event"]
 
             self.ui = {}
             self.grid = []
@@ -68,7 +67,6 @@ init python:
             #clean the variables only used for map creation
             del import_tilemap
             del import_char
-            del settings["event"]
             # del settings["tiletype"]
 
 
@@ -170,7 +168,7 @@ init python:
             return list(dict.values())
 
         @staticmethod
-        def isValid(y,x):
+        def isValid(x,y):
             if x>=0 and x< settings["mapsize"][0] and y>=0 and y< settings["mapsize"][1]:
                 return True
             else:

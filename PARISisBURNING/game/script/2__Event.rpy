@@ -5,7 +5,7 @@ init offset = -2
 init python:
 
     #THOSE ARE PASSIVE EVENTS AND AUTOMATICALLY TRIGGERS
-    settings["events_fyn"] = { "D2" : {"variables":1}, "B8" : {}}
+    settings["event"] = { "D2" : {"variables":1}, "B8" : {}}
 
     settings["actions"] = {}
 
@@ -205,14 +205,12 @@ label lab_fill_bucket(var):
     return
     
 
-
-
 label lab_000_D2(variables):
     $ teen = variables[0]
     $ vari = variables[-1]
     if vari>0:
         $ game.say(teen, "hello world")
-        $ settings["events_fyn"]["D2"]["variables"] = 0
+        $ settings["event"]["D2"]["variables"] = 0
     jump lab_gameloop
 
 label lab_000_B8(variables):

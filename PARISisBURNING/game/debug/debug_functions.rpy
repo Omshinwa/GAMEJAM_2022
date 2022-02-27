@@ -214,7 +214,7 @@ init python:
         for doom in game.dooms:
             newSettings["char"]["Slasher"].append( { "name":doom.name, "canOpenDoors":doom.canOpenDoors, "y":doom.y, "x":doom.x} )
         newSettings["line"] = game.data_line
-        newSettings["event"] = {} #settings["event"]
+        newSettings["event"] = game.data_event
         return newSettings
 
     def TileTypeTxt_to_Arr( tiletxt ):
@@ -278,33 +278,34 @@ init python:
             if where is None:
                 where = getMouseId()
 
-            if debug_.draw_mode == "tile":
-                game.grid[where[1]][where[0]] = Square(x=where[0], y=where[1], type = what, filename = self.file )
+            if Game.isValid(x=where[0],y=where[1]):
+                if debug_.draw_mode == "tile":
+                    game.grid[where[1]][where[0]] = Square(x=where[0], y=where[1], type = what, filename = self.filename )
 
-            elif debug_.draw_mode == "add":
-                characterToEdit = False
-                for i,teen in enumerate(game.teens):
-                    if teen.x == where[0] and teen.y == where[1]:
-                        characterToEdit = teen
-                for i,doom in enumerate(game.dooms):
-                    if doom.x == where[0] and doom.y == where[1]:
-                        characterToEdit = doom
-                if not characterToEdit:
-                    if what in self.charList:
-                        game.teens.append( Character(game=game, file=what, name=what, x=where[0], y=where[1], items=None)  )
-                    elif what in self.doomList:
-                        game.dooms.append( Slasher(name=what, x=where[0], y=where[1], canOpenDoors=True)  )
-                else:
-                    renpy.show_screen("sce_char_editor_info", characterToEdit)
+                elif debug_.draw_mode == "add":
+                    characterToEdit = False
+                    for i,teen in enumerate(game.teens):
+                        if teen.x == where[0] and teen.y == where[1]:
+                            characterToEdit = teen
+                    for i,doom in enumerate(game.dooms):
+                        if doom.x == where[0] and doom.y == where[1]:
+                            characterToEdit = doom
+                    if not characterToEdit:
+                        if what in self.charList:
+                            game.teens.append( Character(game=game, file=what, x=where[0], y=where[1], items=None)  )
+                        elif what in self.doomList:
+                            game.dooms.append( Slasher(name=what, x=where[0], y=where[1], canOpenDoors=True)  )
+                    else:
+                        renpy.show_screen("sce_char_editor_info", characterToEdit)
 
-            elif debug_.draw_mode == "delete":
-                for i,teen in enumerate(game.teens):
-                    if teen.x == where[0] and teen.y == where[1]:
-                        game.teens.pop(i)
-                        bool = False
-                for i,doom in enumerate(game.dooms):
-                    if doom.x == where[0] and doom.y == where[1]:
-                        game.dooms.pop(i)
+                elif debug_.draw_mode == "delete":
+                    for i,teen in enumerate(game.teens):
+                        if teen.x == where[0] and teen.y == where[1]:
+                            game.teens.pop(i)
+                            bool = False
+                    for i,doom in enumerate(game.dooms):
+                        if doom.x == where[0] and doom.y == where[1]:
+                            game.dooms.pop(i)
 
 
         def choose_tile_brush(self, where = None):
@@ -390,7 +391,6 @@ init python:
             if x1>=0 and x2>=0 and x1< settings["mapsize"][0] and x2< settings["mapsize"][0]:
                 if y1>=0 and y2>=0 and y1< settings["mapsize"][1] and y2< settings["mapsize"][1]:
                     new_key = _09toAZ(x1,y1,x2,y2)
-                    print new_key
                     dictbuffer[new_key] = game.data_line[key]
         game.data_line = copy.deepcopy(dictbuffer)
 
@@ -398,4 +398,6 @@ init python:
         for j, row in enumerate(game.grid):
             for i, case in enumerate(row):
                 if Game.isValid(y= j+diffy, x=i+diffx):
-                    game.grid[j+diffy][i+diffx] = Square(x=i+diffx, y=j+diffy, type = gamecopy[j][i].type, filename = debug_.file  )
+                    game.grid[j+diffy][i+diffx] = Square(x=i+diffx, y=j+diffy, type = gamecopy[j][i].type, filename = debug_.filename  )
+                if not Game.isValid(y= j-diffy, x=i-diffx):
+                    game.grid[j][i] = Square(x=i, y=j, type =6, filename = debug_.filename  )

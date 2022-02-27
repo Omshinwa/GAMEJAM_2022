@@ -9,8 +9,9 @@ jump lab_tile_editor_render
 
 label label_export_tilemap:
     python:
-        export_data_tilemap(debug_.filename + "-map.dat")
-        send_to_file(debug_.filename + ".dat", json.dumps(get_data_map()))
+        input_ = renpy.input("Where to save", length=32)
+        export_data_tilemap(input_ + "-map.dat")
+        send_to_file(input_ + ".dat", json.dumps(get_data_map()))
 
     'data has been exported'
     jump lab_tile_editor_render
