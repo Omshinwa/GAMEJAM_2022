@@ -2,6 +2,9 @@ style debug_text2 is text:
     outlines [ (absolute(2), "#000", absolute(0), absolute(0)) ]
     color "#FFFF00"
 
+style char_editor_info_txt is text:
+    font "IREADCASLON.TTF" size 30 color "#eee" antialias False 
+
 label lab_tile_editor_render:
     show screen keybinds
     show screen sce_grid_editor
@@ -13,7 +16,7 @@ label lab_tile_editor_render:
 screen sce_walls_editor():
     zorder 2
 
-    for key, value in settings["lignes"].iteritems():
+    for key, value in settings["line"].iteritems():
         $ x = int(key[1:3])
         $ y = ord(key[0])-65
         $ x2 = int(key[4:6])
@@ -115,8 +118,19 @@ screen sce_tile_editor_palette():
                         frame:
                             background "game-UI/debug-select-tilebrush.png"
                             xysize settings["tilesize"], settings["tilesize"]
-
-                    # background Solid("#FFF000")
+            for i, cell in enumerate(debug_.doomList):
+                frame:
+                # imagebutton:
+                    xpadding 0
+                    ypadding 0
+                    xpos i%6 * settings["tilesize"]
+                    ypos (int(i/6)+6) * settings["tilesize"]
+                    xysize settings["tilesize"], settings["tilesize"]
+                    background cell+"-idle.png"
+                    if debug_.tilebrush == cell:
+                        frame:
+                            background "game-UI/debug-select-tilebrush.png"
+                            xysize settings["tilesize"], settings["tilesize"]
 
 
         button:
@@ -145,7 +159,7 @@ screen sce_tile_editor_palette():
                 else:
                     background Solid("#808080")
                 text "CHAR" size 30 style "debug_text"
-                action [SetVariable("debug_.draw_layer", "char") , SetVariable("debug_.draw_mode", "edit") ]
+                action [SetVariable("debug_.draw_layer", "char") , SetVariable("debug_.draw_mode", "add") ]
 
             button:
                 xalign 1.0
@@ -244,25 +258,25 @@ screen sce_tile_editor_palette():
 
 
         if (debug_.draw_layer == "char"):
-            button:
-                xalign 0.3
-                ypos 560
-                if debug_.draw_mode == "teen":
-                    background Solid("#FFFAAA")
-                else:
-                    background Solid("#808080")
-                text "teen" size 30 style "debug_text"
-                action SetVariable("debug_.draw_mode", "teen")
+            # button:
+            #     xalign 0.3
+            #     ypos 560
+            #     if debug_.draw_mode == "teen":
+            #         background Solid("#FFFAAA")
+            #     else:
+            #         background Solid("#808080")
+            #     text "teen" size 30 style "debug_text"
+            #     action SetVariable("debug_.draw_mode", "teen")
 
-            button:
-                xalign 0.8
-                ypos 560
-                if debug_.draw_mode == "slasher":
-                    background Solid("#FFFAAA")
-                else:
-                    background Solid("#808080")
-                text "slasher" size 30 style "debug_text"
-                action SetVariable("debug_.draw_mode", "slasher")
+            # button:
+            #     xalign 0.8
+            #     ypos 560
+            #     if debug_.draw_mode == "slasher":
+            #         background Solid("#FFFAAA")
+            #     else:
+            #         background Solid("#808080")
+            #     text "slasher" size 30 style "debug_text"
+            #     action SetVariable("debug_.draw_mode", "slasher")
 
             fixed:
                 ypos 620
@@ -275,19 +289,19 @@ screen sce_tile_editor_palette():
                         background Solid("#FFFAAA")
                     else:
                         background Solid("#808080")
-                    text "add/del" size 20 style "debug_text" xalign 0.5 yalign 0.5
+                    text "add/edit" size 20 style "debug_text" xalign 0.5 yalign 0.5
                     action SetVariable("debug_.draw_mode", "add")
 
                 button:
                     xalign 0.5
                     xsize 100
                     ysize 50
-                    if debug_.draw_mode == "edit":
+                    if debug_.draw_mode == "delete":
                         background Solid("#FFFAAA")
                     else:
                         background Solid("#808080")
-                    text "edit info" size 20 style "debug_text" xalign 0.5 yalign 0.5
-                    action SetVariable("debug_.draw_mode", "edit")
+                    text "delete" size 20 style "debug_text" xalign 0.5 yalign 0.5
+                    action SetVariable("debug_.draw_mode", "delete")
 
                 # button:
                 #     xalign 1.0
@@ -309,7 +323,8 @@ screen sce_tile_editor_palette():
             background Solid("#5080FF")
             action Jump("label_export_tilemap")
 
-screen sce_char_editor_info(teen):
+
+screen sce_char_editor_info(char):
     modal True
     # fixed:
     #     xsize 1.0
@@ -324,43 +339,74 @@ screen sce_char_editor_info(teen):
             hover_background Solid("#5080FF")
             background Solid("#808080")
             action Hide("sce_char_editor_info")
-
         xalign 0.5
         yalign 0.5
         xsize 0.3
         ysize 0.8
         background Solid("#333")
-        fixed:
-            xpos 0.3
-            add teen.img.idle
+
+        if isinstance(char, Character):
             fixed:
-                xpos 58
-                add teen.img.big
-        text "name:" style "classicfont" xalign 0.1 ypos 75
-        button:
-            xalign 0.5 ypos 70
-            hover_background Solid("#5080FF")
-            text teen.name font "IREADCASLON.TTF" size 30 color "#eee" antialias False 
-            action Call("label_edit_info",teen,"name")
-        text "item:" style "classicfont" xalign 0.1 ypos 120
-        button:
-            xalign 0.5 ypos 120
-            hover_background Solid("#5080FF")
-            action Call("label_edit_info",teen,"inventory")
-            if len(teen.inventory) > 0:
-                text str(teen.inventory[0]) font "IREADCASLON.TTF" size 30 color "#eee" antialias False 
-            else:
-                text "-" font "IREADCASLON.TTF" size 30 color "#eee" antialias False xalign
-        text "vision:" style "classicfont" xalign 0.1 ypos 170
-        button:
-            xalign 0.5 ypos 170
-            hover_background Solid("#5080FF")
-            action Call("label_edit_info",teen,"vis")
-            text str(teen.stat.vis) font "IREADCASLON.TTF" size 30 color "#eee" antialias False
-        text "movement:" style "classicfont" xalign 0.1 ypos 220
-        button:
-            xalign 0.5 ypos 220
-            hover_background Solid("#5080FF")
-            action Call("label_edit_info",teen,"move")
-            text str(teen.stat.move) font "IREADCASLON.TTF" size 30 color "#eee" antialias False 
+                xpos 0.3
+                add char.img.idle
+                fixed:
+                    xpos 58
+                    add char.img.big
+
+            text "name:" style "classicfont" xalign 0.1 ypos 75
+            button:
+                xalign 0.5 ypos 70
+                hover_background Solid("#5080FF")
+                text char.name font "IREADCASLON.TTF" size 30 color "#eee" antialias False 
+                action Call("label_edit_info",char,"name")
+            text "item:" style "classicfont" xalign 0.1 ypos 120
+            button:
+                xalign 0.5 ypos 120
+                hover_background Solid("#5080FF")
+                action Call("label_edit_info",char,"inventory")
+                if len(char.inventory) > 0:
+                    text str(char.inventory[0]) font "IREADCASLON.TTF" size 30 color "#eee" antialias False 
+                else:
+                    text "-" font "IREADCASLON.TTF" size 30 color "#eee" antialias False xalign
+            
+            for i, field in enumerate( [["vision:","vision"],["movement:","move"],["strong? (can push\nsofas better)","isStrong"],["blind?","isBlind"]] ):
+                fixed:
+                    ypos 170+60*i
+                    text field[0] style "classicfont" xalign 0.1 
+                    button:
+                        xalign 0.5
+                        hover_background Solid("#5080FF")
+                        text str(char.stat[field[1]]) font "IREADCASLON.TTF" size 30 color "#eee" antialias False 
+                        action Call("label_edit_info",char,field[1])
+
+                
+        elif isinstance(char, Slasher):
+            fixed:
+                xpos 0.3
+                add char.img.idle
+                fixed:
+                    xpos 58
+                    add char.img.big
+            text "name:" style "classicfont" xalign 0.1 ypos 75
+            button:
+                xalign 0.5 ypos 70
+                hover_background Solid("#5080FF")
+                text char.name font "IREADCASLON.TTF" size 30 color "#eee" antialias False 
+                action Call("label_edit_info",char,"name")
+            text "can open doors:" style "classicfont" xalign 0.1 ypos 120
+            button:
+                xalign 0.5 ypos 120
+                hover_background Solid("#5080FF")
+                action Call("label_edit_info",char,"canOpenDoors")
+                if char.canOpenDoors:
+                    text "YES" font "IREADCASLON.TTF" size 30 color "#eee" antialias False 
+                else:
+                    text "NO" font "IREADCASLON.TTF" size 30 color "#eee" antialias False 
+
+            text "movement:" style "classicfont" xalign 0.1 ypos 220
+            button:
+                xalign 0.5 ypos 220
+                hover_background Solid("#5080FF")
+                action Call("label_edit_info",char,"move")
+                text str(char.stat["move"]) font "IREADCASLON.TTF" size 30 color "#eee" antialias False 
         

@@ -188,11 +188,32 @@ init python:
             settings["tilemap"].append( [x.type for x in row] )
         send_to_file( filename, Arr_to_Maptxt( settings["tilemap"] ) )
     
-    def export_data_map(filename):
-        settings["tilemap"] = []
-        for row in game.grid:
-            settings["tilemap"].append( [x.type for x in row] )
-        send_to_file( filename, Arr_to_Maptxt( settings["tilemap"] ) )
+    def get_data_map():
+        global settings
+        newSettings = {}
+        newSettings["char"] = {}
+        newSettings["char"]["Character"] = []
+        newSettings["char"]["Slasher"] = []
+        currentChar = {}
+        for teen in game.teens:
+            currentChar["name"] = teen.name
+            items = [] 
+            for item in teen.inventory:
+                items.append( item.name )
+            currentChar["items"] = items
+            currentChar["file"] = teen.file
+            currentChar["x"] = teen.x
+            currentChar["y"] = teen.y
+            currentChar["stat"] = {}
+            for key,value in teen.stat.iteritems(): #add stuff like visibility, movement, isStrong etc
+                currentChar["stat"][key] = value
+
+            newSettings["char"]["Character"].append(currentChar)
+        for doom in game.dooms:
+            newSettings["char"]["Slasher"].append( { "name":doom.name, "canOpenDoors":doom.canOpenDoors, "y":doom.y, "x":doom.x} )
+        newSettings["line"] = settings["line"]
+        newSettings["event"] = {} #settings["event"]
+        return newSettings
 
     def TileTypeTxt_to_Arr( tiletxt ):
         output = []
@@ -240,39 +261,48 @@ init python:
 
 
     class Debug():
-        def __init__(self):
+        def __init__(self, filename):
+            global settings
             self.state = ""
             self.tilebrush = -1
             self.draw_mode = "tile"
             self.draw_layer = "map"
             self.previous_tile = False
             self.charList = ["william","lauren","gwenael","paula","morgan","carine","franky","josephine","darryl","kayleigh","tanglei"]
-            store.settings["tiletype"] = TileTypeTxt_to_Arr( read_file(".data_tiletype.rpy") )
+            self.doomList = ["doom"]
+            self.filename = filename
 
         def draw_on_tile(self, what= -1, where = None):
             if where is None:
                 where = getMouseId()
 
             if debug_.draw_mode == "tile":
-                game.grid[where[1]][where[0]] = Square(x=where[0], y=where[1], type = what )
+                game.grid[where[1]][where[0]] = Square(x=where[0], y=where[1], type = what, filename = self.filename )
 
             elif debug_.draw_mode == "add":
-                bool = True
+                characterToEdit = False
+                for i,teen in enumerate(game.teens):
+                    if teen.x == where[0] and teen.y == where[1]:
+                        characterToEdit = teen
+                for i,doom in enumerate(game.dooms):
+                    if doom.x == where[0] and doom.y == where[1]:
+                        characterToEdit = doom
+                if not characterToEdit:
+                    if what in self.charList:
+                        game.teens.append( Character(game=game, file=what, name=what, x=where[0], y=where[1], items=None)  )
+                    elif what in self.doomList:
+                        game.dooms.append( Slasher(name=what, x=where[0], y=where[1], canOpenDoors=True)  )
+                else:
+                    renpy.show_screen("sce_char_editor_info", characterToEdit)
+
+            elif debug_.draw_mode == "delete":
                 for i,teen in enumerate(game.teens):
                     if teen.x == where[0] and teen.y == where[1]:
                         game.teens.pop(i)
                         bool = False
-                if bool:
-                    game.teens.append( Character(game=game, file=what, name=what, x=where[0], y=where[1], items=[], vision=10)  )
-
-            elif debug_.draw_mode == "edit":
-                currentTeen = False
-                for i,teen in enumerate(game.teens):
-                    if teen.x == where[0] and teen.y == where[1]:
-                        currentTeen = teen
-                if currentTeen:
-                    print("ok")
-                    renpy.show_screen("sce_char_editor_info", currentTeen)
+                for i,doom in enumerate(game.dooms):
+                    if doom.x == where[0] and doom.y == where[1]:
+                        game.dooms.pop(i)
 
 
         def choose_tile_brush(self, where = None):
@@ -291,12 +321,22 @@ init python:
             elif self.draw_layer == "char":
                 if where is None:
                     where = getMouseId()
+
                 try:
                     debug_.charList[ 6 * where[1] + (where[0]-(settings["mapsize"][0])) ]
                 except:
                     pass
                 else:
                     type_ = debug_.charList[ 6 * where[1] + (where[0]-(settings["mapsize"][0])) ]
+                    print(type_)
+                    self.tilebrush = type_
+
+                try:
+                    debug_.doomList[ 6 * (where[1]-6) + (where[0]-(settings["mapsize"][0])) ]
+                except:
+                    pass
+                else:
+                    type_ = debug_.doomList[ 6 * (where[1]-6) + (where[0]-(settings["mapsize"][0])) ]
                     print(type_)
                     self.tilebrush = type_
 
@@ -325,19 +365,18 @@ init python:
                     elif self.previous_tile > seconde_case:
                         ligne = seconde_case + self.previous_tile
 
-                    if ligne in settings["lignes"] and settings["lignes"][ligne] == what:
-                        del settings["lignes"][ligne]
+                    if ligne in settings["line"] and settings["line"][ligne] == what:
+                        del settings["line"][ligne]
                     else:
-                        settings["lignes"][ligne] = what
+                        settings["line"][ligne] = what
 
                 self.previous_tile = False
 
 
     def moveEverything(diffx,diffy):
-        
 
         dictbuffer = {}
-        for key, value in settings["lignes"].iteritems():
+        for key, value in settings["line"].iteritems():
 
             x1,y1,x2,y2 = AZto09(key)
 
@@ -350,8 +389,8 @@ init python:
                 if y1>=0 and y2>=0 and y1< settings["mapsize"][1] and y2< settings["mapsize"][1]:
                     new_key = _09toAZ(x1,y1,x2,y2)
                     print new_key
-                    dictbuffer[new_key] = settings["lignes"][key]
-        settings["lignes"] = copy.deepcopy(dictbuffer)
+                    dictbuffer[new_key] = settings["line"][key]
+        settings["line"] = copy.deepcopy(dictbuffer)
 
         gamecopy = copy.deepcopy(game.grid)
         for j, row in enumerate(game.grid):

@@ -21,5 +21,8 @@ init python:
     settings["ui-size"] = 7
     settings["resolution"] = ((settings["mapsize"][0]+settings["ui-size"])*settings["tilesize"], settings["mapsize"][1]*settings["tilesize"])
     settings["padding"] = (0,0)
-    settings["fireThreshold"] = [3, 6, 9]
-    #values of water / lil fire / fire / bigfire
+    settings["fireThreshold"] = [3, 6, 9] #values of water / lil fire / fire / bigfire
+
+    settings["tiletype"] = []
+    settings["line"] = {}
+    

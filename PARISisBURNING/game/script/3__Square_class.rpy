@@ -3,7 +3,7 @@
 init offset = -1
 init python:
     class Square(Tiletype):
-        def __init__(self, x, y, type):
+        def __init__(self, x, y, type, filename):
             super(Square,self).__init__(type)
             self.type = type
             self.x = x
@@ -14,9 +14,9 @@ init python:
             self.onAction = []
             # self.img_unstand = "game-UI/cell-unstand.png"
 
-            self.onFire = 0;
+            self.onFire = 0
             if type == 51:
-                self.onFire = 1;
+                self.onFire = 1
 
             try:
                 self.isStand
@@ -26,16 +26,15 @@ init python:
                 self.occupied = 1 - self.isStand #0 theres nothing there
 
             try:
-                settings["events"][ chr(ord('@')+y+1) + str(x) ]
+                settings["event"][ chr(ord('@')+y+1) + str(x) ]
             except:
                 self.event = False
             else:
-                thisEvent = settings["events"][ chr(ord('@')+y+1) + str(x) ]
-                # self.event = settings["events"][ chr(ord('@')+y+1) + str(x) ] 
+                thisEvent = settings["event"][ chr(ord('@')+y+1) + str(x) ]
                 if "variables" in thisEvent:
-                    self.event = Event_Caller(name=chr(ord('@')+y+1) + str(x), range=0, isActive=False, label=thisEvent["label"], variables=thisEvent["variables"])
+                    self.event = Event_Caller(name=chr(ord('@')+y+1) + str(x), range=0, isActive=False, label="lab_" + filename + "_" + chr(ord('@')+y+1) + str(x) , variables=thisEvent["variables"])
                 else:
-                    self.event = Event_Caller(name=chr(ord('@')+y+1) + str(x), range=0, isActive=False, label=thisEvent["label"])
+                    self.event = Event_Caller(name=chr(ord('@')+y+1) + str(x), range=0, isActive=False, label="lab_" + filename + "_" + chr(ord('@')+y+1) + str(x) )
 
             if Tiletype.addInteraction(self.itemType):
                 self.onAction.append( Tiletype.addInteraction( self.itemType ) )

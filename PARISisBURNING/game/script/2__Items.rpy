@@ -35,29 +35,34 @@ init python:
         def add_event(self,game,teen,case):
             renpy.call( self.label, (teen, case, self.variables) )
         
-        def __repr__(self):
+        def __str__(self):
             return "Event_Caller obj '"+self.name+"'"
 
-    def Items(name=None, *args):
+    def Items(name=""):
+        if len(name.split(" "))>1:
+            args = name.split(" ")[1]
+            name = name.split(" ")[0]
+        else:
+            args = None
 
         if name == "Bucket":
-            return Item_Bucket(*args)
-        elif name == None:
-            return
+            return Item_Bucket(args)
         elif name =='':
             return
         else:
             raise Exception('Item type doesnt exist: '+name)
 
-    class Item_Bucket(Event_Caller):
-        def __init__(self, charge = 0):
+    class Item_Bucket(): #Event_Caller
+        def __init__(self, charge):
+            if charge == None:
+                charge = 0
             self.name = "Bucket"
             self.charge = charge
             self.maxcharge = 3
 
-        def __repr__(self):
-            return self.name
-        
+        def __str__(self):
+            return self.name + " "+ str(self.charge)
+
         def add_action(self, game, teen):
             if game.grid[teen.y][teen.x].itemType == "Shower" or game.grid[teen.y][teen.x].itemType == "Toilet":
                 if self.charge < self.maxcharge:

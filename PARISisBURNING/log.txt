@@ -1,4 +1,4 @@
-Sat Feb 26 10:57:11 2022
+Sat Feb 26 20:21:39 2022
 Windows-10-10.0.19041
 Ren'Py 7.4.11.2266
  
@@ -7,11 +7,11 @@ Bootstrap to the start of init.init took 0.08s
 Early init took 0.00s
 Loader init took 0.01s
 Loading error handling took 0.02s
-Loading script took 0.16s
+Loading script took 0.42s
 Loading save slot metadata. took 0.02s
 Loading persistent took 0.00s
 Importing _renpysteam: ImportError('No module named _renpysteam',)
-Running init code took 0.05s
+Running init code took 0.06s
 Loading analysis data took 0.03s
 Analyze and compile ATL took 0.00s
 Index archives took 0.00s
@@ -23,19 +23,19 @@ Initial gc. took 0.02s
 DPI scale factor: 1.000000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
-Creating interface object took 0.28s
+Creating interface object took 0.31s
 Cleaning stores took 0.00s
-Init translation took 0.03s
+Init translation took 0.04s
 Build styles took 0.00s
 Load screen analysis took 0.00s
 Analyze screens took 0.02s
-Save screen analysis took 0.03s
-Prepare screens took 0.08s
-Save pyanalysis. took 0.00s
+Save screen analysis took 0.04s
+Prepare screens took 0.10s
+Save pyanalysis. took 0.05s
 Save bytecode. took 0.03s
 Running _start took 0.00s
 Performance test:
-Interface start took 0.08s
+Interface start took 0.10s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)
@@ -48,46 +48,37 @@ Display Info: None
 Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
 Maximum texture size: 4096x4096
 controller: '030000005e0400008e02000000007200' 'Xbox 360 Controller' 1L
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.00s
+Load screen analysis took 0.03s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.00s
 
 Full traceback:
-  File "game/script/script.rpy", line 3, in script call
-    call lab_initialize
-  File "game/script/script.rpy", line 15, in script
+  File "game/debug/tile_editor_logic.rpy", line 11, in script
     python:
   File "renpy/ast.py", line 928, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
   File "renpy/python.py", line 2245, in py_exec_bytecode
     exec(bytecode, globals, locals)
-  File "game/script/script.rpy", line 16, in <module>
-    game = Game()
-  File "game/script/3__Game_class.rpy", line 41, in __init__
-    self.grid[y].append( Square(x=x, y=y, type = import_tilemap[y][x] ) )
-  File "game/script/3__Square_class.rpy", line 7, in __init__
-    super(Square,self).__init__(type)
-  File "game/script/2__Tiles_Type.rpy", line 21, in __init__
-    for Thistype in settings["tiletype"]:
-KeyError: u'tiletype'
+  File "game/debug/tile_editor_logic.rpy", line 13, in <module>
+    send_to_file(debug_.filename + ".dat", json.dumps(get_data_map()))
+TypeError: get_data_map() takes exactly 1 argument (0 given)
 
 While running game code:
-  File "game/script/script.rpy", line 3, in script call
-    call lab_initialize
-  File "game/script/script.rpy", line 15, in script
+  File "game/debug/tile_editor_logic.rpy", line 11, in script
     python:
-  File "game/script/script.rpy", line 16, in <module>
-    game = Game()
-  File "game/script/3__Game_class.rpy", line 41, in __init__
-    self.grid[y].append( Square(x=x, y=y, type = import_tilemap[y][x] ) )
-  File "game/script/3__Square_class.rpy", line 7, in __init__
-    super(Square,self).__init__(type)
-  File "game/script/2__Tiles_Type.rpy", line 21, in __init__
-    for Thistype in settings["tiletype"]:
-KeyError: u'tiletype'
+  File "game/debug/tile_editor_logic.rpy", line 13, in <module>
+    send_to_file(debug_.filename + ".dat", json.dumps(get_data_map()))
+TypeError: get_data_map() takes exactly 1 argument (0 given)
 Resetting cache.
-Bootstrap to the start of init.init took 33.48s
+Bootstrap to the start of init.init took 24.44s
 Early init took 0.00s
 Loader init took 0.01s
 Loading error handling took 0.02s
-Loading script took 0.18s
+Loading script took 0.16s
 Loading save slot metadata. took 0.02s
 Loading persistent took 0.00s
 Importing _renpysteam: ImportError('No module named _renpysteam',)
@@ -96,78 +87,26 @@ Loading analysis data took 0.02s
 Analyze and compile ATL took 0.00s
 Index archives took 0.00s
 Backing up script files to 'C:\\Users\\ALIENWARE\\AppData\\Roaming/RenPy/backups\\PARISisBURNING':
-Dump and make backups. took 0.08s
+Dump and make backups. took 0.07s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
 Initial gc. took 0.04s
 DPI scale factor: 1.000000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
-Creating interface object took 0.30s
+Creating interface object took 0.28s
 Cleaning stores took 0.00s
 Init translation took 0.04s
 Build styles took 0.00s
 Load screen analysis took 0.00s
-Analyze screens took 0.02s
+Analyze screens took 0.01s
 Save screen analysis took 0.04s
-Prepare screens took 0.09s
+Prepare screens took 0.08s
 Save pyanalysis. took 0.00s
 Save bytecode. took 0.02s
 Running _start took 0.00s
 Performance test:
-Interface start took 0.28s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Windowed mode.
-Vendor: 'NVIDIA Corporation'
-Renderer: 'NVIDIA GeForce GTX 1070/PCIe/SSE2'
-Version: '4.6.0 NVIDIA 471.96'
-Display Info: None
-Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
-Maximum texture size: 4096x4096
-Cleaning stores took 0.00s
-Init translation took 0.00s
-Build styles took 0.00s
-Load screen analysis took 0.03s
-Analyze screens took 0.00s
-Prepare screens took 0.00s
-Running _start took 0.00s
-Resetting cache.
-Bootstrap to the start of init.init took 502.56s
-Early init took 0.00s
-Loader init took 0.01s
-Loading error handling took 0.02s
-Loading script took 0.28s
-Loading save slot metadata. took 0.02s
-Loading persistent took 0.00s
-Importing _renpysteam: ImportError('No module named _renpysteam',)
-Running init code took 0.04s
-Loading analysis data took 0.03s
-Analyze and compile ATL took 0.00s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\ALIENWARE\\AppData\\Roaming/RenPy/backups\\PARISisBURNING':
-Dump and make backups. took 0.15s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc. took 0.05s
-DPI scale factor: 1.000000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.34s
-Cleaning stores took 0.00s
-Init translation took 0.05s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.02s
-Save screen analysis took 0.04s
-Prepare screens took 0.09s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.02s
-Running _start took 0.00s
-Performance test:
-Interface start took 0.07s
+Interface start took 0.25s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)
@@ -181,48 +120,36 @@ Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
 Maximum texture size: 4096x4096
 
 Full traceback:
-  File "game/script/script.rpy", line 3, in script call
-    call lab_initialize
-  File "game/script/script.rpy", line 15, in script
+  File "game/debug/tile_editor_logic.rpy", line 11, in script
     python:
   File "renpy/ast.py", line 928, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
   File "renpy/python.py", line 2245, in py_exec_bytecode
     exec(bytecode, globals, locals)
-  File "game/script/script.rpy", line 16, in <module>
-    game = Game()
-  File "game/script/3__Game_class.rpy", line 42, in __init__
-    self.grid[y].append( Square(x=x, y=y, type = import_tilemap[y][x] ) )
-  File "game/script/3__Square_class.rpy", line 7, in __init__
-    super(Square,self).__init__(type)
-  File "game/script/2__Tiles_Type.rpy", line 21, in __init__
-    for Thistype in settings["tiletype"]:
-KeyError: u'tiletype'
+  File "game/debug/tile_editor_logic.rpy", line 13, in <module>
+    send_to_file(debug_.filename + ".dat", json.dumps(get_data_map()))
+  File "game/debug/debug_functions.rpy", line 193, in get_data_map
+    mapdata = json.loads( read_file(filename) )
+NameError: global name 'filename' is not defined
 
 While running game code:
-  File "game/script/script.rpy", line 3, in script call
-    call lab_initialize
-  File "game/script/script.rpy", line 15, in script
+  File "game/debug/tile_editor_logic.rpy", line 11, in script
     python:
-  File "game/script/script.rpy", line 16, in <module>
-    game = Game()
-  File "game/script/3__Game_class.rpy", line 42, in __init__
-    self.grid[y].append( Square(x=x, y=y, type = import_tilemap[y][x] ) )
-  File "game/script/3__Square_class.rpy", line 7, in __init__
-    super(Square,self).__init__(type)
-  File "game/script/2__Tiles_Type.rpy", line 21, in __init__
-    for Thistype in settings["tiletype"]:
-KeyError: u'tiletype'
+  File "game/debug/tile_editor_logic.rpy", line 13, in <module>
+    send_to_file(debug_.filename + ".dat", json.dumps(get_data_map()))
+  File "game/debug/debug_functions.rpy", line 193, in get_data_map
+    mapdata = json.loads( read_file(filename) )
+NameError: global name 'filename' is not defined
 Resetting cache.
-Bootstrap to the start of init.init took 524.40s
+Bootstrap to the start of init.init took 34.56s
 Early init took 0.00s
 Loader init took 0.01s
 Loading error handling took 0.01s
-Loading script took 0.11s
-Loading save slot metadata. took 0.01s
+Loading script took 0.14s
+Loading save slot metadata. took 0.02s
 Loading persistent took 0.00s
 Importing _renpysteam: ImportError('No module named _renpysteam',)
-Running init code took 0.04s
+Running init code took 0.03s
 Loading analysis data took 0.02s
 Analyze and compile ATL took 0.00s
 Index archives took 0.00s
@@ -240,8 +167,75 @@ Init translation took 0.04s
 Build styles took 0.00s
 Load screen analysis took 0.00s
 Analyze screens took 0.02s
-Save screen analysis took 0.04s
-Prepare screens took 0.09s
+Save screen analysis took 0.03s
+Prepare screens took 0.07s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.06s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce GTX 1070/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 471.96'
+Display Info: None
+Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
+Maximum texture size: 4096x4096
+
+Full traceback:
+  File "game/debug/tile_editor_logic.rpy", line 11, in script
+    python:
+  File "renpy/ast.py", line 928, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "renpy/python.py", line 2245, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/debug/tile_editor_logic.rpy", line 13, in <module>
+    send_to_file(debug_.filename + ".dat", json.dumps(get_data_map()))
+  File "game/debug/debug_functions.rpy", line 215, in get_data_map
+    newSettings["event"] = settings["event"]
+KeyError: 'event'
+
+While running game code:
+  File "game/debug/tile_editor_logic.rpy", line 11, in script
+    python:
+  File "game/debug/tile_editor_logic.rpy", line 13, in <module>
+    send_to_file(debug_.filename + ".dat", json.dumps(get_data_map()))
+  File "game/debug/debug_functions.rpy", line 215, in get_data_map
+    newSettings["event"] = settings["event"]
+KeyError: 'event'
+Resetting cache.
+Bootstrap to the start of init.init took 50.11s
+Early init took 0.00s
+Loader init took 0.01s
+Loading error handling took 0.01s
+Loading script took 0.14s
+Loading save slot metadata. took 0.02s
+Loading persistent took 0.00s
+Importing _renpysteam: ImportError('No module named _renpysteam',)
+Running init code took 0.03s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\ALIENWARE\\AppData\\Roaming/RenPy/backups\\PARISisBURNING':
+Dump and make backups. took 0.07s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.000000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.27s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.03s
+Prepare screens took 0.07s
 Save pyanalysis. took 0.00s
 Save bytecode. took 0.01s
 Running _start took 0.00s
@@ -258,15 +252,13 @@ Version: '4.6.0 NVIDIA 471.96'
 Display Info: None
 Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
 Maximum texture size: 4096x4096
-Traceback (most recent call last):
-  File "renpy/common/00console.rpy", line 673, in run
-    result = renpy.python.py_eval(code)
-  File "renpy/python.py", line 2276, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "renpy/python.py", line 2269, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "<none>", line 1, in <module>
-KeyError: u'tiletype'
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.00s
+Load screen analysis took 0.02s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.00s
 Cleaning stores took 0.00s
 Init translation took 0.00s
 Build styles took 0.00s
@@ -275,36 +267,35 @@ Analyze screens took 0.00s
 Prepare screens took 0.00s
 Running _start took 0.00s
 Resetting cache.
-Bootstrap to the start of init.init took 780.86s
+Bootstrap to the start of init.init took 157.32s
 Early init took 0.00s
 Loader init took 0.01s
 Loading error handling took 0.02s
-Loading script took 0.20s
+Loading script took 0.12s
 Loading save slot metadata. took 0.02s
 Loading persistent took 0.00s
 Importing _renpysteam: ImportError('No module named _renpysteam',)
 Running init code took 0.04s
-Loading analysis data took 0.03s
+Loading analysis data took 0.02s
 Analyze and compile ATL took 0.00s
 Index archives took 0.00s
-Backing up script files to 'C:\\Users\\ALIENWARE\\AppData\\Roaming/RenPy/backups\\PARISisBURNING':
-Dump and make backups. took 0.09s
+Dump and make backups. took 0.07s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
-Initial gc. took 0.06s
+Initial gc. took 0.04s
 DPI scale factor: 1.000000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
-Creating interface object took 0.29s
+Creating interface object took 0.30s
 Cleaning stores took 0.00s
 Init translation took 0.05s
 Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.02s
-Save screen analysis took 0.04s
-Prepare screens took 0.09s
+Load screen analysis took 0.02s
+Analyze screens took 0.00s
+Save screen analysis took 0.00s
+Prepare screens took 0.07s
 Save pyanalysis. took 0.00s
-Save bytecode. took 0.02s
+Save bytecode. took 0.00s
 Running _start took 0.00s
 Performance test:
 Interface start took 0.06s
@@ -326,40 +317,85 @@ Load screen analysis took 0.02s
 Analyze screens took 0.00s
 Prepare screens took 0.00s
 Running _start took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.00s
+Load screen analysis took 0.02s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.00s
+Load screen analysis took 0.02s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.00s
+Load screen analysis took 0.02s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.00s
+
+Full traceback:
+  File "game/debug/tile_editor_logic.rpy", line 19, in script
+    python:
+  File "renpy/ast.py", line 928, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "renpy/python.py", line 2245, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/debug/tile_editor_logic.rpy", line 21, in <module>
+    debug_.draw_on_tile( debug_.tilebrush )
+  File "game/debug/debug_functions.rpy", line 280, in draw_on_tile
+    game.grid[where[1]][where[0]] = Square(x=where[0], y=where[1], type = what )
+TypeError: __init__() takes exactly 5 arguments (4 given)
+
+While running game code:
+  File "game/debug/tile_editor_logic.rpy", line 19, in script
+    python:
+  File "game/debug/tile_editor_logic.rpy", line 21, in <module>
+    debug_.draw_on_tile( debug_.tilebrush )
+  File "game/debug/debug_functions.rpy", line 280, in draw_on_tile
+    game.grid[where[1]][where[0]] = Square(x=where[0], y=where[1], type = what )
+TypeError: __init__() takes exactly 5 arguments (4 given)
+
+Full traceback:
+  File "game/debug/tile_editor_logic.rpy", line 19, in script
+    python:
+  File "renpy/ast.py", line 928, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "renpy/python.py", line 2245, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/debug/tile_editor_logic.rpy", line 21, in <module>
+    debug_.draw_on_tile( debug_.tilebrush )
+  File "game/debug/debug_functions.rpy", line 280, in draw_on_tile
+    game.grid[where[1]][where[0]] = Square(x=where[0], y=where[1], type = what )
+TypeError: __init__() takes exactly 5 arguments (4 given)
+
+While running game code:
+  File "game/debug/tile_editor_logic.rpy", line 19, in script
+    python:
+  File "game/debug/tile_editor_logic.rpy", line 21, in <module>
+    debug_.draw_on_tile( debug_.tilebrush )
+  File "game/debug/debug_functions.rpy", line 280, in draw_on_tile
+    game.grid[where[1]][where[0]] = Square(x=where[0], y=where[1], type = what )
+TypeError: __init__() takes exactly 5 arguments (4 given)
 Resetting cache.
-Bootstrap to the start of init.init took 878.48s
+Bootstrap to the start of init.init took 243.04s
 Early init took 0.00s
 Loader init took 0.01s
-Loading error handling took 0.02s
-Loading script took 0.19s
-Loading save slot metadata. took 0.02s
+Loading error handling took 0.01s
+Loading script took 0.12s
+Loading save slot metadata. took 0.03s
 Loading persistent took 0.00s
-Importing _renpysteam: ImportError('No module named _renpysteam',)
-Running init code took 0.04s
-Loading analysis data took 0.03s
-Analyze and compile ATL took 0.00s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\ALIENWARE\\AppData\\Roaming/RenPy/backups\\PARISisBURNING':
-Dump and make backups. took 0.09s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc. took 0.05s
+
+File "game/debug/debug_functions.rpy", line 280: non-keyword arg after keyword arg
 DPI scale factor: 1.000000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
-Creating interface object took 0.35s
-Cleaning stores took 0.00s
-Init translation took 0.05s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.02s
-Save screen analysis took 0.05s
-Prepare screens took 0.11s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.02s
-Running _start took 0.00s
-Performance test:
-Interface start took 0.08s
+Interface start took 0.38s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)
@@ -371,51 +407,35 @@ Version: '4.6.0 NVIDIA 471.96'
 Display Info: None
 Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
 Maximum texture size: 4096x4096
-Traceback (most recent call last):
-  File "renpy/common/00console.rpy", line 673, in run
-    result = renpy.python.py_eval(code)
-  File "renpy/python.py", line 2276, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "renpy/python.py", line 2269, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "<none>", line 1, in <module>
-NameError: name 'bite' is not defined
-Cleaning stores took 0.00s
-Init translation took 0.00s
-Build styles took 0.00s
-Load screen analysis took 0.02s
-Analyze screens took 0.00s
-Prepare screens took 0.00s
-Running _start took 0.00s
 Resetting cache.
-Bootstrap to the start of init.init took 963.34s
+Bootstrap to the start of init.init took 260.25s
 Early init took 0.00s
 Loader init took 0.01s
-Loading error handling took 0.02s
-Loading script took 0.18s
-Loading save slot metadata. took 0.02s
+Loading error handling took 0.01s
+Loading script took 0.15s
+Loading save slot metadata. took 0.03s
 Loading persistent took 0.00s
 Importing _renpysteam: ImportError('No module named _renpysteam',)
-Running init code took 0.04s
-Loading analysis data took 0.03s
+Running init code took 0.05s
+Loading analysis data took 0.02s
 Analyze and compile ATL took 0.00s
 Index archives took 0.00s
 Backing up script files to 'C:\\Users\\ALIENWARE\\AppData\\Roaming/RenPy/backups\\PARISisBURNING':
-Dump and make backups. took 0.08s
+Dump and make backups. took 0.07s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
-Initial gc. took 0.04s
+Initial gc. took 0.03s
 DPI scale factor: 1.000000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
-Creating interface object took 0.30s
+Creating interface object took 0.28s
 Cleaning stores took 0.00s
 Init translation took 0.04s
 Build styles took 0.00s
 Load screen analysis took 0.00s
 Analyze screens took 0.02s
 Save screen analysis took 0.04s
-Prepare screens took 0.09s
+Prepare screens took 0.08s
 Save pyanalysis. took 0.00s
 Save bytecode. took 0.02s
 Running _start took 0.00s
@@ -439,3 +459,56 @@ Load screen analysis took 0.02s
 Analyze screens took 0.00s
 Prepare screens took 0.00s
 Running _start took 0.00s
+Resetting cache.
+Bootstrap to the start of init.init took 271.29s
+Early init took 0.00s
+Loader init took 0.01s
+Loading error handling took 0.01s
+Loading script took 0.12s
+Loading save slot metadata. took 0.02s
+Loading persistent took 0.00s
+Importing _renpysteam: ImportError('No module named _renpysteam',)
+Running init code took 0.05s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Dump and make backups. took 0.07s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.04s
+DPI scale factor: 1.000000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.29s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.02s
+Analyze screens took 0.00s
+Save screen analysis took 0.00s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.00s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.06s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce GTX 1070/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 471.96'
+Display Info: None
+Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
+Maximum texture size: 4096x4096
+gwenael
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.00s
+Load screen analysis took 0.02s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.00s
+controller: '030000005e0400008e02000000007200' 'Xbox 360 Controller' 1L

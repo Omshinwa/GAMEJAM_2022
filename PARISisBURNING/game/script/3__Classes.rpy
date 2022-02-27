@@ -4,7 +4,7 @@ init python:
 
     class Character:
         # init method or constructor
-        def __init__(self, game, name, x, y, items, vision=10, file = None ):
+        def __init__(self, game, name, x, y, items, file = None, stat={"vision":10, "move":4} ):
 
             if name is None:
                 self.name = img
@@ -27,6 +27,17 @@ init python:
             self.prex = 0
             self.prey = 0
 
+            self.stat = stat
+
+            if not "isStrong" in self.stat:
+                self.stat["isStrong"] = False
+            if not "isBlind" in self.stat:
+                self.stat["isBlind"] = False
+            if self.stat["isBlind"]:
+                self.stat["vision"] = 0
+
+            self.isAlive = 1
+
             game.grid[y][x].occupied = "teen"
             
             self.img.big = self.file + "-big.png"
@@ -35,12 +46,6 @@ init python:
             self.img.premove = self.file + "-premove.png"
             self.img.noAP = self.file + "-noAP.png"
             # self.img.dead =  name + "-dead.png"
-
-            self.stat = {}
-            self.stat.vis = vision
-            self.stat.move = 4
-
-            self.isAlive = 1
             
 
         def __repr__(self):
@@ -68,7 +73,7 @@ init python:
             if game.state == "waiting" and self.AP > 0:
                 game.state = "moving"
                 game.premoving.who = self
-                game.premoving.where = game.inrange2(x=self.x, y=self.y, howfar=self.stat.move, exception_arr=["teen"])
+                game.premoving.where = game.inrange2(x=self.x, y=self.y, howfar=self.stat["move"], exception_arr=["teen"])
 
             # elif game.state == "waiting" and self.AP > 0: #if the character only has 1 action, then it can only perform an action
             #     game.state = "moving"
@@ -125,6 +130,9 @@ init python:
             obj = { "text": "PASS", "label": "lab_passTurn", "variables":self }
             game.actions.append( obj )
 
+            # obj = { "text": "MOVE", "label": "lab_passTurn", "variables":self }
+            # game.actions.append( obj )
+
         def cancelMov(self):
             if self.prex == self.x and self.prey == self.y:
                 if self.AP == 1:
@@ -169,19 +177,19 @@ init python:
 
     class Slasher:
         # init method or constructor
-        def __init__(self, name, x, y, idle = "doom-idle.png", hover = "doom-idle.png", premove = "doom-idle.png", canOpenDoors = False):
+        def __init__(self, name, x, y, canOpenDoors = False):
             self.name = name
             self.x = x
             self.y = y
-
             self.stat = {}
-            self.stat.move = 4
+            self.stat["move"] = 4
 
             self.img = {}
-            self.img.idle = idle
-            self.img.hover = hover
-            self.img.premove = premove
-            self.img.invisible = "doom-invisible.png"
+            self.img.idle = name + "-idle.png"
+            self.img.big = name + "-big.png"
+            # self.img.hover = hover + "-hover.png"
+            # self.img.premove = premove + "-premove.png"
+            self.img.invisible = "empty.png"
 
             self.canOpenDoors = canOpenDoors
         def __repr__(self):
@@ -226,7 +234,7 @@ init python:
             #####  SEARCH PATHS WITH OPENABLE DOORS  #######
             for teen in game.teens:
                 if teen.isAlive:
-                    distance = distBetween(start=self, destination=teen, search_size=self.stat.move*20, exception_arr=["teen"], canOpenDoors=self.canOpenDoors)
+                    distance = distBetween(start=self, destination=teen, search_size=self.stat["move"]*20, exception_arr=["teen"], canOpenDoors=self.canOpenDoors)
                     if distance[0] < target[0]:
                         target = distance
                         cible = teen
@@ -239,7 +247,7 @@ init python:
                     if teen.isAlive:
                         distance = abs(teen.x-self.x)+abs(teen.y-self.y)
                         if target[0] > distance:
-                            target = distBetween(start=self, destination=teen, search_size=self.stat.move*50, exception_arr=["teen"], ifdoor=False)
+                            target = distBetween(start=self, destination=teen, search_size=self.stat["move"]*50, exception_arr=["teen"], ifdoor=False)
                             cible = teen
                 print("cible2:"+teen.name+" distance:" + str(target[0]))
 
@@ -250,7 +258,7 @@ init python:
                     if teen.isAlive:
                         distance = abs(teen.x-self.x)+abs(teen.y-self.y)
                         if target[0] > distance:
-                            target = distBetween(start=self, destination=teen, search_size=self.stat.move*50, exception_arr=["teen"], ifdoor=False, iftile = False, ifwall=False, ifoccupied=False)
+                            target = distBetween(start=self, destination=teen, search_size=self.stat["move"]*50, exception_arr=["teen"], ifdoor=False, iftile = False, ifwall=False, ifoccupied=False)
                             cible = teen
                 print("cible3:"+teen.name+" distance:" + str(target[0]))
                 
@@ -263,7 +271,7 @@ init python:
 
 
         def move_random(self):
-            for i in range(self.stat.move):
+            for i in range(self.stat["move"]):
                 game.grid[self.y][self.x].occupied = 0
                 validMove = False
 
@@ -276,7 +284,7 @@ init python:
                     elif randomInd >= randomInd%4 + 4:
                         validMove = True
                         randomDir = (0,0)
-                        i = self.stat.move #end the for loop
+                        i = self.stat["move"] #end the for loop
                     else:
                         randomInd += 1
                         randomDir = direction[ randomInd%4 ]
@@ -294,7 +302,7 @@ init python:
 
 
         def move_track(self,cible,target):
-            for i in range( self.stat.move ):
+            for i in range( self.stat["move"] ):
 
                 if len(target[1]) > i:
 
@@ -318,10 +326,10 @@ init python:
                                 self.y = target[1][i].y
                                 self.sound_walk(self)
                             else:
-                                i = self.stat.move
+                                i = self.stat["move"]
 
                     else:
-                        i = self.stat.move
+                        i = self.stat["move"]
 
                 game.grid[self.y][self.x].occupied = "doom"
 
@@ -337,19 +345,19 @@ init python:
                     print("door action:")
                     print(a)
                     print(b)
-                    print(settings["lignes"][vari])
+                    print(settings["line"][vari])
                     if a and b:
                         renpy.play("audio/doorfail.ogg", channel='sound')
                         return False
                     else:
-                        if settings["lignes"][vari]== 2:
+                        if settings["line"][vari]== 2:
                             renpy.play("audio/opendoor1.mp3", channel='sound')
                             renpy.pause(0.5)
-                            settings["lignes"][vari] = 3
-                        elif settings["lignes"][vari]== 3:
+                            settings["line"][vari] = 3
+                        elif settings["line"][vari]== 3:
                             renpy.play("audio/closedoor1.wav", channel='sound')
                             renpy.pause(0.5)
-                            settings["lignes"][vari] = 2
+                            settings["line"][vari] = 2
                         return True
 
             return False

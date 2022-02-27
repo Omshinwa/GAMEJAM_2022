@@ -185,12 +185,12 @@ screen sce_grid():
                 action Function(game.premoving.who.move, cell=cell)
 
     text game.state size 80 color "#FF0000"
-    text str(lauren.AP) size 60 color "#FFFF00" ypos 60
+    text str(game.teens[0].AP) size 60 color "#FFFF00" ypos 60
 
 screen sce_walls():
     zorder 2
 
-    for key, value in settings["lignes"].iteritems():
+    for key, value in settings["line"].iteritems():
         $ x = int(key[1:3])
         $ y = ord(key[0])-65
         $ x2 = int(key[4:6])

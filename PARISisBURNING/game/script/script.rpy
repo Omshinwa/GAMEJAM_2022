@@ -13,12 +13,14 @@ screen keybinds():
 #################################################################################
 label lab_initialize:
 python:
-    game = Game()
+    game = Game("000")
 
     #create characters
-
-    lauren = game.teens[0]
-    william = game.teens[1]
+    for teen in game.teens:
+        if teen.name == "lauren":
+            lauren = teen
+        elif teen.name == "william":
+            william = teen
     game.updateVision()
 
     game.grid[7][12].onFire = -1

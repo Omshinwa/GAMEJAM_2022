@@ -3,16 +3,15 @@ init python:
 
     class Game:
 
-        def __init__(self):
+        def __init__(self, filename):
             global settings
-            mapdata = json.loads( read_file(".data_lignes") )
+            mapdata = json.loads( read_file( filename + ".dat") )
 
-            settings["lignes"] = mapdata["line"]
-            import_tilemap = read_data_tilemap( ".data_tilemap" )
-            # store.settings["tiletype"] = TileTypeTxt_to_Arr( read_file(".data_tiletype.rpy") )
-            settings["tiletype"] = TileTypeTxt_to_Arr( read_file(".data_tiletype.rpy") )
+            settings["line"] = mapdata["line"]
+            import_tilemap = read_data_tilemap( filename + "-map.dat" )
+            settings["tiletype"] = TileTypeTxt_to_Arr( read_file( ".data_tiletype.rpy") )
             import_char = mapdata["char"]
-            import_event = merge_two_dicts( settings["events_fyn"], settings["events_madi"])
+            settings["event"] = merge_two_dicts( settings["events_fyn"], settings["events_madi"])
 
             self.ui = {}
             self.grid = []
@@ -38,12 +37,12 @@ init python:
                     try:
                         import_tilemap[y][x]
                     except IndexError:
-                        self.grid[y].append( Square(x=x, y=y, type = -1 ) )
+                        self.grid[y].append( Square(x=x, y=y, type = -1, filename = filename ) )
                     else:
-                        self.grid[y].append( Square(x=x, y=y, type = import_tilemap[y][x] ) )
+                        self.grid[y].append( Square(x=x, y=y, type = import_tilemap[y][x], filename = filename ) )
 
         ########################### create actions for doors
-            for key, value in settings["lignes"].iteritems():
+            for key, value in settings["line"].iteritems():
                 if value == 2 or value == 3:
                     x,y,x2,y2 = AZto09(key)
                     self.grid[y][x].onAction.append( Event_Caller(name="door",isActive=True, range=0,text="DOOR",label="lab_action_door", variables=key) )
@@ -51,15 +50,15 @@ init python:
 
         ############################################# char
             for teen in import_char["Character"]:
-                self.teens.append( Character(game=self, name=teen["name"], x=teen["x"], y=teen["y"], items= Items(*teen["items"]), vision=teen["vision"])  )
+                self.teens.append( Character(game=self, file=teen["file"], name=teen["name"], x=teen["x"], y=teen["y"], items= Items(*teen["items"]), stat=teen["stat"])  )
             for doomer in import_char["Slasher"]:
                 self.dooms.append( Slasher(name=doomer["name"], x=doomer["x"], y=doomer["y"], canOpenDoors=doomer["canOpenDoors"])  )
 
             #clean the variables only used for map creation
             del import_tilemap
             del import_char
-            del import_event
-            del settings["tiletype"]
+            del settings["event"]
+            # del settings["tiletype"]
 
 
 ##############
@@ -208,11 +207,11 @@ init python:
                 namelist = [name,name2]
                 if ifwall:
                     for cell in namelist:
-                        if cell in settings["lignes"] and settings["lignes"][cell] == 1:
+                        if cell in settings["line"] and settings["line"][cell] == 1:
                             return False
                 if ifdoor:
                     for cell in namelist:
-                        if cell in settings["lignes"] and settings["lignes"][cell] == 2:
+                        if cell in settings["line"] and settings["line"][cell] == 2:
                             if canOpenDoors: #can that door be openable?
 
                             #EDGE CASE WHERE HE CAN OPEN EVEN THOUGH THERES A DOOM NEXT DOOR
@@ -239,11 +238,11 @@ init python:
                     case.visibility = 0
             for teen in game.teens:
                 if teen.isAlive:
-                    for case in self.inrange( teen.x , teen.y , teen.stat.vis):
+                    for case in self.inrange( teen.x , teen.y , teen.stat["vision"]):
                         case.visibility = 0
             for teen in game.teens:
                 if teen.isAlive:
-                    for case in self.inrange( teen.x , teen.y , teen.stat.vis):
+                    for case in self.inrange( teen.x , teen.y , teen.stat["vision"]):
                         if case.x == teen.x and case.y == teen.y:
                             case.visibility = 1
                         # elif case.isDark == 0:

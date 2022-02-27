@@ -1,42 +1,30 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script/script.rpy", line 3, in script call
-    call lab_initialize
-  File "game/script/script.rpy", line 15, in script
+  File "game/debug/tile_editor_logic.rpy", line 19, in script
     python:
-  File "game/script/script.rpy", line 16, in <module>
-    game = Game()
-  File "game/script/3__Game_class.rpy", line 42, in __init__
-    self.grid[y].append( Square(x=x, y=y, type = import_tilemap[y][x] ) )
-  File "game/script/3__Square_class.rpy", line 7, in __init__
-    super(Square,self).__init__(type)
-  File "game/script/2__Tiles_Type.rpy", line 21, in __init__
-    for Thistype in settings["tiletype"]:
-KeyError: u'tiletype'
+  File "game/debug/tile_editor_logic.rpy", line 21, in <module>
+    debug_.draw_on_tile( debug_.tilebrush )
+  File "game/debug/debug_functions.rpy", line 280, in draw_on_tile
+    game.grid[where[1]][where[0]] = Square(x=where[0], y=where[1], type = what )
+TypeError: __init__() takes exactly 5 arguments (4 given)
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script/script.rpy", line 3, in script call
-    call lab_initialize
-  File "game/script/script.rpy", line 15, in script
+  File "game/debug/tile_editor_logic.rpy", line 19, in script
     python:
   File "renpy/ast.py", line 928, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
   File "renpy/python.py", line 2245, in py_exec_bytecode
     exec(bytecode, globals, locals)
-  File "game/script/script.rpy", line 16, in <module>
-    game = Game()
-  File "game/script/3__Game_class.rpy", line 42, in __init__
-    self.grid[y].append( Square(x=x, y=y, type = import_tilemap[y][x] ) )
-  File "game/script/3__Square_class.rpy", line 7, in __init__
-    super(Square,self).__init__(type)
-  File "game/script/2__Tiles_Type.rpy", line 21, in __init__
-    for Thistype in settings["tiletype"]:
-KeyError: u'tiletype'
+  File "game/debug/tile_editor_logic.rpy", line 21, in <module>
+    debug_.draw_on_tile( debug_.tilebrush )
+  File "game/debug/debug_functions.rpy", line 280, in draw_on_tile
+    game.grid[where[1]][where[0]] = Square(x=where[0], y=where[1], type = what )
+TypeError: __init__() takes exactly 5 arguments (4 given)
 
 Windows-10-10.0.19041
 Ren'Py 7.4.11.2266
 ParisIsBurning 1.0
-Sat Feb 26 11:05:35 2022
+Sat Feb 26 20:24:57 2022
