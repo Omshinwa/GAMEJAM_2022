@@ -3,22 +3,17 @@
 #################################################################################
 
 label lab_gameloop: #when you just wait for user to do something
-    python:
-        if not game.state == "pre_action":
-            game.updateVision()
-        if sum(teen.isAlive == 1 for teen in game.teens) <=0:
-            renpy.jump("lab_gameover")
+    if not game.state == "select":
+        $ game.updateVision()
 
-        if game.state == "action":
-            game.state == "waiting"
+    call lab_check_gameover
 
-        if game.state == "event":
-            game.state = "waiting"
+    if game.state == "waiting" and game.totalAP() <= 0:
+        jump lab_turnChange
 
-        if game.state == "waiting" and game.totalAP() <= 0:
-            renpy.jump( "lab_turnChange" )
-
-    jump lab_render
+    # jump lab_render
+    call screen sce_gameloop
+    jump lab_gameloop
 
 label lab_end_turn():
     python:
@@ -27,34 +22,41 @@ label lab_end_turn():
         renpy.jump("lab_gameloop")
 
 label lab_turnChange(): # WAITING (event) > DOOM > FIRE WHENEVER WE WANT TO CHANGE PHASE
-    python:
-        game.updateVision()
+    $ game.updateVision()
         # renpy.jump("lab_fireSpread")
 
-        if sum(teen.isAlive == 1 for teen in game.teens) <=0:
-            renpy.jump("lab_gameover")
+    call lab_check_gameover
 
-        if game.state == "event":
-            game.state = "waiting"
 
-        if game.state == "waiting" and game.totalAP() > 0:
-            renpy.jump("lab_gameloop")
+    if game.state == "event":
+        $ game.state = "waiting"
 
-        elif game.state == "waiting" and game.totalAP() <= 0:
-            game.state = "doom"
-            game.doommove()
-            renpy.jump("lab_turnChange")
+    if game.state == "waiting" and game.totalAP() > 0:
+        $ renpy.jump("lab_gameloop")
 
-        elif game.state == "doom":
-            game.state = "fire"
-            renpy.jump("lab_fireSpread")
-            renpy.jump("lab_turnChange")
+    elif game.state == "waiting" and game.totalAP() <= 0:
+        $ game.state = "doom"
+        $ game.doommove()
+        $ renpy.jump("lab_turnChange")
 
-        elif game.state == "fire":
-            game.score += 1
-            game.restore_totalAP()
-            game.state = "waiting"
-            renpy.jump("lab_turnChange")
+    elif game.state == "doom":
+        $ game.state = "fire"
+        $ renpy.jump("lab_fireSpread")
+        $ renpy.jump("lab_turnChange")
+
+    elif game.state == "fire":
+        $ game.score += 1
+        $ Character.restore_totalAP()
+        $ game.state = "event"
+        $ i = 0
+        while i < len(game.after_every_action):
+            python:
+                for key in game.after_every_action[i]:
+                    square_name = key
+            $ renpy.call( "lab_"+game.filename+"_auto_"+square_name, teen, game.grid[teen.y][teen.x], i)
+            $ i+=1
+        $ game.state = "waiting"
+        $ renpy.jump("lab_turnChange")
 
 label lab_fireSpread():
     python:
@@ -126,7 +128,10 @@ label lab_kill(teen):
             renpy.jump("lab_turnChange")
     return
 
-label lab_gameover:
-    "lolgg"
-    "score: [game.score]"
+label lab_check_gameover:
+    # if sum(teen.isAlive == 1 for teen in game.teens) <=0:
+    #     "lolgg"
+    #     "score: [game.score]"
+    #     $ MainMenu(confirm=False)()
+    $ renpy.call("lab_"+ game.filename +"_check_gameover")
     return

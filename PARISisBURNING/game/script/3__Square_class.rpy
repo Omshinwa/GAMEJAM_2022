@@ -27,17 +27,6 @@ init python:
             else:
                 self.occupied = 1 - self.isStand #0 theres nothing there
 
-            try:
-                settings["event"][ chr(ord('@')+y+1) + str(x) ]
-            except:
-                self.event = False
-            else:
-                thisEvent = settings["event"][ chr(ord('@')+y+1) + str(x) ]
-                if "variables" in thisEvent:
-                    self.event = Event_Caller(name=chr(ord('@')+y+1) + str(x), range=0, isActive=False, label="lab_" + filename + "_" + chr(ord('@')+y+1) + str(x) , variables=thisEvent["variables"])
-                else:
-                    self.event = Event_Caller(name=chr(ord('@')+y+1) + str(x), range=0, isActive=False, label="lab_" + filename + "_" + chr(ord('@')+y+1) + str(x) )
-
             if Tiletype.addInteraction(self.itemType):
                 self.onAction.append( Tiletype.addInteraction( self.itemType ) )
 

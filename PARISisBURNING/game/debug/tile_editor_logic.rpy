@@ -2,16 +2,17 @@
 label start2:
 label lab_tile_editor_logic:
 python:
-    game = Game("000")
-    debug_ = Debug("000")
+    input_ = renpy.input("what file to load?", length=32, default="000")
+    game = Game(input_)
+    debug_ = Debug(input_)
     game.state = "debug"
 jump lab_tile_editor_render
 
 label label_export_tilemap:
     python:
-        input_ = renpy.input("Where to save", length=32)
-        export_data_tilemap(input_ + "-map.dat")
-        send_to_file(input_ + ".dat", json.dumps(get_data_map()))
+        input_ = renpy.input("Where to save", length=32, default=game.filename)
+        export_data_tilemap("maps/"+ input_ + "-map.dat")
+        send_to_file("maps/"+ input_ + ".dat", json.dumps(get_data_map()))
 
     'data has been exported'
     jump lab_tile_editor_render

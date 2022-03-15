@@ -22,7 +22,7 @@ init python:
     settings["resolution"] = ((settings["mapsize"][0]+settings["ui-size"])*settings["tilesize"], settings["mapsize"][1]*settings["tilesize"])
     settings["padding"] = (0,0)
     settings["fireThreshold"] = [3, 6, 9] #values of water / lil fire / fire / bigfire
-    settings["tiletype"] = TileTypeTxt_to_Arr( read_file( ".tiletype.rpy") )
+    settings["tiletype"] = TileTypeTxt_to_Arr( read_file( "maps/.tiletype.rpy") )
     # settings["tiletype"] = []
     # game.data_line = {}
     

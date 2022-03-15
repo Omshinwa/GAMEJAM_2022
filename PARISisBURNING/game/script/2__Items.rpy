@@ -32,7 +32,7 @@ init python:
                     print direction
                     game.actions.append( { "text": self.text + " "+ direction, "label": self.label, "variables": i })     
         
-        def add_event(self,game,teen,case):
+        def add_event(self,teen,case):
             renpy.call( self.label, (teen, case, self.variables) )
         
         def __str__(self):
@@ -57,8 +57,9 @@ init python:
             if charge == None:
                 charge = 0
             self.name = "Bucket"
-            self.charge = charge
+            self.charge = int(charge)
             self.maxcharge = 3
+            self.args = int(charge)
 
         def __str__(self):
             return self.name + " "+ str(self.charge)

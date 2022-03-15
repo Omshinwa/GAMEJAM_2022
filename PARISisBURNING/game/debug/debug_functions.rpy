@@ -34,7 +34,7 @@ init python:
             if cells[key].state == "open":
                 array[key] = cells[key]
 
-        for notusedvariablelol in range(search_size):
+        for i in range(search_size):
             array = {}
             for key, value in cells.iteritems():
                 if cells[key].state == "open":
@@ -173,16 +173,13 @@ init python:
         return
 
     def read_file(filename):
-        f = open(renpy.loader.transfn( filename ),"r")
+        f = open(renpy.loader.transfn(filename ),"r")
         output = ""
         for line in f:
             output += line + "\n"
         return output
 
-    def read_data_tilemap(filename = "-map.dat"):
-        return Maptxt_to_Arr( read_file(filename) )
-
-    def export_data_tilemap(filename = "-map.dat"):
+    def export_data_tilemap(filename):
         settings["tilemap"] = []
         for row in game.grid:
             settings["tilemap"].append( [x.type for x in row] )
@@ -196,11 +193,10 @@ init python:
         newSettings["char"]["Slasher"] = []
         currentChar = {}
         for teen in game.teens:
-            print(teen.name)
             currentChar["name"] = teen.name
             items = [] 
             for item in teen.inventory:
-                items.append( item.name )
+                items.append( item.name + " " + str(item.args) )
             currentChar["items"] = items
             currentChar["file"] = teen.file
             currentChar["x"] = teen.x
@@ -214,7 +210,7 @@ init python:
         for doom in game.dooms:
             newSettings["char"]["Slasher"].append( { "name":doom.name, "canOpenDoors":doom.canOpenDoors, "y":doom.y, "x":doom.x} )
         newSettings["line"] = game.data_line
-        newSettings["event"] = game.data_event
+        # newgame.events = game.data_event
         return newSettings
 
     def TileTypeTxt_to_Arr( tiletxt ):
@@ -270,7 +266,7 @@ init python:
             self.draw_mode = "tile"
             self.draw_layer = "map"
             self.previous_tile = False
-            self.charList = ["william","lauren","gwenael","paula","morgan","carine","franky","josephine","darryl","kayleigh","tanglei"]
+            self.charList = ["william","lauren","gwenael","paula","morgan","carine","franky","josephine","darryl","kayleigh","tanglei","bill"]
             self.doomList = ["doom"]
             self.filename = filename
 
@@ -331,7 +327,6 @@ init python:
                     pass
                 else:
                     type_ = debug_.charList[ 6 * where[1] + (where[0]-(settings["mapsize"][0])) ]
-                    print(type_)
                     self.tilebrush = type_
 
                 try:
@@ -340,7 +335,6 @@ init python:
                     pass
                 else:
                     type_ = debug_.doomList[ 6 * (where[1]-6) + (where[0]-(settings["mapsize"][0])) ]
-                    print(type_)
                     self.tilebrush = type_
 
         def draw_on_intersection(self, what = 0, where = None):

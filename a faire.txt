@@ -1,5 +1,8 @@
+throw water is broken now
+
+
 make new tiles (tv, bed, papers on the ground?)
-make a level selectable screen (for editor mode at least)
+
 make fire drawable on the editor
 make events per map
 you can move after acting first (make move just a regular action but only once per turn)
@@ -9,6 +12,7 @@ you can move after acting first (make move just a regular action but only once p
 
 
 --------------------------------------------------------
+make a level selectable screen (for editor mode at least)
 make hidden doors
 make a character.data so that we can load different maps
 make an Item superclass

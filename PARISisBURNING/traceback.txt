@@ -1,34 +1,34 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/debug/tile_editor_logic.rpy", line 19, in script
+  File "game/script/script.rpy", line 3, in script call
+    call load("000")
+  File "game/script/Logic.rpy", line 15, in script call
+    call screen sce_gameloop
+  File "game/script/2__Common_Event.rpy", line 129, in script
     python:
-  File "game/debug/tile_editor_logic.rpy", line 32, in <module>
-    debug_.draw_on_tile( debug_.tilebrush )
-  File "game/debug/debug_functions.rpy", line 295, in draw_on_tile
-    game.teens.append( Character(game=game, file=what, x=where[0], y=where[1], items=None)  )
-  File "game/script/3__Classes.rpy", line 10, in __init__
-    self.name = capitalize(file)
-NameError: global name 'capitalize' is not defined
+  File "game/script/2__Common_Event.rpy", line 134, in <module>
+    game.grid[teen.y][teen.x].onEvent(game)
+AttributeError: 'Square' object has no attribute 'onEvent'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/debug/tile_editor_logic.rpy", line 19, in script
+  File "game/script/script.rpy", line 3, in script call
+    call load("000")
+  File "game/script/Logic.rpy", line 15, in script call
+    call screen sce_gameloop
+  File "game/script/2__Common_Event.rpy", line 129, in script
     python:
   File "renpy/ast.py", line 928, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
   File "renpy/python.py", line 2245, in py_exec_bytecode
     exec(bytecode, globals, locals)
-  File "game/debug/tile_editor_logic.rpy", line 32, in <module>
-    debug_.draw_on_tile( debug_.tilebrush )
-  File "game/debug/debug_functions.rpy", line 295, in draw_on_tile
-    game.teens.append( Character(game=game, file=what, x=where[0], y=where[1], items=None)  )
-  File "game/script/3__Classes.rpy", line 10, in __init__
-    self.name = capitalize(file)
-NameError: global name 'capitalize' is not defined
+  File "game/script/2__Common_Event.rpy", line 134, in <module>
+    game.grid[teen.y][teen.x].onEvent(game)
+AttributeError: 'Square' object has no attribute 'onEvent'
 
 Windows-10-10.0.19041
 Ren'Py 7.4.11.2266
 ParisIsBurning 1.0
-Sun Feb 27 16:13:53 2022
+Mon Mar 14 23:25:26 2022

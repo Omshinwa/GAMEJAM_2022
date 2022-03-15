@@ -2,7 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script/3__Classes.rpy", line 7: non-default argument follows default argument
+File "game/script/script.rpy", line 13: expected statement.
+    game.updateVision()
+                       ^
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Sun Feb 27 16:11:39 2022
+Mon Mar 14 23:46:14 2022

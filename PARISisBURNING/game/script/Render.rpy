@@ -18,8 +18,9 @@ label lab_render:
     show screen sce_fog
     show screen sce_walls
     show screen sce_UI
-    call screen sce_action
-jump lab_gameloop
+    show screen sce_action
+    # show screen sce_gameloop
+    jump lab_gameloop
 
 
 image img_cell_hover:
@@ -65,11 +66,11 @@ screen sce_char():
                 idle teen.sprite()
                 if teen.AP > 0 :
                     hover teen.img.hover
-                if renpy.get_screen("say") or game.state == "moving":
+                if renpy.get_screen("say") or game.state == "moving" or teen.AP == 0:
                     sensitive False
                 else:
                     sensitive True
-                action Function(teen.premove)
+                action Function(teen.select)
 
 screen sce_doom():
 
@@ -86,11 +87,11 @@ screen sce_doom():
 
 screen sce_action():
     zorder 3
-    if game.state=="pre_action" or game.state=="action":
+    if game.state=="select" or game.state=="action":
         button:
             xysize settings["mapsize"][0] * settings["tilesize"], settings["mapsize"][1] * settings["tilesize"]
             action Function(game.premoving.who.cancelMov) #gros bouton pour annuler
-    if game.state == "pre_action":
+    if game.state == "select":
         for i,act in enumerate(game.actions):
                 button:
                     xpos id2pos(game.premoving.who.x)+40
@@ -101,7 +102,6 @@ screen sce_action():
                     text act["text"] style "style_action" size 30
                     background Solid( "#000000" )
                     hover_background "#00a"
-
                     action [SetVariable("game.state", "action"), Call(act["label"],act["variables"])]
 
     if game.state == "action":
@@ -188,7 +188,8 @@ screen sce_grid():
                 action Function(game.premoving.who.move, cell=cell)
 
     text game.state size 80 color "#FF0000"
-    text str(game.teens[0].AP) size 60 color "#FFFF00" ypos 60
+    if len(game.teens)>0:
+        text str(game.teens[0].AP) size 60 color "#FFFF00" ypos 60
 
 screen sce_walls():
     zorder 2
@@ -243,12 +244,9 @@ screen sce_UI():
 
         for i, message in enumerate(game.log):
             fixed:
-                ypos (settings["mapsize"][1]+1) * settings["tilesize"] - game.ui_buffer - 10 - (i+1)*90
+                ypos (settings["mapsize"][1]+1) * settings["tilesize"] - 100 - 10 - (i+1)*90
                 add message[0] + "-big.png"
-                if len(message)>2:
-                    text message[1]+ " " +message[2] style "classicfont" size 17 xpos 80 xsize 200 
-                else:
-                    text message[1] style "classicfont" color "#fff" size 17 xpos 80 xsize 200
+                text message[1] style "classicfont" color message[2] size 17 xpos 80 xsize 200
 
         button:
             xalign 0.5

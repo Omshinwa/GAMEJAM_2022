@@ -23,6 +23,13 @@ init python:
             self.AP = 2 #How much AP does it have?
             self.prex = 0
             self.prey = 0
+            self.maxAP = 2
+            self.movePerTurn = 1
+
+            if file in  ["william","gwenael","morgan","franky","darryl","kayleigh"]:
+                self.sex = "male"
+            else:
+                self.sex = "female"
 
             self.stat = stat
 
@@ -67,46 +74,41 @@ init python:
         #ACTION = sometimes this lead to another option select screen (splash water)
 
         def premove(self):
-            if game.state == "waiting" and self.AP > 0:
+            if self.AP > 0:
                 game.state = "moving"
                 game.premoving.who = self
                 game.premoving.where = game.inrange2(x=self.x, y=self.y, howfar=self.stat["move"], exception_arr=["teen"])
-
-            # elif game.state == "waiting" and self.AP > 0: #if the character only has 1 action, then it can only perform an action
-            #     game.state = "moving"
-            #     game.premoving.who = self
-            #     self.move(game.grid[self.y][self.x])
 
         def move(self, cell):
             if cell.occupied == 0:
                 self.AP -= 1
                 game.grid[self.y][self.x].occupied = 0
-                self.prex = self.x
-                self.prey = self.y
 
                 self.x = cell.x
                 self.y = cell.y
+                self.movePerTurn -= 1
                 game.grid[self.y][self.x].occupied = "teen"
                 # game.updateVision()
-                game.premoving.where = ""
-                self.action()
+                game.premoving.where = []
+                if self.AP > 0:
+                    self.action()
+                else:
+                    game.state = "waiting"
 
                 if game.totalAP() <= 0:
                     renpy.jump( "lab_turnChange" )
-                else:
-                    renpy.jump( "lab_gameloop" )
+                # else:
+                #     renpy.jump( "lab_gameloop" )
 
-            elif cell.x==self.x and cell.y==self.y:
-                self.prex = self.x
-                self.prey = self.y
-                game.premoving.where = ""
-                self.action()
+        def select(self):
+            self.prex = self.x
+            self.prey = self.y
+            self.action()
 
         def action(self):
-
+            game.premoving.who = self
             game.actions = []
-            game.state = "pre_action"
-            
+            game.state = "select"
             case = game.grid[self.y][self.x]
 
             if game.isThereAcadaver(case):
@@ -124,28 +126,34 @@ init python:
             for item in self.inventory:
                 item.add_action(game, self)
 
-            obj = { "text": "PASS", "label": "lab_passTurn", "variables":self }
-            game.actions.append( obj )
+            game.actions.append( { "text": "PASS", "label": "lab_passTurn", "variables":self } )
+            if self.AP >=1 and self.movePerTurn > 0:
+                game.actions.append( { "text": "MOVE", "label": "lab_teen_move", "variables":self } )
 
             # obj = { "text": "MOVE", "label": "lab_passTurn", "variables":self }
             # game.actions.append( obj )
 
         def cancelMov(self):
-            if self.prex == self.x and self.prey == self.y:
-                if self.AP == 1:
-                    return
-            if self.prex != self.x or self.prey != self.y:
-                self.removeAP(-1)
+
             game.grid[self.y][self.x].occupied = 0
             self.x = self.prex
             self.y = self.prey
-            game.grid[self.y][self.x].occupied = 1
+            game.grid[self.y][self.x].occupied = "teen"
 
-            if game.state == "pre_action" or game.state == "action":
-                game.state = "waiting"
-                self.premove()
+            if game.state == "action":
+                if self.movePerTurn == 0:
+                    self.removeAP(-1)
+                    self.movePerTurn += 1
+                self.select()
+            elif game.state == "select":
+                if self.movePerTurn == 0:
+                    self.removeAP(-1)
+                    self.movePerTurn += 1
+                    self.premove()
+                else:
+                    game.state = "waiting"
             else:
-                print("WOW THERES AN EXCEPTION 125")
+                print("WOW THERES AN EXCEPTION 154")
 
         def removeAP(self, x):
             self.AP -= x
@@ -156,12 +164,18 @@ init python:
             if self.isAlive == 1:
                 self.isAlive = 0
                 game.grid[self.y][self.x].occupied = 0
-                if self.name in ["william","darryl"]: #is that a boi
+                if self.sex == "male": #is that a boi
                     renpy.music.play("audio/manstab.ogg", channel='sound')
-                else:
+                elif self.sex == "female":
                     renpy.music.play("audio/girlstab.ogg", channel='sound')
                 game.grid[self.y][self.x].onFire = -2
                 renpy.pause(0.5)
+
+        @staticmethod
+        def restore_totalAP():
+            for teen in game.teens:
+                teen.AP = teen.maxAP * teen.isAlive
+                teen.movePerTurn = 1
 
 #########################################################################################################################################
 #####     #####     #####     #####     #####     #####     #####     #####
@@ -181,6 +195,7 @@ init python:
             self.stat = {}
             self.stat["move"] = 4
 
+            self.file = name
             self.img = {}
             self.img.idle = name + "-idle.png"
             self.img.big = name + "-big.png"
@@ -199,32 +214,33 @@ init python:
                 return self.img.invisible
 
         def sound_walk(self,case):
+            if game.isThereAcadaver(case):
+                renpy.play("audio/step-body.ogg", channel='sound', relative_volume=self.distant_sound())
+            elif game.grid[case.y][case.x].onFire == -1 or game.grid[case.y][case.x].type=="w":
+                renpy.play("audio/step-water-1.wav", channel='sound', relative_volume=self.distant_sound())
+            else:
+                renpy.play("audio/step-normal.ogg", channel='sound', relative_volume=self.distant_sound())
+                
+            renpy.pause(0.5)
+
+        def distant_sound(self):
+            sound_volume = max( 1/2**( self.closest_teen()[1] /4.0), 0.06) # min( 0.75**( (closest_teen_distance-3)/2.0), 1.0)
+            return sound_volume
+
+        # params: [teen, distance]
+        def closest_teen(self):
             closest_teen_distance = 99
+            closest_teen = None
             for teen in game.teens:
                 if teen.isAlive:
                     distance = abs(teen.x-self.x)+abs(teen.y-self.y)
                     if distance < closest_teen_distance:
                         closest_teen_distance = distance
-            print "closest: "+ str(closest_teen_distance)
-
-            sound_volume = max( 1/2**( closest_teen_distance/4.0), 0.06) # min( 0.75**( (closest_teen_distance-3)/2.0), 1.0)
-            # 1/2**(closest_teen_distance/5.0)
-            # 3/4**(closest_teen_distance/5.0)
-
-            print "volume: "+ str(sound_volume)
-            if game.isThereAcadaver(case):
-                renpy.play("audio/step-body.ogg", channel='sound', relative_volume=sound_volume)
-            elif game.grid[case.y][case.x].onFire == -1 or game.grid[case.y][case.x].type=="w":
-                renpy.play("audio/step-water-1.wav", channel='sound', relative_volume=sound_volume)
-            else:
-                renpy.play("audio/step-normal.ogg", channel='sound', relative_volume=sound_volume)
-                
-            renpy.pause(0.5)
-
-        def move(self):
+                        closest_teen = teen
+            return (closest_teen, closest_teen_distance)
 
 #######DECISION MAKING: first try if there's anyone near reacheable, then just randomwalk otherwise
-
+        def move(self):
             target = [999,""]
             cible = ""
 
@@ -317,7 +333,7 @@ init python:
 
                             print("theres a door")
 
-                            if Slasher.action_door(self.x,self.y, target[1][i].x,target[1][i].y):
+                            if self.action_door(self.x,self.y, target[1][i].x,target[1][i].y):
                                 game.grid[self.y][self.x].occupied = 0
                                 self.x = target[1][i].x
                                 self.y = target[1][i].y
@@ -330,8 +346,7 @@ init python:
 
                 game.grid[self.y][self.x].occupied = "doom"
 
-        @staticmethod
-        def action_door(x,y,x2,y2): #currently used by slashers
+        def action_door(self,x,y,x2,y2): #currently used by slashers
 
             for action in game.grid[y][x].onAction:
                 if action.name == "door":
@@ -339,20 +354,17 @@ init python:
 
                     a = game.grid[y][x].occupied or game.grid[y][x].isStand == 0
                     b = game.grid[y2][x2].occupied or game.grid[y2][x2].isStand == 0
-                    print("door action:")
-                    print(a)
-                    print(b)
-                    print(game.data_line[vari])
+
                     if a and b:
-                        renpy.play("audio/doorfail.ogg", channel='sound')
+                        renpy.play("audio/doorfail.ogg", channel='sound', relative_volume= self.distant_sound())
                         return False
                     else:
                         if game.data_line[vari]== 2:
-                            renpy.play("audio/opendoor1.mp3", channel='sound')
+                            renpy.play("audio/opendoor1.mp3", channel='sound', relative_volume= self.distant_sound())
                             renpy.pause(0.5)
                             game.data_line[vari] = 3
                         elif game.data_line[vari]== 3:
-                            renpy.play("audio/closedoor1.wav", channel='sound')
+                            renpy.play("audio/closedoor1.wav", channel='sound', relative_volume= self.distant_sound())
                             renpy.pause(0.5)
                             game.data_line[vari] = 2
                         return True

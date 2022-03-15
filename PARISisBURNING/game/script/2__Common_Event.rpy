@@ -2,14 +2,12 @@
 # DEFINE DOORS, WALLS, AND SQUARE EVENTS
 
 init offset = -2
-init python:
-
-    #THOSE ARE PASSIVE EVENTS AND AUTOMATICALLY TRIGGERS
-    settings["event"] = { "D2" : {"variables":1}, "B8" : {}}
-
-    settings["actions"] = {}
 
 ##BY DEFAULT VARIABLES[0] is the teen doing the action, VARIABLE[1] is the square (call square.x and square.y), VARIABLE[-1] are the other vars passed by the Action
+
+label lab_teen_move(teen):
+    $ teen.premove()
+    return
 
 
 label lab_moveCouch(variable):
@@ -27,9 +25,6 @@ label lab_moveCouch(variable):
         for i in range(howManySquare):
             start = game.grid[sofa.y][sofa.x]
             end = game.grid[sofa.y + direction[1]][sofa.x + direction[0]]
-            print("--")
-            print(start)
-            print(end)
             #if the next case is empty
             if game.isCrossable(x=start.x, y=start.y, x2=end.x, y2=end.y, lastMovement=True, exception_arr = ["fire"]):
                 #so disgusting lol
@@ -63,17 +58,6 @@ label lab_action_door(variable): #currently used by teens
     $ teen = variable[0]
     $ vari = variable[-1]
 
-    if game.data_line[vari]== 4: #if it's a hidden door
-        python:
-            game.say(teen,"finds a secret door",False)
-            renpy.music.queue("audio/opendoor1.mp3", channel='sound', relative_volume=0.5)
-            game.data_line[vari] = 3
-            game.makeSecretHidden(variable[1].x,variable[1].y,1)
-            renpy.pause(0.5)
-        call lab_endTurn(copy.copy(game.premoving.who))
-        return
-
-    #if it's a regular door
     python:
         game.premoving.who.AP -= 1
         x = int(vari[1:3])
@@ -92,27 +76,45 @@ label lab_action_door(variable): #currently used by teens
             elif game.data_line[vari]== 3:
                 renpy.play("audio/closedoor1.wav", channel='sound', relative_volume=0.5)
                 game.data_line[vari] = 2
+            elif game.data_line[vari]== 4: #if it's a hidden door
+                game.say(teen,"finds a secret door",False)
+                renpy.music.queue("audio/opendoor1.mp3", channel='sound', relative_volume=0.5)
+                game.data_line[vari] = 3
+                game.makeSecretHidden(variable[1].x,variable[1].y,1)
         game.updateVision()
         renpy.pause(0.5)
-    call lab_endTurn(copy.copy(game.premoving.who))
+    call lab_endTurn(teen)
     return
 
 
 #################################################
 label lab_endTurn(teen): #EVERYTIME THE TURN ENDS YOU CALL endTurn
-    python:
-        if teen.AP <= 0:
+    if teen.AP <= 0:
+        python:
             if game.grid[teen.y][teen.x].onFire == 1:
                 game.grid[teen.y][teen.x].onFire = 0
-            game.premoving = {}
-            game.state = "waiting"
-            #game.grid[teen.y][teen.x].onEvent(game)
-            if game.grid[teen.y][teen.x].event:
+            # game.premoving = {}
+            game.state = "event"
+            square_name = _09toAZ(teen.x, teen.y)
+        python:
+            try:
+                game.events[ square_name ]
+            except:
+                pass
+            else:
                 game.state = "event"
-                # renpy.call( game.grid[teen.y][teen.x].event, teen)
-                game.grid[teen.y][teen.x].event.add_event( game,teen,game.grid[teen.y][teen.x] )
-        else:
-            teen.action()
+                renpy.call( "lab_" + game.filename + "_" + square_name, teen, game.grid[teen.y][teen.x] )
+        
+        $ i = 0
+        while i < len(game.after_every_action):
+            python:
+                for key in game.after_every_action[i]:
+                    square_name = key
+            $ renpy.call( "lab_"+game.filename+"_auto_"+square_name, teen, game.grid[teen.y][teen.x], i)
+            $ i+=1
+        $ game.state = "waiting"
+    else:
+        $ teen.action()
     return
 
 #################################################
@@ -120,7 +122,7 @@ label lab_passTurn(teen): #QUAND ON PASSE SON TOUR
     python:
         game.premoving.who.AP = 0
     # call lab_endTurn(copy.copy(game.premoving.who))
-        renpy.call("lab_endTurn",copy.copy(game.premoving.who))
+        renpy.call("lab_endTurn",teen)
     return
 
 label lab_takeitems(var):
@@ -149,20 +151,8 @@ label lab_throw_water(var):
 
 label lab_throw_water_confirm(cell):
     python:
-        # teen =  game.premoving.variables[1]
-        # direction = cell.x - teen.x, cell.y - teen.y
-        # cell2 = game.grid[cell.y + direction[1]][cell.x + direction[0]]
-
-        # if game.isCrossable(x=cell.x, y=cell.y, x2=cell2.x, y2=cell2.y, exception_arr = ["fire"]):
-        #     cells = [cell,cell2]
-        # else:
-        #     cells = [cell]
-
-        # if game.isCrossable(x=cell.x, y=cell.y, x2=cell2.x, y2=cell2.y, exception_arr = ["fire"]):
-        #     cells = [cell,cell2]
-        
+        game.premoving.where = []
         game.premoving.who.AP -= 1
-        #redondant, car quand on call lab_passTurn, AP devient 0
         teen =  game.premoving.variables[1]
         direction = cell.x - teen.x, cell.y - teen.y
         cell2 = game.grid[cell.y + direction[1]][cell.x + direction[0]]
@@ -187,7 +177,7 @@ label lab_throw_water_confirm(cell):
                 cel.occupied = 0
         renpy.pause(0.5)
 
-    call lab_endTurn(copy.copy(game.premoving.who))
+    call lab_endTurn(teen)
     return
 
 label lab_fill_bucket(var):
@@ -201,23 +191,6 @@ label lab_fill_bucket(var):
         elif game.grid[teen.y][teen.x].itemType == "Toilet":
             renpy.play("audio/fill-water-from-pool.ogg", channel='sound')
         renpy.pause(0.5)
-    call lab_endTurn(copy.copy(game.premoving.who))
+    call lab_endTurn(teen)
     return
     
-
-label lab_000_D2(variables):
-    $ teen = variables[0]
-    $ vari = variables[-1]
-    if vari>0:
-        $ game.say(teen, "hello world")
-        $ settings["event"]["D2"]["variables"] = 0
-    jump lab_gameloop
-
-label lab_000_B8(variables):
-    "Vous rallumez les fusibles"
-    python:
-        for row in game.grid:
-            for cell in row:
-                if cell.isDark:
-                    cell.isDark = 0
-    jump lab_gameloop

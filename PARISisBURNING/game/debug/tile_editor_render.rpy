@@ -209,7 +209,7 @@ screen sce_tile_editor_palette():
                         background Solid("#FFFAAA")
                     else:
                         background Solid("#808080")
-                    text "open door" size 20 style "debug_text" xalign 0.5 yalign 0.5
+                    text "closed door" size 20 style "debug_text" xalign 0.5 yalign 0.5
                     action SetVariable("debug_.draw_mode", "closed_door")
 
                 button:
@@ -220,7 +220,7 @@ screen sce_tile_editor_palette():
                         background Solid("#FFFAAA")
                     else:
                         background Solid("#808080")
-                    text "closed door" size 20 style "debug_text" xalign 0.5 yalign 0.5
+                    text "open door" size 20 style "debug_text" xalign 0.5 yalign 0.5
                     action SetVariable("debug_.draw_mode", "open_door")
 
                 button:

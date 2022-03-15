@@ -1,4 +1,4 @@
-Sun Feb 27 16:12:10 2022
+Mon Mar 14 23:09:31 2022
 Windows-10-10.0.19041
 Ren'Py 7.4.11.2266
  
@@ -7,7 +7,7 @@ Bootstrap to the start of init.init took 0.08s
 Early init took 0.00s
 Loader init took 0.01s
 Loading error handling took 0.03s
-Loading script took 0.35s
+Loading script took 0.29s
 Loading save slot metadata. took 0.02s
 Loading persistent took 0.00s
 Importing _renpysteam: ImportError('No module named _renpysteam',)
@@ -23,19 +23,19 @@ Initial gc. took 0.02s
 DPI scale factor: 1.000000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
-Creating interface object took 0.90s
+Creating interface object took 0.29s
 Cleaning stores took 0.00s
-Init translation took 0.06s
+Init translation took 0.04s
 Build styles took 0.00s
 Load screen analysis took 0.00s
-Analyze screens took 0.04s
-Save screen analysis took 0.05s
-Prepare screens took 0.10s
+Analyze screens took 0.02s
+Save screen analysis took 0.04s
+Prepare screens took 0.08s
 Save pyanalysis. took 0.00s
 Save bytecode. took 0.03s
 Running _start took 0.00s
 Performance test:
-Interface start took 0.10s
+Interface start took 0.08s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)
@@ -47,47 +47,611 @@ Version: '4.6.0 NVIDIA 471.96'
 Display Info: None
 Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
 Maximum texture size: 4096x4096
-controller: '030000005e0400008e02000000007200' 'Xbox 360 Controller' 1L
+up
+cible1:[ x18:y8 ,  x17:y8 ,  x16:y8 ,  x15:y8 ,  x15:y9 ,  x15:y10 ,  x15:y11 ,  x14:y11 ,  x13:y11 ,  x12:y11 ,  x11:y11 ,  x10:y11 ,  x9:y11 , William] distance:14
+theres a door
+up
+cible1:[ x15:y9 ,  x15:y10 ,  x16:y10 ,  x16:y11 , William] distance:5
+down
+cible1:[ x16:y10 ,  x15:y10 ,  x15:y9 ,  x15:y8 ,  x15:y7 ,  x14:y7 ,  x13:y7 ,  x13:y6 ,  x13:y5 ,  x12:y5 , Tanglei] distance:11
+cible1:[ x15:y7 ,  x14:y7 ,  x14:y6 ,  x13:y6 ,  x12:y6 , Tanglei] distance:6
+cible1:[ x14:y6 ,  x14:y7 ,  x15:y7 ,  x16:y7 ,  x16:y8 ,  x17:y8 , Tanglei] distance:7
+cible1:[ x17:y7 ,  x17:y8 ,  x18:y8 , Tanglei] distance:4
+cible1:[ x15:y7 ,  x14:y7 ,  x14:y6 ,  x13:y6 ,  x12:y6 , Tanglei] distance:6
+cible1:[ x14:y6 ,  x14:y7 ,  x15:y7 ,  x16:y7 ,  x16:y8 ,  x17:y8 , Tanglei] distance:7
+cible1:[ x14:y6 ,  x14:y7 ,  x15:y7 ,  x16:y7 ,  x16:y8 ,  x17:y8 , Tanglei] distance:7
 
 Full traceback:
   File "game/script/script.rpy", line 3, in script call
-    call lab_initialize
-  File "game/script/script.rpy", line 15, in script
+    call load("000")
+  File "game/script/Logic.rpy", line 15, in script call
+    call screen sce_gameloop
+  File "game/script/2__Common_Event.rpy", line 121, in script call
     python:
+  File "game/script/2__Common_Event.rpy", line 99, in script call
+    python:
+  File "game/script/2__Map_Events.rpy", line 73, in script
+    $ square.occupied = 0
   File "renpy/ast.py", line 928, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
   File "renpy/python.py", line 2245, in py_exec_bytecode
     exec(bytecode, globals, locals)
-  File "game/script/script.rpy", line 16, in <module>
-    game = Game("000")
-  File "game/script/3__Game_class.rpy", line 63, in __init__
-    self.teens.append( Character(game=self, file=teen["file"], name=teen["name"], x=teen["x"], y=teen["y"], items= Items(*teen["items"]), stat=teen["stat"])  )
-  File "game/script/3__Classes.rpy", line 38, in __init__
-    self.img.big = self.file + "-big.png"
-AttributeError: 'Character' object has no attribute 'file'
+  File "game/script/2__Map_Events.rpy", line 73, in <module>
+    $ square.occupied = 0
+  File "game/script/3__Game_class.rpy", line 107, in say
+    renpy.pause(0.01)
+  File "renpy/exports.py", line 1563, in pause
+    rv = renpy.ui.interact(mouse='pause', type='pause', roll_forward=roll_forward, pause=delay)
+  File "renpy/ui.py", line 298, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "renpy/display/core.py", line 3325, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, **kwargs)
+  File "renpy/display/core.py", line 3737, in interact_core
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "renpy/display/core.py", line 568, in visit_all
+    d.visit_all(callback, seen)
+  File "renpy/display/core.py", line 568, in visit_all
+    d.visit_all(callback, seen)
+  File "renpy/display/core.py", line 568, in visit_all
+    d.visit_all(callback, seen)
+  File "renpy/display/screen.py", line 436, in visit_all
+    callback(self)
+  File "renpy/display/core.py", line 3737, in <lambda>
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "renpy/display/screen.py", line 447, in per_interact
+    self.update()
+  File "renpy/display/screen.py", line 637, in update
+    self.screen.function(**self.scope)
+  File "game/script/Render.rpy", line 143, in execute
+    screen sce_grid():
+  File "game/script/Render.rpy", line 143, in execute
+    screen sce_grid():
+  File "game/script/Render.rpy", line 191, in execute
+    text str(game.teens[0].AP) size 60 color "#FFFF00" ypos 60
+  File "game/script/Render.rpy", line 191, in <module>
+    text str(game.teens[0].AP) size 60 color "#FFFF00" ypos 60
+  File "renpy/python.py", line 992, in __getitem__
+    rv = list.__getitem__(self, index)
+IndexError: list index out of range
 
 While running game code:
   File "game/script/script.rpy", line 3, in script call
-    call lab_initialize
-  File "game/script/script.rpy", line 15, in script
+    call load("000")
+  File "game/script/Logic.rpy", line 15, in script call
+    call screen sce_gameloop
+  File "game/script/2__Common_Event.rpy", line 121, in script call
     python:
-  File "game/script/script.rpy", line 16, in <module>
-    game = Game("000")
-  File "game/script/3__Game_class.rpy", line 63, in __init__
-    self.teens.append( Character(game=self, file=teen["file"], name=teen["name"], x=teen["x"], y=teen["y"], items= Items(*teen["items"]), stat=teen["stat"])  )
-  File "game/script/3__Classes.rpy", line 38, in __init__
-    self.img.big = self.file + "-big.png"
-AttributeError: 'Character' object has no attribute 'file'
+  File "game/script/2__Common_Event.rpy", line 99, in script call
+    python:
+  File "game/script/2__Map_Events.rpy", line 73, in script
+    $ square.occupied = 0
+  File "game/script/2__Map_Events.rpy", line 73, in <module>
+    $ square.occupied = 0
+  File "game/script/3__Game_class.rpy", line 107, in say
+    renpy.pause(0.01)
+  File "game/script/Render.rpy", line 143, in execute
+    screen sce_grid():
+  File "game/script/Render.rpy", line 143, in execute
+    screen sce_grid():
+  File "game/script/Render.rpy", line 191, in execute
+    text str(game.teens[0].AP) size 60 color "#FFFF00" ypos 60
+  File "game/script/Render.rpy", line 191, in <module>
+    text str(game.teens[0].AP) size 60 color "#FFFF00" ypos 60
+IndexError: list index out of range
 Resetting cache.
-Bootstrap to the start of init.init took 19.74s
+Bootstrap to the start of init.init took 440.01s
 Early init took 0.00s
 Loader init took 0.01s
 Loading error handling took 0.02s
-Loading script took 0.15s
+Loading script took 0.21s
+Loading save slot metadata. took 0.02s
+Loading persistent took 0.00s
+Importing _renpysteam: ImportError('No module named _renpysteam',)
+Running init code took 0.03s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\ALIENWARE\\AppData\\Roaming/RenPy/backups\\PARISisBURNING':
+Dump and make backups. took 0.07s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.000000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.28s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.04s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.05s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.28s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce GTX 1070/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 471.96'
+Display Info: None
+Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
+Maximum texture size: 4096x4096
+
+Full traceback:
+  File "game/script/script.rpy", line 3, in script call
+    call load("000")
+  File "game/script/Logic.rpy", line 15, in script call
+    call screen sce_gameloop
+  File "game/script/2__Common_Event.rpy", line 121, in script call
+    python:
+  File "game/script/2__Common_Event.rpy", line 99, in script call
+    python:
+  File "game/script/2__Map_Events.rpy", line 74, in script
+    if settings["event"]["I19"] == 2:
+  File "renpy/ast.py", line 1898, in execute
+    if renpy.python.py_eval(condition):
+  File "renpy/python.py", line 2276, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "renpy/python.py", line 2269, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script/2__Map_Events.rpy", line 74, in <module>
+    if settings["event"]["I19"] == 2:
+KeyError: u'event'
+
+While running game code:
+  File "game/script/script.rpy", line 3, in script call
+    call load("000")
+  File "game/script/Logic.rpy", line 15, in script call
+    call screen sce_gameloop
+  File "game/script/2__Common_Event.rpy", line 121, in script call
+    python:
+  File "game/script/2__Common_Event.rpy", line 99, in script call
+    python:
+  File "game/script/2__Map_Events.rpy", line 74, in script
+    if settings["event"]["I19"] == 2:
+  File "game/script/2__Map_Events.rpy", line 74, in <module>
+    if settings["event"]["I19"] == 2:
+KeyError: u'event'
+Traceback (most recent call last):
+  File "renpy/common/00console.rpy", line 673, in run
+    result = renpy.python.py_eval(code)
+  File "renpy/python.py", line 2276, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "renpy/python.py", line 2269, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "<none>", line 1, in <module>
+KeyError: u'event'
+Resetting cache.
+Bootstrap to the start of init.init took 488.03s
+Early init took 0.00s
+Loader init took 0.01s
+Loading error handling took 0.02s
+Loading script took 0.14s
+Loading save slot metadata. took 0.03s
+Loading persistent took 0.00s
+Importing _renpysteam: ImportError('No module named _renpysteam',)
+Running init code took 0.04s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\ALIENWARE\\AppData\\Roaming/RenPy/backups\\PARISisBURNING':
+Dump and make backups. took 0.09s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.000000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.29s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.06s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce GTX 1070/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 471.96'
+Display Info: None
+Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
+Maximum texture size: 4096x4096
+
+Full traceback:
+  File "game/script/script.rpy", line 3, in script call
+    call load("000")
+  File "game/script/Logic.rpy", line 15, in script call
+    call screen sce_gameloop
+  File "game/script/2__Common_Event.rpy", line 121, in script call
+    python:
+  File "game/script/2__Common_Event.rpy", line 99, in script call
+    python:
+  File "game/script/2__Map_Events.rpy", line 75, in script
+    if settings["event"]["I19"] == 2:
+  File "renpy/ast.py", line 1898, in execute
+    if renpy.python.py_eval(condition):
+  File "renpy/python.py", line 2276, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "renpy/python.py", line 2269, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script/2__Map_Events.rpy", line 75, in <module>
+    if settings["event"]["I19"] == 2:
+KeyError: u'event'
+
+While running game code:
+  File "game/script/script.rpy", line 3, in script call
+    call load("000")
+  File "game/script/Logic.rpy", line 15, in script call
+    call screen sce_gameloop
+  File "game/script/2__Common_Event.rpy", line 121, in script call
+    python:
+  File "game/script/2__Common_Event.rpy", line 99, in script call
+    python:
+  File "game/script/2__Map_Events.rpy", line 75, in script
+    if settings["event"]["I19"] == 2:
+  File "game/script/2__Map_Events.rpy", line 75, in <module>
+    if settings["event"]["I19"] == 2:
+KeyError: u'event'
+Traceback (most recent call last):
+  File "renpy/common/00console.rpy", line 673, in run
+    result = renpy.python.py_eval(code)
+  File "renpy/python.py", line 2276, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "renpy/python.py", line 2269, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "<none>", line 1, in <module>
+KeyError: u'event'
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.00s
+Load screen analysis took 0.02s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.01s
+Resetting cache.
+Bootstrap to the start of init.init took 561.18s
+Early init took 0.00s
+Loader init took 0.01s
+Loading error handling took 0.01s
+Loading script took 0.21s
 Loading save slot metadata. took 0.02s
 Loading persistent took 0.00s
 Importing _renpysteam: ImportError('No module named _renpysteam',)
 Running init code took 0.04s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\ALIENWARE\\AppData\\Roaming/RenPy/backups\\PARISisBURNING':
+Dump and make backups. took 0.07s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.04s
+DPI scale factor: 1.000000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.25s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.04s
+Prepare screens took 0.08s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.06s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce GTX 1070/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 471.96'
+Display Info: None
+Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
+Maximum texture size: 4096x4096
+up
+cible1:[ x18:y8 ,  x17:y8 ,  x16:y8 ,  x15:y8 ,  x15:y9 ,  x15:y10 ,  x15:y11 ,  x14:y11 ,  x13:y11 ,  x12:y11 ,  x11:y11 ,  x10:y11 ,  x9:y11 , William] distance:14
+theres a door
+up
+up
+cible1:[ x15:y9 ,  x15:y10 ,  x16:y10 ,  x16:y11 , William] distance:5
+down
+Resetting cache.
+Bootstrap to the start of init.init took 713.52s
+Early init took 0.00s
+Loader init took 0.01s
+Loading error handling took 0.01s
+Loading script took 0.14s
+Loading save slot metadata. took 0.03s
+Loading persistent took 0.00s
+
+File "game/script/2__Common_Event.rpy", line 115: expected statement.
+    game.state = "waiting"
+               ^
+DPI scale factor: 1.000000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.39s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce GTX 1070/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 471.96'
+Display Info: None
+Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 719.75s
+Early init took 0.00s
+Loader init took 0.01s
+Loading error handling took 0.02s
+Loading script took 0.16s
+Loading save slot metadata. took 0.03s
+Loading persistent took 0.00s
+Importing _renpysteam: ImportError('No module named _renpysteam',)
+Running init code took 0.05s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\ALIENWARE\\AppData\\Roaming/RenPy/backups\\PARISisBURNING':
+Dump and make backups. took 0.08s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.000000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.27s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.04s
+Prepare screens took 0.08s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.06s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce GTX 1070/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 471.96'
+Display Info: None
+Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
+Maximum texture size: 4096x4096
+cible1:[ x15:y11 ,  x14:y11 ,  x13:y11 ,  x12:y11 , William] distance:5
+cible1:[ x13:y11 ,  x14:y11 ,  x15:y11 ,  x15:y10 ,  x16:y10 , William] distance:6
+Resetting cache.
+Bootstrap to the start of init.init took 819.27s
+Early init took 0.00s
+Loader init took 0.01s
+Loading error handling took 0.01s
+Loading script took 0.14s
+Loading save slot metadata. took 0.02s
+Loading persistent took 0.00s
+Importing _renpysteam: ImportError('No module named _renpysteam',)
+Running init code took 0.03s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\ALIENWARE\\AppData\\Roaming/RenPy/backups\\PARISisBURNING':
+Dump and make backups. took 0.06s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.04s
+DPI scale factor: 1.000000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.29s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.01s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.04s
+Prepare screens took 0.08s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.06s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce GTX 1070/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 471.96'
+Display Info: None
+Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
+Maximum texture size: 4096x4096
+
+Full traceback:
+  File "game/script/script.rpy", line 3, in script call
+    call load("000")
+  File "game/script/Logic.rpy", line 15, in script call
+    call screen sce_gameloop
+  File "game/script/2__Common_Event.rpy", line 122, in script call
+    python:
+  File "game/script/2__Common_Event.rpy", line 99, in script call
+    python:
+  File "game/script/2__Map_Events.rpy", line 78, in script
+    $ renpy.say("gg, you should save now, im gonna load map 2")
+  File "renpy/ast.py", line 928, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "renpy/python.py", line 2245, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/script/2__Map_Events.rpy", line 78, in <module>
+    $ renpy.say("gg, you should save now, im gonna load map 2")
+TypeError: say() takes at least 2 arguments (1 given)
+
+While running game code:
+  File "game/script/script.rpy", line 3, in script call
+    call load("000")
+  File "game/script/Logic.rpy", line 15, in script call
+    call screen sce_gameloop
+  File "game/script/2__Common_Event.rpy", line 122, in script call
+    python:
+  File "game/script/2__Common_Event.rpy", line 99, in script call
+    python:
+  File "game/script/2__Map_Events.rpy", line 78, in script
+    $ renpy.say("gg, you should save now, im gonna load map 2")
+  File "game/script/2__Map_Events.rpy", line 78, in <module>
+    $ renpy.say("gg, you should save now, im gonna load map 2")
+TypeError: say() takes at least 2 arguments (1 given)
+Resetting cache.
+Bootstrap to the start of init.init took 841.15s
+Early init took 0.00s
+Loader init took 0.01s
+Loading error handling took 0.01s
+Loading script took 0.13s
+Loading save slot metadata. took 0.03s
+Loading persistent took 0.00s
+Importing _renpysteam: ImportError('No module named _renpysteam',)
+Running init code took 0.04s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\ALIENWARE\\AppData\\Roaming/RenPy/backups\\PARISisBURNING':
+Dump and make backups. took 0.08s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.000000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.31s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.04s
+Prepare screens took 0.10s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.06s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce GTX 1070/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 471.96'
+Display Info: None
+Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
+Maximum texture size: 4096x4096
+
+Full traceback:
+  File "game/script/script.rpy", line 3, in script call
+    call load("000")
+  File "game/script/Logic.rpy", line 15, in script call
+    call screen sce_gameloop
+  File "game/script/2__Common_Event.rpy", line 122, in script call
+    python:
+  File "game/script/2__Common_Event.rpy", line 99, in script call
+    python:
+  File "game/script/2__Map_Events.rpy", line 78, in script
+    $ renpy.say("","gg, you should save now, im gonna load map 2")
+  File "renpy/ast.py", line 928, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "renpy/python.py", line 2245, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/script/2__Map_Events.rpy", line 78, in <module>
+    $ renpy.say("","gg, you should save now, im gonna load map 2")
+  File "renpy/exports.py", line 1417, in say
+    renpy.store.say(who, what, *args, **kwargs)
+  File "renpy/common/00library.rpy", line 267, in say
+    who = Character(who, kind=name_only)
+TypeError: __init__() got an unexpected keyword argument 'kind'
+
+While running game code:
+  File "game/script/script.rpy", line 3, in script call
+    call load("000")
+  File "game/script/Logic.rpy", line 15, in script call
+    call screen sce_gameloop
+  File "game/script/2__Common_Event.rpy", line 122, in script call
+    python:
+  File "game/script/2__Common_Event.rpy", line 99, in script call
+    python:
+  File "game/script/2__Map_Events.rpy", line 78, in script
+    $ renpy.say("","gg, you should save now, im gonna load map 2")
+  File "game/script/2__Map_Events.rpy", line 78, in <module>
+    $ renpy.say("","gg, you should save now, im gonna load map 2")
+  File "renpy/common/00library.rpy", line 267, in say
+    who = Character(who, kind=name_only)
+TypeError: __init__() got an unexpected keyword argument 'kind'
+Resetting cache.
+Bootstrap to the start of init.init took 877.76s
+Early init took 0.00s
+Loader init took 0.01s
+Loading error handling took 0.01s
+Loading script took 0.14s
+Loading save slot metadata. took 0.03s
+Loading persistent took 0.00s
+
+File "game/script/2__Map_Events.rpy", line 80: expected statement.
+    game.pause()
+                ^
+DPI scale factor: 1.000000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.38s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce GTX 1070/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 471.96'
+Display Info: None
+Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 884.02s
+Early init took 0.00s
+Loader init took 0.01s
+Loading error handling took 0.01s
+Loading script took 0.13s
+Loading save slot metadata. took 0.03s
+Loading persistent took 0.00s
+Importing _renpysteam: ImportError('No module named _renpysteam',)
+Running init code took 0.05s
 Loading analysis data took 0.02s
 Analyze and compile ATL took 0.00s
 Index archives took 0.00s
@@ -101,17 +665,17 @@ nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
 Creating interface object took 0.27s
 Cleaning stores took 0.00s
-Init translation took 0.03s
+Init translation took 0.04s
 Build styles took 0.00s
 Load screen analysis took 0.00s
 Analyze screens took 0.02s
-Save screen analysis took 0.03s
-Prepare screens took 0.08s
+Save screen analysis took 0.04s
+Prepare screens took 0.09s
 Save pyanalysis. took 0.00s
 Save bytecode. took 0.02s
 Running _start took 0.00s
 Performance test:
-Interface start took 0.22s
+Interface start took 0.06s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)
@@ -123,62 +687,191 @@ Version: '4.6.0 NVIDIA 471.96'
 Display Info: None
 Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
 Maximum texture size: 4096x4096
-
-Full traceback:
-  File "game/script/script.rpy", line 3, in script call
-    call lab_initialize
-  File "game/script/script.rpy", line 15, in script
-    python:
-  File "renpy/ast.py", line 928, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "renpy/python.py", line 2245, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "game/script/script.rpy", line 20, in <module>
-    if teen.name == "lauren":
-AttributeError: 'Character' object has no attribute 'name'
-
-While running game code:
-  File "game/script/script.rpy", line 3, in script call
-    call lab_initialize
-  File "game/script/script.rpy", line 15, in script
-    python:
-  File "game/script/script.rpy", line 20, in <module>
-    if teen.name == "lauren":
-AttributeError: 'Character' object has no attribute 'name'
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.02s
+Load screen analysis took 0.03s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.01s
 Resetting cache.
-Bootstrap to the start of init.init took 57.03s
+Bootstrap to the start of init.init took 900.94s
 Early init took 0.00s
 Loader init took 0.01s
 Loading error handling took 0.01s
-Loading script took 0.15s
-Loading save slot metadata. took 0.02s
+Loading script took 0.12s
+Loading save slot metadata. took 0.03s
 Loading persistent took 0.00s
 Importing _renpysteam: ImportError('No module named _renpysteam',)
 Running init code took 0.03s
 Loading analysis data took 0.02s
 Analyze and compile ATL took 0.00s
 Index archives took 0.00s
+Dump and make backups. took 0.07s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.04s
+DPI scale factor: 1.000000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.28s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.02s
+Analyze screens took 0.00s
+Save screen analysis took 0.00s
+Prepare screens took 0.08s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.00s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.06s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce GTX 1070/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 471.96'
+Display Info: None
+Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
+Maximum texture size: 4096x4096
+up
+cible1:[ x18:y8 ,  x17:y8 ,  x16:y8 ,  x15:y8 ,  x15:y9 ,  x15:y10 ,  x15:y11 ,  x14:y11 ,  x13:y11 ,  x12:y11 ,  x11:y11 ,  x10:y11 ,  x9:y11 , William] distance:14
+theres a door
+up
+up
+cible1:[ x15:y9 ,  x15:y10 ,  x16:y10 , William] distance:4
+cible1:[ x16:y10 ,  x15:y10 ,  x15:y9 ,  x15:y8 ,  x15:y7 ,  x14:y7 ,  x13:y7 ,  x13:y6 ,  x13:y5 ,  x12:y5 ,  x12:y4 ,  x11:y4 ,  x10:y4 ,  x9:y4 ,  x8:y4 , Tanglei] distance:16
+cible1:[ x15:y7 ,  x14:y7 ,  x14:y6 ,  x13:y6 ,  x12:y6 ,  x12:y5 ,  x12:y4 ,  x11:y4 ,  x10:y4 ,  x9:y4 ,  x8:y4 , Tanglei] distance:12
+cible1:[ x12:y6 ,  x12:y5 ,  x12:y4 ,  x11:y4 ,  x10:y4 ,  x9:y4 ,  x8:y4 , Tanglei] distance:8
+theres a door
+down
+cible1:[ x10:y4 ,  x9:y4 ,  x8:y4 ,  x8:y5 ,  x8:y6 ,  x8:y7 ,  x7:y7 ,  x6:y7 ,  x6:y8 ,  x7:y8 ,  x7:y9 ,  x7:y10 , Tanglei] distance:13
+
+Full traceback:
+  File "game/script/script.rpy", line 3, in script call
+    call load("000")
+  File "game/script/Logic.rpy", line 15, in script call
+    call screen sce_gameloop
+  File "game/script/2__Common_Event.rpy", line 129, in script
+    python:
+  File "renpy/ast.py", line 928, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "renpy/python.py", line 2245, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/script/2__Common_Event.rpy", line 134, in <module>
+    game.grid[teen.y][teen.x].onEvent(game)
+AttributeError: 'Square' object has no attribute 'onEvent'
+
+While running game code:
+  File "game/script/script.rpy", line 3, in script call
+    call load("000")
+  File "game/script/Logic.rpy", line 15, in script call
+    call screen sce_gameloop
+  File "game/script/2__Common_Event.rpy", line 129, in script
+    python:
+  File "game/script/2__Common_Event.rpy", line 134, in <module>
+    game.grid[teen.y][teen.x].onEvent(game)
+AttributeError: 'Square' object has no attribute 'onEvent'
+cible1:[ x8:y4 ,  x9:y4 ,  x10:y4 ,  x11:y4 ,  x12:y4 ,  x12:y5 ,  x12:y6 ,  x12:y7 ,  x13:y7 ,  x14:y7 ,  x15:y7 ,  x15:y8 ,  x15:y9 ,  x15:y10 , Tanglei] distance:15
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.00s
+Load screen analysis took 0.02s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.01s
+Traceback (most recent call last):
+  File "renpy/common/00console.rpy", line 673, in run
+    result = renpy.python.py_eval(code)
+  File "renpy/python.py", line 2276, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "renpy/python.py", line 2269, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "<none>", line 1, in <module>
+AttributeError: 'Character' object has no attribute 'isActive'
+Resetting cache.
+Bootstrap to the start of init.init took 1139.14s
+Early init took 0.00s
+Loader init took 0.01s
+Loading error handling took 0.01s
+Loading script took 0.14s
+Loading save slot metadata. took 0.03s
+Loading persistent took 0.00s
+Importing _renpysteam: ImportError('No module named _renpysteam',)
+Running init code took 0.04s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
 Backing up script files to 'C:\\Users\\ALIENWARE\\AppData\\Roaming/RenPy/backups\\PARISisBURNING':
-Dump and make backups. took 0.06s
+Dump and make backups. took 0.07s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.04s
+DPI scale factor: 1.000000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.26s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.01s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.04s
+Prepare screens took 0.08s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.06s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce GTX 1070/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 471.96'
+Display Info: None
+Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 1141.18s
+Early init took 0.00s
+Loader init took 0.01s
+Loading error handling took 0.02s
+Loading script took 0.14s
+Loading save slot metadata. took 0.03s
+Loading persistent took 0.00s
+Importing _renpysteam: ImportError('No module named _renpysteam',)
+Running init code took 0.04s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\ALIENWARE\\AppData\\Roaming/RenPy/backups\\PARISisBURNING':
+Dump and make backups. took 0.07s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
 Initial gc. took 0.03s
 DPI scale factor: 1.000000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
-Creating interface object took 0.25s
+Creating interface object took 0.27s
 Cleaning stores took 0.00s
 Init translation took 0.04s
 Build styles took 0.00s
 Load screen analysis took 0.00s
-Analyze screens took 0.01s
+Analyze screens took 0.02s
 Save screen analysis took 0.04s
 Prepare screens took 0.08s
 Save pyanalysis. took 0.00s
-Save bytecode. took 0.01s
+Save bytecode. took 0.03s
 Running _start took 0.00s
 Performance test:
-Interface start took 0.06s
+Interface start took 0.07s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)
@@ -198,16 +891,16 @@ Analyze screens took 0.00s
 Prepare screens took 0.00s
 Running _start took 0.00s
 Resetting cache.
-Bootstrap to the start of init.init took 90.00s
+Bootstrap to the start of init.init took 1201.19s
 Early init took 0.00s
 Loader init took 0.01s
-Loading error handling took 0.01s
-Loading script took 0.11s
-Loading save slot metadata. took 0.02s
+Loading error handling took 0.13s
+Loading script took 1.00s
+Loading save slot metadata. took 0.11s
 Loading persistent took 0.00s
 Importing _renpysteam: ImportError('No module named _renpysteam',)
-Running init code took 0.04s
-Loading analysis data took 0.02s
+Running init code took 0.13s
+Loading analysis data took 0.03s
 Analyze and compile ATL took 0.00s
 Index archives took 0.00s
 Dump and make backups. took 0.07s
@@ -217,7 +910,96 @@ Initial gc. took 0.04s
 DPI scale factor: 1.000000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
-Creating interface object took 0.29s
+Creating interface object took 0.27s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.04s
+Analyze screens took 0.00s
+Save screen analysis took 0.00s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.00s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.08s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce GTX 1070/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 471.96'
+Display Info: None
+Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 1221.35s
+Early init took 0.00s
+Loader init took 0.01s
+Loading error handling took 0.01s
+Loading script took 0.13s
+Loading save slot metadata. took 0.03s
+Loading persistent took 0.00s
+Importing _renpysteam: ImportError('No module named _renpysteam',)
+Running init code took 0.04s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\ALIENWARE\\AppData\\Roaming/RenPy/backups\\PARISisBURNING':
+Dump and make backups. took 0.06s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.04s
+DPI scale factor: 1.000000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.25s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.04s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.06s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce GTX 1070/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 471.96'
+Display Info: None
+Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 1239.97s
+Early init took 0.00s
+Loader init took 0.01s
+Loading error handling took 0.01s
+Loading script took 0.11s
+Loading save slot metadata. took 0.02s
+Loading persistent took 0.00s
+Importing _renpysteam: ImportError('No module named _renpysteam',)
+Running init code took 0.03s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Dump and make backups. took 0.07s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.000000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.24s
 Cleaning stores took 0.00s
 Init translation took 0.04s
 Build styles took 0.00s
@@ -248,40 +1030,472 @@ Load screen analysis took 0.02s
 Analyze screens took 0.00s
 Prepare screens took 0.00s
 Running _start took 0.00s
-josephine
-
-Full traceback:
-  File "game/debug/tile_editor_logic.rpy", line 19, in script
-    python:
-  File "renpy/ast.py", line 928, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "renpy/python.py", line 2245, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "game/debug/tile_editor_logic.rpy", line 32, in <module>
-    debug_.draw_on_tile( debug_.tilebrush )
-  File "game/debug/debug_functions.rpy", line 295, in draw_on_tile
-    game.teens.append( Character(game=game, file=what, x=where[0], y=where[1], items=None)  )
-  File "game/script/3__Classes.rpy", line 10, in __init__
-    self.name = capitalize(file)
-NameError: global name 'capitalize' is not defined
-
-While running game code:
-  File "game/debug/tile_editor_logic.rpy", line 19, in script
-    python:
-  File "game/debug/tile_editor_logic.rpy", line 32, in <module>
-    debug_.draw_on_tile( debug_.tilebrush )
-  File "game/debug/debug_functions.rpy", line 295, in draw_on_tile
-    game.teens.append( Character(game=game, file=what, x=where[0], y=where[1], items=None)  )
-  File "game/script/3__Classes.rpy", line 10, in __init__
-    self.name = capitalize(file)
-NameError: global name 'capitalize' is not defined
 Resetting cache.
-Bootstrap to the start of init.init took 137.66s
+Bootstrap to the start of init.init took 1281.12s
 Early init took 0.00s
 Loader init took 0.01s
 Loading error handling took 0.01s
+Loading script took 0.13s
+Loading save slot metadata. took 0.03s
+Loading persistent took 0.00s
+Importing _renpysteam: ImportError('No module named _renpysteam',)
+Running init code took 0.03s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\ALIENWARE\\AppData\\Roaming/RenPy/backups\\PARISisBURNING':
+Dump and make backups. took 0.08s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.04s
+DPI scale factor: 1.000000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.29s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.05s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.06s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce GTX 1070/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 471.96'
+Display Info: None
+Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 1305.47s
+Early init took 0.00s
+Loader init took 0.01s
+Loading error handling took 0.02s
 Loading script took 0.15s
-Loading save slot metadata. took 0.02s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Importing _renpysteam: ImportError('No module named _renpysteam',)
+Running init code took 0.04s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\ALIENWARE\\AppData\\Roaming/RenPy/backups\\PARISisBURNING':
+Dump and make backups. took 0.07s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.04s
+DPI scale factor: 1.000000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.30s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.04s
+Prepare screens took 0.08s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.07s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce GTX 1070/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 471.96'
+Display Info: None
+Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 1310.28s
+Early init took 0.00s
+Loader init took 0.01s
+Loading error handling took 0.01s
+Loading script took 0.14s
+Loading save slot metadata. took 0.03s
+Loading persistent took 0.00s
+Importing _renpysteam: ImportError('No module named _renpysteam',)
+Running init code took 0.04s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\ALIENWARE\\AppData\\Roaming/RenPy/backups\\PARISisBURNING':
+Dump and make backups. took 0.08s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.04s
+DPI scale factor: 1.000000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.31s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.04s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.06s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce GTX 1070/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 471.96'
+Display Info: None
+Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 1321.09s
+Early init took 0.00s
+Loader init took 0.01s
+Loading error handling took 0.02s
+Loading script took 0.16s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Importing _renpysteam: ImportError('No module named _renpysteam',)
+Running init code took 0.05s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\ALIENWARE\\AppData\\Roaming/RenPy/backups\\PARISisBURNING':
+Dump and make backups. took 0.09s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.04s
+DPI scale factor: 1.000000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.31s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.04s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.07s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce GTX 1070/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 471.96'
+Display Info: None
+Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
+Maximum texture size: 4096x4096
+up
+cible1:[ x18:y8 ,  x17:y8 ,  x16:y8 ,  x15:y8 ,  x15:y9 ,  x15:y10 ,  x15:y11 ,  x14:y11 ,  x13:y11 ,  x12:y11 ,  x11:y11 ,  x10:y11 ,  x9:y11 , William] distance:14
+theres a door
+up
+cible1:[ x15:y9 ,  x15:y10 , William] distance:3
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.01s
+Load screen analysis took 0.02s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.00s
+Resetting cache.
+Bootstrap to the start of init.init took 1369.84s
+Early init took 0.00s
+Loader init took 0.01s
+Loading error handling took 0.01s
+Loading script took 0.13s
+Loading save slot metadata. took 0.03s
+Loading persistent took 0.00s
+Importing _renpysteam: ImportError('No module named _renpysteam',)
+Running init code took 0.03s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\ALIENWARE\\AppData\\Roaming/RenPy/backups\\PARISisBURNING':
+Dump and make backups. took 0.07s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.04s
+DPI scale factor: 1.000000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.24s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.04s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.06s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce GTX 1070/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 471.96'
+Display Info: None
+Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 1487.73s
+Early init took 0.00s
+Loader init took 0.01s
+Loading error handling took 0.02s
+Loading script took 0.15s
+Loading save slot metadata. took 0.03s
+Loading persistent took 0.00s
+Importing _renpysteam: ImportError('No module named _renpysteam',)
+Running init code took 0.04s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\ALIENWARE\\AppData\\Roaming/RenPy/backups\\PARISisBURNING':
+Dump and make backups. took 0.08s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.05s
+DPI scale factor: 1.000000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.27s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.04s
+Prepare screens took 0.08s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.07s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce GTX 1070/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 471.96'
+Display Info: None
+Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 1506.17s
+Early init took 0.00s
+Loader init took 0.01s
+Loading error handling took 0.01s
+Loading script took 0.12s
+Loading save slot metadata. took 0.03s
+Loading persistent took 0.00s
+Importing _renpysteam: ImportError('No module named _renpysteam',)
+Running init code took 0.03s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\ALIENWARE\\AppData\\Roaming/RenPy/backups\\PARISisBURNING':
+Dump and make backups. took 0.06s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.000000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.24s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.04s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.06s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce GTX 1070/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 471.96'
+Display Info: None
+Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 1546.00s
+Early init took 0.00s
+Loader init took 0.01s
+Loading error handling took 0.01s
+Loading script took 0.12s
+Loading save slot metadata. took 0.03s
+Loading persistent took 0.00s
+Importing _renpysteam: ImportError('No module named _renpysteam',)
+Running init code took 0.04s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Dump and make backups. took 0.08s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.000000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.28s
+Cleaning stores took 0.00s
+Init translation took 0.05s
+Build styles took 0.00s
+Load screen analysis took 0.02s
+Analyze screens took 0.00s
+Save screen analysis took 0.00s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.00s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.06s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce GTX 1070/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 471.96'
+Display Info: None
+Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
+Maximum texture size: 4096x4096
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.00s
+Load screen analysis took 0.02s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.00s
+cible1:[ x18:y8 ,  x17:y8 ,  x17:y7 ,  x16:y7 ,  x15:y7 ,  x14:y7 ,  x13:y7 ,  x13:y6 ,  x13:y5 ,  x12:y5 ,  x12:y4 ,  x11:y4 ,  x10:y4 ,  x9:y4 ,  x8:y4 , William] distance:16
+theres a door
+down
+cible1:[ x15:y7 ,  x14:y7 ,  x13:y7 ,  x13:y6 ,  x13:y5 ,  x12:y5 ,  x12:y4 , William] distance:8
+cible1:[ x12:y6 ,  x12:y5 , William] distance:3
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.00s
+Load screen analysis took 0.02s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.00s
+Resetting cache.
+Bootstrap to the start of init.init took 1625.61s
+Early init took 0.00s
+Loader init took 0.01s
+Loading error handling took 0.01s
+Loading script took 0.12s
+Loading save slot metadata. took 0.03s
+Loading persistent took 0.00s
+Importing _renpysteam: ImportError('No module named _renpysteam',)
+Running init code took 0.03s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Dump and make backups. took 0.07s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.04s
+DPI scale factor: 1.000000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.24s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.02s
+Analyze screens took 0.00s
+Save screen analysis took 0.00s
+Prepare screens took 0.08s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.00s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.06s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce GTX 1070/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 471.96'
+Display Info: None
+Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
+Maximum texture size: 4096x4096
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.01s
+Load screen analysis took 0.02s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.00s
+cible1:[ x18:y8 ,  x17:y8 ,  x17:y7 ,  x16:y7 ,  x15:y7 ,  x14:y7 ,  x13:y7 ,  x13:y6 ,  x13:y5 ,  x12:y5 ,  x11:y5 ,  x10:y5 ,  x10:y4 ,  x9:y4 ,  x8:y4 , William] distance:16
+theres a door
+down
+cible1:[ x15:y7 ,  x14:y7 ,  x13:y7 ,  x13:y6 ,  x13:y5 ,  x12:y5 ,  x11:y5 ,  x10:y5 , William] distance:9
+cible1:[ x12:y6 ,  x11:y6 ,  x11:y5 ,  x10:y5 ,  x10:y4 , William] distance:6
+up
+cible1:[ x10:y4 ,  x9:y4 ,  x8:y4 ,  x8:y5 ,  x8:y6 , William] distance:6
+up
+up
+cible1:[ x8:y4 ,  x9:y4 ,  x10:y4 ,  x10:y5 ,  x11:y5 ,  x11:y6 ,  x12:y6 ,  x12:y7 ,  x13:y7 ,  x14:y7 ,  x15:y7 ,  x15:y8 ,  x15:y9 ,  x15:y10 ,  x15:y11 ,  x14:y11 ,  x13:y11 ,  x12:y11 ,  x11:y11 ,  x10:y11 ,  x9:y11 ,  x8:y11 , Tanglei] distance:23
+up
+cible1:[ x10:y4 ,  x9:y4 ,  x8:y4 ,  x8:y5 ,  x8:y6 ,  x8:y7 ,  x7:y7 ,  x6:y7 ,  x6:y8 , William] distance:10
+up
+cible1:[ x8:y6 ,  x8:y7 ,  x7:y7 ,  x6:y7 , William] distance:5
+cible1:[ x6:y8 ,  x7:y8 ,  x7:y9 ,  x7:y10 , William] distance:5
+cible1:[ x7:y11 ,  x8:y11 ,  x9:y11 ,  x10:y11 , William] distance:5
+cible1:[ x11:y11 ,  x12:y11 ,  x13:y11 ,  x14:y11 , William] distance:5
+cible1:[ x15:y11 ,  x15:y10 ,  x15:y9 ,  x15:y8 , William] distance:5
+Resetting cache.
+Bootstrap to the start of init.init took 1800.25s
+Early init took 0.00s
+Loader init took 0.01s
+Loading error handling took 0.01s
+Loading script took 0.13s
+Loading save slot metadata. took 0.03s
 Loading persistent took 0.00s
 Importing _renpysteam: ImportError('No module named _renpysteam',)
 Running init code took 0.03s
@@ -296,13 +1510,104 @@ Initial gc. took 0.04s
 DPI scale factor: 1.000000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
+Creating interface object took 0.24s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.04s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.06s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce GTX 1070/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 471.96'
+Display Info: None
+Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 1828.16s
+Early init took 0.00s
+Loader init took 0.01s
+Loading error handling took 0.01s
+Loading script took 0.14s
+Loading save slot metadata. took 0.03s
+Loading persistent took 0.00s
+Importing _renpysteam: ImportError('No module named _renpysteam',)
+Running init code took 0.04s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\ALIENWARE\\AppData\\Roaming/RenPy/backups\\PARISisBURNING':
+Dump and make backups. took 0.07s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.04s
+DPI scale factor: 1.000000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.29s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.04s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.07s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce GTX 1070/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 471.96'
+Display Info: None
+Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
+Maximum texture size: 4096x4096
+cible1:[ x15:y11 ,  x15:y10 ,  x15:y9 ,  x15:y8 , William] distance:5
+Resetting cache.
+Bootstrap to the start of init.init took 1945.26s
+Early init took 0.00s
+Loader init took 0.01s
+Loading error handling took 0.02s
+Loading script took 0.16s
+Loading save slot metadata. took 0.02s
+Loading persistent took 0.00s
+Importing _renpysteam: ImportError('No module named _renpysteam',)
+Running init code took 0.04s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\ALIENWARE\\AppData\\Roaming/RenPy/backups\\PARISisBURNING':
+Dump and make backups. took 0.06s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.000000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
 Creating interface object took 0.26s
 Cleaning stores took 0.00s
 Init translation took 0.04s
 Build styles took 0.00s
 Load screen analysis took 0.00s
 Analyze screens took 0.02s
-Save screen analysis took 0.03s
+Save screen analysis took 0.04s
 Prepare screens took 0.08s
 Save pyanalysis. took 0.00s
 Save bytecode. took 0.02s
@@ -320,56 +1625,40 @@ Version: '4.6.0 NVIDIA 471.96'
 Display Info: None
 Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
 Maximum texture size: 4096x4096
-william
-Josephine
-Cleaning stores took 0.00s
-Init translation took 0.00s
-Build styles took 0.01s
-Load screen analysis took 0.03s
-Analyze screens took 0.00s
-Prepare screens took 0.00s
-Running _start took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.00s
-Build styles took 0.00s
-Load screen analysis took 0.02s
-Analyze screens took 0.00s
-Prepare screens took 0.00s
-Running _start took 0.00s
 Resetting cache.
-Bootstrap to the start of init.init took 284.94s
+Bootstrap to the start of init.init took 1970.16s
 Early init took 0.00s
 Loader init took 0.01s
 Loading error handling took 0.02s
-Loading script took 0.16s
-Loading save slot metadata. took 0.02s
+Loading script took 0.19s
+Loading save slot metadata. took 0.03s
 Loading persistent took 0.00s
 Importing _renpysteam: ImportError('No module named _renpysteam',)
-Running init code took 0.05s
-Loading analysis data took 0.03s
+Running init code took 0.04s
+Loading analysis data took 0.04s
 Analyze and compile ATL took 0.00s
 Index archives took 0.00s
 Backing up script files to 'C:\\Users\\ALIENWARE\\AppData\\Roaming/RenPy/backups\\PARISisBURNING':
-Dump and make backups. took 0.08s
+Dump and make backups. took 0.11s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
-Initial gc. took 0.04s
+Initial gc. took 0.03s
 DPI scale factor: 1.000000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
-Creating interface object took 0.26s
+Creating interface object took 0.37s
 Cleaning stores took 0.00s
-Init translation took 0.05s
+Init translation took 0.04s
 Build styles took 0.00s
 Load screen analysis took 0.00s
-Analyze screens took 0.01s
+Analyze screens took 0.02s
 Save screen analysis took 0.04s
-Prepare screens took 0.08s
+Prepare screens took 0.09s
 Save pyanalysis. took 0.00s
-Save bytecode. took 0.01s
+Save bytecode. took 0.02s
 Running _start took 0.00s
 Performance test:
-Interface start took 0.06s
+Interface start took 0.07s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)
@@ -382,12 +1671,12 @@ Display Info: None
 Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
 Maximum texture size: 4096x4096
 Resetting cache.
-Bootstrap to the start of init.init took 354.93s
+Bootstrap to the start of init.init took 1996.64s
 Early init took 0.00s
 Loader init took 0.01s
-Loading error handling took 0.02s
+Loading error handling took 0.01s
 Loading script took 0.17s
-Loading save slot metadata. took 0.03s
+Loading save slot metadata. took 0.02s
 Loading persistent took 0.00s
 Importing _renpysteam: ImportError('No module named _renpysteam',)
 Running init code took 0.04s
@@ -395,16 +1684,16 @@ Loading analysis data took 0.02s
 Analyze and compile ATL took 0.00s
 Index archives took 0.00s
 Backing up script files to 'C:\\Users\\ALIENWARE\\AppData\\Roaming/RenPy/backups\\PARISisBURNING':
-Dump and make backups. took 0.08s
+Dump and make backups. took 0.07s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
 Initial gc. took 0.04s
 DPI scale factor: 1.000000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
-Creating interface object took 0.30s
+Creating interface object took 0.29s
 Cleaning stores took 0.00s
-Init translation took 0.04s
+Init translation took 0.05s
 Build styles took 0.00s
 Load screen analysis took 0.00s
 Analyze screens took 0.02s
@@ -427,27 +1716,117 @@ Display Info: None
 Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
 Maximum texture size: 4096x4096
 Resetting cache.
-Bootstrap to the start of init.init took 375.06s
+Bootstrap to the start of init.init took 2013.97s
 Early init took 0.00s
 Loader init took 0.01s
 Loading error handling took 0.01s
-Loading script took 0.14s
-Loading save slot metadata. took 0.03s
+Loading script took 0.17s
+Loading save slot metadata. took 0.02s
 Loading persistent took 0.00s
 Importing _renpysteam: ImportError('No module named _renpysteam',)
 Running init code took 0.03s
-Loading analysis data took 0.02s
+Loading analysis data took 0.03s
 Analyze and compile ATL took 0.00s
 Index archives took 0.00s
 Backing up script files to 'C:\\Users\\ALIENWARE\\AppData\\Roaming/RenPy/backups\\PARISisBURNING':
-Dump and make backups. took 0.09s
+Dump and make backups. took 0.07s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.000000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.28s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.04s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.06s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce GTX 1070/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 471.96'
+Display Info: None
+Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 2120.79s
+Early init took 0.00s
+Loader init took 0.01s
+Loading error handling took 0.01s
+Loading script took 0.17s
+Loading save slot metadata. took 0.02s
+Loading persistent took 0.00s
+Importing _renpysteam: ImportError('No module named _renpysteam',)
+Running init code took 0.04s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\ALIENWARE\\AppData\\Roaming/RenPy/backups\\PARISisBURNING':
+Dump and make backups. took 0.07s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
 Initial gc. took 0.04s
 DPI scale factor: 1.000000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
-Creating interface object took 0.30s
+Creating interface object took 0.28s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.05s
+Prepare screens took 0.12s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.07s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce GTX 1070/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 471.96'
+Display Info: None
+Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 2126.02s
+Early init took 0.00s
+Loader init took 0.01s
+Loading error handling took 0.01s
+Loading script took 0.17s
+Loading save slot metadata. took 0.02s
+Loading persistent took 0.00s
+Importing _renpysteam: ImportError('No module named _renpysteam',)
+Running init code took 0.04s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\ALIENWARE\\AppData\\Roaming/RenPy/backups\\PARISisBURNING':
+Dump and make backups. took 0.07s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.04s
+DPI scale factor: 1.000000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.29s
 Cleaning stores took 0.00s
 Init translation took 0.04s
 Build styles took 0.00s
@@ -471,11 +1850,12 @@ Version: '4.6.0 NVIDIA 471.96'
 Display Info: None
 Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
 Maximum texture size: 4096x4096
+cible1:[ x15:y11 ,  x15:y10 ,  x15:y9 ,  x15:y8 , William] distance:5
 Resetting cache.
-Bootstrap to the start of init.init took 399.70s
+Bootstrap to the start of init.init took 2175.51s
 Early init took 0.00s
 Loader init took 0.01s
-Loading error handling took 0.02s
+Loading error handling took 0.01s
 Loading script took 0.15s
 Loading save slot metadata. took 0.02s
 Loading persistent took 0.00s
@@ -485,63 +1865,10 @@ Loading analysis data took 0.03s
 Analyze and compile ATL took 0.00s
 Index archives took 0.00s
 Backing up script files to 'C:\\Users\\ALIENWARE\\AppData\\Roaming/RenPy/backups\\PARISisBURNING':
-Dump and make backups. took 0.07s
+Dump and make backups. took 0.10s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
-Initial gc. took 0.04s
-DPI scale factor: 1.000000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.27s
-Cleaning stores took 0.00s
-Init translation took 0.04s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.02s
-Save screen analysis took 0.04s
-Prepare screens took 0.08s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Performance test:
-Interface start took 0.06s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Windowed mode.
-Vendor: 'NVIDIA Corporation'
-Renderer: 'NVIDIA GeForce GTX 1070/PCIe/SSE2'
-Version: '4.6.0 NVIDIA 471.96'
-Display Info: None
-Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
-Maximum texture size: 4096x4096
-Cleaning stores took 0.00s
-Init translation took 0.00s
-Build styles took 0.00s
-Load screen analysis took 0.02s
-Analyze screens took 0.00s
-Prepare screens took 0.00s
-Running _start took 0.00s
-william
-Josephine
-Resetting cache.
-Bootstrap to the start of init.init took 410.82s
-Early init took 0.00s
-Loader init took 0.01s
-Loading error handling took 0.01s
-Loading script took 0.10s
-Loading save slot metadata. took 0.02s
-Loading persistent took 0.00s
-Importing _renpysteam: ImportError('No module named _renpysteam',)
-Running init code took 0.04s
-Loading analysis data took 0.02s
-Analyze and compile ATL took 0.00s
-Index archives took 0.00s
-Dump and make backups. took 0.06s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc. took 0.04s
+Initial gc. took 0.05s
 DPI scale factor: 1.000000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
@@ -549,12 +1876,84 @@ Creating interface object took 0.26s
 Cleaning stores took 0.00s
 Init translation took 0.04s
 Build styles took 0.00s
-Load screen analysis took 0.02s
-Analyze screens took 0.00s
-Save screen analysis took 0.00s
-Prepare screens took 0.08s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.04s
+Prepare screens took 0.09s
 Save pyanalysis. took 0.00s
-Save bytecode. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.07s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce GTX 1070/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 471.96'
+Display Info: None
+Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 2203.42s
+Early init took 0.00s
+Loader init took 0.01s
+Loading error handling took 0.01s
+Loading script took 0.12s
+Loading save slot metadata. took 0.02s
+Loading persistent took 0.00s
+
+File "game/script/script.rpy", line 13: expected statement.
+    game.updateVision()
+                       ^
+DPI scale factor: 1.000000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.38s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce GTX 1070/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 471.96'
+Display Info: None
+Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 2209.66s
+Early init took 0.00s
+Loader init took 0.01s
+Loading error handling took 0.02s
+Loading script took 0.12s
+Loading save slot metadata. took 0.03s
+Loading persistent took 0.00s
+Importing _renpysteam: ImportError('No module named _renpysteam',)
+Running init code took 0.04s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\ALIENWARE\\AppData\\Roaming/RenPy/backups\\PARISisBURNING':
+Dump and make backups. took 0.07s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.000000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.28s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.04s
+Prepare screens took 0.08s
+Save pyanalysis. took 0.04s
+Save bytecode. took 0.02s
 Running _start took 0.00s
 Performance test:
 Interface start took 0.06s
@@ -571,10 +1970,8 @@ Screen sizes: virtual=(1536, 816) physical=(1536, 816) drawable=(1536, 816)
 Maximum texture size: 4096x4096
 Cleaning stores took 0.00s
 Init translation took 0.00s
-Build styles took 0.01s
+Build styles took 0.00s
 Load screen analysis took 0.02s
 Analyze screens took 0.00s
 Prepare screens took 0.00s
-Running _start took 0.00s
-william
-Josephine
+Running _start took 0.01s

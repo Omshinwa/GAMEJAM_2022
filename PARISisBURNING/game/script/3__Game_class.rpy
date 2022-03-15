@@ -5,13 +5,14 @@ init python:
 
         def __init__(self, filename):
             global settings
-            mapdata = json.loads( read_file( filename + ".dat") )
+            mapdata = json.loads( read_file( "maps/"+filename + ".dat") )
 
-            import_tilemap = read_data_tilemap( filename + "-map.dat" )
+            import_tilemap = Maptxt_to_Arr( read_file("maps/"+filename+ "-map.dat") )
             import_char = mapdata["char"]
 
             self.data_line = copy.deepcopy(mapdata["line"])
-            self.data_event = mapdata["event"]
+            # self.data_event = mapdata["event"]
+            self.after_every_action = []
 
             self.ui = {}
             self.grid = []
@@ -24,12 +25,13 @@ init python:
             self.state = "waiting"
             self.filename = filename
 
-            self.ui_buffer = 100
+            self.premoving.where = []
+            self.premoving.who = None
             
             self.maxY = settings["mapsize"][1]
             self.maxX = settings["mapsize"][0]
 
-            self.log = [ ["lauren","ur mom"], ["william","whos that"], ["william","William","is shocked"], ["william","William","saw something horrible."],["paula","hello gwen"],["gwenael","im gwen and im a bad bitch"]]
+            self.log = []
 
             #create grid
             for y in range( self.maxY ):
@@ -67,6 +69,7 @@ init python:
             #clean the variables only used for map creation
             del import_tilemap
             del import_char
+
             # del settings["tiletype"]
 
 
@@ -75,20 +78,26 @@ init python:
     ##############                                          ##########################################
     ##############                                          ##########################################
 
-        #add to the log, speak false = red text
-        def say(self, teenObj, message, speak = True):
+        #add to the log, speak false = descriptive text
+        # log[img, message, color]
+        def say(self, teenObj, message, speak = True, color=None, speed=4):
 
-            if speak:
-                self.log.insert(0, [teenObj.file, ""])
+            if isinstance(teenObj, str):
+                file = teenObj
             else:
-                self.log.insert(0, [teenObj.file, teenObj.name, ""])
+                file = teenObj.file
+                name = teenObj.name
+
+            if color == None:
+                if speak == False:
+                    color = "#ff3737"
+                else:
+                    color = "#fff"
+            self.log.insert(0, [file, "", color])
             
             if len(game.log) >6:
                 game.log = game.log[:6]
 
-            self.ui_buffer = 0
-            # renpy.play("audio/text.ogg", channel='sound')
-            self.buffer_ui()
 
             i = 0
             while i < len(message)+1:
@@ -97,31 +106,20 @@ init python:
                     self.log[0][1] = message[0:i]
                     renpy.music.queue("audio/text.ogg", channel='sound')
                 else:
-                    self.log[0][2] = message[0:i]
+                    self.log[0][1] = name + " " + message[0:i]
                     renpy.music.queue("audio/text.ogg", channel='sound')
                 
-                i += max( len(message)/5, 1)
+                i += speed
                 renpy.pause(0.01)
 
             if speak:
                 self.log[0][1] = message
             else:
-                self.log[0][2] = message
-            renpy.pause(0.3)
-
-        
-        def buffer_ui(self):
-            while self.ui_buffer < 100:
-                self.ui_buffer += 100
-                renpy.pause(0.01)
-            return self.ui_buffer
+                self.log[0][1] = name + " " + message
+            renpy.pause(0.4)
 
         def gridAZ(self, x):
             return self.grid[ ord(x[0])-65 ][int(x[1:])]
-
-        def restore_totalAP(self):
-            for teen in self.teens:
-                teen.AP = 2 * teen.isAlive
 
         def totalAP(self):
             totalAP = 0
@@ -306,7 +304,6 @@ init python:
             for doom in self.dooms:
                 doom.move()
                 renpy.pause(0.5)
-            renpy.jump("lab_turnChange")
 
         def makeSecretHidden(self, x, y, reveal = 0):
             newX = 0

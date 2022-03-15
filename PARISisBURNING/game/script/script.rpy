@@ -1,8 +1,18 @@
 label start:
-show screen keybinds
-call lab_initialize
-jump lab_gameloop
-return
+    show screen keybinds
+    call load("000")
+
+label load(filename):
+    $ game = Game(filename)
+    show screen sce_grid
+    show screen sce_doom
+    show screen sce_char
+    show screen sce_fog
+    show screen sce_walls
+    show screen sce_UI
+    $ game.updateVision()
+    $ renpy.call("lab_"+filename+"_start")
+    jump lab_render
 
 #tout ce qui est en dessous c de moi
 screen keybinds():
@@ -11,21 +21,6 @@ screen keybinds():
 ###############################################################################**
 #### INITIALIZE THE GAME BOARD
 #################################################################################
-label lab_initialize:
-python:
-    game = Game("000")
-
-    #create characters
-    for teen in game.teens:
-        if teen.name == "lauren":
-            lauren = teen
-        elif teen.name == "william":
-            william = teen
-    game.updateVision()
-
-    game.grid[7][12].onFire = -1
-
-return
 
 
 label lab_credit:
