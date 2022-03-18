@@ -115,19 +115,6 @@ label lab_fireSpread():
 
         renpy.jump("lab_turnChange")
 
-label lab_kill(teen):
-    python:
-        if teen.isAlive == 1:
-            teen.isAlive = 0
-            game.grid[teen.y][teen.x].occupied = 0
-            if teen.name in ["william","darryl"]: #is that a boi
-                renpy.music.play("audio/manstab.ogg", channel='sound')
-            else:
-                renpy.music.play("audio/girlstab.ogg", channel='sound')
-            renpy.pause(0.2)
-            renpy.jump("lab_turnChange")
-    return
-
 label lab_check_gameover:
     # if sum(teen.isAlive == 1 for teen in game.teens) <=0:
     #     "lolgg"

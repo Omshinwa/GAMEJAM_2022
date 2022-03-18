@@ -1,6 +1,6 @@
 label start:
     show screen keybinds
-    call load("000")
+    call load("002")
 
 label load(filename):
     $ game = Game(filename)

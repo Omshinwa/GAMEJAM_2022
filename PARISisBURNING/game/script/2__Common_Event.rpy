@@ -155,14 +155,13 @@ label lab_throw_water_confirm(cell):
         game.premoving.who.AP -= 1
         teen =  game.premoving.variables[1]
         direction = cell.x - teen.x, cell.y - teen.y
-        cell2 = game.grid[cell.y + direction[1]][cell.x + direction[0]]
-
+        cell2 = (cell.x + cell.x - teen.x, cell.y + cell.y - teen.y)
+        print(direction)
         cells = []
-        for direction in [(0,-1),(-1,-1),(-1,0),(-1,1),(0,1),(1,1),(1,0),(1,-1)]:
-            if Game.isValid(x=cell2.x + direction[0], y=cell2.y + direction[1]):
-                cell = game.grid[cell2.y + direction[1]][cell2.x + direction[0]]
+        for direction in [(0,0),(0,-1),(-1,-1),(-1,0),(-1,1),(0,1),(1,1),(1,0),(1,-1)]:
+            if Game.isValid(x=cell2[0] + direction[0], y=cell2[1] + direction[1]):
+                cell = game.grid[cell2[1] + direction[1]][cell2[0] + direction[0]]
                 cells.append(cell)
-        cells.append(cell2)
 
         item = game.premoving.variables[0] #thats the bucket
         item.charge -= 1

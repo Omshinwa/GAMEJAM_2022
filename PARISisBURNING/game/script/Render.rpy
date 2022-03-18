@@ -65,7 +65,9 @@ screen sce_char():
                 ypos id2pos(teen.y)
                 idle teen.sprite()
                 if teen.AP > 0 :
-                    hover teen.img.hover
+                    # hover im.MatrixColor(teen.img.idle, im.matrix.brightness(0.2))
+                    hover im.MatrixColor(teen.img.idle, im.matrix.colorize("#9c4716", "#f3f0c0"))
+                    
                 if renpy.get_screen("say") or game.state == "moving" or teen.AP == 0:
                     sensitive False
                 else:
@@ -233,14 +235,16 @@ screen sce_UI():
             ypos 24
             for j,teen in enumerate(game.teens):
                 for i,item in enumerate(teen.inventory):
-                    button:
-                        ypos (i+1) * 20 + j*24
+                    fixed:
+                        ypos (i+1) * 20 + j*25 + 10
+                        xpos 30
                         if item.name == "Bucket":
-                            text item.name + " ("+str(item.charge)+"/"+str(item.maxcharge)+" ; "+teen.name+")" style "classicfont"
+                            text item.name + " ("+str(item.charge)+"/"+str(item.maxcharge)+")" style "classicfont"
                         else:
                             text item.name + " ("+teen.name+")"  style "classicfont"
-                        hover_background Solid("#fff")
-                        action NullAction()
+                        # hover_background Solid("#fff")
+                        # action NullAction()
+                    add im.Scale(teen.img.idle, 25, 25) ypos (i+1) * 20 + j*25 + 10
 
         for i, message in enumerate(game.log):
             fixed:

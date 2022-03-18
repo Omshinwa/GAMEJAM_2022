@@ -2,33 +2,89 @@
 
 While running game code:
   File "game/script/script.rpy", line 3, in script call
-    call load("000")
-  File "game/script/Logic.rpy", line 15, in script call
+    call load("002")
+  File "game/script/Logic.rpy", line 15, in script
     call screen sce_gameloop
-  File "game/script/2__Common_Event.rpy", line 129, in script
-    python:
-  File "game/script/2__Common_Event.rpy", line 134, in <module>
-    game.grid[teen.y][teen.x].onEvent(game)
-AttributeError: 'Square' object has no attribute 'onEvent'
+  File "renpy/common/000statements.rpy", line 569, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "game/script/Render.rpy", line 49, in execute
+    screen sce_char():
+  File "game/script/Render.rpy", line 49, in execute
+    screen sce_char():
+  File "game/script/Render.rpy", line 61, in execute
+    for teen in game.teens:
+  File "game/script/Render.rpy", line 62, in execute
+    if teen.isAlive == 1:
+  File "game/script/Render.rpy", line 63, in execute
+    imagebutton:
+  File "game/script/Render.rpy", line 63, in keywords
+    imagebutton:
+  File "game/script/Render.rpy", line 67, in keywords
+    if teen.AP > 0 :
+  File "game/script/Render.rpy", line 67, in keywords
+    if teen.AP > 0 :
+  File "game/script/Render.rpy", line 69, in <module>
+    hover im.MatrixColor(teen.img.idle, im.matrix.sepia())
+AttributeError: type object 'matrix' has no attribute 'sepia'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
   File "game/script/script.rpy", line 3, in script call
-    call load("000")
-  File "game/script/Logic.rpy", line 15, in script call
+    call load("002")
+  File "game/script/Logic.rpy", line 15, in script
     call screen sce_gameloop
-  File "game/script/2__Common_Event.rpy", line 129, in script
-    python:
-  File "renpy/ast.py", line 928, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "renpy/python.py", line 2245, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "game/script/2__Common_Event.rpy", line 134, in <module>
-    game.grid[teen.y][teen.x].onEvent(game)
-AttributeError: 'Square' object has no attribute 'onEvent'
+  File "renpy/ast.py", line 2015, in execute
+    self.call("execute")
+  File "renpy/ast.py", line 2003, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "renpy/statements.py", line 278, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 569, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "renpy/exports.py", line 3136, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+  File "renpy/ui.py", line 298, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "renpy/display/core.py", line 3325, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, **kwargs)
+  File "renpy/display/core.py", line 3737, in interact_core
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "renpy/display/core.py", line 568, in visit_all
+    d.visit_all(callback, seen)
+  File "renpy/display/core.py", line 568, in visit_all
+    d.visit_all(callback, seen)
+  File "renpy/display/core.py", line 568, in visit_all
+    d.visit_all(callback, seen)
+  File "renpy/display/screen.py", line 436, in visit_all
+    callback(self)
+  File "renpy/display/core.py", line 3737, in <lambda>
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "renpy/display/screen.py", line 447, in per_interact
+    self.update()
+  File "renpy/display/screen.py", line 637, in update
+    self.screen.function(**self.scope)
+  File "game/script/Render.rpy", line 49, in execute
+    screen sce_char():
+  File "game/script/Render.rpy", line 49, in execute
+    screen sce_char():
+  File "game/script/Render.rpy", line 61, in execute
+    for teen in game.teens:
+  File "game/script/Render.rpy", line 62, in execute
+    if teen.isAlive == 1:
+  File "game/script/Render.rpy", line 63, in execute
+    imagebutton:
+  File "game/script/Render.rpy", line 63, in keywords
+    imagebutton:
+  File "game/script/Render.rpy", line 67, in keywords
+    if teen.AP > 0 :
+  File "game/script/Render.rpy", line 67, in keywords
+    if teen.AP > 0 :
+  File "game/script/Render.rpy", line 69, in <module>
+    hover im.MatrixColor(teen.img.idle, im.matrix.sepia())
+AttributeError: type object 'matrix' has no attribute 'sepia'
 
 Windows-10-10.0.19041
 Ren'Py 7.4.11.2266
 ParisIsBurning 1.0
-Mon Mar 14 23:25:26 2022
+Tue Mar 15 13:04:04 2022
